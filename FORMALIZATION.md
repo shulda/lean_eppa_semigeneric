@@ -46,7 +46,7 @@ additional transfinite B-Ext characterization.
 |---|---|---|
 | G0 | finite affine reversal, `S`, cross-part colour type | Affine/group/reversal/rectangle algebra green; cross-part typing OPEN |
 | G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Recenter and gauge-colour identities green; congruence action in review, partial transport OPEN |
-| G2 | finite structures, exact induced embeddings, strong amalgamation | OPEN |
+| G2 | finite structures, exact induced embeddings, strong amalgamation | Literal L_C and axioms R1–R3 in review; embeddings and SAP OPEN |
 | E0 | effective valuation construction with individual EPPA lifts | OPEN |
 | R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
 | H0 | finite-group effective action via M/L cocycles, **without S saturation** | OPEN |
@@ -105,3 +105,9 @@ additional transfinite B-Ext characterization.
 - Algebra/CongruenceAction.lean gives the genuine group action on the fixed-point subtype of the affine anti-involution, with an explicit proof of fixed-locus stability.
 - Distinguishes global congruence-orbit saturation of the raw self-reversing set S from the weaker existence of a single complete orbit, without making any coherence/DLF claim.
 - Still required: two-sorted canonical part quotient, cross-part structure typing, and the actual valuation construction.
+
+## 2026-10-16 — structure-language gate
+
+- Structure/Language.lean encodes exactly E and P_c as binary relation symbols of the existing AllThoseEPPA.Language; there are no function symbols.
+- IsRectangleStructure is the literal class predicate R1–R3, including exact one-colour cross-part completeness, reversal, and the group-valued rectangle law.
+- The canonical quotient setoid is extracted from R1; embeddings, Fraisse-limit existence and SAP remain OPEN.
