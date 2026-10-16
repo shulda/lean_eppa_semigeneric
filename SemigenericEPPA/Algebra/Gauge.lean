@@ -80,6 +80,8 @@ theorem rectangle_reverse (s : AffineAntiInvolution G)
   refine ⟨(fun y => s ((F p q)⁻¹ * F p y)),
     (fun x => (s 1)⁻¹ * s (F x q)), ?_⟩
   intro y x
+  change s (F x y) =
+    s ((F p q)⁻¹ * F p y) * ((s 1)⁻¹ * s (F x q))
   rw [hfac x y, s.map_mul]
   group
 
