@@ -44,8 +44,8 @@ additional transfinite B-Ext characterization.
 
 | Gate | Exact intent | State |
 |---|---|---|
-| G0 | finite affine reversal, `S`, cross-part colour type | Initial finite algebra started |
-| G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | OPEN |
+| G0 | finite affine reversal, `S`, cross-part colour type | Core algebra submitted for CI; cross-part colour typing remains OPEN |
+| G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Origin equations and rank-one submitted for CI; gauge transport OPEN |
 | G2 | finite structures, exact induced embeddings, strong amalgamation | OPEN |
 | E0 | effective valuation construction with individual EPPA lifts | OPEN |
 | R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
@@ -90,3 +90,10 @@ additional transfinite B-Ext characterization.
 - A mathematical error exposed by Lean is documented in the private
   manuscript/audit and corrected transparently, not hidden by strengthening
   a hypothesis silently.
+
+## First theorem-gate increment — 2026-10-16
+
+- Algebra/Rectangle.lean proves both directions of the exact noncommutative rank-one/rectangle equivalence for anchored parts.
+- Algebra/Recenter.lean proves translated multiplication laws, inverse equations, anti-homomorphism for affine reversal at a fixed origin, invariance of horizontal rectangle constraints, congruence action equations, and transport of congruence expression.
+- The translated group laws are still equations, not a separate Lean Group instance; full G1 torsor API and cross-part typing are OPEN.
+- This remains algebraic groundwork, not a proof of SAP, EPPA, coherent EPPA, or DLF.
