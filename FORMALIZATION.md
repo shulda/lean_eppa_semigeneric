@@ -1,0 +1,92 @@
+# Formalization ledger — 2026-10-16
+
+## Authority and verification status
+
+- **Manuscript:** `shulda/generalized_semigeneric` (private),
+  `paper_formalization_prep/group_valued_rectangles_formalization_v0_8.tex`,
+  blob `3124ec728658652c0c9ac288d4640d195d97037c`.
+- **Human research handoff:** `paper_formalization_prep/FORMALIZATION_PROJECT_HANDOFF_2026-10-16.md`.
+- **Corrected DAG:** `paper_formalization_prep/FORMALISATION_SPINE_CORRECTED_DEPENDENCIES_2026-10-16.md`.
+  It overrides older gates where hypotheses conflict.
+- **Lean toolchain:** Lean/mathlib v4.34.1, `autoImplicit = false`,
+  `relaxedAutoImplicit = false`.
+- **Upstream reusable vocabulary:** `shulda/lean_all_those_eppa_classes`,
+  commit `d85fda061d0b43f2b78c2470ce51f16ecf5c4e8d` (verified green CI).
+  Only definitions of language, structures, embeddings, exact partial maps
+  and coherent extensions may be used; **do not invoke HKN EPPA existence**.
+- **No main theorem verified yet.** Paper proof audits are human only,
+  not Lean certificates; v0.8 PDF compilation is also unconfirmed.
+
+## Exact paper statements to target
+
+Let `G` be finite, `s` an affine anti-involution,
+`C` a finite involutive raw alphabet and `φ : C ↠ G` reversal-equivariant.
+Let `S = {g : G | ∃ c : C, φ c = g ∧ reverse c = c}`.
+For the class `K(G,s,φ)` of finite complete cross-part colourings satisfying
+the **noncommutative rectangle law**:
+
+1. SAP, Fraïssé limit and infinitely many infinite E-classes.
+2. **Ordinary EPPA** unconditionally.
+3. **Coherent EPPA iff** `G` is trivial, or `S ≠ ∅` is a union of complete
+   congruence orbits.
+4. **Semi-coherent EP / DLF iff** `G` is trivial, or `S` contains at least
+   one complete congruence orbit.
+5. Explicit `G = C₄`, `s = id`, `S = {0,1,2}` separator:
+   EPPA and DLF but not coherent EPPA.
+6. Optional independent SAP rectangle-law converse (appendix A).
+7. Low-priority Sági semi-coherent EP ↔ DLF for countable homogeneous
+   finite-relational structures (appendix B).
+
+**Not in scope:** Ramsey expansions, SWIR/SIR, ample generics, the
+additional transfinite B-Ext characterization.
+
+## Mathematical dependency gates
+
+| Gate | Exact intent | State |
+|---|---|---|
+| G0 | finite affine reversal, `S`, cross-part colour type | Initial finite algebra started |
+| G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | OPEN |
+| G2 | finite structures, exact induced embeddings, strong amalgamation | OPEN |
+| E0 | effective valuation construction with individual EPPA lifts | OPEN |
+| R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
+| H0 | finite-group effective action via M/L cocycles, **without S saturation** | OPEN |
+| H1 | separate effective flipped-edge orbit calculation | OPEN |
+| H2/H3 | equivariant raw colouring and *one fixed-cover group lift* | OPEN |
+| C0 | coherent groupoid normal form from individual connectors + stabilizer lifts | OPEN |
+| C1/C2 | both coherent-positive branches and coherent-negative obstructions | OPEN |
+| D0/D1 | relative safe finite action, phase separation and zero-section raw lift | OPEN |
+| D2 | Q/H × Q binary-matrix F₂ involution-killing cover | OPEN |
+| D3 | semi-coherent/DLF positive and negative criteria | OPEN |
+| S0 | independent Sági bridge (low priority) | OPEN |
+| OPT | converse SAP classification (independent optional appendix) | OPEN |
+
+## Non-negotiable mathematical distinctions
+
+1. The valuation coordinate for **target** part `r = (j,g)` is
+   `λ_X(r) = χ(r) g(x)`. It is *not* the source's `h(x)`.
+2. In the nonabelian case, keep the order of factors:
+   `F(X,Y) = s(λ_X(r)) (K_{qr})⁻¹ λ_Y(q)`.
+3. `s(xy) = s(y) t⁻¹ s(x)` with `t = s(1)`; writing an
+   anti-homomorphism requires an **explicit** recentering.
+4. The raw self-reversal set `S` is not automatically orbit-saturated.
+   The coherent-positive argument can assume saturation; DLF cannot.
+5. Individual partial-map extensions are not homomorphic extensions of
+   an `Aut(D)` action, and neither is an all-partials coherent groupoid functor.
+6. Coherent raw lifting uses **one globally fixed raw cover** with
+   D-specific invariant references and potential corrections. DLF relative
+   lifting uses an invariant baseline/zero section for a *chosen* safe H.
+7. The finite relative cover uses binary matrices indexed by `Q/H × Q`,
+   not the obsolete graph-chain proof.
+8. Edge cases: empty `A`, trivial `G`, `S = ∅`, nontrivial affine shift,
+   and higher-order H-elements flipping edges.
+
+## CI and contribution discipline
+
+- All project Lean modules are imported by `SemigenericEPPA.lean`.
+- Every push/PR/manual dispatch runs a full build and axiom audit.
+- No `sorry`, `admit`, custom axioms or unproved placeholders.
+- A green setup / bridge check does **not** establish generalized semigeneric EPPA.
+- Prefer small PRs with explicit theorem/gate names and proof/CI evidence.
+- A mathematical error exposed by Lean is documented in the private
+  manuscript/audit and corrected transparently, not hidden by strengthening
+  a hypothesis silently.

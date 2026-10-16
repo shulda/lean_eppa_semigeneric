@@ -1,0 +1,24 @@
+name = "SemigenericEPPA"
+version = "0.1.0"
+defaultTargets = ["SemigenericEPPA"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.34.1"
+
+# Vocabulary / data types only; no HKN EPPA theorem is used.
+# Verified-green main commit, 2026-10-16:
+# https://github.com/shulda/lean_all_those_eppa_classes/actions/runs/38938495445
+[[require]]
+name = "AllThoseEPPA"
+git = "https://github.com/shulda/lean_all_those_eppa_classes.git"
+rev = "d85fda061d0b43f2b78c2470ce51f16ecf5c4e8d"
+
+[[lean_lib]]
+name = "SemigenericEPPA"
