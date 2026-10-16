@@ -38,7 +38,8 @@ jobs:
           lake exe cache get \
             Mathlib.Algebra.Group.Defs \
             Mathlib.Logic.Equiv.PartialEquiv \
-            Mathlib.GroupTheory.Perm.Basic
+            Mathlib.GroupTheory.Perm.Basic \
+            Mathlib.Tactic.Group
 
       - name: Reject unfinished proof placeholders
         shell: bash
