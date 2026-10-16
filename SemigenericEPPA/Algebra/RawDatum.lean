@@ -1,3 +1,4 @@
+import Mathlib.Data.Set.Defs
 import SemigenericEPPA.Algebra.AffineReversal
 
 /-!
