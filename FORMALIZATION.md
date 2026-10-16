@@ -44,8 +44,8 @@ additional transfinite B-Ext characterization.
 
 | Gate | Exact intent | State |
 |---|---|---|
-| G0 | finite affine reversal, `S`, cross-part colour type | Core algebra submitted for CI; cross-part colour typing remains OPEN |
-| G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Origin equations and rank-one submitted for CI; gauge transport OPEN |
+| G0 | finite affine reversal, `S`, cross-part colour type | Affine/group/reversal/rectangle algebra green; cross-part typing OPEN |
+| G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Recenter and gauge-colour identities green; congruence action in review, partial transport OPEN |
 | G2 | finite structures, exact induced embeddings, strong amalgamation | OPEN |
 | E0 | effective valuation construction with individual EPPA lifts | OPEN |
 | R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
@@ -99,3 +99,9 @@ additional transfinite B-Ext characterization.
 - This remains algebraic groundwork, not a proof of SAP, EPPA, coherent EPPA, or DLF.
 
 - Algebra/Gauge.lean: direct noncommutative verification of manuscript (2.5)--(2.7), including affine reversal of effective colours, gauge-coordinate invariance and transpose/reversal of the rectangle equation.
+
+## Next algebraic increment — exact orbit action
+
+- Algebra/CongruenceAction.lean gives the genuine group action on the fixed-point subtype of the affine anti-involution, with an explicit proof of fixed-locus stability.
+- Distinguishes global congruence-orbit saturation of the raw self-reversing set S from the weaker existence of a single complete orbit, without making any coherence/DLF claim.
+- Still required: two-sorted canonical part quotient, cross-part structure typing, and the actual valuation construction.
