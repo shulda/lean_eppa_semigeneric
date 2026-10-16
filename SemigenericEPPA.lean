@@ -1,5 +1,6 @@
 import SemigenericEPPA.Algebra.RawDatum
 import SemigenericEPPA.Algebra.Recenter
+import SemigenericEPPA.Algebra.Gauge
 import SemigenericEPPA.Bridge.CoherentEPPA
 
 /-!

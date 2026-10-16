@@ -97,3 +97,5 @@ additional transfinite B-Ext characterization.
 - Algebra/Recenter.lean proves translated multiplication laws, inverse equations, anti-homomorphism for affine reversal at a fixed origin, invariance of horizontal rectangle constraints, congruence action equations, and transport of congruence expression.
 - The translated group laws are still equations, not a separate Lean Group instance; full G1 torsor API and cross-part typing are OPEN.
 - This remains algebraic groundwork, not a proof of SAP, EPPA, coherent EPPA, or DLF.
+
+- Algebra/Gauge.lean: direct noncommutative verification of manuscript (2.5)--(2.7), including affine reversal of effective colours, gauge-coordinate invariance and transpose/reversal of the rectangle equation.
