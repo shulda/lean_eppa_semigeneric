@@ -46,7 +46,7 @@ additional transfinite B-Ext characterization.
 |---|---|---|
 | G0 | finite affine reversal, `S`, cross-part colour type | Affine/group/reversal/rectangle algebra green; cross-part typing OPEN |
 | G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Recenter and gauge-colour identities green; congruence action in review, partial transport OPEN |
-| G2 | finite structures, exact induced embeddings, strong amalgamation | Literal L_C and axioms R1–R3 in review; embeddings and SAP OPEN |
+| G2 | finite structures, exact induced embeddings, strong amalgamation | Literal L_C and R1–R3 green; functional effective colours in review, embeddings/SAP OPEN |
 | E0 | effective valuation construction with individual EPPA lifts | OPEN |
 | R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
 | H0 | finite-group effective action via M/L cocycles, **without S saturation** | OPEN |
@@ -111,3 +111,9 @@ additional transfinite B-Ext characterization.
 - Structure/Language.lean encodes exactly E and P_c as binary relation symbols of the existing AllThoseEPPA.Language; there are no function symbols.
 - IsRectangleStructure is the literal class predicate R1–R3, including exact one-colour cross-part completeness, reversal, and the group-valued rectangle law.
 - The canonical quotient setoid is extracted from R1; embeddings, Fraisse-limit existence and SAP remain OPEN.
+
+## R2/R3 relational-to-functional bridge
+
+- Structure/EffectiveColour.lean selects the unique raw colour only on cross-part ordered pairs and proves its uniqueness and exact involutive reversal.
+- Defines effective F(x,y)=φ(raw(x,y)) there, proves F(y,x)=s(F(x,y)), derives the other cross-pair conditions and proves the noncommutative rectangle equation for F.
+- Choice is ordinary Classical.choice, explicitly allowed by the axiom policy; no new axioms or assumed colour values for same-part pairs.
