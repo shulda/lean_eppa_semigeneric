@@ -28,10 +28,11 @@ variable {E}
 variable (e : OnePointPartExtension E)
 
 /-- The old E-class to which the new point attaches, if any. -/
-noncomputable def attachment : Option (Quotient E) :=
-  if h : ∃ a : V, e.rel none (some a)
-  then some (Quotient.mk E (Classical.choose h))
-  else none
+noncomputable def attachment : Option (Quotient E) := by
+  classical
+  exact if h : ∃ a : V, e.rel none (some a)
+    then some (Quotient.mk E (Classical.choose h))
+    else none
 
 /-- A new point is related to an old point exactly when the
 attachment class equals that old point's quotient class. -/
@@ -63,7 +64,7 @@ theorem rel_none_some_iff_attachment (a : V) :
       simp [attachment, hex] at ha
 
 /-- Labels for old quotient classes and (up to two) fresh classes. -/
-abbrev PartLabel := (Quotient E) ⊕ Bool
+abbrev PartLabel (E : Setoid V) := (Quotient E) ⊕ Bool
 
 /-- Class index of a one-point extension. The fresh label matters
 only when the new vertex has no old-class attachment. -/
@@ -169,7 +170,11 @@ their canonical part labels. -/
 noncomputable def amalgamPartSetoid
     (l r : OnePointPartExtension E) : Setoid (TwoPointCarrier V) where
   r x y := combinedPartIndex E l r x = combinedPartIndex E l r y
-  iseqv := ⟨fun _ => rfl, fun _ _ => Eq.symm, fun _ _ _ => Eq.trans⟩
+  iseqv := by
+    constructor
+    · intro x; rfl
+    · intro x y hxy; exact hxy.symm
+    · intro x y z hxy hyz; exact hxy.trans hyz
 
 theorem combinedPartIndex_first
     (l r : OnePointPartExtension E) (a : Option V) :
