@@ -370,3 +370,8 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/ColourPreservingTransport.lean` proves that transport of witness vertices using σ, fibre bijections ρ_q and incidence multipliers m(q,r) preserves and reflects the witness E-relation. If the full affine skeleton equation (3.9) holds, the same map preserves ALL effective cross-part colours by equation (3.12).
 - This combines the explicit target-part coordinate formula (3.11) with the verified noncommutative multiplier algebra, without a hidden finiteness or bijectivity hypothesis. Bijectivity of the witness-vertex map and extension of partial automorphisms are separate OPEN gates.
+
+## 2026-10-17 — bijectivity of witness-coordinate transport
+
+- `Valuations/TransportEquiv.lean` identifies the witness vertex type as a dependent sum of old E-class fibres and valuation functions. For ANY σ of witness parts and bijections ρ_q on old-label fibres, the target-part χ-transport (3.11) is built from explicit equivalences of coordinate function spaces and yields a total bijection of witness vertices.
+- This removes bijectivity as an assumption in the candidate witness automorphism theorem; preservation of colours follows from the separately verified affine skeleton multiplier equation. Extending every old partial automorphism remains OPEN.

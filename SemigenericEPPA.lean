@@ -7,6 +7,7 @@ import SemigenericEPPA.Algebra.GlobalWitnessMultipliers
 import SemigenericEPPA.Valuations.EffectiveCarrier
 import SemigenericEPPA.Valuations.CoordinateTransport
 import SemigenericEPPA.Valuations.ColourPreservingTransport
+import SemigenericEPPA.Valuations.TransportEquiv
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
 import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Valuations.WitnessSkeleton
