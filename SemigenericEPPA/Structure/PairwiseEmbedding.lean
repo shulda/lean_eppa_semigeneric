@@ -1,6 +1,7 @@
 import SemigenericEPPA.Structure.Language
 import AllThoseEPPA.Map
 import Mathlib.Tactic.FinCases
+import Mathlib.Data.Fintype.Fin
 
 /-!
 # Pairwise-criterion for literal structure embeddings
@@ -88,9 +89,14 @@ theorem embedding_part_iff
     (x y : V) :
     partRel B (f x) (f y) ↔ partRel A x y := by
   have h := f.map_rel_iff (binarySymbol C none) (pairTuple x y)
+  have ht : (f.toFun ∘ pairTuple x y) =
+      pairTuple (f x) (f y) := by
+    funext i
+    fin_cases i <;> rfl
   rw [htrivial] at h
-  simpa only [Language.Action.onRel_one, partRel,
-    tuple_map] using h
+  simp only [Language.Action.onRel_one] at h
+  rw [ht] at h
+  exact h
 
 /-- Likewise, every raw-colour predicate P_c is preserved and reflected
 by a literal (language-identity) embedding. -/
@@ -104,8 +110,13 @@ theorem embedding_raw_iff
     (c : C) (x y : V) :
     rawRel B c (f x) (f y) ↔ rawRel A c x y := by
   have h := f.map_rel_iff (binarySymbol C (some c)) (pairTuple x y)
+  have ht : (f.toFun ∘ pairTuple x y) =
+      pairTuple (f x) (f y) := by
+    funext i
+    fin_cases i <;> rfl
   rw [htrivial] at h
-  simpa only [Language.Action.onRel_one, rawRel,
-    tuple_map] using h
+  simp only [Language.Action.onRel_one] at h
+  rw [ht] at h
+  exact h
 
 end SemigenericEPPA
