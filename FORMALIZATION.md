@@ -354,3 +354,8 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/GaugeAutomorphisms.lean` states the exact σ,τ,m data of the effective witness automorphisms: a permutation of imaginary labels, a permutation of real vertices, the left gauge-coordinate multipliers, and the affine skeleton condition (3.9). It proves E is preserved and reflected and all cross-part effective colours are fixed.
 - This gives the complete SUFFICIENCY direction of the effective automorphism criterion (2.8) and the algebra of (3.11–3.12), independent of the still-open construction of such permutations from partial automorphisms.
+
+## 2026-10-17 — exact witness-coordinate transport (3.11)
+
+- `Valuations/CoordinateTransport.lean` defines the fibre of old labels over each blown-up witness part and constructs the transported vertex under any witness-part permutation σ, fibre bijections ρ_q and ordered pair multipliers m(q,r).
+- The defining coordinate uses the TARGET part valuation at the NEW old label. Proves `λ_(ΘX)(σr) = m(q,r) λ_X(r)` exactly, plus uniqueness of each transported χ-coordinate. No automorphism existence, finiteness or coherent-action assumption is smuggled into the lemma.

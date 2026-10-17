@@ -4,6 +4,7 @@ import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
 import SemigenericEPPA.Algebra.SkeletonMultipliers
 import SemigenericEPPA.Valuations.EffectiveCarrier
+import SemigenericEPPA.Valuations.CoordinateTransport
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
 import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Valuations.WitnessSkeleton
