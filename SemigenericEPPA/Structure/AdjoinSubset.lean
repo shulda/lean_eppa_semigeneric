@@ -40,7 +40,8 @@ def adjoinFresh (S : Set V) (x : V) :
 theorem adjoinOld_injective (S : Set V) (x : V) :
     Function.Injective (adjoinOld S x) := by
   intro a b h
-  exact Subtype.ext (congrArg Subtype.val h)
+  apply Subtype.ext
+  exact congrArg Subtype.val h
 
 /-- Freshness as an inequality of actual vertices, not E-classes. -/
 theorem adjoinFresh_not_old (S : Set V) (x : V) (hx : x ∉ S)
