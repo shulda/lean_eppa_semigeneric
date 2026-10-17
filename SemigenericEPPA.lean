@@ -18,6 +18,7 @@ import SemigenericEPPA.Structure.ExtendedSkeleton
 import SemigenericEPPA.Structure.OnePointGaugeChoice
 import SemigenericEPPA.Structure.QuotientGaugeConverse
 import SemigenericEPPA.Structure.OnePointEffective
+import SemigenericEPPA.Structure.AttachedGaugeFactor
 import SemigenericEPPA.Structure.OnePointSamePart
 import SemigenericEPPA.Structure.EffectiveColour
 import SemigenericEPPA.Structure.Induced
