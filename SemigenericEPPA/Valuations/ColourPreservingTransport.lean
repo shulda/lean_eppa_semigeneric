@@ -43,7 +43,8 @@ theorem transportWitnessVertex_part_iff
       K.toEffectiveGeometry.part X Y := by
   change σ X.part = σ Y.part ↔ X.part = Y.part
   constructor
-  · exact σ.injective
+  · intro heq
+    exact σ.injective heq
   · intro heq
     exact congrArg σ heq
 
