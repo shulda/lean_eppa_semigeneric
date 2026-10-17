@@ -53,7 +53,6 @@ theorem freshFirstPart_singleton (E : Setoid V)
             hfresh, hr] at hx
   · intro h
     rw [h]
-    exact (amalgamPartSetoid E l r).iseqv.refl _
 
 /-- The symmetric assertion for the second new point, likewise
 including the case where both new points start fresh E-parts. -/
@@ -85,7 +84,6 @@ theorem freshSecondPart_singleton (E : Setoid V)
             hfresh, hl] at hx
   · intro h
     rw [h]
-    exact (amalgamPartSetoid E l r).iseqv.refl _
 
 /-- The two fresh-part singleton assertions can be applied
 symmetrically to either vertex of an E-related pair. -/
