@@ -197,3 +197,9 @@ additional transfinite B-Ext characterization.
 - `Structure/EffectiveGeometry.lean` isolates the effective E-rectangle geometry from raw fibres, with affine reversal required only on distinct E-parts and the exact noncommutative rectangle equation.
 - Every existing `IsRectangleStructure` produces such geometry canonically, using the dummy value 1 on same-part pairs (where all algebraic axioms are indifferent). Old prescribed raw colours are proved compatible with the resulting F.
 - `EffectiveGeometry.of_cross_eq` proves same-part dummy values can be changed arbitrarily with no effect on the geometry. This module prepares the common effective F of the one-point amalgam; that existence theorem remains OPEN.
+
+## 2026-10-17 — fresh parts in one-point strong amalgamation
+
+- `Structure/FreshPart.lean` proves both new vertices have singleton E-classes when they are fresh (not attached to the old quotient), including an empty base and when both sides add fresh E-parts.
+- This isolates the remaining trivial local rectangle case: a fresh part has no second row/column, hence the cross-edge joining a fresh part to the other new vertex is not constrained by a new four-point rectangle.
+- Does not construct the global effective F; full SAP remains OPEN.
