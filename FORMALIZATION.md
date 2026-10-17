@@ -162,3 +162,9 @@ additional transfinite B-Ext characterization.
 - Structure/RawPresentation.lean defines a functional data interface: an E-equivalence relation and an Option C raw-colour function, with exact reversal, absence of same-class colours, completeness of cross-class colours and the noncommutative rectangle law.
 - It constructs a genuine AllThoseEPPA.Structure on the L_C language and proves IsRectangleStructure, preserving all four R1--R3 clauses. This is designed as the output of the general prescribed raw-fibre completion lemma.
 - Equivalence with every original relational structure and global strong amalgamation remain to be established.
+
+## 2026-10-17 — prescribed raw-colour completion
+
+- `Algebra/PrescribedRawLift.lean` proves total raw-colour completion of a reversible effective colouring with compatible partially prescribed raw edges, preserving all prescribed edges and `φ` values.
+- It orients each unordered cross-edge using a temporary linear order, so no self-reversing raw colour or congruence-orbit saturation is needed.
+- This is a raw-choice component, not yet the complete one-point SAP theorem; a bridge to `RawRectanglePresentation` and effective geometry is still required.
