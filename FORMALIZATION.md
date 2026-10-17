@@ -203,3 +203,9 @@ additional transfinite B-Ext characterization.
 - `Structure/OnePointEffective.lean` introduces one-point effective extension with exact E and F on the old carrier, and proves the R3 row/column compatibility hypotheses of the forced-corner lemma directly from each extension.
 - For two distinct *old* E-classes P,Q with the two new vertices attached respectively to P and Q, proves that the uniquely forced missing effective colour extends the entire matrix on those two parts with every rectangle valid, independently of old anchors.
 - This is the central old-part/old-part SAP case; the same-old-part and fresh-singleton cases and global assembly remain OPEN.
+
+## 2026-10-17 — same-old-E-part SAP rectangles for two new vertices
+
+- `Structure/OnePointSamePart.lean` proves the two new vertices may belong to one old E-class without imposing any artificial equality of their raw or effective colours. Their independently admissible rows/columns toward every other old E-class are mutually compatible, in fact forming full rank-one matrices.
+- Gives exact horizontal and vertical displacement identities from the actual one-point geometric hypotheses, and transport of attachments between different representatives of the same part.
+- This discharges the other principal local SAP matrix case; global amalgam dispatch and missing-fresh-part cases remain OPEN.
