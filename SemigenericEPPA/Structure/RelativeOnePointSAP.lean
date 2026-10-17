@@ -145,9 +145,13 @@ theorem finite_relative_onePoint_strong_amalgamation
         (g : Structure.Embedding act Q.right S),
         (∀ a : X, f (Q.leftOld a) = firstOnePoint (some a)) ∧
         (∀ a : X, g (Q.rightOld a) = secondOnePoint (some a)) ∧
+        f Q.leftFresh = firstOnePoint none ∧
+        g Q.rightFresh = secondOnePoint none ∧
         (∀ y : Y, ∀ z : Z,
           f y = g z ↔
-            ∃ a : X, y = Q.leftOld a ∧ z = Q.rightOld a) := by
+            ∃ a : X, y = Q.leftOld a ∧ z = Q.rightOld a) ∧
+        (∀ w : TwoPointCarrier X,
+          (∃ y : Y, f y = w) ∨ (∃ z : Z, g z = w)) := by
   let eL : Option X ≃ Y := Q.leftCarrierEquiv
   let eR : Option X ≃ Z := Q.rightCarrierEquiv
   have heL : ∀ a : X, eL.symm (Q.leftOld a) = some a := by
@@ -164,13 +168,25 @@ theorem finite_relative_onePoint_strong_amalgamation
         Q.rightFresh Q.rightFreshOutside Q.rightCover a
     rw [← h]
     exact eR.symm_apply_apply (some a)
+  have heLnone : eL.symm Q.leftFresh = none := by
+    have h : eL none = Q.leftFresh :=
+      onePointCarrierEquiv_none Q.leftOld Q.leftInjective
+        Q.leftFresh Q.leftFreshOutside Q.leftCover
+    rw [← h]
+    exact eL.symm_apply_apply none
+  have heRnone : eR.symm Q.rightFresh = none := by
+    have h : eR none = Q.rightFresh :=
+      onePointCarrierEquiv_none Q.rightOld Q.rightInjective
+        Q.rightFresh Q.rightFreshOutside Q.rightCover
+    rw [← h]
+    exact eR.symm_apply_apply none
   obtain ⟨S, hS, fNorm, gNorm, hfn, hgn, hinter⟩ :=
     Q.normalizedDiagram.finite_onePoint_strong_amalgamation_embeddings act
   let f : Structure.Embedding act Q.left S :=
     fNorm.comp (inversePullbackEmbedding act Q.left eL)
   let g : Structure.Embedding act Q.right S :=
     gNorm.comp (inversePullbackEmbedding act Q.right eR)
-  refine ⟨S, hS, f, g, ?_, ?_, ?_⟩
+  refine ⟨S, hS, f, g, ?_, ?_, ?_, ?_, ?_, ?_⟩
   · intro a
     change fNorm (eL.symm (Q.leftOld a)) = firstOnePoint (some a)
     rw [heL a]
@@ -179,6 +195,12 @@ theorem finite_relative_onePoint_strong_amalgamation
     change gNorm (eR.symm (Q.rightOld a)) = secondOnePoint (some a)
     rw [heR a]
     exact hgn (some a)
+  · change fNorm (eL.symm Q.leftFresh) = firstOnePoint none
+    rw [heLnone]
+    exact hfn none
+  · change gNorm (eR.symm Q.rightFresh) = secondOnePoint none
+    rw [heRnone]
+    exact hgn none
   · intro y z
     constructor
     · intro h
@@ -203,6 +225,28 @@ theorem finite_relative_onePoint_strong_amalgamation
       change fNorm (eL.symm y) = gNorm (eR.symm z)
       rw [ha, hb, heL a, heR a]
       exact (hinter (some a) (some a)).2 ⟨a, rfl, rfl⟩
+  · intro w
+    cases w with
+    | inl a =>
+      left
+      refine ⟨Q.leftOld a, ?_⟩
+      change fNorm (eL.symm (Q.leftOld a)) = firstOnePoint (some a)
+      rw [heL a]
+      exact hfn (some a)
+    | inr flag =>
+      cases flag with
+      | false =>
+        left
+        refine ⟨Q.leftFresh, ?_⟩
+        change fNorm (eL.symm Q.leftFresh) = firstOnePoint none
+        rw [heLnone]
+        exact hfn none
+      | true =>
+        right
+        refine ⟨Q.rightFresh, ?_⟩
+        change gNorm (eR.symm Q.rightFresh) = secondOnePoint none
+        rw [heRnone]
+        exact hgn none
 
 end RelativeOnePointDiagram
 end SemigenericEPPA
