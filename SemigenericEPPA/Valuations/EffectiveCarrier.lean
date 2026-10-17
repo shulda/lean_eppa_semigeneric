@@ -51,7 +51,7 @@ def distinguishedWitnessPart
 def oldWitnessPart
     (D : EffectiveGeometry s V) (x : V) :
     EffectiveWitnessPart D :=
-  D.distinguishedWitnessPart (Quotient.mk D.part x)
+  distinguishedWitnessPart D (Quotient.mk D.part x)
 
 /-- Second valuation sort: the old vertex label and its independent
 vertex valuation towards EVERY other witness part. -/
@@ -155,7 +155,7 @@ variable (D : EffectiveGeometry s V)
 valuation inherited from the old canonical quotient gauge. -/
 noncomputable def oldWitnessVertex (x : V) :
     EffectiveWitnessVertex D where
-  part := D.oldWitnessPart x
+  part := oldWitnessPart D x
   old := x
   belongs := rfl
   vertexValuation := fun r => D.toQuotientGauge.vertexGauge x r.1.1
@@ -165,13 +165,14 @@ witness point, so the intended old embedding is injective. -/
 theorem oldWitnessVertex_injective :
     Function.Injective D.oldWitnessVertex := by
   intro x y h
-  exact congrArg (fun X : EffectiveWitnessVertex D => X.old) h
+  simpa only [oldWitnessVertex] using
+    (congrArg (fun X : EffectiveWitnessVertex D => X.old) h)
 
 /-- Two different old E-classes embed into different distinguished
 witness parts; distinct old parts are not collapsed. -/
 theorem oldWitnessPart_ne (x y : V)
     (hxy : ¬D.part x y) :
-    D.oldWitnessPart x ≠ D.oldWitnessPart y := by
+    oldWitnessPart D x ≠ oldWitnessPart D y := by
   intro h
   have hc : Quotient.mk D.part x = Quotient.mk D.part y :=
     congrArg (fun q : EffectiveWitnessPart D => q.1) h
@@ -180,9 +181,9 @@ theorem oldWitnessPart_ne (x y : V)
 /-- At a target with neutral part valuation, the old embedded point's
 combined incidence is the original old gauge coordinate. -/
 theorem oldWitnessVertex_crossIncidence (x y : V)
-    (hr : D.oldWitnessPart y ≠ D.oldWitnessPart x) :
+    (hr : oldWitnessPart D y ≠ oldWitnessPart D x) :
     (D.oldWitnessVertex x).crossIncidence
-      (D.oldWitnessPart y) hr =
+      (oldWitnessPart D y) hr =
       D.toQuotientGauge.vertexGauge x (Quotient.mk D.part y) := by
   simp [EffectiveWitnessVertex.crossIncidence,
     oldWitnessVertex, oldWitnessPart, distinguishedWitnessPart,
