@@ -141,3 +141,10 @@ additional transfinite B-Ext characterization.
 - `Algebra/CornerAmalgamation.lean`: independently compatible new row/column of a group-valued rectangle matrix have one forced missing effective colour, and the completed `Option X × Option Y` matrix is rank-one.
 - The forced corner is unique and independent of the chosen old anchors. The calculation preserves noncommutative factor order, matching manuscript equation (2.4).
 - This proves only the local group-valued core of the one-point SAP construction, NOT global SAP: part amalgamation and raw-colour lifts remain OPEN.
+
+
+## 2026-10-17 — two-new-vertex same-E-class rectangle lemma
+
+- Algebra/SamePartRows.lean constructs two simultaneously appended rows, resp. columns, with each new row/column compatible with a common old matrix, and proves the entire enlarged matrix is rank-one and satisfies the rectangle law.
+- It follows that two independently added vertices in the same old E-class are automatically mutually compatible toward every old E-class, covering the algebraic same-part case of one-point SAP.
+- This is a local matrix lemma; actual strong amalgamation with raw colours and all E-part patterns remains OPEN.
