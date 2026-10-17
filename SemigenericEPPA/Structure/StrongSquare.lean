@@ -99,7 +99,7 @@ theorem paste
         _ = fromD (fromC (toC a)) :=
           congrArg fromD (h₁.commute a)
         _ = fromE (toE (toC a)) := h₂.commute (toC a)
-        _ = fromE e := by rw [he]
+        _ = fromE e := by rw [he]; rfl
   · intro f
     rcases h₂.jointly_surjective f with ⟨d, hd⟩ | ⟨e, he⟩
     · rcases h₁.jointly_surjective d with ⟨b, hb⟩ | ⟨c, hc⟩
@@ -129,7 +129,7 @@ theorem identity_left
     · rintro ⟨x, ha, hc⟩
       change toC a = c
       calc
-        toC a = toC x := by rw [ha]
+        toC a = toC x := by rw [ha]; rfl
         _ = c := hc.symm
   · intro c
     exact Or.inr ⟨c, rfl⟩
