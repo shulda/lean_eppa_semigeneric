@@ -209,3 +209,8 @@ additional transfinite B-Ext characterization.
 - `Structure/OnePointSamePart.lean` proves that two independently added new vertices in the SAME old E-class have mutually compatible rows and columns towards every other old class, using actual R3 in their respective one-point geometries.
 - Both simultaneous matrices are rank-one; the exact horizontal/vertical displacement identities and independence of the representative of the common old part are formalized. No equal-colour assumption is imposed.
 - This closes the same-old-part local effective SAP case, while global assembly and fresh-part cases remain OPEN.
+
+## 2026-10-17 — fresh E-parts are singleton in one-point strong amalgams
+
+- `Structure/FreshPart.lean` proves a new vertex not attached to an old E-class remains the unique vertex of its own E-class in the strong amalgam. Handles either side, empty old base, and two fresh vertices.
+- This supplies the local trivial-rectangle case for the eventual effective SAP assembly, complementary to the checked old-old forced corner and same-old-part lemmas. No full SAP theorem yet.
