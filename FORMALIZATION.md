@@ -275,3 +275,8 @@ additional transfinite B-Ext characterization.
 
 - `Structure/FiniteOnePointRaw.lean` proves every finite common carrier has an auxiliary linear order (chosen via `Fintype.equivFin`) and therefore strengthens the exact raw one-point SAP theorem to finite bases without any additional order condition. The auxiliary order does NOT belong to the relational language.
 - The two new vertices remain genuinely distinct in `V ⊕ Bool`, and all old E and raw P_c predicates are preserved and reflected on both sides. Global finite SAP, Fraïssé and EPPA remain separate goals.
+
+## 2026-10-17 — one-point SAP for literal R1–R3 input structures
+
+- `Structure/LiteralOnePointSAP.lean`: for a genuinely finite R1–R3 base A and two literal R1–R3 one-point structures whose *induced* E and raw P_c relations on old vertices agree exactly with A, constructs their common effective base and both true effective extensions, extracts exact raw-colour functions, and derives the compatibility of all old raw colours.
+- Uses finite raw one-point SAP to produce a literal R1–R3 structure on `V ⊕ Bool` whose two exact Option-V inclusions preserve/refect EVERY E and P_c relation. No external ordering, S-orbit hypotheses, or EPPA theorem. This is the fully typed finite **one-point** SAP gate; arbitrary finite SAP and Fraïssé remain separate.
