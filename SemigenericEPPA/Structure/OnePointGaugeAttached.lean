@@ -83,7 +83,7 @@ theorem canonicalOnePointGauge_left_attached_old
             onePointIndexedGauge, combinedPartIndex,
             OnePointPartExtension.index, onePointSkeleton,
             extendedSkeleton, onePointVertexGauge,
-            hattach] using hg
+            EffectiveGeometry.toQuotientGauge, hattach] using hg
   calc
     P.toEffectiveGeometry.F (Sum.inr false) (Sum.inl a) =
       gaugeColour s (L.geometry.F (some q) none)
@@ -153,7 +153,7 @@ theorem canonicalOnePointGauge_right_attached_old
             onePointIndexedGauge, combinedPartIndex,
             OnePointPartExtension.index, onePointSkeleton,
             extendedSkeleton, onePointVertexGauge,
-            hattach] using hg
+            EffectiveGeometry.toQuotientGauge, hattach] using hg
   calc
     P.toEffectiveGeometry.F (Sum.inr true) (Sum.inl a) =
       gaugeColour s (R.geometry.F (some q) none)
