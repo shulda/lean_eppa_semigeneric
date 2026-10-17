@@ -6,6 +6,9 @@ import SemigenericEPPA.Algebra.SkeletonMultipliers
 import SemigenericEPPA.Valuations.EffectiveCarrier
 import SemigenericEPPA.Valuations.CoordinateTransport
 import SemigenericEPPA.Valuations.ColourPreservingTransport
+import SemigenericEPPA.Valuations.GaugeAutomorphisms
+import SemigenericEPPA.Valuations.OldEmbedding
+import SemigenericEPPA.Valuations.WitnessSkeleton
 import SemigenericEPPA.Algebra.RankOneGaugeTorsor
 import SemigenericEPPA.Algebra.GaugeConverse
 import SemigenericEPPA.Algebra.CornerAmalgamation
