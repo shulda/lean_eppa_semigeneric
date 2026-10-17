@@ -95,9 +95,18 @@ theorem oldWitnessVertex_colour
         ((D.oldWitnessVertex y).crossIncidence
           (oldWitnessPart D x) hpart) at hraw
     rw [D.oldWitnessVertex_crossIncidence x y hpart.symm,
-      D.oldWitnessVertex_crossIncidence y x hpart,
-      hK (Quotient.mk D.part x) (Quotient.mk D.part y) hclasses] at hraw
-    exact hraw
+      D.oldWitnessVertex_crossIncidence y x hpart] at hraw
+    have hSkel :
+        K.colour (oldWitnessPart D x) (oldWitnessPart D y) =
+          D.toQuotientGauge.skeleton
+            (Quotient.mk D.part x) (Quotient.mk D.part y) :=
+      hK _ _ hclasses
+    exact hraw.trans
+      (congrArg (fun z : G =>
+        gaugeColour s
+          (D.toQuotientGauge.vertexGauge x (Quotient.mk D.part y))
+          z
+          (D.toQuotientGauge.vertexGauge y (Quotient.mk D.part x))) hSkel)
   calc
     K.toEffectiveGeometry.F (D.oldWitnessVertex x)
         (D.oldWitnessVertex y) =
