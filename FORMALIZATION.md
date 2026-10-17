@@ -349,3 +349,8 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/WitnessSkeleton.lean` constructs an affine-reversal-compatible skeleton for the two-layer effective witness from ANY auxiliary linear order on blown-up parts. Neutral-to-neutral entries reproduce the old quotient skeleton exactly; other unordered pairs get 1/s(1) in the two orientations.
 - The old neutral witness embedding therefore preserves all effective cross colours by the verified old-copy theorem. The auxiliary ordering is not part of the structural language. The finite-choice of an order, witness finiteness and extension of partial automorphisms still require their own Lean gates.
+
+## 2026-10-17 — the abstract indexed-gauge automorphism criterion
+
+- `Valuations/GaugeAutomorphisms.lean` states the exact σ,τ,m data of the effective witness automorphisms: a permutation of imaginary labels, a permutation of real vertices, the left gauge-coordinate multipliers, and the affine skeleton condition (3.9). It proves E is preserved and reflected and all cross-part effective colours are fixed.
+- This gives the complete SUFFICIENCY direction of the effective automorphism criterion (2.8) and the algebra of (3.11–3.12), independent of the still-open construction of such permutations from partial automorphisms.
