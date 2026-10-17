@@ -32,6 +32,7 @@ import SemigenericEPPA.Structure.EffectiveColour
 import SemigenericEPPA.Structure.Induced
 import SemigenericEPPA.Structure.Pullback
 import SemigenericEPPA.Structure.OnePointNormalization
+import SemigenericEPPA.Structure.AdjoinSubset
 import SemigenericEPPA.Structure.RelativeOnePointSAP
 import SemigenericEPPA.Structure.PartMatrix
 import SemigenericEPPA.Structure.PartQuotient

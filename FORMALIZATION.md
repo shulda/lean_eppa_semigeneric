@@ -320,3 +320,9 @@ additional transfinite B-Ext characterization.
 - `Structure/RelativeOnePointSAP.lean` normalizes two *arbitrarily named* one-point R1–R3 extensions with injective old-carrier maps through `Option X`, applies the verified literal typed one-point SAP and transports both embeddings back.
 - The resulting valid structure on `X ⊕ Bool` is a strong amalgam: the two source images intersect *iff* the source vertices are the images of the same old base vertex. Input side carrier types need not match; finiteness of X alone suffices.
 - This is the relative pushout step required to iterate one-point SAP along arbitrary finite diagrams, not yet general finite SAP itself.
+
+## 2026-10-17 — exact one-point adjoining on an arbitrary vertex subset
+
+- `Structure/AdjoinSubset.lean` canonically identifies `Option S` with the subtype of `insert x S` for any `x ∉ S`, including infinite/empty S. It proves the old/fresh vertex cover and freshness and yields a genuine `AllThoseEPPA.Structure.Embedding` into the induced extension.
+- The restriction to old vertices preserves and reflects every E and P_c relation literally and keeps the result in R1–R3. This is the precise type-level normalization needed to build a finite filtration of arbitrary one-point enlargements.
+- Iterating SAP on arbitrary finite diagrams remains OPEN.
