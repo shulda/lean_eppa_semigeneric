@@ -46,7 +46,7 @@ additional transfinite B-Ext characterization.
 |---|---|---|
 | G0 | finite affine reversal, `S`, cross-part colour type | Affine/group/reversal/rectangle algebra green; cross-part typing OPEN |
 | G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Recenter and gauge-colour identities green; congruence action in review, partial transport OPEN |
-| G2 | finite structures, exact induced embeddings, strong amalgamation | Heredity/induced embedding green; actual part-wise rank-one and gauge formulas in review; SAP OPEN |
+| G2 | finite structures, exact induced embeddings, strong amalgamation | Heredity, rank-one/gauge and canonical quotient green; corner-amalgamation algebra in review, global SAP OPEN |
 | E0 | effective valuation construction with individual EPPA lifts | OPEN |
 | R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
 | H0 | finite-group effective action via M/L cocycles, **without S saturation** | OPEN |
@@ -130,8 +130,14 @@ additional transfinite B-Ext characterization.
 - It deliberately avoids giving arbitrary values to same-class pairs and keeps `s` affine/noncommutative.
 - This block depends on previously verified R1–R3, effective-colour and rectangle/gauge modules. Exact CI/axiom verification is required before treating it as complete.
 
-## Algebraic corner completion (2026-10-17)
+## Canonical imaginary-sort API (2026-10-17)
 
-- `Algebra/CornerAmalgamation.lean`: a rectangle matrix with independently compatible new row and column has a unique missing corner `r(q) * F(p,q)⁻¹ * c(p)`.
-- The entire enlarged Option-row/Option-column matrix is proved rank-one; in particular all new rectangles hold, and the formula is independent of old anchors.
-- This is a checked **component of** one-point SAP only. Global E-class amalgamation patterns and raw-colour lifting via surjective φ remain OPEN.
+- `Structure/PartQuotient.lean` defines the genuine quotient `A/E`, the iff between equality of imaginaries and `E`, functorial maps of parts, injection under `E`-reflection, and composition.
+- The canonical quotient of an induced substructure maps injectively into the original quotient. No transversal, gauge, or artificial identification of parts is introduced.
+- Partial-isomorphism groupoid action on imaginary sorts and SAP remain OPEN. This checkpoint is green only after CI and axiom audit.
+
+## 2026-10-17 — SAP corner kernel
+
+- `Algebra/CornerAmalgamation.lean`: independently compatible new row/column of a group-valued rectangle matrix have one forced missing effective colour, and the completed `Option X × Option Y` matrix is rank-one.
+- The forced corner is unique and independent of the chosen old anchors. The calculation preserves noncommutative factor order, matching manuscript equation (2.4).
+- This proves only the local group-valued core of the one-point SAP construction, NOT global SAP: part amalgamation and raw-colour lifts remain OPEN.
