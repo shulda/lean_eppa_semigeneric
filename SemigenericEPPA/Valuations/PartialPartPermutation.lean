@@ -60,7 +60,8 @@ theorem exists_partPermutation_extending
       induction b using Quotient.inductionOn with
       | _ y =>
         apply Quotient.sound
-        exact Quotient.exact hab
+        exact Quotient.exact
+          (show Quotient.mk E x.val = Quotient.mk E y.val from hab)
   have hg : Function.Injective g := by
     intro a b hab
     induction a using Quotient.inductionOn with
@@ -69,7 +70,7 @@ theorem exists_partPermutation_extending
       | _ y =>
         apply Quotient.sound
         exact (hE x y).mpr (Quotient.exact hab)
-  haveI : Finite (Quotient R) := inferInstance
+  letI : Finite (Quotient R) := inferInstance
   obtain ⟨ι, hι⟩ := Equiv.Perm.exists_extending_pair f g hf hg
   refine ⟨ι, ?_⟩
   intro x
@@ -90,6 +91,6 @@ theorem EffectiveGeometry.exists_partPermutation_extending
     ∃ ι : Equiv.Perm (Quotient D.part),
       ∀ x : S,
         ι (Quotient.mk D.part x.val) = Quotient.mk D.part (p x) :=
-  exists_partPermutation_extending D.part S p hE
+  _root_.SemigenericEPPA.exists_partPermutation_extending D.part S p hE
 
 end SemigenericEPPA
