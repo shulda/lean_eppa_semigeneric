@@ -296,3 +296,9 @@ additional transfinite B-Ext characterization.
 
 - `Structure/Pullback.lean` defines full relational reindexing along arbitrary vertex maps and proves the entire R1–R3 class predicate is preserved. Injective reindexing comes with an actual identity-language `AllThoseEPPA.Structure.Embedding`, and bijective renaming is a special case.
 - This supplies the renaming/restriction step required to normalize arbitrary finite embeddings to standard `Option V` one-point diagrams for the iteration of SAP.
+
+## 2026-10-17 — normalize arbitrary one-point carrier names
+
+- `Structure/OnePointNormalization.lean` shows an injective old-carrier map `f : V → W` with exactly one remaining fresh vertex induces an equivalence `Option V ≃ W` with `some a ↦ f a` and `none ↦ fresh`.
+- Pulling back any R1–R3 structure along it preserves every old-old E and raw P_c relation exactly, gives a valid canonical one-point R1–R3 structure on `Option V`, and provides an actual identity-language `AllThoseEPPA.Structure.Embedding` into the original side.
+- This is the key transport step for reducing arbitrary finite extensions to one-point SAP diagrams; the actual arbitrary finite SAP induction remains OPEN.
