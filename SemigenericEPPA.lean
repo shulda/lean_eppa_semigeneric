@@ -19,6 +19,7 @@ import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Valuations.WitnessSkeleton
 import SemigenericEPPA.Algebra.RankOneGaugeTorsor
 import SemigenericEPPA.Algebra.GaugeConverse
+import SemigenericEPPA.Algebra.AnchoredPartialGauge
 import SemigenericEPPA.Algebra.CornerAmalgamation
 import SemigenericEPPA.Algebra.SamePartRows
 import SemigenericEPPA.Algebra.CongruenceAction
