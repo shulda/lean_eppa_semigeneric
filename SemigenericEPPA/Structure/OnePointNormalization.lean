@@ -136,7 +136,7 @@ theorem IsRectangleStructure.normalizedOnePoint
 /-- An actual upstream embedding from the normalized one-point
 structure into the originally named side, with identity language
 component and exactly the prescribed renaming of every vertex. -/
-def normalizedOnePoint_embedding
+noncomputable def normalizedOnePoint_embedding
     {Γ : Type*} [Group Γ]
     (act : (rectangleLanguage C).Action Γ)
     (B : Structure (rectangleLanguage C) W)
