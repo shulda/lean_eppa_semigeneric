@@ -238,3 +238,9 @@ additional transfinite B-Ext characterization.
 - `Structure/ExtendedSkeleton.lean` constructs a concrete affine-reversal-compatible skeleton on `(V/E) ⊕ Bool`, extending the old quotient gauge skeleton and setting `K(old,fresh)=1`, `K(fresh,old)=s(1)` (and a fixed orientation between two fresh labels).
 - This is valid even if the two fresh labels are unoccupied and if `s(1)≠1`. The resulting generic gauge has exactly the verified strong one-point E-partition.
 - Remaining SAP proof needs selection of vertex gauges λ and proof that the resulting effective F preserves both old one-point extensions.
+
+## 2026-10-17 — explicit global SAP vertex gauges
+
+- `Structure/OnePointGaugeChoice.lean` selects concrete λ coordinates from the old effective geometry and the two one-point extensions, distinguishing attached new vertices and fresh singleton labels.
+- The indexed skeleton with these coordinates creates one genuine global effective rectangle geometry. It is proved to preserve the exact strong E amalgam and the OLD–OLD effective colours. For a fresh new E-part it also preserves all outgoing effective colours to old vertices (on either side).
+- Remaining SAP assembly proof: attached-new/old colour preservation, reversal of the freshly proved edges, then transport of prescribed raw colours and the two exact embeddings. These results are not silently asserted here.
