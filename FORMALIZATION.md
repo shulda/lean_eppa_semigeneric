@@ -175,7 +175,13 @@ additional transfinite B-Ext characterization.
 - It constructs a genuine `L_C`-structure satisfying R1–R3 with exactly the original E and all old raw-colour predicates preserved. No hypothesis involving S or coherent EPPA is used.
 - Full SAP remains OPEN until a compatible effective F is constructed on all one-point amalgams and genuine old-side embeddings are proved.
 
-## Rank-one transition torsor (2026-10-17)
+## 2026-10-17 — exact functional/relational return map
 
-- `Algebra/RankOneGaugeTorsor.lean`: two noncommutative rank-one factorizations of the same anchored matrix differ by one unique multiplier k, with row factors right-multiplied by k and column factors left-multiplied by k⁻¹.
-- This preserves every matrix entry and requires no finiteness or commutativity. It is the elementary algebraic kernel for the manuscript's gauge-transition/torsor argument; full affine reversal transport remains OPEN.
+- `Structure/RelationalRoundtrip.lean`: every genuine R1–R3 relational structure yields a canonical Option-valued raw-colour function. Absence of a raw colour is equivalent to E, and the raw option reverses by the given involution.
+- Converting the functional presentation back to the literal language reproduces the exact E and every P_c predicate; this is necessary for faithful old-side embeddings in a future SAP construction.
+- Global SAP still requires the effective two-new-point colouring and explicit induced embeddings.
+
+## 2026-10-17 — unique transition of rank-one factorizations
+
+- `Algebra/RankOneGaugeTorsor.lean` proves that any two anchored factorizations F(x,y)=row(x)col(y) over an arbitrary noncommutative group are related by a unique multiplier k with row'(x)=row(x)k and col'(y)=k⁻¹col(y).
+- The transition leaves all matrix entries unchanged, and this is the elementary algebraic kernel for the paper's affine gauge torsor; the explicit affine statement is developed separately.
