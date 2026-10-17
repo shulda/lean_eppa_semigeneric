@@ -1,4 +1,5 @@
 import SemigenericEPPA.Algebra.RawDatum
+import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
 import SemigenericEPPA.Algebra.CornerAmalgamation
@@ -7,6 +8,7 @@ import SemigenericEPPA.Algebra.CongruenceAction
 import SemigenericEPPA.Structure.Language
 import SemigenericEPPA.Structure.RawPresentation
 import SemigenericEPPA.Structure.RelationalRoundtrip
+import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveColour
 import SemigenericEPPA.Structure.Induced
 import SemigenericEPPA.Structure.PartMatrix
