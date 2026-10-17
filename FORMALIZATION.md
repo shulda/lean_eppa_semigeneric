@@ -233,6 +233,12 @@ additional transfinite B-Ext characterization.
 - Old quotient-indexed gauges embed as a special case. The verified strong one-point part amalgam on `V ⊕ Bool` is realized exactly by the `combinedPartIndex` label map into `(Quotient E) ⊕ Bool`, even when some fresh labels are unoccupied.
 - The **global selection** of K and λ preserving both existing one-point effective geometries is still OPEN. This eliminates the label/quotient-type mismatch but is not yet an SAP theorem.
 
+## 2026-10-17 — global SAP skeleton for old and fresh labels
+
+- `Structure/ExtendedSkeleton.lean` constructs a concrete affine-reversal-compatible skeleton on `(V/E) ⊕ Bool`, extending the old quotient gauge skeleton and setting `K(old,fresh)=1`, `K(fresh,old)=s(1)` (and a fixed orientation between two fresh labels).
+- This is valid even if the two fresh labels are unoccupied and if `s(1)≠1`. The resulting generic gauge has exactly the verified strong one-point E-partition.
+- Remaining SAP proof needs selection of vertex gauges λ and proof that the resulting effective F preserves both old one-point extensions.
+
 ## 2026-10-17 — attached-new vertex side-preservation kernel
 
 - `Structure/AttachedGaugeFactor.lean` proves directly from the actual one-point effective geometry that an attached new vertex has the exact noncommutative gauge formula `F(new,a)=s(F(q,new))*F(p,q)⁻¹*F(p,a)` towards a different old part, including transport of the old representative p within its E-class.
