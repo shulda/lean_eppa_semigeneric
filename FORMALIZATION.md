@@ -44,9 +44,9 @@ additional transfinite B-Ext characterization.
 
 | Gate | Exact intent | State |
 |---|---|---|
-| G0 | finite affine reversal, `S`, cross-part colour type | Affine/group/reversal/rectangle algebra green; cross-part typing OPEN |
-| G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Recenter and gauge-colour identities green; congruence action in review, partial transport OPEN |
-| G2 | finite structures, exact induced embeddings, strong amalgamation | Heredity, rank-one/gauge and canonical quotient green; corner-amalgamation algebra in review, global SAP OPEN |
+| G0 | finite affine reversal, `S`, cross-part colour type | CORE VERIFIED: affine reversal, raw datum, congruence G-action/S, exact cross-part language and R1–R3; main-theorem finiteness still to be imposed |
+| G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | VERIFIED: origin equations, noncommutative rank-one, affine gauge equivalence (2.7), quotient-sorted gauge presentation (2.6) BOTH directions. OPEN: transported Group API and partial-map gauge transport |
+| G2 | finite structures, exact induced embeddings, strong amalgamation | VERIFIED: R1–R3, heredity/embeddings, E-part strong one-point amalgam, old-old corner, same-old-part and fresh-part local cases, effective/raw completion bridge. OPEN: one global effective one-point amalgam plus arbitrary finite SAP/Fraïssé |
 | E0 | effective valuation construction with individual EPPA lifts | OPEN |
 | R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
 | H0 | finite-group effective action via M/L cocycles, **without S saturation** | OPEN |
@@ -225,3 +225,16 @@ additional transfinite B-Ext characterization.
 - `Structure/QuotientGaugeConverse.lean`: every effective E-geometry admits quotient-indexed skeleton K_ij and vertex gauges λ_(x,j), choosing one representative per E-class via Quotient.out.
 - Proves the skeleton affine reversal and that reconstructing through the gauge formula returns the ORIGINAL effective colour on every cross-part ordered pair, with the noncommutative factor order intact.
 - Combined with the verified forward direction, the two-sorted effective presentation (2.6) is now proven both ways; full one-point SAP assembly remains OPEN.
+
+## 2026-10-17 — next SAP assembly step (design; NOT Lean-certified)
+
+All relevant local matrix cases and both directions of the two-sorted gauge representation (2.6) are now Lean-certified. To complete G2, build **one global effective E-rectangle amalgam**, not another locally specified corner. The following is the intended construction to formalize:
+
+1. For two one-point extensions of base D with E-equivalence, use the verified `combinedPartIndex` as a **surjective class-label map** on the strong carrier `V ⊕ Bool`, with labels `(Quotient E) ⊕ Bool`. Fresh labels distinguish the two genuinely new classes; an attached new point receives its old quotient label.
+2. Introduce a *class-indexed* counterpart of `QuotientGauge`, indexed by these labels, or a quotient-index equivalence to the canonical imaginary sort of the amalgam. Then **every** legal skeleton/gauge assignment automatically yields the entire effective rectangle law via verified `QuotientGauge.toEffectiveGeometry`.
+3. Choose representatives `rep(i) := Quotient.out i` of each OLD class. For distinct old i,j set `K_ij := D.F(rep(i),rep(j))` and let old λ-coordinates be `D.F(rep(j),a)`; for a new attached point use the corresponding left/right one-point effective F towards old anchors. Reconstruction/side-preservation follows from verified `EffectiveGeometry.anchored_factor` and the old-old forced-corner result.
+4. For the newly created fresh label f, choose `K_(old,f)=1`, `K_(f,old)=s(1)`, and λ_(old a,f) = `s(F_side(old a,new f))`, λ_(fresh f,old)=1. This reproduces the required existing cross-colours in BOTH orientations, using the exact affine reversal. Unprescribed new–new edges may be chosen arbitrarily. For two fresh labels choose K in one direction and its s-reversal in the other.
+5. PROVE the gauge assignment reproduces all old–old and old–new effective colours, using the exact quotient labels and the verified one-point geometry identities. The new–new colour is forced between two distinct old parts; same-old-part and fresh-singleton cases are already settled by independent Lean lemmas. Then use `EffectiveRawExtension.toStructure_isRectangleStructure` with the prescribed old-side raw edges and prove the two `AllThoseEPPA.Structure.Embedding` inclusions.
+6. Only after a genuine one-point SAP theorem has been checked should one prove finite SAP by iterating one-point amalgams; Fraïssé limit and infinitude properties are later gates.
+
+**Status warning:** none of steps 1–6 as a single assembled theorem is yet proved in Lean. `QuotientGauge` currently indexes by the canonical quotient, whereas the algorithm above describes quotient labels for an amalgam; bridging these types and proving side preservation is the principal remaining technical difficulty. This should not be confused with the HKN/valuation or coherent-EPPA stages, which remain OPEN.
