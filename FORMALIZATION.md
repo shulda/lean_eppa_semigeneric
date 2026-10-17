@@ -169,9 +169,8 @@ additional transfinite B-Ext characterization.
 - It orients each unordered cross-edge using a temporary linear order, so no self-reversing raw colour or congruence-orbit saturation is needed.
 - This is a raw-choice component, not yet the complete one-point SAP theorem; a bridge to `RawRectanglePresentation` and effective geometry is still required.
 
+## 2026-10-17 — exact effective-to-raw construction
 
-## Effective-to-raw structure construction (2026-10-17)
-
-- Structure/EffectiveRawExtension.lean packages the honest assumptions for an effective E-rectangle geometry F with prescribed partial raw colours (E equivalence, reversal, rectangle, φ-projection and compatibility).
-- It gives an explicit total raw colouring on all cross-part pairs and proves the result is a *genuine R1–R3 relational structure* and that all prescribed old raw colours and the exact part relation are preserved.
-- **Remaining SAP gap:** produce the effective geometry F on the two-new-point amalgam satisfying these hypotheses; prove the specific side restrictions and arbitrary finite SAP.
+- `Structure/EffectiveRawExtension.lean` packages explicit hypotheses for a reversible effective E-rectangle geometry F and compatible prescribed partial raw colours.
+- It constructs a genuine `L_C`-structure satisfying R1–R3 with exactly the original E and all old raw-colour predicates preserved. No hypothesis involving S or coherent EPPA is used.
+- Full SAP remains OPEN until a compatible effective F is constructed on all one-point amalgams and genuine old-side embeddings are proved.
