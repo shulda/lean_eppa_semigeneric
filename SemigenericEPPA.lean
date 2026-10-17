@@ -16,6 +16,7 @@ import SemigenericEPPA.Structure.EffectiveGeometry
 import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
 import SemigenericEPPA.Valuations.EffectiveCarrier
+import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Structure.ExtendedSkeleton
 import SemigenericEPPA.Structure.OnePointGaugeChoice
 import SemigenericEPPA.Structure.OnePointGaugeAttached

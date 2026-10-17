@@ -317,3 +317,9 @@ additional transfinite B-Ext characterization.
 - The combined incidence is **literally** `χ(r) * r.2(x)` for the TARGET part `r=(j,g)`; it does not use the source part valuation. This is paper equation (3.5), the critical target/source distinction.
 - Any affine-reversal-compatible witness skeleton yields a genuine effective rectangle geometry via the verified `IndexedGauge` theorem, and the exact formula (3.6) is proved. Distinguished old parts/vertices with neutral part valuations are injected and their old incidence coordinates recovered.
 - This starts gate E0 but is **not** yet an EPPA witness theorem: finiteness of the carrier, old F preservation for a chosen skeleton, and individual partial-automorphism extensions remain OPEN.
+
+
+## 2026-10-17 — literal old copy of the effective EPPA valuation witness
+
+- `Valuations/OldEmbedding.lean` introduces the exact neutral-part skeleton hypothesis K[(i,h₀),(j,h₀)]=K^A[i,j]. It proves x↦oldWitnessVertex x preserves and reflects the E-partition and every cross-part effective group colour, using target-part incidences χ(r)·g(x).
+- This checks the EFFECTIVE old-embedding step (3.7)–(3.8) with genuinely noncommutative affine reversal. Raw colour lifting and automorphism extension are OPEN, as is the E0 EPPA theorem.
