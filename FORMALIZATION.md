@@ -380,3 +380,8 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/EffectiveAutomorphisms.lean` combines global affine multipliers, correct target-part χ transport, preservation of the effective geometry, and an explicitly invertible vertex transport into one genuine effective-witness automorphism theorem. For every witness-part permutation σ equipped with per-part old-label fibre bijections ρ, it constructs a total witness-vertex Equiv preserving/reflection E and every cross-part group colour.
 - This is the effective automorphism-realization gate, NOT yet the EPPA extension theorem: constructing σ,ρ that extend arbitrary old partial automorphisms remains OPEN, along with raw-fibre colour lifts.
+
+## 2026-10-17 — the complete effective EPPA witness is finite
+
+- Valuations/WitnessFiniteness.lean constructs actual Fintype enumerations of both witness parts (V/E) × G^V and all witness vertices (q,x,χ), via the verified dependent-sum witness equivalence. For finite V and finite G the full witness is finite, including the empty-old-carrier case.
+- This closes the finite-carrier component of effective witness E0; extending old partial automorphisms and selecting raw fibre labels remain OPEN.
