@@ -12,6 +12,7 @@ import SemigenericEPPA.Structure.RawPresentation
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveGeometry
+import SemigenericEPPA.Structure.OnePointEffective
 import SemigenericEPPA.Structure.EffectiveColour
 import SemigenericEPPA.Structure.Induced
 import SemigenericEPPA.Structure.PartMatrix
