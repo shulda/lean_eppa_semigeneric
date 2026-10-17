@@ -214,3 +214,8 @@ additional transfinite B-Ext characterization.
 
 - `Structure/FreshPart.lean` proves a new vertex not attached to an old E-class remains the unique vertex of its own E-class in the strong amalgam. Handles either side, empty old base, and two fresh vertices.
 - This supplies the local trivial-rectangle case for the eventual effective SAP assembly, complementary to the checked old-old forced corner and same-old-part lemmas. No full SAP theorem yet.
+
+## 2026-10-17 — quotient-imaginary gauge presentations
+
+- `Structure/QuotientGauge.lean` implements two-sorted gauge data on the canonical quotient `V/E`, with skeleton K and λ coordinates. It proves the paper's formula (2.6) yields an effective E-rectangle geometry with affine reversal and the exact noncommutative rectangle equation, without finiteness or an auxiliary order.
+- This is the forward half of the gauge presentation lemma. The converse (anchored reconstruction for arbitrary effective geometry) and the actual global one-point SAP glue remain OPEN.
