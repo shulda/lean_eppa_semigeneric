@@ -59,6 +59,7 @@ structure RelativeOnePointDiagram (d : RawDatum G C)
 
 namespace RelativeOnePointDiagram
 
+variable {d : RawDatum G C}
 variable {X : Type w} {Y : Type z} {Z : Type t}
 variable (Q : RelativeOnePointDiagram d X Y Z)
 
