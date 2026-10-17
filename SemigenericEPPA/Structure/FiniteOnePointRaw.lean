@@ -34,7 +34,7 @@ variable {D : EffectiveGeometry d.s V}
 variable {L R : OnePointEffectiveExtension D}
 
 /-- A finite common base and two compatible complete raw one-point
-extensions admit a strong raw one-point amalgam in the exact R1--R3
+extensions have a strong raw one-point amalgam in the exact R1--R3
 language. All E-relations and all P_c predicates on both sides are
 preserved and reflected; the two new vertices remain distinct in
 the canonical carrier V ⊕ Bool.
