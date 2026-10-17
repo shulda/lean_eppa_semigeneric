@@ -9,6 +9,7 @@ import SemigenericEPPA.Valuations.CoordinateTransport
 import SemigenericEPPA.Valuations.ColourPreservingTransport
 import SemigenericEPPA.Valuations.TransportEquiv
 import SemigenericEPPA.Valuations.EffectiveAutomorphisms
+import SemigenericEPPA.Valuations.WitnessFiniteness
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
 import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Valuations.WitnessSkeleton
