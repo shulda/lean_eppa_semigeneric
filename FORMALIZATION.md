@@ -375,3 +375,8 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/TransportEquiv.lean` identifies the witness vertex type as a dependent sum of old E-class fibres and valuation functions. For ANY σ of witness parts and bijections ρ_q on old-label fibres, the target-part χ-transport (3.11) is built from explicit equivalences of coordinate function spaces and yields a total bijection of witness vertices.
 - This removes bijectivity as an assumption in the candidate witness automorphism theorem; preservation of colours follows from the separately verified affine skeleton multiplier equation. Extending every old partial automorphism remains OPEN.
+
+## 2026-10-17 — actual automorphisms of the effective valuation witness
+
+- `Valuations/EffectiveAutomorphisms.lean` combines global affine multipliers, correct target-part χ transport, preservation of the effective geometry, and an explicitly invertible vertex transport into one genuine effective-witness automorphism theorem. For every witness-part permutation σ equipped with per-part old-label fibre bijections ρ, it constructs a total witness-vertex Equiv preserving/reflection E and every cross-part group colour.
+- This is the effective automorphism-realization gate, NOT yet the EPPA extension theorem: constructing σ,ρ that extend arbitrary old partial automorphisms remains OPEN, along with raw-fibre colour lifts.
