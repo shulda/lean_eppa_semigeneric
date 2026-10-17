@@ -4,6 +4,7 @@ import SemigenericEPPA.Algebra.Gauge
 import SemigenericEPPA.Algebra.CongruenceAction
 import SemigenericEPPA.Structure.Language
 import SemigenericEPPA.Structure.EffectiveColour
+import SemigenericEPPA.Structure.Induced
 import SemigenericEPPA.Bridge.CoherentEPPA
 
 /-!
