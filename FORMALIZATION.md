@@ -265,3 +265,8 @@ additional transfinite B-Ext characterization.
 
 - `Structure/OnePointRawExact.lean`: the previously verified raw completion preserves both side raw-colour functions EXACTLY whenever their old-common raw substructure agrees. It proves all E and all P_c relations on both original sides are preserved AND reflected and packages a genuine one-point strong amalgamation theorem in the literal L_C language on `V ⊕ Bool`.
 - An auxiliary `LinearOrder (V ⊕ Bool)` is explicitly assumed for choosing raw representatives. For the paper's finite SAP this can be supplied by a linear order on a finite carrier. General finite SAP and Fraïssé remain OPEN until the finite-order and iterated-one-point bridges are checked.
+
+## 2026-10-17 — finite raw one-point SAP without an order hypothesis
+
+- `Structure/FiniteOnePointRaw.lean` proves every finite common carrier has an auxiliary linear order (chosen via `Fintype.equivFin`) and therefore strengthens the exact raw one-point SAP theorem to finite bases without any additional order condition. The auxiliary order does NOT belong to the relational language.
+- The two new vertices remain genuinely distinct in `V ⊕ Bool`, and all old E and raw P_c predicates are preserved and reflected on both sides. Global finite SAP, Fraïssé and EPPA remain separate goals.

@@ -21,6 +21,7 @@ import SemigenericEPPA.Structure.OnePointGaugeAttached
 import SemigenericEPPA.Structure.OnePointEffectiveAmalgam
 import SemigenericEPPA.Structure.OnePointRawAmalgam
 import SemigenericEPPA.Structure.OnePointRawExact
+import SemigenericEPPA.Structure.FiniteOnePointRaw
 import SemigenericEPPA.Structure.QuotientGaugeConverse
 import SemigenericEPPA.Structure.OnePointEffective
 import SemigenericEPPA.Structure.OnePointSamePart
