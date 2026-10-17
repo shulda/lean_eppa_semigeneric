@@ -3,8 +3,10 @@ import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
 import SemigenericEPPA.Algebra.SkeletonMultipliers
+import SemigenericEPPA.Algebra.GlobalWitnessMultipliers
 import SemigenericEPPA.Valuations.EffectiveCarrier
 import SemigenericEPPA.Valuations.CoordinateTransport
+import SemigenericEPPA.Valuations.ColourPreservingTransport
 import SemigenericEPPA.Valuations.TransportEquiv
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
 import SemigenericEPPA.Valuations.OldEmbedding
