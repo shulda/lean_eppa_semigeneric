@@ -191,3 +191,9 @@ additional transfinite B-Ext characterization.
 - `Algebra/GaugeConverse.lean` proves the converse of the manuscript's affine gauge change (2.7): equality of effective matrices on two nonempty anchored parts gives unique left multipliers u,v and K'=v K s(1)⁻¹ s(u). The forward direction follows from the already verified gauge-change lemma.
 - The iff is verified for arbitrary nonabelian groups and affine anti-involutions; it will allow overlapping local gauge presentations to be aligned in SAP and EPPA.
 - This is the two-part torsor law; its globally indexed multi-part/partial-map version is still OPEN.
+
+## 2026-10-17 — effective geometry of actual R1–R3 structures
+
+- `Structure/EffectiveGeometry.lean` isolates the effective E-rectangle geometry from raw fibres, with affine reversal required only on distinct E-parts and the exact noncommutative rectangle equation.
+- Every existing `IsRectangleStructure` produces such geometry canonically, using the dummy value 1 on same-part pairs (where all algebraic axioms are indifferent). Old prescribed raw colours are proved compatible with the resulting F.
+- `EffectiveGeometry.of_cross_eq` proves same-part dummy values can be changed arbitrarily with no effect on the geometry. This module prepares the common effective F of the one-point amalgam; that existence theorem remains OPEN.
