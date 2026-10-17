@@ -285,3 +285,9 @@ additional transfinite B-Ext characterization.
 
 - `Structure/PairwiseEmbedding.lean` constructs a genuine `AllThoseEPPA.Structure.Embedding` with language component 1 from an injective map preserving/reflection both E and every P_c. Converse APIs read back the exact E and P_c iff from a language-identity embedding.
 - The theorem is pure binary-language syntax and does not depend on SAP or use HKN. It is designed to turn one-point SAP's previously proved pointwise relation equivalences into actual typed strong embeddings.
+
+## 2026-10-17 — literal finite one-point SAP as typed embeddings
+
+- `Structure/LiteralSAPEmbeddings.lean` packages the verified literal one-point SAP into genuine `AllThoseEPPA.Structure.Embedding` inclusions for the two source structures, with identity language action.
+- Their carrier maps are exactly `firstOnePoint` and `secondOnePoint`, and their images intersect if and only if both vertices are the same old-base vertex. This formally records the strong (no-new-point-identification) character of the amalgam in the API required by iteration.
+- The general finite SAP induction remains OPEN and will use the pullback/reindexing API to normalize arbitrary embeddings and transport the one-point theorem.

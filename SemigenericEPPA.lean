@@ -23,6 +23,7 @@ import SemigenericEPPA.Structure.OnePointRawAmalgam
 import SemigenericEPPA.Structure.OnePointRawExact
 import SemigenericEPPA.Structure.FiniteOnePointRaw
 import SemigenericEPPA.Structure.LiteralOnePointSAP
+import SemigenericEPPA.Structure.LiteralSAPEmbeddings
 import SemigenericEPPA.Structure.QuotientGaugeConverse
 import SemigenericEPPA.Structure.OnePointEffective
 import SemigenericEPPA.Structure.AttachedGaugeFactor
