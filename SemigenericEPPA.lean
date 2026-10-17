@@ -13,6 +13,7 @@ import SemigenericEPPA.Valuations.WitnessFiniteness
 import SemigenericEPPA.Valuations.EffectiveAutomorphisms
 import SemigenericEPPA.Valuations.TwistedPartPermutation
 import SemigenericEPPA.Valuations.PrescribedMultiplierAutomorphisms
+import SemigenericEPPA.Valuations.PrescribedAutomorphism
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
 import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Valuations.WitnessSkeleton
