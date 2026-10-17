@@ -129,3 +129,9 @@ additional transfinite B-Ext characterization.
 - `Structure/PartMatrix.lean` turns two actual distinct E-classes into a typed total effective matrix, proves its noncommutative rectangle law, and derives rank-one factorization and the manuscript's reversed-edge gauge formula (2.5).
 - It deliberately avoids giving arbitrary values to same-class pairs and keeps `s` affine/noncommutative.
 - This block depends on previously verified R1–R3, effective-colour and rectangle/gauge modules. Exact CI/axiom verification is required before treating it as complete.
+
+## Algebraic corner completion (2026-10-17)
+
+- `Algebra/CornerAmalgamation.lean`: a rectangle matrix with independently compatible new row and column has a unique missing corner `r(q) * F(p,q)⁻¹ * c(p)`.
+- The entire enlarged Option-row/Option-column matrix is proved rank-one; in particular all new rectangles hold, and the formula is independent of old anchors.
+- This is a checked **component of** one-point SAP only. Global E-class amalgamation patterns and raw-colour lifting via surjective φ remain OPEN.
