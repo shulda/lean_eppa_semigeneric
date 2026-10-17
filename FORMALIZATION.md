@@ -175,13 +175,19 @@ additional transfinite B-Ext characterization.
 - It constructs a genuine `L_C`-structure satisfying R1–R3 with exactly the original E and all old raw-colour predicates preserved. No hypothesis involving S or coherent EPPA is used.
 - Full SAP remains OPEN until a compatible effective F is constructed on all one-point amalgams and genuine old-side embeddings are proved.
 
-## Rank-one transition torsor (2026-10-17)
+## 2026-10-17 — exact functional/relational return map
 
-- `Algebra/RankOneGaugeTorsor.lean`: two noncommutative rank-one factorizations of the same anchored matrix differ by one unique multiplier k, with row factors right-multiplied by k and column factors left-multiplied by k⁻¹.
-- This preserves every matrix entry and requires no finiteness or commutativity. It is the elementary algebraic kernel for the manuscript's gauge-transition/torsor argument; full affine reversal transport remains OPEN.
+- `Structure/RelationalRoundtrip.lean`: every genuine R1–R3 relational structure yields a canonical Option-valued raw-colour function. Absence of a raw colour is equivalent to E, and the raw option reverses by the given involution.
+- Converting the functional presentation back to the literal language reproduces the exact E and every P_c predicate; this is necessary for faithful old-side embeddings in a future SAP construction.
+- Global SAP still requires the effective two-new-point colouring and explicit induced embeddings.
 
-## Exact affine two-part gauge torsor (2026-10-17)
+## 2026-10-17 — unique transition of rank-one factorizations
 
-- `Algebra/GaugeConverse.lean` proves the *converse* of the manuscript's affine gauge-change formula (2.7): equal effective matrices on two nonempty parts imply unique vertex multipliers u,v, with K' = v K s(1)⁻¹ s(u). The previously checked forward formula supplies the reverse implication.
-- This works for arbitrary nonabelian G and genuinely affine anti-involutions, and is intended for aligning overlapping effective presentations in SAP and later valuation actions.
-- Global multi-part gauge torsors, partial transport and full SAP remain to be formalized.
+- `Algebra/RankOneGaugeTorsor.lean` proves that any two anchored factorizations F(x,y)=row(x)col(y) over an arbitrary noncommutative group are related by a unique multiplier k with row'(x)=row(x)k and col'(y)=k⁻¹col(y).
+- The transition leaves all matrix entries unchanged, and this is the elementary algebraic kernel for the paper's affine gauge torsor; the explicit affine statement is developed separately.
+
+## 2026-10-17 — complete two-part affine gauge equivalence
+
+- `Algebra/GaugeConverse.lean` proves the converse of the manuscript's affine gauge change (2.7): equality of effective matrices on two nonempty anchored parts gives unique left multipliers u,v and K'=v K s(1)⁻¹ s(u). The forward direction follows from the already verified gauge-change lemma.
+- The iff is verified for arbitrary nonabelian groups and affine anti-involutions; it will allow overlapping local gauge presentations to be aligned in SAP and EPPA.
+- This is the two-part torsor law; its globally indexed multi-part/partial-map version is still OPEN.

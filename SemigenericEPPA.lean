@@ -9,6 +9,7 @@ import SemigenericEPPA.Algebra.SamePartRows
 import SemigenericEPPA.Algebra.CongruenceAction
 import SemigenericEPPA.Structure.Language
 import SemigenericEPPA.Structure.RawPresentation
+import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveColour
 import SemigenericEPPA.Structure.Induced
