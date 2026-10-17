@@ -148,3 +148,10 @@ additional transfinite B-Ext characterization.
 - Algebra/SamePartRows.lean constructs two simultaneously appended rows, resp. columns, with each new row/column compatible with a common old matrix, and proves the entire enlarged matrix is rank-one and satisfies the rectangle law.
 - It follows that two independently added vertices in the same old E-class are automatically mutually compatible toward every old E-class, covering the algebraic same-part case of one-point SAP.
 - This is a local matrix lemma; actual strong amalgamation with raw colours and all E-part patterns remains OPEN.
+
+
+## 2026-10-17 — completion of prescribed raw cross-colours
+
+- Algebra/PrescribedRawLift.lean constructs, on an auxiliary linearly ordered carrier, a total raw colouring of all ordered cross-E pairs compatible with prescribed partial raw colours and a reversal-compatible effective colour function.
+- It proves that old raw colours are retained, the new raw colouring is reversible and excludes same-part edges, and every raw colour projects to the original effective F. Only phi-surjectivity and reversal-equivariance of RawDatum are needed; NO self-reversing colour is assumed.
+- This is a standalone raw-fibre choice step, not yet a full SAP witness or an automorphism-extension theorem.
