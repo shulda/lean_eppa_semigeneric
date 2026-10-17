@@ -100,7 +100,16 @@ theorem EffectiveGeometry.orderedSkeleton_extendsOld
       (distinguishedWitnessPart D i)
       (distinguishedWitnessPart D j) =
         D.toQuotientGauge.skeleton i j
-  simp [orderedWitnessSkeleton, distinguishedWitnessPart, hparts]
+  have hpair :
+      (i, (neutralPartValuation : V → G)) ≠
+        (j, (neutralPartValuation : V → G)) := by
+    intro h
+    exact hij (congrArg Prod.fst h)
+  change (if (i, (neutralPartValuation : V → G)) =
+       (j, (neutralPartValuation : V → G)) then (1 : G)
+       else D.toQuotientGauge.skeleton i j) =
+       D.toQuotientGauge.skeleton i j
+  simp [hpair]
 
 /-- The old embedding into the ordered effective witness preserves
 every cross-part effective group colour and is injective. The first
