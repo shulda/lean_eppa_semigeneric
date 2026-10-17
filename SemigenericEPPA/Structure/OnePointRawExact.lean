@@ -35,7 +35,15 @@ theorem combinedOnePointRaw_first
     (x y : Option V) :
     combinedOnePointRaw A B (firstOnePoint x) (firstOnePoint y) =
       A.colour x y := by
-  cases x <;> cases y <;> rfl
+  cases x with
+  | none =>
+    cases y with
+    | none =>
+      change (none : Option C) = A.colour none none
+      exact ((A.none_iff none none).2 (L.geometry.part.iseqv.refl none)).symm
+    | some a => rfl
+  | some a =>
+    cases y <;> rfl
 
 /-- If the two old substructures have the same raw colours, the
 joint prescription also restricts exactly to the second input. -/
@@ -45,7 +53,11 @@ theorem combinedOnePointRaw_second
       B.colour x y := by
   cases x with
   | none =>
-    cases y <;> rfl
+    cases y with
+    | none =>
+      change (none : Option C) = B.colour none none
+      exact ((B.none_iff none none).2 (R.geometry.part.iseqv.refl none)).symm
+    | some b => rfl
   | some a =>
     cases y with
     | none => rfl
@@ -96,12 +108,10 @@ theorem completedRaw_first_exact
         (firstOnePoint x) (firstOnePoint y) = A.colour x y := by
   cases hc : A.colour x y with
   | none =>
-    rw [hc]
     have hE : L.geometry.part x y := (A.none_iff x y).1 hc
     exact completion_none_of_part A B (firstOnePoint x) (firstOnePoint y)
       ((effectiveOnePointAmalgam_first_part D L R x y).2 hE)
   | some c =>
-    rw [hc]
     exact completion_preserves A B (firstOnePoint x) (firstOnePoint y) c
       (by rw [combinedOnePointRaw_first A B x y]; exact hc)
 
@@ -113,12 +123,10 @@ theorem completedRaw_second_exact
         (secondOnePoint x) (secondOnePoint y) = B.colour x y := by
   cases hc : B.colour x y with
   | none =>
-    rw [hc]
     have hE : R.geometry.part x y := (B.none_iff x y).1 hc
     exact completion_none_of_part A B (secondOnePoint x) (secondOnePoint y)
       ((effectiveOnePointAmalgam_second_part D L R x y).2 hE)
   | some c =>
-    rw [hc]
     exact completion_preserves A B (secondOnePoint x) (secondOnePoint y) c
       (by rw [combinedOnePointRaw_second A B hAgree x y]; exact hc)
 
