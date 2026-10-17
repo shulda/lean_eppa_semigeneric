@@ -122,8 +122,9 @@ theorem canonicalOnePointGauge_left_fresh_old
       P.toEffectiveGeometry.F (Sum.inr false) (Sum.inl a) =
       gaugeColour s (1 : G) (s 1) (L.geometry.F none (some a)) := by
     simpa [P, canonicalOnePointGauge, onePointSkeletonGauge,
-      onePointIndexedGauge, onePointSkeleton, extendedSkeleton,
-      onePointVertexGauge, hfresh] using hg
+      onePointIndexedGauge, combinedPartIndex, OnePointPartExtension.index,
+      onePointSkeleton, extendedSkeleton, onePointVertexGauge,
+      hfresh] using hg
   calc
     P.toEffectiveGeometry.F (Sum.inr false) (Sum.inl a) =
         gaugeColour s (1 : G) (s 1) (L.geometry.F none (some a)) :=
@@ -151,8 +152,9 @@ theorem canonicalOnePointGauge_right_fresh_old
       P.toEffectiveGeometry.F (Sum.inr true) (Sum.inl a) =
       gaugeColour s (1 : G) (s 1) (R.geometry.F none (some a)) := by
     simpa [P, canonicalOnePointGauge, onePointSkeletonGauge,
-      onePointIndexedGauge, onePointSkeleton, extendedSkeleton,
-      onePointVertexGauge, hfresh] using hg
+      onePointIndexedGauge, combinedPartIndex, OnePointPartExtension.index,
+      onePointSkeleton, extendedSkeleton, onePointVertexGauge,
+      hfresh] using hg
   calc
     P.toEffectiveGeometry.F (Sum.inr true) (Sum.inl a) =
         gaugeColour s (1 : G) (s 1) (R.geometry.F none (some a)) :=
