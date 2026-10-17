@@ -94,20 +94,48 @@ noncomputable def normalizedDiagram : LiteralOnePointDiagram d X where
   rightValid := Q.rightValid.pullback Q.rightCarrierEquiv
   left_part := by
     intro a b
-    exact (pullback_partRel Q.left Q.leftCarrierEquiv (some a) (some b)).trans
-      (by simpa using Q.leftPart a b)
+    have ha : Q.leftCarrierEquiv (some a) = Q.leftOld a :=
+      onePointCarrierEquiv_some Q.leftOld Q.leftInjective
+        Q.leftFresh Q.leftFreshOutside Q.leftCover a
+    have hb : Q.leftCarrierEquiv (some b) = Q.leftOld b :=
+      onePointCarrierEquiv_some Q.leftOld Q.leftInjective
+        Q.leftFresh Q.leftFreshOutside Q.leftCover b
+    have h := pullback_partRel Q.left Q.leftCarrierEquiv (some a) (some b)
+    rw [ha, hb] at h
+    exact h.trans (Q.leftPart a b)
   right_part := by
     intro a b
-    exact (pullback_partRel Q.right Q.rightCarrierEquiv (some a) (some b)).trans
-      (by simpa using Q.rightPart a b)
+    have ha : Q.rightCarrierEquiv (some a) = Q.rightOld a :=
+      onePointCarrierEquiv_some Q.rightOld Q.rightInjective
+        Q.rightFresh Q.rightFreshOutside Q.rightCover a
+    have hb : Q.rightCarrierEquiv (some b) = Q.rightOld b :=
+      onePointCarrierEquiv_some Q.rightOld Q.rightInjective
+        Q.rightFresh Q.rightFreshOutside Q.rightCover b
+    have h := pullback_partRel Q.right Q.rightCarrierEquiv (some a) (some b)
+    rw [ha, hb] at h
+    exact h.trans (Q.rightPart a b)
   left_raw := by
     intro c a b
-    exact (pullback_rawRel Q.left Q.leftCarrierEquiv c (some a) (some b)).trans
-      (by simpa using Q.leftRaw c a b)
+    have ha : Q.leftCarrierEquiv (some a) = Q.leftOld a :=
+      onePointCarrierEquiv_some Q.leftOld Q.leftInjective
+        Q.leftFresh Q.leftFreshOutside Q.leftCover a
+    have hb : Q.leftCarrierEquiv (some b) = Q.leftOld b :=
+      onePointCarrierEquiv_some Q.leftOld Q.leftInjective
+        Q.leftFresh Q.leftFreshOutside Q.leftCover b
+    have h := pullback_rawRel Q.left Q.leftCarrierEquiv c (some a) (some b)
+    rw [ha, hb] at h
+    exact h.trans (Q.leftRaw c a b)
   right_raw := by
     intro c a b
-    exact (pullback_rawRel Q.right Q.rightCarrierEquiv c (some a) (some b)).trans
-      (by simpa using Q.rightRaw c a b)
+    have ha : Q.rightCarrierEquiv (some a) = Q.rightOld a :=
+      onePointCarrierEquiv_some Q.rightOld Q.rightInjective
+        Q.rightFresh Q.rightFreshOutside Q.rightCover a
+    have hb : Q.rightCarrierEquiv (some b) = Q.rightOld b :=
+      onePointCarrierEquiv_some Q.rightOld Q.rightInjective
+        Q.rightFresh Q.rightFreshOutside Q.rightCover b
+    have h := pullback_rawRel Q.right Q.rightCarrierEquiv c (some a) (some b)
+    rw [ha, hb] at h
+    exact h.trans (Q.rightRaw c a b)
 
 /-- An equivalence-based pullback is isomorphic to the original
 structure, in *both* directions as genuine upstream embeddings. -/
