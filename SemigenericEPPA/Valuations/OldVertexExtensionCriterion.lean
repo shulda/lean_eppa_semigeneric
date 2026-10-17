@@ -110,6 +110,6 @@ theorem prescribedEffectiveWitnessAutomorphism_maps_old
         D K σ ρ P a X u hu hP
     have htarget := hinc u hu
     have hresult := htransport.trans htarget
-    simpa only [Equiv.apply_symm_apply] using hresult
+    simpa only [u, Equiv.apply_symm_apply, T, X, Y] using hresult
 
 end SemigenericEPPA
