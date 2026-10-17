@@ -141,3 +141,10 @@ additional transfinite B-Ext characterization.
 - `Algebra/CornerAmalgamation.lean`: independently compatible new row/column of a group-valued rectangle matrix have one forced missing effective colour, and the completed `Option X × Option Y` matrix is rank-one.
 - The forced corner is unique and independent of the chosen old anchors. The calculation preserves noncommutative factor order, matching manuscript equation (2.4).
 - This proves only the local group-valued core of the one-point SAP construction, NOT global SAP: part amalgamation and raw-colour lifts remain OPEN.
+
+
+## 2026-10-17 — one-point E-partition strong amalgamation
+
+- Structure/OnePointParts.lean constructs the exact strong amalgam of two one-point equivalence extensions over the same old equivalence relation. Both extension relations are reflected, including empty old carrier and new-class cases, and the new vertices remain distinct.
+- New E-parts are classified by whether they attach to an existing quotient class or begin a fresh class. No old E-classes collapse.
+- This is the partition component of one-point SAP. Raw cross-colour selection and group-valued rectangle cases remain OPEN, as does passage from one-point to arbitrary finite amalgams.
