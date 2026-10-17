@@ -93,6 +93,7 @@ theorem eppe_reverseMultiplier_backward
     unfold eppeReverseMultiplier
     rw [s.normalized_mul, s.normalized_mul,
       s.normalized_inv, s.normalized_inv]
+    group
   rw [hnorm, s.normalized_twice]
   unfold AffineAntiInvolution.normalized
   group
