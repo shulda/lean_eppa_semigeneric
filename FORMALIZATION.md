@@ -198,8 +198,8 @@ additional transfinite B-Ext characterization.
 - Every existing `IsRectangleStructure` produces such geometry canonically, using the dummy value 1 on same-part pairs (where all algebraic axioms are indifferent). Old prescribed raw colours are proved compatible with the resulting F.
 - `EffectiveGeometry.of_cross_eq` proves same-part dummy values can be changed arbitrarily with no effect on the geometry. This module prepares the common effective F of the one-point amalgam; that existence theorem remains OPEN.
 
-## 2026-10-17 — forced corner from real one-point effective geometries
+## 2026-10-17 — old-old SAP corner from genuine one-point geometries
 
-- `Structure/OnePointEffective.lean` introduces typed one-point effective extensions of one common base, with exact E and F on all old pairs. The old E-part matrices are shown to satisfy the noncommutative rectangle law.
-- When the new left vertex attaches to old part P and the new right vertex to a distinct old part Q, the R3 laws of the respective *actual one-point geometries* imply exactly the RowCompatible and ColumnCompatible assumptions of the existing corner lemma.
-- The resulting forced effective corner is independent of the old anchor choices and satisfies every rectangle on the extended P×Q matrix. This proves the substantial old-part/old-part SAP component; global case dispatch and raw-colour embedding assembly remain OPEN.
+- `Structure/OnePointEffective.lean` introduces one-point effective extension with exact E and F on the old carrier, and proves the R3 row/column compatibility hypotheses of the forced-corner lemma directly from each extension.
+- For two distinct *old* E-classes P,Q with the two new vertices attached respectively to P and Q, proves that the uniquely forced missing effective colour extends the entire matrix on those two parts with every rectangle valid, independently of old anchors.
+- This is the central old-part/old-part SAP case; the same-old-part and fresh-singleton cases and global assembly remain OPEN.
