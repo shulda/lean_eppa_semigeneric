@@ -254,3 +254,9 @@ additional transfinite B-Ext characterization.
 
 - `Structure/OnePointGaugeAttached.lean` proves that the explicit global indexed gauge reproduces every new-to-old effective edge for either one-point extension when the new vertex belongs to an existing old E-class and the old endpoint is cross-part. This uses the actual attached-new R3 factor lemma.
 - Combined with the fresh-new/old and old/old preservation lemmas of `OnePointGaugeChoice`, this covers all nontrivial SIDE-preservation cases; the all-pairs cross-preservation theorem is still to be packaged and verified before calling effective one-point SAP complete.
+
+## 2026-10-17 — global effective one-point strong amalgamation
+
+- `Structure/OnePointEffectiveAmalgam.lean` packages the explicit gauge construction as ONE common effective E-rectangle geometry on the strong carrier `V ⊕ Bool` and proves exact E on each side and exact preservation of every CROSS-PART effective colour, with no finiteness or self-reversing-colour hypotheses.
+- Cases: old-old from rank-one gauge, new-fresh-old from fresh skeleton, new-attached-old from actual R3 attached factor, reverse directions via affine involution. Every cross-part pair is covered; same-part dummy F-values are correctly irrelevant.
+- This is the main *effective one-point SAP* theorem, but NOT yet raw-colour class SAP: the compatible prescribed raw side labels must still be completed into a genuine L_C structure and then finite SAP derived.
