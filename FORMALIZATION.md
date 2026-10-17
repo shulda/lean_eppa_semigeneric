@@ -340,6 +340,26 @@ additional transfinite B-Ext characterization.
 - Any affine-reversal-compatible witness skeleton yields a genuine effective rectangle geometry via the verified `IndexedGauge` theorem, and the exact formula (3.6) is proved. Distinguished old parts/vertices with neutral part valuations are injected and their old incidence coordinates recovered.
 - This starts gate E0 but is **not** yet an EPPA witness theorem: finiteness of the carrier, old F preservation for a chosen skeleton, and individual partial-automorphism extensions remain OPEN.
 
+## 2026-10-17 — literal old copy of the effective EPPA valuation witness
+
+- `Valuations/OldEmbedding.lean` introduces the exact neutral-part skeleton hypothesis K[(i,h₀),(j,h₀)]=K^A[i,j]. It proves x↦oldWitnessVertex x preserves and reflects the E-partition and every cross-part effective group colour, using target-part incidences χ(r)·g(x).
+- This checks the EFFECTIVE old-embedding step (3.7)–(3.8) with genuinely noncommutative affine reversal. Raw colour lifting and automorphism extension are OPEN, as is the E0 EPPA theorem.
+
+## 2026-10-17 — explicit finite-order witness skeleton
+
+- `Valuations/WitnessSkeleton.lean` constructs an affine-reversal-compatible skeleton for the two-layer effective witness from ANY auxiliary linear order on blown-up parts. Neutral-to-neutral entries reproduce the old quotient skeleton exactly; other unordered pairs get 1/s(1) in the two orientations.
+- The old neutral witness embedding therefore preserves all effective cross colours by the verified old-copy theorem. The auxiliary ordering is not part of the structural language. The finite-choice of an order, witness finiteness and extension of partial automorphisms still require their own Lean gates.
+
+## 2026-10-17 — the abstract indexed-gauge automorphism criterion
+
+- `Valuations/GaugeAutomorphisms.lean` states the exact σ,τ,m data of the effective witness automorphisms: a permutation of imaginary labels, a permutation of real vertices, the left gauge-coordinate multipliers, and the affine skeleton condition (3.9). It proves E is preserved and reflected and all cross-part effective colours are fixed.
+- This gives the complete SUFFICIENCY direction of the effective automorphism criterion (2.8) and the algebra of (3.11–3.12), independent of the still-open construction of such permutations from partial automorphisms.
+
+## 2026-10-17 — exact witness-coordinate transport (3.11)
+
+- `Valuations/CoordinateTransport.lean` defines the fibre of old labels over each blown-up witness part and constructs the transported vertex under any witness-part permutation σ, fibre bijections ρ_q and ordered pair multipliers m(q,r).
+- The defining coordinate uses the TARGET part valuation at the NEW old label. Proves `λ_(ΘX)(σr) = m(q,r) λ_X(r)` exactly, plus uniqueness of each transported χ-coordinate. No automorphism existence, finiteness or coherent-action assumption is smuggled into the lemma.
+
 ## 2026-10-17 — global witness-part multipliers (3.9)
 
 - `Algebra/GlobalWitnessMultipliers.lean` chooses a multiplier for each ordered pair of witness parts for an arbitrary σ. It chooses 1 on increasing pairs and the mathematically forced reverse multiplier otherwise, using an auxiliary linear order.
