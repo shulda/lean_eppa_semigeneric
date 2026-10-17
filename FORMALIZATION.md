@@ -302,3 +302,10 @@ additional transfinite B-Ext characterization.
 - `Structure/OnePointNormalization.lean` shows an injective old-carrier map `f : V → W` with exactly one remaining fresh vertex induces an equivalence `Option V ≃ W` with `some a ↦ f a` and `none ↦ fresh`.
 - Pulling back any R1–R3 structure along it preserves every old-old E and raw P_c relation exactly, gives a valid canonical one-point R1–R3 structure on `Option V`, and provides an actual identity-language `AllThoseEPPA.Structure.Embedding` into the original side.
 - This is the key transport step for reducing arbitrary finite extensions to one-point SAP diagrams; the actual arbitrary finite SAP induction remains OPEN.
+
+
+## 2026-10-17 — pasting exact strong-amalgamation squares
+
+- `Structure/StrongSquare.lean` formalizes the carrier-level strong-square conditions: commutativity on the base, exact intersection of images, and joint image coverage of the amalgam.
+- Proves interchange of sides, both identity-square base cases, and **horizontal pasting**: composing two strong squares along their common intermediate side produces another strong square, with exact overlap *and* image coverage.
+- This is the algebraic categorical kernel of the induction from one-point to arbitrary finite SAP. It is independent of a relational language; typed `Structure.Embedding` maps supply the injections in applications. The remaining finite-filtration/existence induction is OPEN.
