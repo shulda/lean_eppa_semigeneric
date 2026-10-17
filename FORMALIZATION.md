@@ -265,3 +265,8 @@ additional transfinite B-Ext characterization.
 
 - `Structure/OnePointRawAmalgam.lean` packages exact raw colours on two one-point effective extensions and verifies their joint partial prescription on `V ⊕ Bool` has no same-E colours, is reversal invariant, and projects to the **verified global effective one-point amalgam**. All side raw edges are prescribed; only new-new is left free.
 - Consequently the existing raw-fibre completion constructs one genuine R1–R3 structure on the strong carrier, with an explicit auxiliary linear order on that carrier. Exact induced raw-embedding statements and the finite-order-free SAP theorem are still to be proved.
+
+## 2026-10-17 — complete ordered raw one-point SAP
+
+- `Structure/OnePointRawExact.lean`: the previously verified raw completion preserves both side raw-colour functions EXACTLY whenever their old-common raw substructure agrees. It proves all E and all P_c relations on both original sides are preserved AND reflected and packages a genuine one-point strong amalgamation theorem in the literal L_C language on `V ⊕ Bool`.
+- An auxiliary `LinearOrder (V ⊕ Bool)` is explicitly assumed for choosing raw representatives. For the paper's finite SAP this can be supplied by a linear order on a finite carrier. General finite SAP and Fraïssé remain OPEN until the finite-order and iterated-one-point bridges are checked.
