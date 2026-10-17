@@ -60,6 +60,7 @@ theorem exists_partPermutation_extending
       induction b using Quotient.inductionOn with
       | _ y =>
         apply Quotient.sound
+        change E x.val y.val
         exact Quotient.exact
           (show Quotient.mk E x.val = Quotient.mk E y.val from hab)
   have hg : Function.Injective g := by
