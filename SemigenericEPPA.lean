@@ -15,6 +15,7 @@ import SemigenericEPPA.Valuations.TwistedPartPermutation
 import SemigenericEPPA.Valuations.PrescribedMultiplierAutomorphisms
 import SemigenericEPPA.Valuations.PrescribedAutomorphism
 import SemigenericEPPA.Valuations.OldVertexExtensionCriterion
+import SemigenericEPPA.Valuations.PartialPartPermutation
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
 import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Valuations.WitnessSkeleton
