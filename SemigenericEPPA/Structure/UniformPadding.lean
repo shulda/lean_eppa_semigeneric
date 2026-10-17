@@ -1,5 +1,6 @@
 import SemigenericEPPA.Structure.QuotientGaugeConverse
 import SemigenericEPPA.Structure.IndexedGauge
+import Mathlib.Data.Fintype.Prod
 
 /-!
 # Explicit equal-size padding of an effective rectangle geometry
@@ -69,7 +70,7 @@ def uniformPaddedFibreEquiv (i : Quotient D.part) :
   left_inv := by
     rintro ⟨⟨j, x⟩, hj⟩
     apply Subtype.ext
-    exact Prod.ext hj rfl
+    exact Prod.ext hj.symm rfl
   right_inv := by
     intro x
     rfl
