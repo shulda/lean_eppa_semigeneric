@@ -150,11 +150,11 @@ theorem combinedOnePointRaw_reverse
     | false =>
       cases y with
       | inl b => exact A.reverse none (some b)
-      | inr _ => rfl
+      | inr other => cases other <;> rfl
     | true =>
       cases y with
       | inl b => exact B.reverse none (some b)
-      | inr _ => rfl
+      | inr other => cases other <;> rfl
 
 /-- Every combined prescribed edge has EXACTLY the effective colour
 assigned by the global, already-verified effective amalgam.
