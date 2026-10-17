@@ -309,3 +309,11 @@ additional transfinite B-Ext characterization.
 - `Structure/StrongSquare.lean` formalizes the carrier-level strong-square conditions: commutativity on the base, exact intersection of images, and joint image coverage of the amalgam.
 - Proves interchange of sides, both identity-square base cases, and **horizontal pasting**: composing two strong squares along their common intermediate side produces another strong square, with exact overlap *and* image coverage.
 - This is the algebraic categorical kernel of the induction from one-point to arbitrary finite SAP. It is independent of a relational language; typed `Structure.Embedding` maps supply the injections in applications. The remaining finite-filtration/existence induction is OPEN.
+
+
+## 2026-10-17 — effective EPPA valuation carrier and target incidence
+
+- `Valuations/EffectiveCarrier.lean` formalizes witness parts `(V/E) × (V → G)`, witness vertices `(q,x,χ)` with `[x]=q.1`, and a vertex-valuation coordinate for every *other* witness part.
+- The combined incidence is **literally** `χ(r) * r.2(x)` for the TARGET part `r=(j,g)`; it does not use the source part valuation. This is paper equation (3.5), the critical target/source distinction.
+- Any affine-reversal-compatible witness skeleton yields a genuine effective rectangle geometry via the verified `IndexedGauge` theorem, and the exact formula (3.6) is proved. Distinguished old parts/vertices with neutral part valuations are injected and their old incidence coordinates recovered.
+- This starts gate E0 but is **not** yet an EPPA witness theorem: finiteness of the carrier, old F preservation for a chosen skeleton, and individual partial-automorphism extensions remain OPEN.
