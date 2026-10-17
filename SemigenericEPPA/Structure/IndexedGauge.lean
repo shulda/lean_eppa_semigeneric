@@ -163,7 +163,7 @@ end IndexedGauge
 /-- On a strong two-new-vertex carrier, the canonical class-index
 function is an appropriate label map, regardless of unoccupied labels.
 The skeleton and gauge coordinates will be chosen by the SAP proof. -/
-def onePointIndexedGauge
+noncomputable def onePointIndexedGauge
     (D : EffectiveGeometry s V)
     (L R : OnePointEffectiveExtension D)
     (K : (Quotient D.part ⊕ Bool) →
