@@ -145,7 +145,18 @@ def ofQuotientGauge (Q : QuotientGauge s V) :
 theorem ofQuotientGauge_effective (Q : QuotientGauge s V)
     (x y : V) :
     (ofQuotientGauge Q).effective x y = Q.effective x y := by
-  rfl
+  classical
+  by_cases hpart : Q.part x y
+  · have hlabel : Q.cls x = Q.cls y :=
+      (Q.cls_eq_iff x y).2 hpart
+    simp [IndexedGauge.effective, ofQuotientGauge,
+      QuotientGauge.effective, hlabel, hpart]
+  · have hlabel : Q.cls x ≠ Q.cls y := by
+      intro heq
+      exact hpart ((Q.cls_eq_iff x y).1 heq)
+    rw [IndexedGauge.effective_cross (ofQuotientGauge Q) x y hlabel,
+      Q.effective_cross x y hpart]
+    rfl
 
 end IndexedGauge
 
@@ -159,13 +170,13 @@ def onePointIndexedGauge
          (Quotient D.part ⊕ Bool) → G)
     (hK : ∀ i j : Quotient D.part ⊕ Bool,
       i ≠ j → K j i = s (K i j))
-    (λ : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G) :
+    (coords : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G) :
     IndexedGauge s (TwoPointCarrier V) (Quotient D.part ⊕ Bool) where
   label := combinedPartIndex D.part
     L.toPartExtension R.toPartExtension
   skeleton := K
   skeleton_reverse := hK
-  vertexGauge := λ
+  vertexGauge := coords
 
 /-- The E-partition reconstructed from such arbitrary-label gauges
 is exactly the previously verified strong one-point part amalgam. -/
@@ -176,9 +187,9 @@ theorem onePointIndexedGauge_part
          (Quotient D.part ⊕ Bool) → G)
     (hK : ∀ i j : Quotient D.part ⊕ Bool,
       i ≠ j → K j i = s (K i j))
-    (λ : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G)
+    (coords : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G)
     (x y : TwoPointCarrier V) :
-    (onePointIndexedGauge D L R K hK λ).toEffectiveGeometry.part x y ↔
+    (onePointIndexedGauge D L R K hK coords).toEffectiveGeometry.part x y ↔
       (amalgamPartSetoid D.part L.toPartExtension R.toPartExtension) x y :=
   Iff.rfl
 
