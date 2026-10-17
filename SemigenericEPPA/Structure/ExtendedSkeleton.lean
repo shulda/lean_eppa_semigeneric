@@ -105,24 +105,24 @@ theorem onePointSkeleton_reverse
     onePointSkeleton D j i = s (onePointSkeleton D i j) :=
   extendedSkeleton_reverse D.toQuotientGauge i j hij
 
-/-- Once the vertex gauges λ are selected, the resulting effective
+/-- Once the vertex gauges coords are selected, the resulting effective
 geometry automatically has the exact strong amalgam E-relation. -/
 noncomputable def onePointSkeletonGauge
     (D : EffectiveGeometry s V)
     (L R : OnePointEffectiveExtension D)
-    (λ : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G) :
+    (coords : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G) :
     IndexedGauge s (TwoPointCarrier V) (Quotient D.part ⊕ Bool) :=
   onePointIndexedGauge D L R
-    (onePointSkeleton D) (onePointSkeleton_reverse D) λ
+    (onePointSkeleton D) (onePointSkeleton_reverse D) coords
 
 theorem onePointSkeletonGauge_part
     (D : EffectiveGeometry s V)
     (L R : OnePointEffectiveExtension D)
-    (λ : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G)
+    (coords : TwoPointCarrier V → (Quotient D.part ⊕ Bool) → G)
     (x y : TwoPointCarrier V) :
-    (onePointSkeletonGauge D L R λ).toEffectiveGeometry.part x y ↔
+    (onePointSkeletonGauge D L R coords).toEffectiveGeometry.part x y ↔
       (amalgamPartSetoid D.part L.toPartExtension R.toPartExtension) x y :=
   onePointIndexedGauge_part D L R
-    (onePointSkeleton D) (onePointSkeleton_reverse D) λ x y
+    (onePointSkeleton D) (onePointSkeleton_reverse D) coords x y
 
 end SemigenericEPPA
