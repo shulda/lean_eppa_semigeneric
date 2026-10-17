@@ -314,3 +314,9 @@ additional transfinite B-Ext characterization.
 
 - `Structure/OnePointStrongSquare.lean` combines the already verified genuine `AllThoseEPPA.Structure.Embedding` one-point SAP theorem with the generic `StrongSquare` interface. The square commutes on all old vertices, has exact overlap and its two images jointly cover the entire carrier `V ⊕ Bool`.
 - The exact cover condition allows successive one-point amalgams to be pasted using `StrongSquare.paste`, instead of silently producing additional intermediate vertices. The finite induction over arbitrary diagrams remains OPEN.
+
+## 2026-10-17 — arbitrary-carrier one-point SAP
+
+- `Structure/RelativeOnePointSAP.lean` normalizes two *arbitrarily named* one-point R1–R3 extensions with injective old-carrier maps through `Option X`, applies the verified literal typed one-point SAP and transports both embeddings back.
+- The resulting valid structure on `X ⊕ Bool` is a strong amalgam: the two source images intersect *iff* the source vertices are the images of the same old base vertex. Input side carrier types need not match; finiteness of X alone suffices.
+- This is the relative pushout step required to iterate one-point SAP along arbitrary finite diagrams, not yet general finite SAP itself.
