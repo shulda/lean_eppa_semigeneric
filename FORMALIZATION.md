@@ -291,3 +291,8 @@ additional transfinite B-Ext characterization.
 - `Structure/LiteralSAPEmbeddings.lean` packages the verified literal one-point SAP into genuine `AllThoseEPPA.Structure.Embedding` inclusions for the two source structures, with identity language action.
 - Their carrier maps are exactly `firstOnePoint` and `secondOnePoint`, and their images intersect if and only if both vertices are the same old-base vertex. This formally records the strong (no-new-point-identification) character of the amalgam in the API required by iteration.
 - The general finite SAP induction remains OPEN and will use the pullback/reindexing API to normalize arbitrary embeddings and transport the one-point theorem.
+
+## 2026-10-17 — exact reindexing and induced-embedding primitive
+
+- `Structure/Pullback.lean` defines full relational reindexing along arbitrary vertex maps and proves the entire R1–R3 class predicate is preserved. Injective reindexing comes with an actual identity-language `AllThoseEPPA.Structure.Embedding`, and bijective renaming is a special case.
+- This supplies the renaming/restriction step required to normalize arbitrary finite embeddings to standard `Option V` one-point diagrams for the iteration of SAP.
