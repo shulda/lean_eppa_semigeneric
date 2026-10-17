@@ -46,7 +46,7 @@ additional transfinite B-Ext characterization.
 |---|---|---|
 | G0 | finite affine reversal, `S`, cross-part colour type | Affine/group/reversal/rectangle algebra green; cross-part typing OPEN |
 | G1 | recenter group at `g₀ ∈ S`, rank-one gauge, partial gauge transport | Recenter and gauge-colour identities green; congruence action in review, partial transport OPEN |
-| G2 | finite structures, exact induced embeddings, strong amalgamation | Literal L_C and effective colours green; induced-substructure theorem and embedding submitted for CI; SAP OPEN |
+| G2 | finite structures, exact induced embeddings, strong amalgamation | Heredity/induced embedding green; actual part-wise rank-one and gauge formulas in review; SAP OPEN |
 | E0 | effective valuation construction with individual EPPA lifts | OPEN |
 | R0/R1 | raw fibre code, one raw cover, individual raw lifts | OPEN |
 | H0 | finite-group effective action via M/L cocycles, **without S saturation** | OPEN |
@@ -123,3 +123,9 @@ additional transfinite B-Ext characterization.
 - `Structure/Induced.lean` defines arbitrary relational restriction, proves restriction of `E` and `P_c`, and constructs an actual `AllThoseEPPA.Structure.Embedding` for the inclusion.
 - The hereditary closure of all R1–R3 axioms is proved without a finiteness assumption; empty vertex subsets are supported.
 - The subsequent work needs class-indexed rank-one matrices, invariance of the class under general induced embeddings, then one-point SAP. A green CI for this PR certifies only the stated scope.
+
+## 2026-10-17: anchored part matrices
+
+- `Structure/PartMatrix.lean` turns two actual distinct E-classes into a typed total effective matrix, proves its noncommutative rectangle law, and derives rank-one factorization and the manuscript's reversed-edge gauge formula (2.5).
+- It deliberately avoids giving arbitrary values to same-class pairs and keeps `s` affine/noncommutative.
+- This block depends on previously verified R1–R3, effective-colour and rectangle/gauge modules. Exact CI/axiom verification is required before treating it as complete.
