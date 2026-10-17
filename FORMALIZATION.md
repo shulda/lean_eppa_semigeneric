@@ -179,3 +179,9 @@ additional transfinite B-Ext characterization.
 
 - `Algebra/RankOneGaugeTorsor.lean`: two noncommutative rank-one factorizations of the same anchored matrix differ by one unique multiplier k, with row factors right-multiplied by k and column factors left-multiplied by k⁻¹.
 - This preserves every matrix entry and requires no finiteness or commutativity. It is the elementary algebraic kernel for the manuscript's gauge-transition/torsor argument; full affine reversal transport remains OPEN.
+
+## Exact affine two-part gauge torsor (2026-10-17)
+
+- `Algebra/GaugeConverse.lean` proves the *converse* of the manuscript's affine gauge-change formula (2.7): equal effective matrices on two nonempty parts imply unique vertex multipliers u,v, with K' = v K s(1)⁻¹ s(u). The previously checked forward formula supplies the reverse implication.
+- This works for arbitrary nonabelian G and genuinely affine anti-involutions, and is intended for aligning overlapping effective presentations in SAP and later valuation actions.
+- Global multi-part gauge torsors, partial transport and full SAP remain to be formalized.
