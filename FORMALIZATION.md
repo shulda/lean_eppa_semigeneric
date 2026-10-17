@@ -323,3 +323,9 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/OldEmbedding.lean` introduces the exact neutral-part skeleton hypothesis K[(i,h₀),(j,h₀)]=K^A[i,j]. It proves x↦oldWitnessVertex x preserves and reflects the E-partition and every cross-part effective group colour, using target-part incidences χ(r)·g(x).
 - This checks the EFFECTIVE old-embedding step (3.7)–(3.8) with genuinely noncommutative affine reversal. Raw colour lifting and automorphism extension are OPEN, as is the E0 EPPA theorem.
+
+
+## 2026-10-17 — explicit finite-order witness skeleton
+
+- `Valuations/WitnessSkeleton.lean` constructs an affine-reversal-compatible skeleton for the two-layer effective witness from ANY auxiliary linear order on blown-up parts. Neutral-to-neutral entries reproduce the old quotient skeleton exactly; other unordered pairs get 1/s(1) in the two orientations.
+- The old neutral witness embedding therefore preserves all effective cross colours by the verified old-copy theorem. The auxiliary ordering is not part of the structural language. The finite-choice of an order, witness finiteness and extension of partial automorphisms still require their own Lean gates.
