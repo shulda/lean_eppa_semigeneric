@@ -220,8 +220,8 @@ additional transfinite B-Ext characterization.
 - `Structure/QuotientGauge.lean` implements two-sorted gauge data on the canonical quotient `V/E`, with skeleton K and λ coordinates. It proves the paper's formula (2.6) yields an effective E-rectangle geometry with affine reversal and the exact noncommutative rectangle equation, without finiteness or an auxiliary order.
 - This is the forward half of the gauge presentation lemma. The converse (anchored reconstruction for arbitrary effective geometry) and the actual global one-point SAP glue remain OPEN.
 
-## 2026-10-17 — converse quotient gauge presentation
+## 2026-10-17 — full converse canonical gauge presentation
 
-- `Structure/QuotientGaugeConverse.lean` reconstructs the two-sorted skeleton K_ij=F(rep(i),rep(j)) and vertex gauges λ_(x,j)=F(rep(j),x) from arbitrary effective E-geometry, using Quotient.out to choose anchors in each E-class.
-- Proves affine K reversal and the literal reconstruction of F on all cross-part pairs, via the noncommutative anchored rectangle identity. Same-part dummy values are intentionally disregarded.
-- Together with the forward gauge construction this supplies both directions of the manuscript's effective two-sorted presentation (2.6); global SAP and valuation extension arguments remain OPEN.
+- `Structure/QuotientGaugeConverse.lean`: every effective E-geometry admits quotient-indexed skeleton K_ij and vertex gauges λ_(x,j), choosing one representative per E-class via Quotient.out.
+- Proves the skeleton affine reversal and that reconstructing through the gauge formula returns the ORIGINAL effective colour on every cross-part ordered pair, with the noncommutative factor order intact.
+- Combined with the verified forward direction, the two-sorted effective presentation (2.6) is now proven both ways; full one-point SAP assembly remains OPEN.
