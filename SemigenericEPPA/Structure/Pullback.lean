@@ -1,6 +1,7 @@
 import SemigenericEPPA.Structure.Language
 import AllThoseEPPA.Map
 import Mathlib.Tactic.FinCases
+import Mathlib.Data.Fintype.Fin
 
 /-!
 # Reindexing and exact induced maps of rectangle structures
