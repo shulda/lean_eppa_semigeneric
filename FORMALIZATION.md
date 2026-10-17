@@ -197,3 +197,9 @@ additional transfinite B-Ext characterization.
 - `Structure/EffectiveGeometry.lean` isolates the effective E-rectangle geometry from raw fibres, with affine reversal required only on distinct E-parts and the exact noncommutative rectangle equation.
 - Every existing `IsRectangleStructure` produces such geometry canonically, using the dummy value 1 on same-part pairs (where all algebraic axioms are indifferent). Old prescribed raw colours are proved compatible with the resulting F.
 - `EffectiveGeometry.of_cross_eq` proves same-part dummy values can be changed arbitrarily with no effect on the geometry. This module prepares the common effective F of the one-point amalgam; that existence theorem remains OPEN.
+
+## 2026-10-17 — forced corner from real one-point effective geometries
+
+- `Structure/OnePointEffective.lean` introduces typed one-point effective extensions of one common base, with exact E and F on all old pairs. The old E-part matrices are shown to satisfy the noncommutative rectangle law.
+- When the new left vertex attaches to old part P and the new right vertex to a distinct old part Q, the R3 laws of the respective *actual one-point geometries* imply exactly the RowCompatible and ColumnCompatible assumptions of the existing corner lemma.
+- The resulting forced effective corner is independent of the old anchor choices and satisfies every rectangle on the extended P×Q matrix. This proves the substantial old-part/old-part SAP component; global case dispatch and raw-colour embedding assembly remain OPEN.
