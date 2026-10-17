@@ -226,6 +226,13 @@ additional transfinite B-Ext characterization.
 - Proves the skeleton affine reversal and that reconstructing through the gauge formula returns the ORIGINAL effective colour on every cross-part ordered pair, with the noncommutative factor order intact.
 - Combined with the verified forward direction, the two-sorted effective presentation (2.6) is now proven both ways; full one-point SAP assembly remains OPEN.
 
+
+## 2026-10-17 — arbitrary-label gauge for global SAP
+
+- `Structure/IndexedGauge.lean`: gauge coordinates may be indexed by an arbitrary type I and map `label : V → I`, **not necessarily surjective**. The induced E is equality of labels; the exact affine/noncommutative gauge expression yields effective reversal and all rectangle laws.
+- Old quotient-indexed gauges embed as a special case. The verified strong one-point part amalgam on `V ⊕ Bool` is realized exactly by the `combinedPartIndex` label map into `(Quotient E) ⊕ Bool`, even when some fresh labels are unoccupied.
+- The **global selection** of K and λ preserving both existing one-point effective geometries is still OPEN. This eliminates the label/quotient-type mismatch but is not yet an SAP theorem.
+
 ## 2026-10-17 — attached-new vertex side-preservation kernel
 
 - `Structure/AttachedGaugeFactor.lean` proves directly from the actual one-point effective geometry that an attached new vertex has the exact noncommutative gauge formula `F(new,a)=s(F(q,new))*F(p,q)⁻¹*F(p,a)` towards a different old part, including transport of the old representative p within its E-class.
