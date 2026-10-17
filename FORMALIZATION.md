@@ -275,3 +275,9 @@ additional transfinite B-Ext characterization.
 
 - `Structure/FiniteOnePointRaw.lean` proves every finite common carrier has an auxiliary linear order (chosen via `Fintype.equivFin`) and therefore strengthens the exact raw one-point SAP theorem to finite bases without any additional order condition. The auxiliary order does NOT belong to the relational language.
 - The two new vertices remain genuinely distinct in `V ⊕ Bool`, and all old E and raw P_c predicates are preserved and reflected on both sides. Global finite SAP, Fraïssé and EPPA remain separate goals.
+
+
+## 2026-10-17 — exact reindexing and induced-embedding primitive
+
+- `Structure/Pullback.lean` defines full relational reindexing along arbitrary vertex maps and proves the entire R1–R3 class predicate is preserved. Injective reindexing comes with an actual identity-language `AllThoseEPPA.Structure.Embedding`, and bijective renaming is a special case.
+- This supplies the renaming/restriction step required to normalize arbitrary finite embeddings to standard `Option V` one-point diagrams for the iteration of SAP.
