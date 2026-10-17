@@ -150,8 +150,15 @@ additional transfinite B-Ext characterization.
 - This is a local matrix lemma; actual strong amalgamation with raw colours and all E-part patterns remains OPEN.
 
 
-## 2026-10-17 — completion of prescribed raw cross-colours
+## 2026-10-17 — exact one-point E-partition amalgam
 
-- Algebra/PrescribedRawLift.lean constructs, on an auxiliary linearly ordered carrier, a total raw colouring of all ordered cross-E pairs compatible with prescribed partial raw colours and a reversal-compatible effective colour function.
-- It proves that old raw colours are retained, the new raw colouring is reversible and excludes same-part edges, and every raw colour projects to the original effective F. Only phi-surjectivity and reversal-equivariance of RawDatum are needed; NO self-reversing colour is assumed.
-- This is a standalone raw-fibre choice step, not yet a full SAP witness or an automorphism-extension theorem.
+- Structure/OnePointParts.lean proves that two equivalence-relation extensions of a common old carrier by separate new points admit a strong amalgam on the old carrier plus two *distinct* new vertices. Every old E-equivalence and both one-point restrictions are preserved and reflected.
+- Attaching both new vertices to the same old class is allowed while their vertex identities remain distinct. Fresh classes are separated; empty old carrier is supported.
+- Together with the already green CornerAmalgamation and SamePartRows modules this closes the **abstract E-partition and local group-valued matrix cases**, but does NOT yet yield full SAP of raw-coloured structures.
+
+
+## 2026-10-17 — prescribed raw-colour completion
+
+- Algebra/PrescribedRawLift.lean proves raw fibre completion of a reversible effective colouring with any compatible prescribed partial raw edges. Cross-pair colours exist, keep all existing prescribed labels, are reversed by the raw involution and map to the prescribed effective F through phi.
+- The construction orients each unordered cross-edge via a temporary linear order. Crucially, NO self-reversing colour hypothesis or S-orbit saturation is assumed.
+- This is the raw-choice kernel of SAP. Integration with the actual R1--R3 structures and effective part-amalgam remains OPEN.

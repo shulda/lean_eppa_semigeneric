@@ -10,6 +10,7 @@ import SemigenericEPPA.Structure.EffectiveColour
 import SemigenericEPPA.Structure.Induced
 import SemigenericEPPA.Structure.PartMatrix
 import SemigenericEPPA.Structure.PartQuotient
+import SemigenericEPPA.Structure.OnePointParts
 import SemigenericEPPA.Bridge.CoherentEPPA
 
 /-!
