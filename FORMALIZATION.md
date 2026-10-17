@@ -174,3 +174,8 @@ additional transfinite B-Ext characterization.
 - `Structure/EffectiveRawExtension.lean` packages explicit hypotheses for a reversible effective E-rectangle geometry F and compatible prescribed partial raw colours.
 - It constructs a genuine `L_C`-structure satisfying R1–R3 with exactly the original E and all old raw-colour predicates preserved. No hypothesis involving S or coherent EPPA is used.
 - Full SAP remains OPEN until a compatible effective F is constructed on all one-point amalgams and genuine old-side embeddings are proved.
+
+## Rank-one transition torsor (2026-10-17)
+
+- `Algebra/RankOneGaugeTorsor.lean`: two noncommutative rank-one factorizations of the same anchored matrix differ by one unique multiplier k, with row factors right-multiplied by k and column factors left-multiplied by k⁻¹.
+- This preserves every matrix entry and requires no finiteness or commutativity. It is the elementary algebraic kernel for the manuscript's gauge-transition/torsor argument; full affine reversal transport remains OPEN.
