@@ -119,6 +119,12 @@ including in the empty-carrier case. -/
 theorem finite_uniformPaddedCarrier [Finite V] :
     Finite (Quotient D.part × V) := by
   classical
+  have hsurj : Function.Surjective (Quotient.mk D.part) := by
+    intro q
+    induction q using Quotient.inductionOn with
+    | _ x => exact ⟨x, rfl⟩
+  letI : Finite (Quotient D.part) :=
+    Finite.of_surjective (Quotient.mk D.part) hsurj
   infer_instance
 
 end EffectiveGeometry
