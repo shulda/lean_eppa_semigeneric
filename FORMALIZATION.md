@@ -244,3 +244,8 @@ additional transfinite B-Ext characterization.
 - `Structure/OnePointGaugeChoice.lean` selects concrete λ coordinates from the old effective geometry and the two one-point extensions, distinguishing attached new vertices and fresh singleton labels.
 - The indexed skeleton with these coordinates creates one genuine global effective rectangle geometry. It is proved to preserve the exact strong E amalgam and the OLD–OLD effective colours. For a fresh new E-part it also preserves all outgoing effective colours to old vertices (on either side).
 - Remaining SAP assembly proof: attached-new/old colour preservation, reversal of the freshly proved edges, then transport of prescribed raw colours and the two exact embeddings. These results are not silently asserted here.
+
+## 2026-10-17 — attached side preservation in the global gauge
+
+- `Structure/OnePointGaugeAttached.lean` proves that the explicit global indexed gauge reproduces every new-to-old effective edge for either one-point extension when the new vertex belongs to an existing old E-class and the old endpoint is cross-part. This uses the actual attached-new R3 factor lemma.
+- Combined with the fresh-new/old and old/old preservation lemmas of `OnePointGaugeChoice`, this covers all nontrivial SIDE-preservation cases; the all-pairs cross-preservation theorem is still to be packaged and verified before calling effective one-point SAP complete.
