@@ -1,5 +1,6 @@
 import SemigenericEPPA.Structure.OnePointRawExact
 import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fintype.Sum
 import Mathlib.Order.Basic
 
 /-!
