@@ -46,6 +46,7 @@ import SemigenericEPPA.Structure.LiteralOnePointSAP
 import SemigenericEPPA.Structure.LiteralSAPEmbeddings
 import SemigenericEPPA.Structure.QuotientGaugeConverse
 import SemigenericEPPA.Structure.UniformPadding
+import SemigenericEPPA.Structure.PaddedQuotientEquiv
 import SemigenericEPPA.Structure.OnePointEffective
 import SemigenericEPPA.Structure.AttachedGaugeFactor
 import SemigenericEPPA.Structure.OnePointSamePart
