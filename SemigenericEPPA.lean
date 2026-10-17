@@ -18,6 +18,7 @@ import SemigenericEPPA.Valuations.PrescribedAutomorphism
 import SemigenericEPPA.Valuations.OldVertexExtensionCriterion
 import SemigenericEPPA.Valuations.PartialPartPermutation
 import SemigenericEPPA.Valuations.UniformFibrePermutation
+import SemigenericEPPA.Valuations.PaddedPartialPermutations
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
 import SemigenericEPPA.Valuations.OldEmbedding
 import SemigenericEPPA.Valuations.WitnessSkeleton
