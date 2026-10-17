@@ -89,6 +89,7 @@ theorem of_cross_eq
       rw [hcross x₀ y₀ h00, hcross x₀ y₁ h01,
         hcross x₁ y₀ h10, hcross x₁ y₁ h11]
       exact D.rectangle x₀ x₁ y₀ y₁ hx hy h00
+  }
   exact ⟨D', rfl, rfl⟩
 
 end EffectiveGeometry
