@@ -385,3 +385,64 @@ additional transfinite B-Ext characterization.
 
 - Valuations/WitnessFiniteness.lean constructs actual Fintype enumerations of both witness parts (V/E) × G^V and all witness vertices (q,x,χ), via the verified dependent-sum witness equivalence. For finite V and finite G the full witness is finite, including the empty-old-carrier case.
 - This closes the finite-carrier component of effective witness E0; extending old partial automorphisms and selecting raw fibre labels remain OPEN.
+
+## 2026-10-17 — effective valuation continuation (verified PRs #54–#58)
+
+All claims in this section concern the **effective group-valued geometry**. They
+do not establish ordinary EPPA for the full raw-coloured class, coherent EPPA,
+or DLF. These changes were merged to `main` only after their Lean CI builds
+and axiom audits succeeded.
+
+- **PR #54** — `Valuations/TwistedPartPermutation.lean`: formula
+  `σ(j,h)=(ι(j),h')`, `h'(π x)=L_j(x)h(x)` is an actual permutation,
+  even for noncommutative `G`, with inverse and fibrewise old-label
+  equivalences. Its induced witness automorphism sends the old-label
+  coordinate to `π x`. Neutral valuations remain neutral whenever the
+  corresponding twist `L_j` is pointwise 1.
+- **PR #55** — `Valuations/PrescribedMultiplierAutomorphisms.lean`:
+  an arbitrary **chosen** ordered multiplier family `m(q,r)` satisfying
+  affine skeleton equation (3.9) gives a genuine vertex equivalence,
+  preserving/reflecting E, fixing every effective cross-part colour,
+  and obeying the exact target-incidence law (3.11). Importantly this
+  does **not** force the previously used canonical choice `m=1` on
+  auxiliary ordered pairs.
+- **PR #56** — `Algebra/ConstrainedWitnessMultipliers.lean`:
+  distinguish witness parts by `P`; prescribe `a(q,r)` for *all*
+  different target parts `r` when `P(q)`. If equation (3.15)
+  holds on `P×P`, complete the prescribed data to a multiplier
+  family satisfying (3.9) on every ordered pair. Mixed pairs use the
+  forced affine reverse (3.10), unconstrained pairs use the verified
+  order-based choice. The prescribed values survive exactly.
+- **PR #57** — `Valuations/PrescribedAutomorphism.lean`:
+  assemble #55 and #56 into one actual automorphism preserving E and
+  every effective cross-colour, with the literal incidence equation
+  `λ_(T X)(σ r)=a(q,r) λ_X(r)` when the source `q` belongs to `P`.
+  A reversed-inequality Lean type error found by CI was corrected
+  transparently and the final build passed.
+- **PR #58** — `Algebra/AnchoredPartialGauge.lean`:
+  equal bipartite effective matrices with nonempty left/right anchors
+  determine the explicit unique source multipliers
+  `u=a'(x₀)a(x₀)⁻¹` and `v=b'(y₀)b(y₀)⁻¹`. These satisfy the
+  coordinate identities (3.14) and the precise noncommutative affine
+  compatibility law (3.15), through the existing gauge converse.
+
+**Current authoritative E0 status.** The finite two-layer witness,
+the effective old embedding, actual witness automorphisms, compatible
+multiplier completion, and anchored gauge multiplier algebra are now
+machine checked. The headline **effective EPPA extension theorem is
+still OPEN**: for an arbitrary typed old partial automorphism `p`,
+formalize the partial injection of old E-classes, extend it to a
+permutation of all E-classes, extend `p` to a class-respecting
+bijection of old vertices after equal-size padding, construct the
+twists `L_{x,j}` from (3.16), establish the required compatibility
+of the prescribed multipliers, and finally show that the selected
+automorphism sends **every** old vertex in `dom(p)` to its prescribed
+old copy in `ran(p)`.
+
+**Other major gates.** The ordinary full raw-colour EPPA theorem
+still needs the finite affine residual code and raw-fibre cover
+(R0/R1), followed by its individual partial-map lift. Global
+finite SAP remains open at the final filtration/pasting stage despite
+the verified literal and relative one-point SAP results. Coherent
+EPPA, the fixed-cover group action, and relative DLF are separate
+later gates; individual extensions do not imply a coherent lift.
