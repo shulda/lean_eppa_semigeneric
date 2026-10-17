@@ -168,3 +168,9 @@ additional transfinite B-Ext characterization.
 - `Algebra/PrescribedRawLift.lean` proves total raw-colour completion of a reversible effective colouring with compatible partially prescribed raw edges, preserving all prescribed edges and `φ` values.
 - It orients each unordered cross-edge using a temporary linear order, so no self-reversing raw colour or congruence-orbit saturation is needed.
 - This is a raw-choice component, not yet the complete one-point SAP theorem; a bridge to `RawRectanglePresentation` and effective geometry is still required.
+
+## 2026-10-17 — exact effective-to-raw construction
+
+- `Structure/EffectiveRawExtension.lean` packages explicit hypotheses for a reversible effective E-rectangle geometry F and compatible prescribed partial raw colours.
+- It constructs a genuine `L_C`-structure satisfying R1–R3 with exactly the original E and all old raw-colour predicates preserved. No hypothesis involving S or coherent EPPA is used.
+- Full SAP remains OPEN until a compatible effective F is constructed on all one-point amalgams and genuine old-side embeddings are proved.
