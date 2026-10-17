@@ -66,7 +66,9 @@ theorem globallyForcedWitnessMultiplier_equation
     have hk : K i j = s (K j i) := hK j i hij.symm
     have hsk : K (σ i) (σ j) =
         s (K (σ j) (σ i)) :=
-      hK (σ j) (σ i) (σ.injective hij.symm)
+      hK (σ j) (σ i) (by
+        intro heq
+        exact hij.symm (σ.injective heq))
     have h := eppe_reverseMultiplier_backward
       s (K j i) (K (σ j) (σ i)) 1
     simpa [globallyForcedWitnessMultiplier, hij, hij.symm,
