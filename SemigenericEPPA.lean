@@ -8,6 +8,7 @@ import SemigenericEPPA.Algebra.CornerAmalgamation
 import SemigenericEPPA.Algebra.SamePartRows
 import SemigenericEPPA.Algebra.CongruenceAction
 import SemigenericEPPA.Structure.Language
+import SemigenericEPPA.Structure.PairwiseEmbedding
 import SemigenericEPPA.Structure.RawPresentation
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.EffectiveRawExtension
