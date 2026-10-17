@@ -198,8 +198,19 @@ additional transfinite B-Ext characterization.
 - Every existing `IsRectangleStructure` produces such geometry canonically, using the dummy value 1 on same-part pairs (where all algebraic axioms are indifferent). Old prescribed raw colours are proved compatible with the resulting F.
 - `EffectiveGeometry.of_cross_eq` proves same-part dummy values can be changed arbitrarily with no effect on the geometry. This module prepares the common effective F of the one-point amalgam; that existence theorem remains OPEN.
 
-## 2026-10-17 — fresh parts in one-point strong amalgamation
+## 2026-10-17 — old-old SAP corner from genuine one-point geometries
 
-- `Structure/FreshPart.lean` proves both new vertices have singleton E-classes when they are fresh (not attached to the old quotient), including an empty base and when both sides add fresh E-parts.
-- This isolates the remaining trivial local rectangle case: a fresh part has no second row/column, hence the cross-edge joining a fresh part to the other new vertex is not constrained by a new four-point rectangle.
-- Does not construct the global effective F; full SAP remains OPEN.
+- `Structure/OnePointEffective.lean` introduces one-point effective extension with exact E and F on the old carrier, and proves the R3 row/column compatibility hypotheses of the forced-corner lemma directly from each extension.
+- For two distinct *old* E-classes P,Q with the two new vertices attached respectively to P and Q, proves that the uniquely forced missing effective colour extends the entire matrix on those two parts with every rectangle valid, independently of old anchors.
+- This is the central old-part/old-part SAP case; the same-old-part and fresh-singleton cases and global assembly remain OPEN.
+
+## 2026-10-17 — two new vertices in the same old E-part
+
+- `Structure/OnePointSamePart.lean` proves that two independently added new vertices in the SAME old E-class have mutually compatible rows and columns towards every other old class, using actual R3 in their respective one-point geometries.
+- Both simultaneous matrices are rank-one; the exact horizontal/vertical displacement identities and independence of the representative of the common old part are formalized. No equal-colour assumption is imposed.
+- This closes the same-old-part local effective SAP case, while global assembly and fresh-part cases remain OPEN.
+
+## 2026-10-17 — fresh E-parts are singleton in one-point strong amalgams
+
+- `Structure/FreshPart.lean` proves a new vertex not attached to an old E-class remains the unique vertex of its own E-class in the strong amalgam. Handles either side, empty old base, and two fresh vertices.
+- This supplies the local trivial-rectangle case for the eventual effective SAP assembly, complementary to the checked old-old forced corner and same-old-part lemmas. No full SAP theorem yet.
