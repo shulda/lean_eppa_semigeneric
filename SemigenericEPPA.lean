@@ -5,6 +5,7 @@ import SemigenericEPPA.Algebra.Gauge
 import SemigenericEPPA.Algebra.SkeletonMultipliers
 import SemigenericEPPA.Valuations.EffectiveCarrier
 import SemigenericEPPA.Valuations.CoordinateTransport
+import SemigenericEPPA.Valuations.TransportEquiv
 import SemigenericEPPA.Algebra.RankOneGaugeTorsor
 import SemigenericEPPA.Algebra.GaugeConverse
 import SemigenericEPPA.Algebra.CornerAmalgamation

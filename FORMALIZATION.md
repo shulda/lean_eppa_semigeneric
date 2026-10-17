@@ -344,3 +344,8 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/CoordinateTransport.lean` defines the fibre of old labels over each blown-up witness part and constructs the transported vertex under any witness-part permutation σ, fibre bijections ρ_q and ordered pair multipliers m(q,r).
 - The defining coordinate uses the TARGET part valuation at the NEW old label. Proves `λ_(ΘX)(σr) = m(q,r) λ_X(r)` exactly, plus uniqueness of each transported χ-coordinate. No automorphism existence, finiteness or coherent-action assumption is smuggled into the lemma.
+
+## 2026-10-17 — bijectivity of witness-coordinate transport
+
+- `Valuations/TransportEquiv.lean` identifies the witness vertex type as a dependent sum of old E-class fibres and valuation functions. For ANY σ of witness parts and bijections ρ_q on old-label fibres, the target-part χ-transport (3.11) is built from explicit equivalences of coordinate function spaces and yields a total bijection of witness vertices.
+- This removes bijectivity as an assumption in the candidate witness automorphism theorem; preservation of colours follows from the separately verified affine skeleton multiplier equation. Extending every old partial automorphism remains OPEN.
