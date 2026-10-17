@@ -155,3 +155,10 @@ additional transfinite B-Ext characterization.
 - Structure/OnePointParts.lean proves that two equivalence-relation extensions of a common old carrier by separate new points admit a strong amalgam on the old carrier plus two *distinct* new vertices. Every old E-equivalence and both one-point restrictions are preserved and reflected.
 - Attaching both new vertices to the same old class is allowed while their vertex identities remain distinct. Fresh classes are separated; empty old carrier is supported.
 - Together with the already green CornerAmalgamation and SamePartRows modules this closes the **abstract E-partition and local group-valued matrix cases**, but does NOT yet yield full SAP of raw-coloured structures.
+
+
+## 2026-10-17 — exact option-valued raw relational presentation
+
+- Structure/RawPresentation.lean defines a functional data interface: an E-equivalence relation and an Option C raw-colour function, with exact reversal, absence of same-class colours, completeness of cross-class colours and the noncommutative rectangle law.
+- It constructs a genuine AllThoseEPPA.Structure on the L_C language and proves IsRectangleStructure, preserving all four R1--R3 clauses. This is designed as the output of the general prescribed raw-fibre completion lemma.
+- Equivalence with every original relational structure and global strong amalgamation remain to be established.
