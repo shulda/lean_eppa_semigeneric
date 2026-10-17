@@ -125,6 +125,8 @@ theorem finite_uniformPaddedCarrier [Finite V] :
     | _ x => exact ⟨x, rfl⟩
   letI : Finite (Quotient D.part) :=
     Finite.of_surjective (Quotient.mk D.part) hsurj
+  letI : Fintype V := Fintype.ofFinite _
+  letI : Fintype (Quotient D.part) := Fintype.ofFinite _
   infer_instance
 
 end EffectiveGeometry
