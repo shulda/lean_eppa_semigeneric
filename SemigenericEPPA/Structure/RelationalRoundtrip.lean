@@ -31,15 +31,17 @@ namespace IsRectangleStructure
 /-- The canonical optional raw colour, genuinely undefined exactly
 on within-part pairs. -/
 noncomputable def rawOption (h : IsRectangleStructure d A)
-    (x y : V) : Option C :=
-  if hxy : partRel A x y then none
-  else some (h.chosenRaw x y hxy)
+    (x y : V) : Option C := by
+  classical
+  exact if hxy : partRel A x y then none
+    else some (h.chosenRaw x y hxy)
 
 /-- Exact equality between functional raw-colour data and
 the original relational P_c predicate. -/
 theorem rawOption_some_iff (h : IsRectangleStructure d A)
     (c : C) (x y : V) :
     h.rawOption x y = some c ↔ rawRel A c x y := by
+  classical
   by_cases hxy : partRel A x y
   · have hno : ¬rawRel A c x y := by
       intro hc
@@ -62,6 +64,7 @@ the same E-class, including the diagonal. -/
 theorem rawOption_none_iff (h : IsRectangleStructure d A)
     (x y : V) :
     h.rawOption x y = none ↔ partRel A x y := by
+  classical
   by_cases hxy : partRel A x y
   · simp [rawOption, hxy]
   · simp [rawOption, hxy]
@@ -71,6 +74,7 @@ of the original relational language. -/
 theorem rawOption_reverse (h : IsRectangleStructure d A)
     (x y : V) :
     h.rawOption y x = Option.map d.reverse (h.rawOption x y) := by
+  classical
   by_cases hxy : partRel A x y
   · have hyx := h.parts_equiv.symm hxy
     simp [rawOption, hxy, hyx]
