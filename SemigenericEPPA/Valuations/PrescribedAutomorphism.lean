@@ -107,7 +107,7 @@ theorem prescribedEffectiveWitnessAutomorphism_incidence
             (constrainedWitnessMultiplier s K.colour σ P a) X r hr
     _ = a X.part r * X.crossIncidence r hr := by
       rw [constrainedWitnessMultiplier_prescribed
-        s K.colour σ P a X.part r hP hr]
+        s K.colour σ P a X.part r hP hr.symm]
 
 /-- Preservation and reflection of the complete E-partition. -/
 theorem prescribedEffectiveWitnessAutomorphism_part_iff
