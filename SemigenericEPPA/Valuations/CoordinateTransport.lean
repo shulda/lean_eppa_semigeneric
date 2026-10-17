@@ -99,8 +99,7 @@ theorem transportWitnessVertex_crossIncidence
           intro heq
           exact hr (σ.injective heq)) =
       m X.part r * X.crossIncidence r hr := by
-  unfold EffectiveWitnessVertex.crossIncidence
-  dsimp [transportWitnessVertex]
+  dsimp [transportWitnessVertex, EffectiveWitnessVertex.crossIncidence]
   simp only [Equiv.symm_apply_apply]
   group
 
