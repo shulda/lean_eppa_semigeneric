@@ -310,6 +310,28 @@ additional transfinite B-Ext characterization.
 - Proves interchange of sides, both identity-square base cases, and **horizontal pasting**: composing two strong squares along their common intermediate side produces another strong square, with exact overlap *and* image coverage.
 - This is the algebraic categorical kernel of the induction from one-point to arbitrary finite SAP. It is independent of a relational language; typed `Structure.Embedding` maps supply the injections in applications. The remaining finite-filtration/existence induction is OPEN.
 
+## 2026-10-17 — literal one-point SAP with exact strong-square cover
+
+- `Structure/OnePointStrongSquare.lean` combines the already verified genuine `AllThoseEPPA.Structure.Embedding` one-point SAP theorem with the generic `StrongSquare` interface. The square commutes on all old vertices, has exact overlap and its two images jointly cover the entire carrier `V ⊕ Bool`.
+- The exact cover condition allows successive one-point amalgams to be pasted using `StrongSquare.paste`, instead of silently producing additional intermediate vertices. The finite induction over arbitrary diagrams remains OPEN.
+
+## 2026-10-17 — arbitrary-carrier one-point SAP
+
+- `Structure/RelativeOnePointSAP.lean` normalizes two *arbitrarily named* one-point R1–R3 extensions with injective old-carrier maps through `Option X`, applies the verified literal typed one-point SAP and transports both embeddings back.
+- The resulting valid structure on `X ⊕ Bool` is a strong amalgam: the two source images intersect *iff* the source vertices are the images of the same old base vertex. Input side carrier types need not match; finiteness of X alone suffices.
+- This is the relative pushout step required to iterate one-point SAP along arbitrary finite diagrams, not yet general finite SAP itself.
+
+## 2026-10-17 — exact one-point adjoining on an arbitrary vertex subset
+
+- `Structure/AdjoinSubset.lean` canonically identifies `Option S` with the subtype of `insert x S` for any `x ∉ S`, including infinite/empty S. It proves the old/fresh vertex cover and freshness and yields a genuine `AllThoseEPPA.Structure.Embedding` into the induced extension.
+- The restriction to old vertices preserves and reflects every E and P_c relation literally and keeps the result in R1–R3. This is the precise type-level normalization needed to build a finite filtration of arbitrary one-point enlargements.
+- Iterating SAP on arbitrary finite diagrams remains OPEN.
+
+
+## 2026-10-17 — EPPA skeleton multiplier algebra (3.9–3.12)
+
+- `Algebra/SkeletonMultipliers.lean`: for arbitrary affine anti-involution s and nonabelian G, given K,K',m the unique reverse multiplier n=K'·(s(1)⁻¹s(m))⁻¹·K⁻¹ satisfies equation (3.9) in BOTH orientations. The second orientation uses the exact identity α²(g)=s(1)⁻¹g s(1).
+- Proves that condition (3.9) preserves every effective cross colour under the corresponding left gauge multipliers, and packages the forced orientation-pair choice. These are the nontrivial algebraic ingredients of (3.10)–(3.12), **not** yet the global witness automorphism construction.
 
 ## 2026-10-17 — effective EPPA valuation carrier and target incidence
 
@@ -317,7 +339,6 @@ additional transfinite B-Ext characterization.
 - The combined incidence is **literally** `χ(r) * r.2(x)` for the TARGET part `r=(j,g)`; it does not use the source part valuation. This is paper equation (3.5), the critical target/source distinction.
 - Any affine-reversal-compatible witness skeleton yields a genuine effective rectangle geometry via the verified `IndexedGauge` theorem, and the exact formula (3.6) is proved. Distinguished old parts/vertices with neutral part valuations are injected and their old incidence coordinates recovered.
 - This starts gate E0 but is **not** yet an EPPA witness theorem: finiteness of the carrier, old F preservation for a chosen skeleton, and individual partial-automorphism extensions remain OPEN.
-
 
 ## 2026-10-17 — literal old copy of the effective EPPA valuation witness
 
