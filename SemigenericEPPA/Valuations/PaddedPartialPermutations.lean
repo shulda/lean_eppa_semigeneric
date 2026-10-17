@@ -72,15 +72,22 @@ theorem exists_paddedPartAndRealPermutations
   have hppart : ∀ z : T, (pp z).1 = ι z.val.1 := by
     intro z
     change Quotient.mk D.part (p ⟨z.val.2, z.property.2⟩) = ι z.val.1
-    rw [z.property.1]
-    exact (hι ⟨z.val.2, z.property.2⟩).symm
+    calc
+      Quotient.mk D.part (p ⟨z.val.2, z.property.2⟩) =
+          ι (Quotient.mk D.part z.val.2) :=
+        (hι ⟨z.val.2, z.property.2⟩).symm
+      _ = ι z.val.1 := congrArg ι z.property.1.symm
   obtain ⟨π, hπpart, hπext⟩ :=
     exists_uniformFibrePermutation_extending T pp hpp ι hppart
   refine ⟨ι, π, hπpart, ?_, ?_⟩
   · intro z w
     change (π z).1 = (π w).1 ↔ z.1 = w.1
     rw [hπpart z, hπpart w]
-    exact ⟨ι.injective, congrArg ι⟩
+    constructor
+    · intro h
+      exact ι.injective h
+    · intro h
+      exact congrArg ι h
   · intro x
     let z : T := ⟨D.paddedOldMap x.val, ⟨rfl, x.property⟩⟩
     have hz := hπext z
