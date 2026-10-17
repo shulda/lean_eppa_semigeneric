@@ -3,6 +3,7 @@ import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
 import SemigenericEPPA.Algebra.SkeletonMultipliers
+import SemigenericEPPA.Algebra.GlobalWitnessMultipliers
 import SemigenericEPPA.Valuations.EffectiveCarrier
 import SemigenericEPPA.Algebra.RankOneGaugeTorsor
 import SemigenericEPPA.Algebra.GaugeConverse

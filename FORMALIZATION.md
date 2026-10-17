@@ -339,3 +339,9 @@ additional transfinite B-Ext characterization.
 - The combined incidence is **literally** `χ(r) * r.2(x)` for the TARGET part `r=(j,g)`; it does not use the source part valuation. This is paper equation (3.5), the critical target/source distinction.
 - Any affine-reversal-compatible witness skeleton yields a genuine effective rectangle geometry via the verified `IndexedGauge` theorem, and the exact formula (3.6) is proved. Distinguished old parts/vertices with neutral part valuations are injected and their old incidence coordinates recovered.
 - This starts gate E0 but is **not** yet an EPPA witness theorem: finiteness of the carrier, old F preservation for a chosen skeleton, and individual partial-automorphism extensions remain OPEN.
+
+## 2026-10-17 — global witness-part multipliers (3.9)
+
+- `Algebra/GlobalWitnessMultipliers.lean` chooses a multiplier for each ordered pair of witness parts for an arbitrary σ. It chooses 1 on increasing pairs and the mathematically forced reverse multiplier otherwise, using an auxiliary linear order.
+- Proves the exact affine/noncommutative skeleton equation (3.9) for ALL ordered distinct pairs, including the reverse orientation, and packages existence of the full multiplier family without any saturation/fixed-raw-colour assumptions.
+- This discharges the ordered multiplier choice in the witness automorphism; the vertex-coordinate bijection and extensions of partial automorphisms remain OPEN.
