@@ -239,6 +239,11 @@ additional transfinite B-Ext characterization.
 - This is valid even if the two fresh labels are unoccupied and if `s(1)≠1`. The resulting generic gauge has exactly the verified strong one-point E-partition.
 - Remaining SAP proof needs selection of vertex gauges λ and proof that the resulting effective F preserves both old one-point extensions.
 
+## 2026-10-17 — attached-new vertex side-preservation kernel
+
+- `Structure/AttachedGaugeFactor.lean` proves directly from the actual one-point effective geometry that an attached new vertex has the exact noncommutative gauge formula `F(new,a)=s(F(q,new))*F(p,q)⁻¹*F(p,a)` towards a different old part, including transport of the old representative p within its E-class.
+- This is the principal algebraic side-preservation lemma for the globally chosen quotient/label gauge, not yet the global SAP assembly itself.
+
 ## 2026-10-17 — explicit global SAP vertex gauges
 
 - `Structure/OnePointGaugeChoice.lean` selects concrete λ coordinates from the old effective geometry and the two one-point extensions, distinguishing attached new vertices and fresh singleton labels.
