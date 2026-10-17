@@ -12,6 +12,7 @@ import SemigenericEPPA.Valuations.TransportEquiv
 import SemigenericEPPA.Valuations.WitnessFiniteness
 import SemigenericEPPA.Valuations.EffectiveAutomorphisms
 import SemigenericEPPA.Valuations.TwistedPartPermutation
+import SemigenericEPPA.Valuations.OldPartialTwists
 import SemigenericEPPA.Valuations.PrescribedMultiplierAutomorphisms
 import SemigenericEPPA.Valuations.PrescribedAutomorphism
 import SemigenericEPPA.Valuations.OldVertexExtensionCriterion
