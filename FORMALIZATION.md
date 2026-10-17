@@ -327,6 +327,12 @@ additional transfinite B-Ext characterization.
 - The restriction to old vertices preserves and reflects every E and P_c relation literally and keeps the result in R1–R3. This is the precise type-level normalization needed to build a finite filtration of arbitrary one-point enlargements.
 - Iterating SAP on arbitrary finite diagrams remains OPEN.
 
+
+## 2026-10-17 — EPPA skeleton multiplier algebra (3.9–3.12)
+
+- `Algebra/SkeletonMultipliers.lean`: for arbitrary affine anti-involution s and nonabelian G, given K,K',m the unique reverse multiplier n=K'·(s(1)⁻¹s(m))⁻¹·K⁻¹ satisfies equation (3.9) in BOTH orientations. The second orientation uses the exact identity α²(g)=s(1)⁻¹g s(1).
+- Proves that condition (3.9) preserves every effective cross colour under the corresponding left gauge multipliers, and packages the forced orientation-pair choice. These are the nontrivial algebraic ingredients of (3.10)–(3.12), **not** yet the global witness automorphism construction.
+
 ## 2026-10-17 — effective EPPA valuation carrier and target incidence
 
 - `Valuations/EffectiveCarrier.lean` formalizes witness parts `(V/E) × (V → G)`, witness vertices `(q,x,χ)` with `[x]=q.1`, and a vertex-valuation coordinate for every *other* witness part.

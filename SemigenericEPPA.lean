@@ -2,6 +2,8 @@ import SemigenericEPPA.Algebra.RawDatum
 import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
+import SemigenericEPPA.Algebra.SkeletonMultipliers
+import SemigenericEPPA.Valuations.EffectiveCarrier
 import SemigenericEPPA.Algebra.RankOneGaugeTorsor
 import SemigenericEPPA.Algebra.GaugeConverse
 import SemigenericEPPA.Algebra.CornerAmalgamation
@@ -40,7 +42,6 @@ import SemigenericEPPA.Structure.OnePointParts
 import SemigenericEPPA.Structure.StrongSquare
 import SemigenericEPPA.Structure.OnePointStrongSquare
 import SemigenericEPPA.Structure.FreshPart
-import SemigenericEPPA.Valuations.EffectiveCarrier
 import SemigenericEPPA.Bridge.CoherentEPPA
 
 /-!
