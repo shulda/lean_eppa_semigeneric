@@ -36,6 +36,7 @@ import SemigenericEPPA.Structure.PartMatrix
 import SemigenericEPPA.Structure.PartQuotient
 import SemigenericEPPA.Structure.OnePointParts
 import SemigenericEPPA.Structure.StrongSquare
+import SemigenericEPPA.Structure.OnePointStrongSquare
 import SemigenericEPPA.Structure.FreshPart
 import SemigenericEPPA.Bridge.CoherentEPPA
 
