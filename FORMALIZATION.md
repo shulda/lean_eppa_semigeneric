@@ -344,3 +344,8 @@ additional transfinite B-Ext characterization.
 
 - `Valuations/CoordinateTransport.lean` defines the fibre of old labels over each blown-up witness part and constructs the transported vertex under any witness-part permutation σ, fibre bijections ρ_q and ordered pair multipliers m(q,r).
 - The defining coordinate uses the TARGET part valuation at the NEW old label. Proves `λ_(ΘX)(σr) = m(q,r) λ_X(r)` exactly, plus uniqueness of each transported χ-coordinate. No automorphism existence, finiteness or coherent-action assumption is smuggled into the lemma.
+
+## 2026-10-17 — effective-colour preservation of candidate witness automorphisms
+
+- `Valuations/ColourPreservingTransport.lean` proves that transport of witness vertices using σ, fibre bijections ρ_q and incidence multipliers m(q,r) preserves and reflects the witness E-relation. If the full affine skeleton equation (3.9) holds, the same map preserves ALL effective cross-part colours by equation (3.12).
+- This combines the explicit target-part coordinate formula (3.11) with the verified noncommutative multiplier algebra, without a hidden finiteness or bijectivity hypothesis. Bijectivity of the witness-vertex map and extension of partial automorphisms are separate OPEN gates.
