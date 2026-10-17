@@ -143,8 +143,15 @@ additional transfinite B-Ext characterization.
 - This proves only the local group-valued core of the one-point SAP construction, NOT global SAP: part amalgamation and raw-colour lifts remain OPEN.
 
 
-## 2026-10-17 — one-point E-partition strong amalgamation
+## 2026-10-17 — two-new-vertex same-E-class rectangle lemma
 
-- Structure/OnePointParts.lean constructs the exact strong amalgam of two one-point equivalence extensions over the same old equivalence relation. Both extension relations are reflected, including empty old carrier and new-class cases, and the new vertices remain distinct.
-- New E-parts are classified by whether they attach to an existing quotient class or begin a fresh class. No old E-classes collapse.
-- This is the partition component of one-point SAP. Raw cross-colour selection and group-valued rectangle cases remain OPEN, as does passage from one-point to arbitrary finite amalgams.
+- Algebra/SamePartRows.lean constructs two simultaneously appended rows, resp. columns, with each new row/column compatible with a common old matrix, and proves the entire enlarged matrix is rank-one and satisfies the rectangle law.
+- It follows that two independently added vertices in the same old E-class are automatically mutually compatible toward every old E-class, covering the algebraic same-part case of one-point SAP.
+- This is a local matrix lemma; actual strong amalgamation with raw colours and all E-part patterns remains OPEN.
+
+
+## 2026-10-17 — exact one-point E-partition amalgam
+
+- Structure/OnePointParts.lean proves that two equivalence-relation extensions of a common old carrier by separate new points admit a strong amalgam on the old carrier plus two *distinct* new vertices. Every old E-equivalence and both one-point restrictions are preserved and reflected.
+- Attaching both new vertices to the same old class is allowed while their vertex identities remain distinct. Fresh classes are separated; empty old carrier is supported.
+- Together with the already green CornerAmalgamation and SamePartRows modules this closes the **abstract E-partition and local group-valued matrix cases**, but does NOT yet yield full SAP of raw-coloured structures.
