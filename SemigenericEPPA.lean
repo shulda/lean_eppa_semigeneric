@@ -9,8 +9,6 @@ import SemigenericEPPA.Algebra.SamePartRows
 import SemigenericEPPA.Algebra.CongruenceAction
 import SemigenericEPPA.Structure.Language
 import SemigenericEPPA.Structure.PairwiseEmbedding
-import SemigenericEPPA.Structure.LiteralOnePointSAP
-import SemigenericEPPA.Structure.LiteralSAPEmbeddings
 import SemigenericEPPA.Structure.RawPresentation
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.EffectiveRawExtension
@@ -24,6 +22,8 @@ import SemigenericEPPA.Structure.OnePointEffectiveAmalgam
 import SemigenericEPPA.Structure.OnePointRawAmalgam
 import SemigenericEPPA.Structure.OnePointRawExact
 import SemigenericEPPA.Structure.FiniteOnePointRaw
+import SemigenericEPPA.Structure.LiteralOnePointSAP
+import SemigenericEPPA.Structure.LiteralSAPEmbeddings
 import SemigenericEPPA.Structure.QuotientGaugeConverse
 import SemigenericEPPA.Structure.OnePointEffective
 import SemigenericEPPA.Structure.AttachedGaugeFactor
