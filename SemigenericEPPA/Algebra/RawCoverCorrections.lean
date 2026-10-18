@@ -34,10 +34,11 @@ Same-part values are irrelevant. -/
 noncomputable def orientedResidualCorrection
     [LinearOrder V]
     (D : EffectiveGeometry s V) (b : V → V → L)
-    (θ : Equiv.Perm V) (x y : V) : L :=
-  if D.part x y then 0
-  else if x < y then b x y - b (θ x) (θ y)
-  else 0
+    (θ : Equiv.Perm V) (x y : V) : L := by
+  classical
+  exact if D.part x y then 0
+    else if x < y then b x y - b (θ x) (θ y)
+    else 0
 
 /-- Literal equation (3.24) for EVERY cross-part ordered pair. -/
 theorem orientedResidualCorrection_equation
@@ -55,6 +56,7 @@ theorem orientedResidualCorrection_equation
     orientedResidualCorrection D b θ x y -
         orientedResidualCorrection D b θ y x =
       b x y - b (θ x) (θ y) := by
+  classical
   have hyx : ¬D.part y x := by
     intro h
     exact hxy (D.part.iseqv.symm h)
