@@ -67,6 +67,7 @@ import SemigenericEPPA.Structure.RawPresentation
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveGeometry
+import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
 import SemigenericEPPA.Structure.RawPartialEffectiveReduct
 import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
