@@ -77,23 +77,24 @@ theorem exists_rawColour_of_involutiveOrbits
         simp [colour, hq]
       rw [hcol]
       exact (Classical.choose_spec (hfixed q hq)).2.symm
-    · have hq' : tau (tau q) ≠ tau q := by
+    · have hneq : q ≠ tau q := Ne.symm hq
+      have hq' : tau (tau q) ≠ tau q := by
         rw [htau q]
-        exact Ne.symm hq
-      rcases lt_or_gt_of_ne (Ne.symm hq) with hlt | hgt
+        exact hneq
+      rcases lt_or_gt_of_ne hneq with hlt | hgt
       · have hnlt : ¬tau q < q :=
           not_lt_of_ge (le_of_lt hlt)
         have hcol : colour q = pick q := by
           simp [colour, hq, hlt]
         have hcol' : colour (tau q) = d.reverse (pick q) := by
-          simp [colour, hq', htau q, hnlt]
+          simp [colour, hq', htau q, hneq, hnlt]
         rw [hcol, hcol']
       · have hnlt : ¬q < tau q :=
           not_lt_of_ge (le_of_lt hgt)
         have hcol : colour q = d.reverse (pick (tau q)) := by
           simp [colour, hq, hnlt]
         have hcol' : colour (tau q) = pick (tau q) := by
-          simp [colour, hq', htau q, hgt]
+          simp [colour, hq', htau q, hneq, hgt]
         rw [hcol, hcol', d.reverse_involutive]
   exact ⟨colour, hphi, hreverse⟩
 
