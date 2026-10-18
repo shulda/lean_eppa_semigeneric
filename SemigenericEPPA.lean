@@ -20,6 +20,7 @@ import SemigenericEPPA.Valuations.PartialPartPermutation
 import SemigenericEPPA.Valuations.UniformFibrePermutation
 import SemigenericEPPA.Valuations.PaddedPartialPermutations
 import SemigenericEPPA.Valuations.PaddedPartialIsomorphism
+import SemigenericEPPA.Valuations.PaddedPartialParameters
 import SemigenericEPPA.Valuations.PaddedGaugeDiagonal
 import SemigenericEPPA.Valuations.PaddedWitnessAutomorphism
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
