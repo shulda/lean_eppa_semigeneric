@@ -34,6 +34,7 @@ import SemigenericEPPA.Structure.InvariantRawResidualMatrix
 import SemigenericEPPA.Structure.InvariantColourFixedGroupLift
 import SemigenericEPPA.Structure.RawCoverFixedGroupLift
 import SemigenericEPPA.Structure.SafePrescribedGroupLiftFixedBaseline
+import SemigenericEPPA.Structure.OneBaselineAllSafeActions
 import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
