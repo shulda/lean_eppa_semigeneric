@@ -114,7 +114,21 @@ theorem exists_partialGaugeMultipliers_from_partialIsomorphism
           _ = gaugeColour s (a (p x) (ι (cls y.val)))
                 (K (ι (cls x.val)) (ι (cls y.val)))
                 (a (p y) (ι (cls x.val))) := by
-              simpa only [hι x, hι y] using hsecond
+              have hx : ι (cls x.val) =
+                  D.toQuotientGauge.cls (p x) := hι x
+              have hy : ι (cls y.val) =
+                  D.toQuotientGauge.cls (p y) := hι y
+              calc
+                D.toQuotientGauge.toEffectiveGeometry.F (p x) (p y) =
+                  gaugeColour s
+                    (a (p x) (D.toQuotientGauge.cls (p y)))
+                    (K (D.toQuotientGauge.cls (p x))
+                      (D.toQuotientGauge.cls (p y)))
+                    (a (p y) (D.toQuotientGauge.cls (p x))) := hsecond
+                _ = gaugeColour s (a (p x) (ι (cls y.val)))
+                      (K (ι (cls x.val)) (ι (cls y.val)))
+                      (a (p y) (ι (cls x.val))) := by
+                    rw [hx, hy]
   let m : Quotient D.part → Quotient D.part → G :=
     partialGaugeMultiplier S p ι cls a
   obtain ⟨hinc, hcompat⟩ :=
