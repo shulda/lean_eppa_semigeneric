@@ -732,3 +732,82 @@ not this prose summary.
 every individually given H is weaker than a globally coherent
 choice of extensions for the relevant partial-isomorphism
 groupoid. No such implication is used without a separate theorem.
+
+
+## 2026-10-18 — certified group-action gates and fixed-baseline frontier
+
+This checkpoint supersedes the historical *coherent / DLF frontier*
+section above. **The ordinary raw EPPA theorem and upstream typed
+EPPA API remain DONE. Coherent EPPA and the relative DLF classification
+are still OPEN.** The mathematical statements are those in the actual
+Lean files; these notes are a status ledger, not additional axioms.
+
+### Certified relative group-action infrastructure
+
+- **#131** transports reversal-safe invariant raw-colour choices on
+  abstract finite directed-edge H-sets (rebased from an earlier PR).
+- **#133–#134** supply the canonical global affine raw encoder and
+  turn an H-invariant reversal-compatible raw edge colouring into
+  a literal H-invariant additive residual matrix.
+- **#137** extends *prescribed* H-invariant old raw colours on an
+  H- and reversal-stable subset of an abstract directed-edge set.
+  Safety is needed only for orbits disjoint from the prescribed part.
+- **#138** chooses one reversal-compatible affine baseline extending
+  prescribed old-old cross-edge references.
+- **#139** constructs a homomorphic H-action on a finite raw cover
+  with H-invariant old zero-section points and correct prescribed
+  old references, given a full H-invariant raw colouring. In this
+  theorem the baseline is chosen **after H and its old subset**.
+- **#140** specializes abstract orbit selection to the ACTUAL finite
+  directed cross-pair subtype of an effective E/F geometry and the
+  induced H-action. The safety hypothesis is an actual H-element
+  interchanging both endpoints of a cross-E pair; it need not have
+  order two.
+- **#141** combines #140, #134 and #128: every endpoint-swap-safe
+  effective H-action lifts homomorphically to a single finite literal
+  raw-colour cover, with no prescribed old subset (S=empty).
+- **#145** constructs a baseline b ONCE from all old raw colours
+  on a global old subset S0, so the very same b works for every
+  later S ⊆ S0 (in particular S=j(D) for different induced D).
+
+PRs #140 and #141 passed full Lean CI/allowed-axiom audit and were
+merged into main, superseding historically conflicted #135/#136.
+
+### Further certified gates and current frontier
+
+- **#142 (merged, CI-green)** extends prescribed old H-invariant raw
+  colours on actual directed cross-E pairs, requiring safe reversal
+  orbits only outside the old subset.
+- **#143 (merged, CI-green)** produces a homomorphic H-action on a
+  finite raw cover with literal preservation of old zero-section
+  vertices and raw edge colours.
+- **#145 (merged, CI-green)** fixes one baseline from the WHOLE old
+  copy and retains the prescribed data for every later S ⊆ S₀.
+- **#147 (merged, CI-green)** rebases the proof of the fixed-baseline
+  H-lift onto current main. The raw cover is chosen before H and S.
+- **#148 (merged, CI-green)** strengthens this to a single baseline
+  chosen before quantifying over ALL later group types H, safe actions
+  and invariant old subsets S.
+
+Thus the relative fixed-cover group-action lemma is verified, subject
+to the exact endpoint-swap safety hypothesis. The remaining burden
+is to construct these safe effective H-actions in the prescribed
+valuation witness and verify coherent groupoid assembly.
+
+### Why the fixed baseline matters
+
+The manuscript's fixed-cover lemma chooses the raw cover and old
+embedding before the induced substructure D and its group Aut(D).
+Choosing a NEW baseline or a NEW raw cover for each H is NOT
+sufficient for coherent-EPPA assembly. The verified PR #148 combines the
+baseline fixed in #145 with the rebased group lift #147.
+Safe effective actions for the actual valuation witness and
+coherent groupoid extension identities remain major obligations.
+This is distinct from the still-open coherent groupoid assembly,
+negative classification and semi-coherent/DLF forcing theorems.
+
+The fixed-cover potential lift currently establishes the correct
+group homomorphism using potential corrections; it need not literally
+be the pure index-relabeling action (3.29) from the particular
+paper presentation. Its semantic action on E and every P_c and on
+old zero-section points is the verified output.
