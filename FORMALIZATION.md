@@ -446,3 +446,91 @@ finite SAP remains open at the final filtration/pasting stage despite
 the verified literal and relative one-point SAP results. Coherent
 EPPA, the fixed-cover group action, and relative DLF are separate
 later gates; individual extensions do not imply a coherent lift.
+
+
+## 2026-10-18 — certified E0 checkpoint through PR #72 (supersedes earlier E0 checkpoint)
+
+The statements below are **individual checked Lean gates, NOT yet the
+effective EPPA existence theorem**. Each named change passed full CI
+(including the allowed-axiom audit) before merging into `main`.
+The public repository is authoritative for their exact Lean types.
+
+- **#59** `Valuations/OldVertexExtensionCriterion.lean` proves full
+  extensionality of witness vertices from part, old label and all
+  target-part cross-incidences. It gives the exact *conditional*
+  old-vertex extension criterion for the prescribed automorphism.
+- **#61** `Valuations/PartialPartPermutation.lean`: every finite
+  partial E-isomorphism induces a partial injection on visited E-parts
+  which extends to a permutation of the entire quotient, including
+  empty partial domains.
+- **#62** `Valuations/UniformFibrePermutation.lean`: a partial real
+  injection on a uniformly indexed carrier `I × U` extends to an
+  actual permutation of real labels, respecting a chosen permutation
+  of `I`, provided the common fibre `U` is finite.
+- **#63** `Structure/UniformPadding.lean`: explicit effective
+  equal-size padding `(V/E) × V` with old embedding
+  `x ↦ ([x],x)`. Exact E and all original cross-part F-colours
+  are preserved; the padded geometry is valid for arbitrary affine
+  reversal, nonabelian G and even empty V.
+- **#64** `Valuations/OldPartialTwists.lean`: defines the literal
+  old partial-domain twists `L_(x,j)` of (3.16), proves that (3.14)
+  yields the desired incidence transport for EVERY target j, and
+  instantiates the actual twisted valuation permutation (3.17).
+- **#65** `Valuations/PaddedPartialPermutations.lean`: combines the
+  finite quotient permutation and padded real-fibre permutation to
+  extend any injective partial E-map of the *original* geometry as
+  an E-preserving total real-label permutation on the padded carrier.
+- **#66** `Structure/PaddedQuotientEquiv.lean`: identifies the
+  canonical quotient of the *padded* E-setoid with the original E
+  quotient and transports permutations without type-level conflation.
+- **#67** `Valuations/PaddedWitnessAutomorphism.lean`: constructs
+  an ACTUAL finite colour-preserving effective-witness automorphism
+  after padding from the real/part permutations and any twist family
+  trivial on visited old classes. Old vertices have the requested
+  target **old-label and neutral witness-part coordinates**, but
+  equality of full witness vertices is NOT claimed.
+- **#69** `Algebra/PartialGaugeFamilies.lean`: one simultaneous,
+  anchored noncommutative affine multiplier family for every pair
+  of visited E-indices. Proves (3.14) and (3.15) under explicit
+  indexed-gauge matrix preservation and self-gauge normalization,
+  including the diagonal and empty-domain cases.
+- **#70** `Valuations/PaddedGaugeDiagonal.lean`: confirms the
+  padding has same-part dummy F=1 and that its canonical gauge
+  satisfies `a_(x,[x])=1`. Also verifies incidence at a different
+  blown-up witness part with the SAME old E-index, needed when
+  i=j in (3.16)–(3.19). This replaces the mathematically identical,
+  CI-green but merge-conflicted #68.
+- **#71** `Valuations/PartialGaugeFromGeometry.lean`: removes the
+  abstract matrix-equation assumption in #69. From an ACTUAL old
+  partial map preserving/reflection E and preserving true group-valued
+  F on all cross-pairs, together with the quotient permutation and
+  normal same-part dummy F=1, constructs one family m(i,j)
+  satisfying (3.14), (3.15), and m(i,i)=1.
+- **#72** `Valuations/PaddedPartialIsomorphism.lean`: transports an
+  actual partial E/F-isomorphism of the original effective structure
+  to the literal old-image subtype of the uniform padded geometry,
+  preserving/reflection E and preserving every cross-part effective
+  colour; the transported map is injective whenever the old one is.
+
+**Exact E0 assembly still OPEN.** For a partial effective
+automorphism p of arbitrary finite A, put B₀ equal to the verified
+uniform padding. First use #72 to get a literal partial
+E/F-isomorphism of B₀. Apply #65/#66 to its class-respecting real
+permutations and #70/#71 to get its concrete multipliers. Define
+L by #64, define σ and fibre maps ρ by #54 and #66, prescribe the
+multipliers on visited *neutral* witness parts by (3.19), and prove
+that (3.15) implies compatibility on their pairwise witness-skeleton
+edges, via the neutral-to-neutral skeleton equation (3.4).
+Then use #57/#59 together with the target-part incidence identity
+to show the resulting **single actual witness automorphism** sends
+every distinguished old vertex of dom(p) to its prescribed entire
+old witness vertex, not merely to one with the right E-part/old label.
+Only after closing that theorem, finite witness and exact old
+embedding APIs are to be packaged into ordinary effective EPPA.
+
+**Other gates remain OPEN.** Raw fibre coding and raw EPPA lifts
+(R0/R1), general finite SAP iteration, fixed-cover group actions,
+coherent EPPA classification, and relative DLF classification have
+not been obtained from these E0 increments. In particular, neither
+an individual automorphism extension nor the existence of all such
+extensions implies a coherent groupoid functor.
