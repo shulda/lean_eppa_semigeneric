@@ -147,9 +147,9 @@ theorem rawCoverTransport_colour
       exact hxy ((hE X.1 Y.1).1 h)
     have hres := rawCoverTransport_residual b correction theta
       X.1 Y.1 (hd X.1 Y.1 hxy) X Y rfl rfl
-    simp only [rawCoverColour, rawCoverTransport_base,
-      if_neg hxy, if_neg htarget]
+    simp only [rawCoverColour, rawCoverTransport_base, if_neg hxy]
     rw [hF X.1 Y.1 hxy, hres]
+    simp only [if_neg htarget]
 
 /-- Every raw relation P_c in the ACTUAL R1–R3 structure is
 preserved and reflected by the coordinate transport. -/
