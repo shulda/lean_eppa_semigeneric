@@ -1,4 +1,5 @@
 import SemigenericEPPA.Algebra.RawDatum
+import SemigenericEPPA.Algebra.InvolutionRetraction
 import SemigenericEPPA.Algebra.ResidualBaseline
 import SemigenericEPPA.Algebra.RawCoverCorrections
 import SemigenericEPPA.Algebra.PrescribedRawCorrections
