@@ -119,18 +119,19 @@ theorem exists_equivariantFibreRetraction
       · have hf' : rA (rA a) ≠ rA a := by
           rw [hrA a]
           exact Ne.symm hf
-        rcases lt_or_gt_of_ne (Ne.symm hf) with hlt | hgt
+        have hrevneq : a ≠ rA a := Ne.symm hf
+        rcases lt_or_gt_of_ne hrevneq with hlt | hgt
         · have hnlt : ¬rA a < a := not_lt_of_ge (le_of_lt hlt)
           have ha : q a = default (pA a) := by
             simp [q, hm, hf, hlt]
           have ha' : q (rA a) = rB (default (pA a)) := by
-            simp [q, hm', hf', hrA a, hnlt]
+            simp [q, hm', hf', hrA a, hrevneq, hnlt]
           rw [ha, ha']
         · have hnlt : ¬a < rA a := not_lt_of_ge (le_of_lt hgt)
           have ha : q a = rB (default (pA (rA a))) := by
             simp [q, hm, hf, hnlt]
           have ha' : q (rA a) = default (pA (rA a)) := by
-            simp [q, hm', hf', hrA a, hgt]
+            simp [q, hm', hf', hrA a, hrevneq, hgt]
           rw [ha, ha', hrB]
   exact ⟨q, hq_image, hq_index, hq_equiv⟩
 
