@@ -1,5 +1,6 @@
 import SemigenericEPPA.Bridge.InvariantRawOrbitColours
 import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Algebra.Group.Hom.Defs
 
 /-!
 # H-invariant raw colouring from safe reversal orbits
