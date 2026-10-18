@@ -119,7 +119,7 @@ theorem RawRectanglePresentation.finite_rawEPPA_witness
     | none =>
         have hP : P.part x y := (P.colour_none_iff x y).mp hc
         have hR : R.part (ψ x) (ψ y) := (hψPart x y).mpr hP
-        exact ((R.colour_none_iff (ψ x) (ψ y)).mpr hR).trans hc.symm
+        exact (R.colour_none_iff (ψ x) (ψ y)).mpr hR
     | some c =>
         have hPc : rawRel P.toStructure c x y :=
           (P.rawRel_toStructure c x y).mpr hc
@@ -127,7 +127,7 @@ theorem RawRectanglePresentation.finite_rawEPPA_witness
           (hψRaw c x y).mpr hPc
         have hcR : R.colour (ψ x) (ψ y) = some c :=
           (R.rawRel_toStructure c (ψ x) (ψ y)).mp hRc
-        exact hcR.trans hc.symm
+        exact hcR
   refine ⟨hFiniteRaw, R, ψ, hψinj, hψPart, hψColour, ?_⟩
   intro S p hp hPartOld hColourOld
   have hPartEff : ∀ x y : S,
