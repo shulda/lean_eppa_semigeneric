@@ -51,6 +51,10 @@ theorem exists_universalAffineResidualCode
   let L := UniversalResidualCarrier C
   letI : Finite L := finite_universalResidualCarrier
   letI : Fintype G := Fintype.ofFinite _
+  letI : Fintype C := Fintype.ofFinite _
+  letI : LinearOrder C :=
+    LinearOrder.lift' (Fintype.equivFin C)
+      (Fintype.equivFin C).injective
   letI : Fintype L := Fintype.ofFinite _
   let A := G × L
   letI : Fintype A := inferInstance
@@ -65,20 +69,20 @@ theorem exists_universalAffineResidualCode
     rintro ⟨g, l⟩
     apply Prod.ext
     · exact d.s.involutive g
-    · change shift (d.s g) - (shift g - l) = l
+    · change universalResidualShift d (d.s g) -
+          (universalResidualShift d g - l) = l
       rw [universalResidualShift_reverse d g]
       abel
   have he : Function.Injective e := by
     intro c c' h
-    apply universalResidualEncode_injective d
-    exact congrArg Prod.snd h
+    exact (universalResidualEncode_injective d) (congrArg Prod.snd h)
   have hequiv : ∀ c : C, e (d.reverse c) = rA (e c) := by
     intro c
     apply Prod.ext
     · exact d.equivariant c
-    · change enc (d.reverse c) = shift (d.phi c) - enc c
+    · change universalResidualEncode d (d.reverse c) =
+        universalResidualShift d (d.phi c) - universalResidualEncode d c
       exact universalResidualEncode_reverse d c
-  have hindexA : ∀ a : A, a.1 = a.1 := fun _ => rfl
   have hrevIndexA : ∀ a : A, (rA a).1 = d.s a.1 := by
     intro a
     rfl
@@ -121,11 +125,10 @@ theorem exists_universalAffineResidualCode
       encoder (d.s g) (d.reverseFibre g c) =
         shift g - encoder g c := by
     intro g c
-    change enc (d.reverse c.val) = shift g - enc c.val
-    have hc := universalResidualEncode_reverse d c.val
-    change enc (d.reverse c.val) =
-      shift (d.phi c.val) - enc c.val at hc
-    simpa only [c.property] using hc
+    change universalResidualEncode d (d.reverse c.val) =
+      universalResidualShift d g - universalResidualEncode d c.val
+    simpa only [c.property] using
+      (universalResidualEncode_reverse d c.val)
   exact ⟨{
     shift := shift
     shift_reverse := universalResidualShift_reverse d
