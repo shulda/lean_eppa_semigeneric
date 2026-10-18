@@ -120,6 +120,7 @@ import SemigenericEPPA.Bridge.InvariantRawOrbitColours
 import SemigenericEPPA.Bridge.InvariantRawGroupOrbits
 import SemigenericEPPA.Bridge.PrescribedGroupInvariantRawOrbits
 import SemigenericEPPA.Bridge.GeometricInvariantRawCrossPairs
+import SemigenericEPPA.Bridge.GeometricPrescribedRawCrossPairs
 import SemigenericEPPA.Structure.SafeGroupRawCoverAction
 import SemigenericEPPA.Bridge.PrescribedRawOrbitColours
 
