@@ -97,7 +97,7 @@ theorem universalResidualShift_reverse
   · have hfix' : ¬ d.s (d.s g) = d.s g := by
       intro h
       apply hfix
-      exact (d.s.involutive g).symm.trans h
+      exact ((d.s.involutive g).symm.trans h).symm
     simp [universalResidualShift, hfix, hfix']
 
 /-- The coefficient carrier is finite whenever C is finite,
