@@ -655,3 +655,80 @@ the verified one-point SAP. No implication from ordinary EPPA to
 coherent EPPA is presumed. The functional `RawDatum` hypotheses
 (and the action conventions) must continue to be audited against
 the article and its stated class definitions.
+
+
+## 2026-10-18 — coherent and DLF frontier after verified PRs #118–#128
+
+**Ordinary raw EPPA is DONE**, including the typed upstream
+`AllThoseEPPA.Structure.IsEPPAWitness` API (merged PR #119).
+The following coherent/DLF work is mathematically distinct.
+A simultaneous lift of one finite group H of global automorphisms
+is not, by itself, a coherent groupoid assignment for all partial
+isomorphisms.
+
+### Verified gates in main
+
+- **#118**: the swapped-raw-pair obstruction yields a congruence-orbit
+  restriction on possible reversal-good effective colours.
+- **#120**: an involutive extension of a prescribed old
+  transposition forces the corresponding congruence-good raw fibre
+  condition. These are necessary-obstruction components, NOT the
+  complete negative coherent-EPPA/relative-DLF classification.
+- **#121** `Structure/RawCoverPotentialCocycle.lean`:
+  the additive potential correction satisfies exact telescoping
+  and composition laws (4.9)–(4.10).
+- **#122** `Structure/RawCoverPotentialAutomorphisms.lean`:
+  invariant residual potentials yield actual automorphisms of one
+  fixed raw-coloured cover, preserving every literal P_c relation.
+- **#123** `Structure/RawCoverRelativePotentials.lean`:
+  finite relative interpolation (4.8), with ZERO outgoing rows on
+  a prescribed old subset and the exact target residual matrix on
+  all cross-part pairs.
+- **#124** `Structure/RawCoverPotentialGroupAction.lean`:
+  a genuine group homomorphism H→Perm(raw cover) from an invariant
+  residual matrix, including strict preservation of old zero
+  sections where the old subset is H-invariant.
+- **#125**: reversal-compatible selection of raw representatives
+  on arbitrary finite involutive effective-coloured orbit sets,
+  assuming a self-reversing raw representative whenever an orbit
+  is fixed by reversal.
+- **#127**: extension of prescribed old raw colours on a
+  reversal-stable subset of those orbit sets, with strict
+  agreement and compatibility on every remaining orbit.
+- **#128** `Structure/RawCoverFixedGroupLift.lean`:
+  the CONDITIONAL fixed finite-cover action, with a homomorphic
+  H-lift and exact action on prescribed old zero-section vertices,
+  given one H-invariant reversal-compatible residual matrix r
+  agreeing with the baseline b on old-old cross-part pairs.
+
+Each listed merged result passed Lean CI and the allowed-axiom
+audit. The canonical source remains the actual Lean declaration,
+not this prose summary.
+
+### Still open
+
+1. Instantiate the abstract H-orbit raw-colour construction on
+   the actual ordered cross-part edges of an effective geometry,
+   deriving the safety condition from the manuscript's
+   endpoint-interchange hypothesis. The group-orbit quotient
+   proof was originally submitted in #126 and is being rebased
+   and corrected in #131.
+2. Convert that invariant raw colouring into a single invariant
+   affine residual matrix, with the EXACT old baseline values.
+   The algebraic conversion is under CI in #129; a canonical
+   proof-independent global raw encoder from typed fibre
+   sections is under CI in #130.
+3. Apply the verified finite-cover group lift to the particular
+   effective valuation witness/group action required by the
+   POSITIVE coherent theorem. Verify the exact old embeddings,
+   compositions and all partial-isomorphism groupoid identities.
+4. Prove all necessary NEGATIVE and positive classification
+   implications for coherent EPPA and relative DLF; the earlier
+   group-congruence obstruction lemmas are only components.
+5. Complete the general finite strong-amalgamation iteration
+   from the existing one-point SAP infrastructure.
+
+**Scope warning.** Even an actual H→Aut(cover) homomorphism for
+every individually given H is weaker than a globally coherent
+choice of extensions for the relevant partial-isomorphism
+groupoid. No such implication is used without a separate theorem.
