@@ -114,7 +114,13 @@ theorem referenceWitnessPartPerm_mul_apply
                 (referenceGaugeTwist rho iota z h x q.1 * q.2 x) =
               referenceGaugeTwist rho iota z k (rho h x) (iota h q.1) *
                 ((referenceWitnessPartPerm D rho iota z h q).2 (rho h x)) := by
-                  simpa only [referenceWitnessPartPerm] using hinner.symm
+                  exact congrArg
+                    (fun t : G =>
+                      referenceGaugeTwist rho iota z k (rho h x)
+                        (iota h q.1) * t)
+                    (show referenceGaugeTwist rho iota z h x q.1 * q.2 x =
+                      (referenceWitnessPartPerm D rho iota z h q).2 (rho h x)
+                     from hinner.symm)
             _ = (referenceWitnessPartPerm D rho iota z k
                   (referenceWitnessPartPerm D rho iota z h q)).2
                   (rho k (rho h x)) := by
