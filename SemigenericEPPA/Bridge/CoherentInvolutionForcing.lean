@@ -12,7 +12,7 @@ Assuming only that T preserves all raw colours and E, we deduce
 the formerly prescribed fourth corner of the rectangle:
   F(u,w)=s(F(v,z)).
 Then the certified swapped-pair rectangle lemma forces the
-effective colour a⋆g to admit a self-reversing raw preimage.
+effective colour a⋆g to possess a self-reversing raw preimage.
 
 This theorem needs NO additional guess about the new vertex w or
 its incident effective colours. The still missing global step is
@@ -29,7 +29,7 @@ variable {d : RawDatum G C}
 
 /-- A raw automorphism T which is a genuine involution and swaps
 the two endpoints u,z of an old self-reversing edge forces the
-congruence orbit colour a⋆g to admit a self-reversing raw colour,
+congruence orbit colour a⋆g to possess a self-reversing raw colour,
 provided another vertex v in u's part has F(v,z)=a*g.
 
 The proof derives all facts involving the new point T(v) from
