@@ -86,7 +86,7 @@ theorem exists_equivariantInvolutionRetraction
     · have hfixA' : rA (rA a) ≠ rA a := by
         rw [hrA a]
         exact Ne.symm hfixA
-      rcases lt_or_gt_of_ne hfixA with hlt | hgt
+      rcases lt_or_gt_of_ne (Ne.symm hfixA) with hlt | hgt
       · have hnlt : ¬rA a < a :=
           not_lt_of_ge (le_of_lt hlt)
         have ha1 : q a = b₀ := by
