@@ -6,7 +6,7 @@ Formalization of the group-valued rectangle construction, EPPA, coherent EPPA, a
 
 This public repository keeps Lean source, an auditable [formalization ledger](FORMALIZATION.md), and GitHub Actions build/axiom checks. The private paper repository must not run CI. The existing explicit valuation witnesses are the intended proof method; the earlier `AllThoseEPPA` library is used only for its partial-isomorphism/coherence vocabulary, not as a black-box EPPA theorem.
 
-**Project status:** initial environment setup. No principal generalized-semigeneric theorem should be regarded as proved until its Lean statement, full dependency chain and axiom audit have passed CI.
+**Project status (2026-10-18):** the formalization now contains machine-checked foundational rectangle/gauge lemmas, finite one-point strong amalgamation, the finite two-layer effective EPPA witness, its exact padded old embedding, compatible partial-map class/real permutations, and affine multiplier/valuation transport gates (through PR #72). **The unconditional effective EPPA theorem and all headline ordinary/coherent EPPA and DLF statements remain OPEN** until the final full old-vertex automorphism assembly and the remaining raw/fixed-action proofs pass CI. See the dated checkpoint at the end of [FORMALIZATION.md](FORMALIZATION.md).
 
 ## Build
 
