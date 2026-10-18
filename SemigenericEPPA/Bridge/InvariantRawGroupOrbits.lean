@@ -12,7 +12,7 @@ If reversal tau commutes with H and the effective colour f:A→G is
 H-invariant and reverses by s, then both descend to Q. An orbit in
 Q fixed by reversal has a representative a such that some h∈H
 takes a to tau(a). Thus, if such reversed group orbits always
-admit an actual self-reversing raw colour over f(a), the previously
+have an actual self-reversing raw colour over f(a), the previously
 verified involutive-orbit selection theorem produces an H-invariant
 raw lift with the exact correct reversed raw colour.
 
