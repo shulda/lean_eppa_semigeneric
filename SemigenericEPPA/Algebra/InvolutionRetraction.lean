@@ -86,20 +86,21 @@ theorem exists_equivariantInvolutionRetraction
     · have hfixA' : rA (rA a) ≠ rA a := by
         rw [hrA a]
         exact Ne.symm hfixA
-      rcases lt_or_gt_of_ne (Ne.symm hfixA) with hlt | hgt
+      have hrevneq : a ≠ rA a := Ne.symm hfixA
+      rcases lt_or_gt_of_ne hrevneq with hlt | hgt
       · have hnlt : ¬rA a < a :=
           not_lt_of_ge (le_of_lt hlt)
         have ha1 : q a = b₀ := by
           simp [q, ha, hfixA, hlt]
         have ha2 : q (rA a) = rB b₀ := by
-          simp [q, ha', hfixA', hrA a, hnlt]
+          simp [q, ha', hfixA', hrA a, hrevneq, hnlt]
         rw [ha1, ha2]
       · have hnlt : ¬a < rA a :=
           not_lt_of_ge (le_of_lt hgt)
         have ha1 : q a = rB b₀ := by
           simp [q, ha, hfixA, hnlt]
         have ha2 : q (rA a) = b₀ := by
-          simp [q, ha', hfixA', hrA a, hgt]
+          simp [q, ha', hfixA', hrA a, hrevneq, hgt]
         rw [ha1, ha2, hrB b₀]
 
 end SemigenericEPPA
