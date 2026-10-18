@@ -80,7 +80,13 @@ theorem exists_groupInvariantRawCrossColour_extendingSubset
     · exact hS h x
     · intro hx
       have hy := hS h⁻¹ (rho h x) hx
-      simpa only [map_inv, Equiv.symm_apply_apply] using hy
+      have hinv : rho h⁻¹ (rho h x) = x := by
+        calc
+          rho h⁻¹ (rho h x) = rho (h⁻¹ * h) x := by
+            rw [map_mul]
+            rfl
+          _ = x := by simp
+      exact hinv ▸ hy
   have hCommute : ∀ (h : H) (p : A),
       tau (action h p) = action h (tau p) := by
     intro h p
