@@ -91,8 +91,9 @@ theorem universalResidualEncode_reverse
             if c < d.reverse c then
               (universalResidualShift d (d.phi (d.reverse c))).2
             else 0) := by
-      simp only [universalResidualEncode, if_neg hrev,
-        d.reverse_involutive]
+      have hnot : c ≠ d.reverse c := Ne.symm hc
+      simp only [universalResidualEncode, d.reverse_involutive,
+        if_neg hnot]
     rw [hfirst, hsecond, universalResidualEncode_shift_reverse d c]
     apply Prod.ext
     · change universalResidualPairedBasis d (d.reverse c) =
