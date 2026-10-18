@@ -3,6 +3,7 @@ import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Fintype.Pi
 import Mathlib.Data.Fintype.Prod
 import Mathlib.Tactic.Abel
+import Mathlib.Tactic.Ring
 
 /-!
 # A uniform finite coefficient group for every raw residual fibre
@@ -99,6 +100,37 @@ theorem universalResidualShift_reverse
       apply hfix
       exact ((d.s.involutive g).symm.trans h).symm
     simp [universalResidualShift, hfix, hfix']
+
+/-- If an effective colour is fixed by s but its raw fibre has no
+self-reversing raw colour, affine reversal of the universal residual
+carrier is FIXED-POINT-FREE. The extra ZMod 2 coordinate is essential:
+negation alone would always fix the zero vector. -/
+theorem universalResidualShift_free
+    (d : RawDatum G C) (g : G)
+    (hg : d.s g = g)
+    (hS : g ∉ d.selfReverseEffective)
+    (z : UniversalResidualCarrier C) :
+    universalResidualShift d g - z ≠ z := by
+  classical
+  intro h
+  have hshift :
+      universalResidualShift d g =
+        ((0 : C → ZMod 4), (1 : ZMod 2)) := by
+    simp [universalResidualShift, hg, hS]
+  have hsec := congrArg
+    (fun q : UniversalResidualCarrier C => q.2) h
+  rw [hshift] at hsec
+  change (1 : ZMod 2) - z.2 = z.2 at hsec
+  have htwo : (2 : ZMod 2) = 0 := by decide
+  have hone : (1 : ZMod 2) ≠ 0 := by decide
+  have hbad : (1 : ZMod 2) = 0 := by
+    calc
+      1 = (1 - z.2) + z.2 := by abel
+      _ = z.2 + z.2 :=
+        congrArg (fun q : ZMod 2 => q + z.2) hsec
+      _ = (2 : ZMod 2) * z.2 := by ring
+      _ = 0 := by rw [htwo]; simp
+  exact hone hbad
 
 /-- The coefficient carrier is finite whenever C is finite,
 including the empty alphabet as an abstract edge case. -/
