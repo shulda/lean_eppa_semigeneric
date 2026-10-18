@@ -766,6 +766,9 @@ Lean files; these notes are a status ledger, not additional axioms.
 - **#141** combines #140, #134 and #128: every endpoint-swap-safe
   effective H-action lifts homomorphically to a single finite literal
   raw-colour cover, with no prescribed old subset (S=empty).
+- **#145** constructs a baseline b ONCE from all old raw colours
+  on a global old subset S0, so the very same b works for every
+  later S ⊆ S0 (in particular S=j(D) for different induced D).
 
 PRs #140 and #141 passed full Lean CI/allowed-axiom audit and were
 merged into main, superseding historically conflicted #135/#136.
@@ -784,12 +787,11 @@ merged into main, superseding historically conflicted #135/#136.
   baseline b before H and S and deriving a homomorphic H-lift on
   the SAME raw-coloured cover. The result is conditional on b
   agreeing with the prescribed old-old raw section values.
-- **#145**: constructs b ONCE from all old raw colours on a
-  global old subset S0, so the very same b works for each later
-  S ⊆ S0 (in particular S=j(D) for different induced D).
 
-No open PR in this subsection should be treated as proven until
-CI/axiom audit succeeds and it is merged.
+
+The remaining PRs #142–#144 in this subsection must NOT be
+treated as proven until CI/axiom audit succeeds and they are merged.
+PR #145 has already passed full CI and merged.
 
 ### Why the fixed baseline matters
 
