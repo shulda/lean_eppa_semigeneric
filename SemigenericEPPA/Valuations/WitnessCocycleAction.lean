@@ -101,10 +101,14 @@ def witnessCocyclePerm
     (h : H) (X : EffectiveWitnessVertex D) :
     (witnessCocyclePerm D sigma pi hcompat m h X).old =
       pi h X.old := by
-  simpa only [witnessCocyclePerm, groupWitnessFibreEquiv] using
-    (witnessAutomorphismWithMultipliers_old
-      D (sigma h) (groupWitnessFibreEquiv D sigma pi hcompat h)
-        (m h) X)
+  calc
+    (witnessCocyclePerm D sigma pi hcompat m h X).old =
+        (groupWitnessFibreEquiv D sigma pi hcompat h
+          X.part ⟨X.old, X.belongs⟩).val := by
+            exact witnessAutomorphismWithMultipliers_old
+              D (sigma h) (groupWitnessFibreEquiv D sigma pi hcompat h)
+                (m h) X
+    _ = pi h X.old := rfl
 
 theorem witnessCocyclePerm_incidence
     (D : EffectiveGeometry s V)
@@ -200,7 +204,7 @@ theorem witnessCocyclePerm_mul_apply
       calc
         m (k * h) X.part u =
             m k (sigma h X.part) (sigma h u) * m h X.part u :=
-              hmmul k h X.part u hu
+              hmmul k h X.part u (Ne.symm hu)
         _ = m k Y.part (sigma h u) * m h X.part u := by
           rw [witnessCocyclePerm_part D sigma pi hcompat m h X]
     have hLeft :
@@ -260,7 +264,7 @@ noncomputable def witnessCocycleAction
           (witnessCocyclePerm D sigma pi hcompat m 1 X).crossIncidence
             r hrT = m 1 X.part r * X.crossIncidence r hrX := by
               simpa only [hs] using h
-      rw [hresult, hmone X.part r hrX, one_mul]
+      rw [hresult, hmone X.part r (Ne.symm hrX), one_mul]
   map_mul' := by
     intro k h
     apply Equiv.ext
