@@ -592,3 +592,66 @@ finite SAP filtration/iteration, coherent EPPA and relative DLF
 group-action/cover results. A raw-fibre cover is not obtained by
 simply forgetting the effective colours or choosing arbitrary
 raw preimages. Explicit automorphism lifts are essential.
+
+
+## 2026-10-18 — UNCONDITIONAL ordinary raw EPPA verified (PRs #103, #108, #111, #112)
+
+**This is the authoritative current status of ordinary EPPA.** It
+supersedes the historical E0/R0/R1 `OPEN` checkpoints above, which
+recorded earlier stages of construction. Each of the named theorems
+was merged only after passing the full Lean build and axiom audit,
+allowing `propext`, `Classical.choice`, and `Quot.sound` only.
+
+- **PR #77** `EffectiveGeometry.finite_effectiveEPPA_witness`:
+  one fixed finite explicit two-layer effective group-valued witness,
+  induced old embedding, and extension of EVERY partial effective
+  E/F-isomorphism by a genuine automorphism.
+- **PR #103** `Algebra/FiniteAffineResidualCode.lean`:
+  `exists_universalAffineResidualCode`, with the **literal finite**
+  coefficient group `(C → ZMod 4) × ZMod 2`. For every finite raw
+  datum, the code provides typed fibre encoders/decoders, exact
+  sections, and both affine-reversal equations (3.20). Handles
+  fixed-point-free reversal fibres without requiring `s(1)=1` or
+  commutativity of the effective group.
+- **PR #108** `Structure/RawCoverSectionLifts.lean`:
+  the fixed finite raw cover, its induced old raw embedding obtained
+  from the sections (3.26) and interpolation (3.27), and EVERY
+  prescribed raw partial-map lift whenever the underlying effective
+  map extends; all raw relations and the complete old valuations
+  are preserved literally.
+- **PR #111** `Structure/RawEPPA.lean`:
+  **`RawRectanglePresentation.finite_rawEPPA_witness`**, full
+  unconditional ordinary raw EPPA for ANY finite functional
+  R1--R3 presentation. The same finite witness and embedding are
+  fixed before the partial map. A total permutation preserving
+  E and each raw `P_c` extends every injective partial old map
+  preserving/reflection of E and every ordered raw colour.
+- **PR #112** `Structure/RelationalRawEPPA.lean`:
+  **`IsRectangleStructure.finite_relationalRawEPPA_witness`**
+  transfers this result to every actual finite member of the
+  original binary relational class `K(G,s,phi)`, proving a
+  finite literal raw witness, exact induced embedding, and
+  extension of all partial raw automorphisms. No assumption of
+  equal E-part sizes, special self-reversing colours, or singleton
+  raw fibres is introduced.
+
+**Exact scope.** The central ordinary EPPA result of the manuscript
+is now machine-checked in the original relational language. The
+theorem presently exposes its old embedding as an injective function
+with explicit relation-preservation/reflection and its extensions
+as total permutations with exact relation-preservation/reflection.
+The optional *generic typed API* wrappers
+`AllThoseEPPA.Structure.Embedding`,
+`AllThoseEPPA.Structure.Automorphism`, and
+`AllThoseEPPA.Structure.IsEPPAWitness`
+are being formalized in PRs #113–#115 and must pass CI separately.
+The typed wrapper is API integration, not a missing mathematical
+proof of ordinary EPPA.
+
+**Still open as independent theorems:** coherent EPPA (simultaneously
+choosing composition-compatible lifts), the fixed-cover group-action
+and relative DLF criteria, and general finite SAP by iteration of
+the verified one-point SAP. No implication from ordinary EPPA to
+coherent EPPA is presumed. The functional `RawDatum` hypotheses
+(and the action conventions) must continue to be audited against
+the article and its stated class definitions.
