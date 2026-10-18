@@ -27,6 +27,7 @@ import SemigenericEPPA.Algebra.RankOneGaugeTorsor
 import SemigenericEPPA.Algebra.GaugeConverse
 import SemigenericEPPA.Algebra.AnchoredPartialGauge
 import SemigenericEPPA.Algebra.PartialGaugeFamilies
+import SemigenericEPPA.Valuations.PartialGaugeFromGeometry
 import SemigenericEPPA.Algebra.CornerAmalgamation
 import SemigenericEPPA.Algebra.SamePartRows
 import SemigenericEPPA.Algebra.CongruenceAction
