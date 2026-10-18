@@ -209,10 +209,10 @@ theorem exists_groupInvariantRawCrossColour
     have hxy' : ¬D.part (rho h x) (rho h y) := by
       intro hh
       exact hxy ((hE h x y).mp hh)
-    have h := hInv h ⟨(x,y),hxy⟩
+    have hInvEq := hInv h ⟨(x,y),hxy⟩
     change edgeColour ⟨(rho h x,rho h y),hxy'⟩ =
-      edgeColour ⟨(x,y),hxy⟩ at h
+      edgeColour ⟨(x,y),hxy⟩ at hInvEq
     rw [hc (rho h x) (rho h y) hxy', hc x y hxy]
-    exact h
+    exact hInvEq
 
 end SemigenericEPPA
