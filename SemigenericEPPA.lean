@@ -5,6 +5,7 @@ import SemigenericEPPA.Algebra.FiniteAffineResidualCode
 import SemigenericEPPA.Algebra.PairedInvolutionRetraction
 import SemigenericEPPA.Algebra.FixedFibreDecoder
 import SemigenericEPPA.Algebra.ResidualBaseline
+import SemigenericEPPA.Algebra.RelativeResidualBaseline
 import SemigenericEPPA.Algebra.RawCoverCorrections
 import SemigenericEPPA.Algebra.PrescribedRawCorrections
 import SemigenericEPPA.Algebra.PrescribedRawCompatibility
