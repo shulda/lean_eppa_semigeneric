@@ -60,7 +60,7 @@ theorem referenceWitnessPartPerm_one
   · funext x
     change (twistPartValuation (rho (1 : H))
       (fun y => referenceGaugeTwist rho iota z (1 : H) y q.1) q.2) x = q.2 x
-    simp [twistPartValuation, referenceGaugeTwist_one]
+    simp [twistPartValuation, referenceGaugeTwist_one, map_one]
 
 /-- The witness-part action respects the FULL group product. The
 order is sigma_(k*h) = sigma_k ∘ sigma_h, with the noncommutative
@@ -114,7 +114,7 @@ theorem referenceWitnessPartPerm_mul_apply
                 (referenceGaugeTwist rho iota z h x q.1 * q.2 x) =
               referenceGaugeTwist rho iota z k (rho h x) (iota h q.1) *
                 ((referenceWitnessPartPerm D rho iota z h q).2 (rho h x)) := by
-                  rw [hinner]
+                  simpa only [referenceWitnessPartPerm] using hinner.symm
             _ = (referenceWitnessPartPerm D rho iota z k
                   (referenceWitnessPartPerm D rho iota z h q)).2
                   (rho k (rho h x)) := by
