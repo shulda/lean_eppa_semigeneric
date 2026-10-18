@@ -136,7 +136,7 @@ theorem finite_effectiveEPPA_witness
         (D.paddedPartialMap S p) ι π hπ hpB m hinc hcompat
     refine ⟨T, ?_, htpart, htcolour⟩
     intro x
-    simpa only [paddedPartialOld, paddedPartialMap] using
+    simpa [paddedPartialOld, paddedPartialMap, paddedOldMap] using
       (htext (D.paddedPartialOld S x))
 
 end EffectiveGeometry
