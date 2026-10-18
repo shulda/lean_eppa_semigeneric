@@ -79,7 +79,7 @@ theorem universalResidualEncode_reverse
       rw [sub_eq_add_neg, zero_add, universalResidualFixedBasis_neg]
     · simp
   · have hrev : d.reverse (d.reverse c) ≠ d.reverse c := by
-      simpa only [d.reverse_involutive] using hc.symm
+      simpa only [d.reverse_involutive] using Ne.symm hc
     have hfirst : universalResidualEncode d c =
         (universalResidualPairedBasis d c,
           if d.reverse c < c then
@@ -91,12 +91,15 @@ theorem universalResidualEncode_reverse
             if c < d.reverse c then
               (universalResidualShift d (d.phi (d.reverse c))).2
             else 0) := by
-      simp [universalResidualEncode, hrev, d.reverse_involutive]
+      simp only [universalResidualEncode, if_neg hrev,
+        d.reverse_involutive]
     rw [hfirst, hsecond, universalResidualEncode_shift_reverse d c]
     apply Prod.ext
     · change universalResidualPairedBasis d (d.reverse c) =
-        (0 : C → ZMod 4) - universalResidualPairedBasis d c
-      rw [universalResidualPairedBasis_reverse]
+        (universalResidualShift d (d.phi c)).1 -
+          universalResidualPairedBasis d c
+      rw [universalResidualShift_fst,
+        universalResidualPairedBasis_reverse]
       simp
     · change
         (if c < d.reverse c then
@@ -104,7 +107,7 @@ theorem universalResidualEncode_reverse
         (universalResidualShift d (d.phi c)).2 -
           (if d.reverse c < c then
             (universalResidualShift d (d.phi c)).2 else 0)
-      rcases lt_or_gt_of_ne hc.symm with hlt | hgt
+      rcases lt_or_gt_of_ne (Ne.symm hc) with hlt | hgt
       · have hnlt : ¬d.reverse c < c :=
           not_lt_of_ge (le_of_lt hlt)
         simp [hlt, hnlt]
