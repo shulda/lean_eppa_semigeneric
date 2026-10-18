@@ -45,10 +45,11 @@ noncomputable def encodedOldRawResidual
       d.phi c = D.F (e x) (e y))
     (x y : U) : L := by
   classical
-  exact match hc : P.colour x y with
-  | none => 0
-  | some c =>
-      code.encode (D.F (e x) (e y)) ⟨c, hF x y c hc⟩
+  exact if h : ∃ c : C, P.colour x y = some c then
+    code.encode (D.F (e x) (e y))
+      ⟨Classical.choose h, hF x y (Classical.choose h)
+        (Classical.choose_spec h)⟩
+  else 0
 
 /-- When an actual old cross edge has colour c, its encoded
 residual label is EXACTLY the prescribed section of c. -/
@@ -64,7 +65,18 @@ theorem encodedOldRawResidual_ofColour
     encodedOldRawResidual P D code e hF x y =
       code.encode (D.F (e x) (e y)) ⟨c, hF x y c hc⟩ := by
   classical
-  simp [encodedOldRawResidual, hc]
+  let h : ∃ c : C, P.colour x y = some c := ⟨c, hc⟩
+  have hchoose : Classical.choose h = c := by
+    apply Option.some.inj
+    exact (Classical.choose_spec h).symm.trans hc
+  have hsub :
+      (⟨Classical.choose h,
+        hF x y (Classical.choose h) (Classical.choose_spec h)⟩ :
+        d.fibre (D.F (e x) (e y))) =
+      ⟨c, hF x y c hc⟩ := Subtype.ext hchoose
+  unfold encodedOldRawResidual
+  rw [dif_pos h]
+  exact congrArg (code.encode (D.F (e x) (e y))) hsub
 
 /-- The encoded old labels always reverse by the correct
 nontrivial affine shift. This works when the raw fibre over an
@@ -88,7 +100,7 @@ theorem encodedOldRawResidual_reverse
     cases h : P.colour x y with
     | none =>
         exact False.elim (hxy ((P.colour_none_iff x y).mp h))
-    | some c => exact ⟨c, h⟩
+    | some c => exact ⟨c, rfl⟩
   have hrc : P.colour y x = some (d.reverse c) := by
     rw [P.colour_reverse x y, hc]
     rfl
@@ -102,7 +114,8 @@ theorem encodedOldRawResidual_reverse
             (d.reverse c) hrc
     _ = code.encode (d.s (D.F (e x) (e y)))
         (d.reverseFibre (D.F (e x) (e y)) cF) := by
-          rw [D.reverse_cross (e x) (e y) hcross]
+          have heq := D.reverse_cross (e x) (e y) hcross
+          cases heq
           rfl
     _ = code.shift (D.F (e x) (e y)) -
         code.encode (D.F (e x) (e y)) cF :=
