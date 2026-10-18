@@ -169,6 +169,56 @@ theorem encodedOldRawResidual_decode
     (code.decode_encode (D.F (e x) (e y))
       ⟨c, hF x y c hc⟩)
 
+/-- On a prescribed old raw edge, its residual section code
+depends only on the raw colour itself, and not on the chosen
+old vertices or on proof terms identifying its effective fibre. -/
+theorem encodedOldRawResidual_ofColourCanonical
+    (P : RawRectanglePresentation d U)
+    (D : EffectiveGeometry d.s V)
+    (code : AffineResidualCode d L)
+    (e : U → V)
+    (hF : ∀ x y c, P.colour x y = some c →
+      d.phi c = D.F (e x) (e y))
+    (x y : U) (c : C) (hc : P.colour x y = some c) :
+    encodedOldRawResidual P D code e hF x y =
+      code.encode (d.phi c) ⟨c, rfl⟩ := by
+  rw [encodedOldRawResidual_ofColour P D code e hF x y c hc]
+  exact encode_at_raw_projection code c
+    (D.F (e x) (e y)) (hF x y c hc)
+
+/-- Consequently, equality of the ORIGINAL raw colours on two
+ordered edges forces literal equality of their canonical
+additive residual labels, including the uncoloured same-E case.
+This is the compatibility input for the prescribed raw lift. -/
+theorem encodedOldRawResidual_of_equalColour
+    (P : RawRectanglePresentation d U)
+    (D : EffectiveGeometry d.s V)
+    (code : AffineResidualCode d L)
+    (e : U → V)
+    (hF : ∀ x y c, P.colour x y = some c →
+      d.phi c = D.F (e x) (e y))
+    (x y z w : U)
+    (hcol : P.colour x y = P.colour z w) :
+    encodedOldRawResidual P D code e hF x y =
+      encodedOldRawResidual P D code e hF z w := by
+  classical
+  cases hc : P.colour x y with
+  | none =>
+      have hc' : P.colour z w = none :=
+        hcol.symm.trans hc
+      simp [encodedOldRawResidual, hc, hc']
+  | some c =>
+      have hc' : P.colour z w = some c :=
+        hcol.symm.trans hc
+      calc
+        encodedOldRawResidual P D code e hF x y =
+          code.encode (d.phi c) ⟨c, rfl⟩ :=
+            encodedOldRawResidual_ofColourCanonical
+              P D code e hF x y c hc
+        _ = encodedOldRawResidual P D code e hF z w :=
+            (encodedOldRawResidual_ofColourCanonical
+              P D code e hF z w c hc').symm
+
 /-- Genuine literal raw induced embedding above ANY given injective
 effective embedding of a finite old raw presentation, conditional
 only on an affine residual code and baseline. Both E and every
