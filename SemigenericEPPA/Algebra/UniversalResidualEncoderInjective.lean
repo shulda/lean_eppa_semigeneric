@@ -56,7 +56,7 @@ theorem universalResidualEncode_other
   · by_cases hr : d.reverse k = c
     · simp [universalResidualEncode, hk,
         universalResidualPairedBasis, universalResidualBasis,
-        hkc, hr]
+        hck, hkc, hr]
     · have hrc : c ≠ d.reverse k := Ne.symm hr
       simp [universalResidualEncode, hk,
         universalResidualPairedBasis, universalResidualBasis,
