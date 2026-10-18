@@ -6,6 +6,7 @@ import SemigenericEPPA.Algebra.PrescribedRawCompatibility
 import SemigenericEPPA.Algebra.AffineResidualCode
 import SemigenericEPPA.Algebra.ResidualOldCoordinates
 import SemigenericEPPA.Structure.RawCoverOldEmbedding
+import SemigenericEPPA.Structure.RawCoverEncodedOld
 import SemigenericEPPA.Structure.RawCover
 import SemigenericEPPA.Structure.RawCoverAutomorphisms
 import SemigenericEPPA.Algebra.PrescribedRawLift
