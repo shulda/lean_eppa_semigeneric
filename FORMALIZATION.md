@@ -783,24 +783,26 @@ merged into main, superseding historically conflicted #135/#136.
   vertices and raw edge colours.
 - **#145 (merged, CI-green)** fixes one baseline from the WHOLE old
   copy and retains the prescribed data for every later S ⊆ S₀.
-- **#147 (pending CI)** rebases the proof of the fixed-baseline H-lift
-  onto current main. The raw cover is chosen before H and S.
-- **#148 (pending CI)** strengthens this to one baseline chosen before
-  quantifying over ALL later group types, safe actions and subsets.
+- **#147 (merged, CI-green)** rebases the proof of the fixed-baseline
+  H-lift onto current main. The raw cover is chosen before H and S.
+- **#148 (merged, CI-green)** strengthens this to a single baseline
+  chosen before quantifying over ALL later group types H, safe actions
+  and invariant old subsets S.
 
-These last two remain open until their new full Lean builds and
-axiom audits succeed and their PRs are merged.
+Thus the relative fixed-cover group-action lemma is verified, subject
+to the exact endpoint-swap safety hypothesis. The remaining burden
+is to construct these safe effective H-actions in the prescribed
+valuation witness and verify coherent groupoid assembly.
 
 ### Why the fixed baseline matters
 
 The manuscript's fixed-cover lemma chooses the raw cover and old
 embedding before the induced substructure D and its group Aut(D).
 Choosing a NEW baseline or a NEW raw cover for each H is NOT
-sufficient for coherent-EPPA assembly. PR #148 combines the
+sufficient for coherent-EPPA assembly. The verified PR #148 combines the
 baseline fixed in #145 with the rebased group lift #147.
-Even after those complete, safe effective actions for the actual
-valuation witness and coherent groupoid extension identities are
-separate major obligations.
+Safe effective actions for the actual valuation witness and
+coherent groupoid extension identities remain major obligations.
 This is distinct from the still-open coherent groupoid assembly,
 negative classification and semi-coherent/DLF forcing theorems.
 
