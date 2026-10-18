@@ -534,3 +534,61 @@ coherent EPPA classification, and relative DLF classification have
 not been obtained from these E0 increments. In particular, neither
 an individual automorphism extension nor the existence of all such
 extensions implies a coherent groupoid functor.
+
+
+## 2026-10-18 — effective EPPA theorem verified (PRs #75–#77)
+
+This section supersedes the earlier statement that the effective E0
+assembly is open. **Effective EPPA is now fully verified in explicit
+group-valued-geometry semantics.** This does NOT claim the typed
+`AllThoseEPPA.Structure.IsEPPAWitness` API bridge or ordinary
+EPPA for arbitrary raw colour fibres.
+
+- **#75** `Valuations/NeutralMultiplierCompatibility.lean`: formalizes
+  the visited neutral witness parts and literal prescribed family
+  a(q,r)=m(q.1,r.1). Verifies that the old noncommutative affine
+  identity (3.15), neutral-to-neutral skeleton preservation (3.4),
+  and twists trivial on visited parts imply the precise P×P
+  compatibility needed for the prescribed witness automorphism.
+- **#76** `Valuations/TwistedOldVertexExtension.lean`:
+  `exists_twistedWitnessAutomorphism_extending_old` proves that
+  the explicit twists (3.16), blown-up permutation (3.17)–(3.18),
+  prescribed multipliers (3.19) and fibre maps give one **actual**
+  witness automorphism preserving E and ALL cross-part effective
+  colours and satisfying `T(oldWitnessVertex x)=oldWitnessVertex(p x)`
+  for every domain vertex x. All χ-coordinates are matched
+  exactly, not just its old label and neutral witness part. This
+  theorem accepts the old multipliers and permutations as
+  hypotheses; #74 supplies these after padding.
+- **#77** `Valuations/EffectiveEPPA.lean`:
+  **`EffectiveGeometry.finite_effectiveEPPA_witness`** is the
+  unconditional finite effective EPPA construction for EVERY finite
+  old `EffectiveGeometry s V` and finite group `G`.
+  The same fixed two-layer witness of the verified padded geometry
+  and one fixed skeleton K are chosen *before* the partial map.
+  The proof certifies finite witness carrier, injective old
+  embedding, exact E-preservation/reflection, all old cross-part
+  group colours, and extension of EVERY injective partial old
+  E/F-isomorphism by an actual equivalence of the witness carrier
+  preserving/reflection E and all cross-part F-colours.
+  Uses #74 and #76 with no external padding/equal-class-size or
+  group commutativity/recentering conditions; empty V is included.
+
+**Scope check against the manuscript.** These theorems establish
+the mathematics of Theorem "Effective EPPA" (the effective reduct
+of K(G,s,id_G)) with same-part F-values treated as irrelevant
+dummy data, as prescribed in the manuscript. The current
+conclusion is stated for `EffectiveGeometry` rather than the
+upstream generic binary-relational `Structure.IsEPPAWitness`:
+bridging that API is useful for downstream consumers, but is
+NOT a missing mathematical extension of the effective witness.
+It must not be confused with ordinary EPPA for raw fibres
+`phi : C ↠ G` unless phi is injective.
+
+**Remaining major work.** R0 finite affine residual code,
+R1 finite raw-fibre cover with exact old embedding and individual
+automorphism lifts, then unconditional raw EPPA; separate generic
+finite SAP filtration/iteration, coherent EPPA and relative DLF
+group-action/cover results. A raw-fibre cover is not obtained by
+simply forgetting the effective colours or choosing arbitrary
+raw preimages. Explicit automorphism lifts are essential.
