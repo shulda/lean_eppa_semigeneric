@@ -4,6 +4,7 @@ import SemigenericEPPA.Algebra.RawCoverCorrections
 import SemigenericEPPA.Algebra.AffineResidualCode
 import SemigenericEPPA.Algebra.UniversalResidualCarrier
 import SemigenericEPPA.Algebra.UniversalResidualEncoder
+import SemigenericEPPA.Algebra.UniversalResidualEncoderInjective
 import SemigenericEPPA.Structure.RawCover
 import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
