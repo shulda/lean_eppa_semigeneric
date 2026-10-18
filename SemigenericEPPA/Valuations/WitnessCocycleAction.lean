@@ -121,7 +121,7 @@ theorem witnessCocyclePerm_incidence
           intro heq
           exact hr ((sigma h).injective
             (heq.trans (witnessCocyclePerm_part
-              D sigma pi hcompat m h X).symm))) =
+              D sigma pi hcompat m h X)))) =
       m h X.part r * X.crossIncidence r hr := by
   simpa only [witnessCocyclePerm] using
     (witnessAutomorphismWithMultipliers_incidence
