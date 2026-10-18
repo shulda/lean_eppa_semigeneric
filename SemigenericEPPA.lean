@@ -70,6 +70,7 @@ import SemigenericEPPA.Algebra.GaugeConverse
 import SemigenericEPPA.Algebra.AnchoredPartialGauge
 import SemigenericEPPA.Algebra.PartialGaugeFamilies
 import SemigenericEPPA.Algebra.EffectiveGroupGaugeCocycles
+import SemigenericEPPA.Valuations.ReferencePartGroupAction
 import SemigenericEPPA.Valuations.PartialGaugeFromGeometry
 import SemigenericEPPA.Algebra.CornerAmalgamation
 import SemigenericEPPA.Algebra.SamePartRows
