@@ -23,6 +23,7 @@ import SemigenericEPPA.Valuations.PaddedPartialIsomorphism
 import SemigenericEPPA.Valuations.PaddedPartialParameters
 import SemigenericEPPA.Valuations.NeutralMultiplierCompatibility
 import SemigenericEPPA.Valuations.TwistedOldVertexExtension
+import SemigenericEPPA.Valuations.EffectiveEPPA
 import SemigenericEPPA.Valuations.PaddedGaugeDiagonal
 import SemigenericEPPA.Valuations.PaddedWitnessAutomorphism
 import SemigenericEPPA.Valuations.GaugeAutomorphisms
