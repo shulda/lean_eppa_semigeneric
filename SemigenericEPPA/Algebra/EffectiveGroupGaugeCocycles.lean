@@ -97,18 +97,21 @@ theorem occupiedGaugeMultiplier_cocycle
   have hmuli : iota (k * h) j = iota k (iota h j) := by
     rw [map_mul]
     rfl
-  apply mul_right_cancel (c := a x j)
-  calc
-    m (k * h) i j * a x j =
+  have hcancel :
+      m (k * h) i j * a x j =
+        (m k (iota h i) (iota h j) * m h i j) * a x j := by
+    calc
+      m (k * h) i j * a x j =
         a (rho (k * h) x) (iota (k * h) j) := by
           simpa only [hx] using (hm (k * h) x j).symm
-    _ = a (rho k (rho h x)) (iota k (iota h j)) := by
-          rw [hmulx, hmuli]
-    _ = m k (cls (rho h x)) (iota h j) *
-        a (rho h x) (iota h j) := hm k (rho h x) (iota h j)
-    _ = (m k (iota h i) (iota h j) * m h i j) *
-          a x j := by
-          rw [hclass, hm h x j, hx]
-          group
+      _ = a (rho k (rho h x)) (iota k (iota h j)) := by
+            rw [hmulx, hmuli]
+      _ = m k (cls (rho h x)) (iota h j) *
+          a (rho h x) (iota h j) := hm k (rho h x) (iota h j)
+      _ = (m k (iota h i) (iota h j) * m h i j) *
+            a x j := by
+            rw [hclass, hm h x j, hx]
+            group
+  exact mul_right_cancel hcancel
 
 end SemigenericEPPA
