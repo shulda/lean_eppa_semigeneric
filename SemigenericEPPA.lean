@@ -1,4 +1,5 @@
 import SemigenericEPPA.Algebra.RawDatum
+import SemigenericEPPA.Algebra.ResidualBaseline
 import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
