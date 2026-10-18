@@ -11,6 +11,7 @@ import SemigenericEPPA.Algebra.PrescribedRawCompatibility
 import SemigenericEPPA.Structure.RawCoverPrescribedLift
 import SemigenericEPPA.Structure.RawCoverPartialResidualLift
 import SemigenericEPPA.Structure.RawCoverLiftAlongEmbedding
+import SemigenericEPPA.Structure.RawCoverSectionLifts
 import SemigenericEPPA.Algebra.AffineResidualCode
 import SemigenericEPPA.Algebra.RawFibreReversalEquiv
 import SemigenericEPPA.Algebra.PairedFibreAffineDecoder
