@@ -34,6 +34,18 @@ variable {L : Type w} [AddCommGroup L]
 variable {U : Type z} {V : Type t}
 variable {d : RawDatum G C}
 
+/-- Transport a typed raw colour to an equivalent effective-fibre
+index without rewriting under a dependent subtype constructor. This
+basic equality is proof-irrelevant even though the fibre types depend
+on the effective colour. -/
+private theorem encode_at_raw_projection
+    (code : AffineResidualCode d L)
+    (c : C) (g : G) (hg : d.phi c = g) :
+    code.encode g ⟨c, hg⟩ =
+      code.encode (d.phi c) ⟨c, rfl⟩ := by
+  cases hg
+  rfl
+
 /-- Old raw colour encoded by the section in the exact effective
 fibre, or a harmless zero on a same-part pair. -/
 noncomputable def encodedOldRawResidual
@@ -114,9 +126,25 @@ theorem encodedOldRawResidual_reverse
             (d.reverse c) hrc
     _ = code.encode (d.s (D.F (e x) (e y)))
         (d.reverseFibre (D.F (e x) (e y)) cF) := by
-          have heq := D.reverse_cross (e x) (e y) hcross
-          cases heq
-          rfl
+          have hphiRev : d.phi (d.reverse c) =
+              d.s (D.F (e x) (e y)) := by
+            calc
+              d.phi (d.reverse c) = d.s (d.phi c) :=
+                d.equivariant c
+              _ = d.s (D.F (e x) (e y)) :=
+                congrArg d.s (hF x y c hc)
+          have hr1 := encode_at_raw_projection code (d.reverse c)
+            (D.F (e y) (e x)) (hF y x (d.reverse c) hrc)
+          have hr2 := encode_at_raw_projection code (d.reverse c)
+            (d.s (D.F (e x) (e y))) hphiRev
+          have hsub :
+              (⟨d.reverse c, hphiRev⟩ :
+                d.fibre (d.s (D.F (e x) (e y)))) =
+              d.reverseFibre (D.F (e x) (e y)) cF := by
+            apply Subtype.ext
+            rfl
+          exact hr1.trans (hr2.symm.trans
+            (congrArg (code.encode (d.s (D.F (e x) (e y)))) hsub))
     _ = code.shift (D.F (e x) (e y)) -
         code.encode (D.F (e x) (e y)) cF :=
           code.encode_reverse _ cF
