@@ -36,7 +36,7 @@ def RawRectanglePresentation.toTypedEmbedding
     (hpart : ∀ x y, Q.part (ψ x) (ψ y) ↔ P.part x y)
     (hcolour : ∀ x y, Q.colour (ψ x) (ψ y) = P.colour x y) :
     Structure.Embedding
-      (Language.Action.trivial (rectangleLanguage C) PUnit)
+      (Language.Action.trivial (rectangleLanguage C) (Equiv.Perm (Fin 0)))
       P.toStructure Q.toStructure where
   lang := 1
   toFun := ψ
