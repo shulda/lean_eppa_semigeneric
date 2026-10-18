@@ -94,7 +94,11 @@ theorem exists_fixedRawCoverGroupLift
     exact rawCoverTransport_part_iff D (rho h) (hE h)
       (rawPotentialCorrection nu (rho h)) X Y
   · intro h c X Y
-    exact rawCoverPotentialGroupLift_rawRel_iff
-      D code b r nu hb hRec rho hE hF hR h c X Y
+    exact rawCoverPotentialLift_rawRel_iff
+      D code b nu hb (rho h) (hE h) (hF h)
+      (fun x y hxy =>
+        finiteRelativeRawPotentials_invariant
+          D b r nu hRec (rho h) (hE h) (hR h) x y hxy)
+      c X Y
 
 end SemigenericEPPA
