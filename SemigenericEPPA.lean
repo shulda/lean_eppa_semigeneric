@@ -3,6 +3,7 @@ import SemigenericEPPA.Algebra.ResidualBaseline
 import SemigenericEPPA.Algebra.RawCoverCorrections
 import SemigenericEPPA.Algebra.PrescribedRawCorrections
 import SemigenericEPPA.Algebra.PrescribedRawCompatibility
+import SemigenericEPPA.Structure.RawCoverPrescribedLift
 import SemigenericEPPA.Algebra.AffineResidualCode
 import SemigenericEPPA.Algebra.ResidualOldCoordinates
 import SemigenericEPPA.Structure.RawCoverOldEmbedding
