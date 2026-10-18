@@ -39,14 +39,16 @@ Its values on same-part pairs are dummy zero. -/
 noncomputable def orderedResidualBaseline
     [LinearOrder V]
     (D : EffectiveGeometry s V)
-    (t : G → L) (x y : V) : L :=
-  if D.part x y then 0 else if x < y then 0 else t (D.F x y)
+    (t : G → L) (x y : V) : L := by
+  classical
+  exact if D.part x y then 0 else if x < y then 0 else t (D.F x y)
 
 theorem orderedResidualBaseline_same
     [LinearOrder V]
     (D : EffectiveGeometry s V)
     (t : G → L) (x y : V) (hxy : D.part x y) :
     orderedResidualBaseline D t x y = 0 := by
+  classical
   simp [orderedResidualBaseline, hxy]
 
 /-- Equation (3.21) on every genuine cross-part pair. This proof
@@ -60,6 +62,7 @@ theorem orderedResidualBaseline_reverse
     (x y : V) (hxy : ¬D.part x y) :
     orderedResidualBaseline D t y x =
       t (D.F x y) - orderedResidualBaseline D t x y := by
+  classical
   have hyx : ¬D.part y x := by
     intro h
     exact hxy (D.part.iseqv.symm h)
