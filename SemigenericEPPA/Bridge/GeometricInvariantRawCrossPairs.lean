@@ -153,6 +153,8 @@ theorem exists_groupInvariantRawCrossColour
         colour (rho h x) (rho h y) = colour x y) := by
   classical
   let A := EffectiveCrossPair D
+  letI : Fintype V := Fintype.ofFinite _
+  letI : Fintype A := inferInstance
   let action : H →* Equiv.Perm A :=
     effectiveCrossPairAction D rho hE
   let tau : A → A := effectiveCrossPairReverse D
