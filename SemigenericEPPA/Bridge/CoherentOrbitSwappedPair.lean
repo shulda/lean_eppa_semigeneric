@@ -48,7 +48,7 @@ theorem RawRectanglePresentation.selfReverse_of_swappedPair
       have hfix : d.reverse c = c := by
         apply Option.some.inj
         exact hrev.symm.trans (hswap.trans hc)
-      exact ⟨c, hc, hfix⟩
+      exact ⟨c, rfl, hfix⟩
 
 /-- The full *local* congruence-orbit forcing implication for the
 standard coherent EPPA obstruction rectangle.
