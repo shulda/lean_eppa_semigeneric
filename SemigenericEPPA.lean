@@ -1,6 +1,7 @@
 import SemigenericEPPA.Algebra.RawDatum
 import SemigenericEPPA.Algebra.ResidualBaseline
 import SemigenericEPPA.Algebra.RawCoverCorrections
+import SemigenericEPPA.Algebra.AffineResidualCode
 import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
