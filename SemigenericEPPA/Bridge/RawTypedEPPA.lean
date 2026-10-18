@@ -133,8 +133,7 @@ theorem RawRectanglePresentation.finite_typedEPPA_witness
   refine ⟨g, ?_⟩
   constructor
   · change (1 : Equiv.Perm (Fin 0)) * 1 = 1 * p.lang
-    rw [hlang]
-    simp
+    simp [hlang]
   · intro x hx
     change T (old x) = old (p x)
     exact hT ⟨x, hx⟩
