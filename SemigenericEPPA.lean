@@ -76,6 +76,7 @@ import SemigenericEPPA.Structure.PairwiseEmbedding
 import SemigenericEPPA.Structure.RawPresentation
 import SemigenericEPPA.Bridge.RawTypedEmbedding
 import SemigenericEPPA.Bridge.RawTypedAutomorphism
+import SemigenericEPPA.Bridge.RawTypedGroupAction
 import SemigenericEPPA.Bridge.RawTypedEPPA
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.EffectiveRawExtension
