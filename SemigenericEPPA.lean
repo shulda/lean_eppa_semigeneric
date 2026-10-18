@@ -1,5 +1,6 @@
 import SemigenericEPPA.Algebra.RawDatum
 import SemigenericEPPA.Algebra.InvolutionRetraction
+import SemigenericEPPA.Algebra.EquivariantFibreRetraction
 import SemigenericEPPA.Algebra.PairedInvolutionRetraction
 import SemigenericEPPA.Algebra.FixedFibreDecoder
 import SemigenericEPPA.Algebra.ResidualBaseline
