@@ -84,7 +84,7 @@ theorem IsRectangleStructure.finite_relationalRawEPPA_witness
             (hE x y).mp hpart
           have hc' : P.colour (p x) (p y) = none :=
             (h.rawOption_none_iff (p x) (p y)).mpr hpart'
-          exact hc'.trans hc.symm
+          exact hc'
       | some c =>
           have hrel : rawRel A c x.val y.val :=
             (h.rawOption_some_iff c x.val y.val).mp hc
@@ -92,7 +92,7 @@ theorem IsRectangleStructure.finite_relationalRawEPPA_witness
             (hRaw x y c).mp hrel
           have hc' : P.colour (p x) (p y) = some c :=
             (h.rawOption_some_iff c (p x) (p y)).mpr hrel'
-          exact hc'.trans hc.symm
+          exact hc'
     obtain ⟨T, hT, hTE, hTRaw⟩ :=
       hLifts S p hp hPartP hColourP
     exact ⟨T, hT, hTE, hTRaw⟩
