@@ -732,3 +732,79 @@ not this prose summary.
 every individually given H is weaker than a globally coherent
 choice of extensions for the relevant partial-isomorphism
 groupoid. No such implication is used without a separate theorem.
+
+
+## 2026-10-18 — certified group-action gates through PR #141
+
+This checkpoint supersedes the historical *coherent / DLF frontier*
+section above. **The ordinary raw EPPA theorem and upstream typed
+EPPA API remain DONE. Coherent EPPA and the relative DLF classification
+are still OPEN.** The mathematical statements are those in the actual
+Lean files; these notes are a status ledger, not additional axioms.
+
+### Certified relative group-action infrastructure
+
+- **#131** transports reversal-safe invariant raw-colour choices on
+  abstract finite directed-edge H-sets (rebased from an earlier PR).
+- **#133–#134** supply the canonical global affine raw encoder and
+  turn an H-invariant reversal-compatible raw edge colouring into
+  a literal H-invariant additive residual matrix.
+- **#137** extends *prescribed* H-invariant old raw colours on an
+  H- and reversal-stable subset of an abstract directed-edge set.
+  Safety is needed only for orbits disjoint from the prescribed part.
+- **#138** chooses one reversal-compatible affine baseline extending
+  prescribed old-old cross-edge references.
+- **#139** constructs a homomorphic H-action on a finite raw cover
+  with H-invariant old zero-section points and correct prescribed
+  old references, given a full H-invariant raw colouring. In this
+  theorem the baseline is chosen **after H and its old subset**.
+- **#140** specializes abstract orbit selection to the ACTUAL finite
+  directed cross-pair subtype of an effective E/F geometry and the
+  induced H-action. The safety hypothesis is an actual H-element
+  interchanging both endpoints of a cross-E pair; it need not have
+  order two.
+- **#141** combines #140, #134 and #128: every endpoint-swap-safe
+  effective H-action lifts homomorphically to a single finite literal
+  raw-colour cover, with no prescribed old subset (S=empty).
+
+PRs #140 and #141 passed full Lean CI/allowed-axiom audit and were
+merged into main, superseding historically conflicted #135/#136.
+
+### Open gates in progress
+
+- **#142**: relative version of #140 for an H-stable old vertex
+  subset S, preserving its original raw colours exactly. Swaps of
+  old pairs are safe automatically from their already prescribed
+  H-invariant reversing raw colours; the self-reversing-fibre
+  hypothesis is required only outside S×S.
+- **#143**: composes the relative geometric selection with #139
+  to obtain an actual H-homomorphism on a finite raw cover carrying
+  the old zero-section and literal old raw colours.
+- **#144**: a crucial **stronger quantifier order**, fixing an affine
+  baseline b before H and S and deriving a homomorphic H-lift on
+  the SAME raw-coloured cover. The result is conditional on b
+  agreeing with the prescribed old-old raw section values.
+- **#145**: constructs b ONCE from all old raw colours on a
+  global old subset S0, so the very same b works for each later
+  S ⊆ S0 (in particular S=j(D) for different induced D).
+
+No open PR in this subsection should be treated as proven until
+CI/axiom audit succeeds and it is merged.
+
+### Why the fixed baseline matters
+
+The manuscript's fixed-cover lemma chooses the raw cover and old
+embedding before the induced substructure D and its group Aut(D).
+A theorem which constructs a NEW baseline b or NEW raw cover for
+each H gives individual group lifts but is **not** sufficient for
+coherent-EPPA assembly. The correct next step is to compose #145
+with #144 so one witness supports all relevant H-actions, and then
+verify safe effective H-actions from the concrete valuation witness.
+This is distinct from the still-open coherent groupoid assembly,
+negative classification and semi-coherent/DLF forcing theorems.
+
+The fixed-cover potential lift currently establishes the correct
+group homomorphism using potential corrections; it need not literally
+be the pure index-relabeling action (3.29) from the particular
+paper presentation. Its semantic action on E and every P_c and on
+old zero-section points is the verified output.
