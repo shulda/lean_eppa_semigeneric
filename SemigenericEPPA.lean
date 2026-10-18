@@ -13,6 +13,7 @@ import SemigenericEPPA.Structure.RawCoverPartialResidualLift
 import SemigenericEPPA.Structure.RawCoverLiftAlongEmbedding
 import SemigenericEPPA.Structure.RawCoverSectionLifts
 import SemigenericEPPA.Algebra.AffineResidualCode
+import SemigenericEPPA.Algebra.AffineResidualGlobalEncoder
 import SemigenericEPPA.Algebra.RawFibreReversalEquiv
 import SemigenericEPPA.Algebra.PairedFibreAffineDecoder
 import SemigenericEPPA.Algebra.UniversalResidualCarrier
