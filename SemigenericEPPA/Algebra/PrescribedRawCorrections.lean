@@ -134,8 +134,7 @@ theorem completePrescribedResidualCorrection_equation
           completePrescribedResidualCorrection D b theta S R y x =
             -(b y x - b (theta y) (theta x)) := by
               simp [completePrescribedResidualCorrection,
-                hxy, hyx, hx, hy]
-              abel
+                hxy, hyx, hx, hy] <;> abel
         _ = b x y - b (theta x) (theta y) := by
               rw [hreverse]
               abel
