@@ -109,16 +109,16 @@ theorem referenceWitnessPartPerm_mul_apply
               (iota h) (rho h)
               (fun j v => referenceGaugeTwist rho iota z h v j)
               q x
-          change
-            (referenceWitnessPartPerm D rho iota z k
-              (referenceWitnessPartPerm D rho iota z h q)).2
-              (rho k (rho h x)) =
-            referenceGaugeTwist rho iota z k (rho h x)
-              (iota h q.1) *
-                (referenceGaugeTwist rho iota z h x q.1 * q.2 x)
-            at *
-          rw [houter, hinner]
-          rfl
+          calc
+            referenceGaugeTwist rho iota z k (rho h x) (iota h q.1) *
+                (referenceGaugeTwist rho iota z h x q.1 * q.2 x) =
+              referenceGaugeTwist rho iota z k (rho h x) (iota h q.1) *
+                ((referenceWitnessPartPerm D rho iota z h q).2 (rho h x)) := by
+                  rw [hinner]
+            _ = (referenceWitnessPartPerm D rho iota z k
+                  (referenceWitnessPartPerm D rho iota z h q)).2
+                  (rho k (rho h x)) := by
+                    exact houter.symm
 
 /-- The cocycle (4.27) gives an actual group homomorphism into
 the entire witness-part permutation group, not just separate
