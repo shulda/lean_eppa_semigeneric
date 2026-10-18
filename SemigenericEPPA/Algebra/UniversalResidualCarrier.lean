@@ -86,6 +86,16 @@ noncomputable def universalResidualShift
   exact if d.s g = g ∧ g ∉ d.selfReverseEffective
     then (0, 1) else (0, 0)
 
+/-- Every affine shift lives entirely in the extra ZMod 2
+coordinate. The ZMod 4 vector component is always zero. -/
+@[simp] theorem universalResidualShift_fst
+    (d : RawDatum G C) (g : G) :
+    (universalResidualShift d g).1 = 0 := by
+  classical
+  by_cases h : d.s g = g ∧ g ∉ d.selfReverseEffective
+  · simp [universalResidualShift, h]
+  · simp [universalResidualShift, h]
+
 /-- No affine shift is needed between a pair of distinct effective
 colours, because raw reversal transfers the two fibres. -/
 theorem universalResidualShift_nonfixed
