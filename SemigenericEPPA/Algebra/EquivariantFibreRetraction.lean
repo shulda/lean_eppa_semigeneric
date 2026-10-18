@@ -8,7 +8,7 @@ maps pA:A→I, pB:B→I. The index involution s:I→I is respected by
 both reversals. If e:B→A is an equivariant injection over I and
 every fibre of B is inhabited, the inverse on the image of e can
 be extended to a fibre-preserving equivariant retraction provided
-that fixed points of rA admit fixed targets in the same fibre.
+that fixed points of rA have fixed targets in the same fibre.
 
 The proof orients each unembedded nonfixed orbit using an auxiliary
 linear order on A. The default of an oriented orbit is chosen
