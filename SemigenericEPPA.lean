@@ -103,6 +103,7 @@ import SemigenericEPPA.Structure.StrongSquare
 import SemigenericEPPA.Structure.OnePointStrongSquare
 import SemigenericEPPA.Structure.FreshPart
 import SemigenericEPPA.Bridge.CoherentEPPA
+import SemigenericEPPA.Bridge.CoherentOrbitRectangle
 
 /-!
 # Generalized semigeneric rectangle structures
