@@ -86,6 +86,23 @@ noncomputable def universalResidualShift
   exact if d.s g = g ∧ g ∉ d.selfReverseEffective
     then (0, 1) else (0, 0)
 
+/-- No affine shift is needed between a pair of distinct effective
+colours, because raw reversal transfers the two fibres. -/
+theorem universalResidualShift_nonfixed
+    (d : RawDatum G C) (g : G) (hg : d.s g ≠ g) :
+    universalResidualShift d g = 0 := by
+  classical
+  simp [universalResidualShift, hg]
+
+/-- A self-reversing raw colour permits an affine reversal with a
+fixed point, so our universal shift vanishes on that fibre. -/
+theorem universalResidualShift_withFixedColour
+    (d : RawDatum G C) (g : G)
+    (hg : g ∈ d.selfReverseEffective) :
+    universalResidualShift d g = 0 := by
+  classical
+  simp [universalResidualShift, hg]
+
 /-- The affine shift is constant on each effective reversal orbit.
 No assumption s(1)=1, commutativity of G, or saturation of S. -/
 theorem universalResidualShift_reverse
