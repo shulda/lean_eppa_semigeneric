@@ -147,9 +147,28 @@ theorem rawCoverTransport_colour
       exact hxy ((hE X.1 Y.1).1 h)
     have hres := rawCoverTransport_residual b correction theta
       X.1 Y.1 (hd X.1 Y.1 hxy) X Y rfl rfl
-    simp only [rawCoverColour, rawCoverTransport_base, if_neg hxy]
-    rw [hF X.1 Y.1 hxy, hres]
-    simp only [if_neg htarget]
+    let TX := rawCoverTransport theta correction X
+    let TY := rawCoverTransport theta correction Y
+    have hTcross : ¬D.part TX.1 TY.1 := by
+      change ¬D.part (theta X.1) (theta Y.1)
+      exact htarget
+    calc
+      rawCoverColour D code b TX TY =
+        some (code.decode (D.F TX.1 TY.1)
+          (rawResidual (TX.2 TY.1) (TY.2 TX.1)
+            (b TX.1 TY.1))).val := by
+          simp [rawCoverColour, hTcross]
+      _ = some (code.decode (D.F X.1 Y.1)
+          (rawResidual (X.2 Y.1) (Y.2 X.1)
+            (b X.1 Y.1))).val := by
+          change some (code.decode (D.F (theta X.1) (theta Y.1))
+              (rawResidual
+                ((rawCoverTransport theta correction X).2 (theta Y.1))
+                ((rawCoverTransport theta correction Y).2 (theta X.1))
+                (b (theta X.1) (theta Y.1)))).val = _
+          rw [hF X.1 Y.1 hxy, hres]
+      _ = rawCoverColour D code b X Y := by
+          simp [rawCoverColour, hxy]
 
 /-- Every raw relation P_c in the ACTUAL R1–R3 structure is
 preserved and reflected by the coordinate transport. -/
