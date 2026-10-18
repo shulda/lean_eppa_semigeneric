@@ -31,7 +31,7 @@ def RawRectanglePresentation.toTypedAutomorphism
     (hpart : ∀ x y, P.part (T x) (T y) ↔ P.part x y)
     (hcolour : ∀ x y, P.colour (T x) (T y) = P.colour x y) :
     Structure.Automorphism
-      (Language.Action.trivial (rectangleLanguage C) PUnit)
+      (Language.Action.trivial (rectangleLanguage C) (Equiv.Perm (Fin 0)))
       P.toStructure := by
   let emb := P.toTypedEmbedding P T T.injective hpart hcolour
   refine {
