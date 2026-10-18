@@ -24,6 +24,7 @@ import SemigenericEPPA.Structure.RawCoverEncodedOld
 import SemigenericEPPA.Structure.RawCover
 import SemigenericEPPA.Structure.RawCoverAutomorphisms
 import SemigenericEPPA.Structure.RawCoverPotentialCocycle
+import SemigenericEPPA.Structure.RawCoverPotentialAutomorphisms
 import SemigenericEPPA.Algebra.PrescribedRawLift
 import SemigenericEPPA.Algebra.Recenter
 import SemigenericEPPA.Algebra.Gauge
