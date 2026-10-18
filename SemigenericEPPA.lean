@@ -112,6 +112,7 @@ import SemigenericEPPA.Bridge.CoherentOrbitRectangle
 import SemigenericEPPA.Bridge.CoherentOrbitSwappedPair
 import SemigenericEPPA.Bridge.CoherentInvolutionForcing
 import SemigenericEPPA.Bridge.InvariantRawOrbitColours
+import SemigenericEPPA.Bridge.PrescribedRawOrbitColours
 
 /-!
 # Generalized semigeneric rectangle structures
