@@ -7,6 +7,7 @@ import SemigenericEPPA.Structure.RawCoverPrescribedLift
 import SemigenericEPPA.Algebra.AffineResidualCode
 import SemigenericEPPA.Algebra.UniversalResidualCarrier
 import SemigenericEPPA.Algebra.UniversalResidualEncoder
+import SemigenericEPPA.Algebra.UniversalResidualEncoderInjective
 import SemigenericEPPA.Algebra.ResidualOldCoordinates
 import SemigenericEPPA.Structure.RawCoverOldEmbedding
 import SemigenericEPPA.Structure.RawCoverEncodedOld
