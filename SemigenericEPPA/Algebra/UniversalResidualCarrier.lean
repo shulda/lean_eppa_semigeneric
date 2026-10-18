@@ -63,8 +63,7 @@ theorem universalResidualFixedBasis_neg (c : C) :
   classical
   funext x
   by_cases hx : x = c
-  · simp [universalResidualFixedBasis, hx]
-    decide
+  · simp [universalResidualFixedBasis, hx] <;> decide
   · simp [universalResidualFixedBasis, hx]
 
 /-- Reversal of a raw colour negates its signed paired basis, using
