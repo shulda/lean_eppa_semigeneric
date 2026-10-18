@@ -47,9 +47,9 @@ theorem exists_oneBaseline_allSafePrescribedGroupLifts
       ¬D.part x y → d.phi (old x y) = D.F x y)
     (hReverse : ∀ x y, x ∈ S₀ → y ∈ S₀ →
       ¬D.part x y → old y x = d.reverse (old x y)) :
-    ∃ b : V → V → L,
-      (∀ x y, ¬D.part x y →
-        b y x = code.shift (D.F x y) - b x y) ∧
+    ∃ (b : V → V → L)
+      (hb : ∀ x y, ¬D.part x y →
+        b y x = code.shift (D.F x y) - b x y),
       (∀ (H : Type u) [Group H]
         (rho : H →* Equiv.Perm V)
         (S : Set V),
@@ -79,15 +79,10 @@ theorem exists_oneBaseline_allSafePrescribedGroupLifts
             D.part (lift h X).1 (lift h Y).1 ↔ D.part X.1 Y.1) ∧
           (∀ h : H, ∀ c : C, ∀ X Y : RawCoverVertex V L,
             rawRel
-              (rawCoverPresentation D code b
-                (by
-                  -- The baseline is fixed in the first conjunct.
-                  -- This expression is used only in the conclusion.
-                  assumption)).toStructure c
+              (rawCoverPresentation D code b hb).toStructure c
                 (lift h X) (lift h Y) ↔
             rawRel
-              (rawCoverPresentation D code b
-                (by assumption)).toStructure c X Y)) := by
+              (rawCoverPresentation D code b hb).toStructure c X Y)) := by
   classical
   obtain ⟨b, hb, hAll⟩ :=
     exists_finiteBaseline_prescribingOldRawColours
