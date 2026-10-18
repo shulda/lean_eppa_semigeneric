@@ -1,4 +1,4 @@
-import Mathlib.Logic.Function.Basic
+import Mathlib.Logic.Equiv.Fintype
 
 /-!
 # Equivariant decoding on a two-orbit of exchanged sorts
