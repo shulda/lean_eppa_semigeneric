@@ -90,6 +90,7 @@ import SemigenericEPPA.Algebra.OccupiedGaugeCocycleCompletion
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import SemigenericEPPA.Algebra.FixedFactorialOldInjection
 import SemigenericEPPA.Algebra.EquivariantFibreMultiplicity
+import SemigenericEPPA.Algebra.OldClassFibreCardInstance
 import SemigenericEPPA.Algebra.FixedFibreSliceCoding
 import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
 import SemigenericEPPA.Algebra.ExistAssembledReplicatedCoding
