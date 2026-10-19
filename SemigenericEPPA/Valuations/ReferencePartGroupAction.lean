@@ -61,6 +61,7 @@ theorem referenceWitnessPartPerm_one
     change (twistPartValuation (rho (1 : H))
       (fun y => referenceGaugeTwist rho iota z (1 : H) y q.1) q.2) x = q.2 x
     simp [twistPartValuation, referenceGaugeTwist_one, map_one]
+    rfl
 
 /-- The witness-part action respects the FULL group product. The
 order is sigma_(k*h) = sigma_k ∘ sigma_h, with the noncommutative
