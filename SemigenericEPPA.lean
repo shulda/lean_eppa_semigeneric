@@ -86,6 +86,7 @@ import SemigenericEPPA.Algebra.OccupiedGaugeCocycleCompletion
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import SemigenericEPPA.Algebra.FixedFibreSliceCoding
 import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
+import SemigenericEPPA.Algebra.ExistAssembledReplicatedCoding
 import SemigenericEPPA.Algebra.FactorialFibreGroupAction
 import SemigenericEPPA.Valuations.PartialGaugeFromGeometry
 import SemigenericEPPA.Algebra.CornerAmalgamation
