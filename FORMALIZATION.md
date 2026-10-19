@@ -819,7 +819,7 @@ old zero-section points is the verified output.
 ## 2026-10-19 — merged coherent-action infrastructure checkpoint
 
 **Authoritative certified base:** merged into public `main` with full Lean
-build and allowed-axiom audit, PRs **#158, #161, #162, #163, #164, #165**.
+build and allowed-axiom audit, PRs **#158, #161, #162, #163, #164, #165, #166**.
 Ordinary EPPA and typed `AllThoseEPPA` integration had already been verified
 on `main`. No new `sorry` or custom axiom is used here.
 
@@ -857,6 +857,13 @@ on `main`. No new `sorry` or custom axiom is used here.
   projects H-equivariantly to an actual old cross-E pair and old raw
   colours are H-invariant, the projected colour is self-reversing.
   This holds for ANY element h of H, not only involutions.
+- **#166:** `finite_subsingletonEffectiveEPPA_and_allGroupLifts`
+  packages the verified effective EPPA witness and #164 into **one
+  finite, preselected E/F witness**. It embeds old E/F and extends
+  every old partial E/F-isomorphism individually, while every induced
+  S and every compatible H-action extends homomorphically on the
+  SAME finite witness. Neither the skeleton nor the old embedding
+  depends on S or H. This is still weaker than raw coherent EPPA.
 
 ### Mathematical guardrail: effective action ≠ raw-colour safety
 
@@ -895,7 +902,8 @@ single global unrelated old label into every padded E-class.
    strong-amalgamation iteration. Keep the private mathematical v0.8
    paper and this public Lean repository separate.
 
-**Related ongoing work at this checkpoint:** PR #166 packages the verified
-ordinary effective EPPA theorem with the universal effective H-actions
-from #164 into one fixed finite witness. It is NOT counted as merged
-or certified until its own CI and axiom audit pass.
+**Certified interface:** PR #166 (merged with full CI/allowed-axiom
+check) is the recommended single theorem for reusing the finite effective
+EPPA witness together with all relative H-action extensions when G=1.
+The additional raw-colour safety/groupoid proof obligations above are
+unchanged.
