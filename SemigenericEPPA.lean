@@ -88,6 +88,7 @@ import SemigenericEPPA.Algebra.EquivariantFibreMultiplicity
 import SemigenericEPPA.Algebra.FixedFibreSliceCoding
 import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
 import SemigenericEPPA.Algebra.ExistAssembledReplicatedCoding
+import SemigenericEPPA.Algebra.ExactReplicatedOccupiedCoding
 import SemigenericEPPA.Algebra.FactorialFibreGroupAction
 import SemigenericEPPA.Valuations.PartialGaugeFromGeometry
 import SemigenericEPPA.Algebra.CornerAmalgamation
