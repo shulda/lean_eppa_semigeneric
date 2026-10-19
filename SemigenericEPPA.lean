@@ -25,6 +25,7 @@ import SemigenericEPPA.Algebra.UniversalResidualEncoder
 import SemigenericEPPA.Algebra.UniversalResidualEncoderInjective
 import SemigenericEPPA.Algebra.ResidualOldCoordinates
 import SemigenericEPPA.Structure.RawCoverOldEmbedding
+import SemigenericEPPA.Structure.RawCoverZeroOldEmbedding
 import SemigenericEPPA.Structure.RawCoverEncodedOld
 import SemigenericEPPA.Structure.RawCover
 import SemigenericEPPA.Structure.RawCoverAutomorphisms
