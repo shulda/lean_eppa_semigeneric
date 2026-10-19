@@ -39,7 +39,7 @@ variable {d : RawDatum G C}
 
 namespace RawRectanglePresentation
 
-/-- One fixed finite raw cover and one literal old embedding admit
+/-- One fixed finite raw cover and one literal old embedding support
 strict coherent subgroup-valued extension functors for ALL
 isomorphism components of exact induced raw partial maps. -/
 theorem exists_gOneCoherentRawLifts_onAllComponents
