@@ -907,3 +907,68 @@ check) is the recommended single theorem for reusing the finite effective
 EPPA witness together with all relative H-action extensions when G=1.
 The additional raw-colour safety/groupoid proof obligations above are
 unchanged.
+
+## 2026-10-19 — G=1 fixed safe actions and one raw-cover checkpoint
+
+**Verified and merged, full public Lean CI plus allowed-axiom audit:**
+PRs #168–#178, #179–#190 (their exact declarations, not their PR
+descriptions, are authoritative).
+
+- **#168–#172:** strict group action on actual replicated old fibres,
+  transported to one fixed carrier. On occupied parts there is an
+  H-equivariant Option-valued projection to real old vertices;
+  unoccupied part indices are fixed. Swapped cross-E pairs therefore
+  have self-reversing raw representatives, even when the swapping
+  group element is not an involution.
+- **#173–#178:** assemble one exact classwise coding
+  `Fin M ≃ S_i × Fin(t_i)`, preserving the prescribed old
+  copy-zero injection. The resulting H→Perm of `I×Fin M`
+  genuinely preserves effective E/F, acts literally on all
+  old vertices, and has the required raw flip-safety.
+- **#175, #179:** class sizes are H-invariant; with a fixed
+  `M=|A|!` every later nonempty occupied fibre has positive
+  multiplicity `t_i=M/|S_i|`, satisfies `|S_i|*t_i=M`,
+  and has `t_(hi)=t_i`. Its numerical size is expressed by
+  the canonical instance-independent `oldClassFibreCard`.
+- **#176:** induced quotient H-actions fix every unused E-class
+  index. This explicit property is essential, not decorative.
+- **#180–#183:** there is an actual fixed G=1 effective geometry
+  on `(A/E)×Fin M` and a single old injection chosen before
+  any induced subgroup. Every individual partial effective
+  isomorphism extends on this SAME carrier; genuine effective
+  induced-subtype geometry is available.
+- **#184–#185, #188–#190:** original raw-colour data yield
+  a fixed total old reference, which respects old partial
+  automorphisms. If the baseline encodes these actual old colours,
+  the old zero section is an EXACT induced raw embedding and
+  individual raw partial maps lift on this SAME cover.
+- **#187:** a single baseline is chosen before ALL later partial
+  maps and safe H-actions; it supports BOTH individual zero-section
+  extensions and homomorphic safe-group raw-cover lifts. This is
+  a key common-witness quantifier-order gate.
+- **#186:** the normal form `Phi(i,j,f)=beta_j rho(f) beta_i⁻¹`
+  has identity, composition and old-vertex extension laws.
+  It is an algebraic groupoid gate, not yet a complete typed
+  `AllThoseEPPA.Structure.CoherentExtension` construction.
+
+**Prepared but not counted as merged/certified here:**
+#191 explicitly returns the old-old baseline encoding in the
+common-cover theorem; #192 bridges canonical old-class cardinality
+with explicitly supplied Fintype structures; stacked #193 eliminates
+multiplicity assumptions from the safe fixed-carrier H-action; #194
+derives invariant total old raw references from actual old H-actions.
+
+**Remaining coherent-positive G=1 assembly:** for all induced
+S⊆A and H=Aut(S), construct H-safe actions on the SAME fixed
+effective carrier from #176/#179/#181/#192/#193, instantiate one
+finite raw coefficient code and one fixed old-reference baseline
+(#185/#187/#188/#189/#190/#191/#194), combine with individual
+effective EPPA #182, and complete the **exact typed groupoid**
+representatives/connector construction beyond the abstract #186.
+
+Do NOT infer coherent EPPA from separate group actions without that
+last groupoid theorem. The nontrivial G coherent sector, negative
+classification, relative safe-phase DLF and its converse, and
+unrestricted finite SAP iteration are still open. Never use global
+congruence saturation in the weaker DLF branch. Private manuscript
+repo has no CI.
