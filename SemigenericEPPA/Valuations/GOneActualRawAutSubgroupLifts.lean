@@ -49,11 +49,13 @@ abbrev RawRectanglePresentation.gOneJointRawAutGroup
     (j : A → Fin (coherentPaddingSize A))
     (K : FixedJointRawCover.{u, v, w, w, t}
       P P.gOneFactorialGeometry (P.gOneFactorialOldMap j)) :=
-  (P.gOneJointRawPresentation j K).actualRawAutomorphismGroup
+  binaryRawAutSubgroup
+    (P.gOneJointRawPresentation j K).part
+    (fun c x y => (P.gOneJointRawPresentation j K).colour x y = some c)
 
 /-- One canonical original zero-section embedding in the
 complete finite raw witness carrier, independent of S,H. -/
-def RawRectanglePresentation.gOneJointRawOldMap
+noncomputable def RawRectanglePresentation.gOneJointRawOldMap
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
     (x : A) : GOneJointRawCarrier P :=
