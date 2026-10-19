@@ -45,7 +45,7 @@ theorem upstreamEquivalent_exactSourceTarget
   have hPartial := heq.2
   refine ⟨hPartial.source_eq, hPartial.target_eq, ?_⟩
   intro x hx
-  exact hPartial.eqOn x hx
+  exact hPartial.eqOn hx
 
 /-- A coherent triple of upstream partial automorphisms is
 literally an exact composition on sources, ranges and old points.
@@ -72,7 +72,7 @@ theorem upstreamCoherentTriple_exactComposition
       rw [hSource]
       exact hx
     have heq : h x = (g.comp f htg) x :=
-      hEquivalent.2.eqOn x ht
+      hEquivalent.2.eqOn ht
     exact heq
 
 end RawRectanglePresentation
