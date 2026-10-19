@@ -79,7 +79,8 @@ theorem quotientIndexWitnessPartAction_fibre_compat
       iota h q.1 ↔ Quotient.mk D.part x = q.1
   rw [hcls h x]
   constructor
-  · exact (iota h).injective
+  · intro heq
+    exact (iota h).injective heq
   · intro heq
     exact congrArg (iota h) heq
 
