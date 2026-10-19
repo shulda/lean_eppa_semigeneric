@@ -75,8 +75,7 @@ theorem exists_subsingletonFixedPartPartialExtension
   have hqinj : Function.Injective q := by
     intro z w hzw
     have he : p (rep z) = p (rep w) := holdInj hzw
-    have hrepEq : rep z = rep w :=
-      Subtype.ext (hp he)
+    have hrepEq : rep z = rep w := hp he
     apply Subtype.ext
     calc
       z.val = old (rep z).val := (hrep z).symm
