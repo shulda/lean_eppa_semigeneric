@@ -44,7 +44,7 @@ theorem upstreamToExactRawArrow_equivalent
     P.upstreamEquivalent_exactSourceTarget p q heq
   cases hsrc
   cases htgt
-  apply HEq.rfl_of_eq
+  apply heq_of_eq
   apply ExactPartialIso.ext
   apply Equiv.ext
   intro x
@@ -62,7 +62,7 @@ theorem upstreamToExactRawArrow_comp
       ((P.upstreamToExactRawArrow g).comp
         (P.upstreamToExactRawArrow f)) := by
   cases htg
-  apply HEq.rfl_of_eq
+  apply heq_of_eq
   apply ExactPartialIso.ext
   apply Equiv.ext
   intro x
