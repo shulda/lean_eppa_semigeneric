@@ -50,6 +50,7 @@ import SemigenericEPPA.Valuations.EffectiveAutomorphisms
 import SemigenericEPPA.Valuations.TwistedPartPermutation
 import SemigenericEPPA.Valuations.WitnessCocycleAction
 import SemigenericEPPA.Valuations.InvariantSkeletonGroupAction
+import SemigenericEPPA.Valuations.SingletonEffectiveGroupLift
 import SemigenericEPPA.Valuations.ReferencePartGroupAction
 import SemigenericEPPA.Valuations.ReferenceWitnessActionBridge
 import SemigenericEPPA.Valuations.OldPartialTwists
