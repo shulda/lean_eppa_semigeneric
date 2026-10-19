@@ -45,7 +45,7 @@ theorem factorialOldFibreMultiplicity_laws
     (∀ i : ReplicatedOccupiedIndex cls,
       0 < oldClassFibreMultiplicity cls (coherentPaddingSize A) i.val) ∧
     (∀ i : ReplicatedOccupiedIndex cls,
-      Fintype.card (ReplicatedOldFibre cls i) *
+      oldClassFibreCard cls i.val *
         oldClassFibreMultiplicity cls (coherentPaddingSize A) i.val =
           coherentPaddingSize A) ∧
     (∀ (h : H) (i : I),
@@ -53,12 +53,14 @@ theorem factorialOldFibreMultiplicity_laws
         oldClassFibreMultiplicity cls (coherentPaddingSize A) i) := by
   classical
   have hpos (i : ReplicatedOccupiedIndex cls) :
-      0 < Fintype.card (ReplicatedOldFibre cls i) := by
+      0 < oldClassFibreCard cls i.val := by
+    change 0 < Fintype.card (ReplicatedOldFibre cls i)
     obtain ⟨x, hx⟩ := i.property
     exact Fintype.card_pos_iff.mpr ⟨⟨x, hx⟩⟩
   have hdiv (i : ReplicatedOccupiedIndex cls) :
-      Fintype.card (ReplicatedOldFibre cls i) ∣
+      oldClassFibreCard cls i.val ∣
         coherentPaddingSize A := by
+    change Fintype.card (ReplicatedOldFibre cls i) ∣ coherentPaddingSize A
     let embedding : ReplicatedOldFibre cls i → A :=
       fun x => inc x.val
     have hEmbedding : Function.Injective embedding :=
@@ -69,13 +71,13 @@ theorem factorialOldFibreMultiplicity_laws
     exact Nat.dvd_factorial (hpos i) hBound
   constructor
   · intro i
-    simp only [oldClassFibreMultiplicity, oldClassFibreCard]
+    simp only [oldClassFibreMultiplicity]
     exact Nat.div_pos
       (Nat.le_of_dvd (coherentPaddingSize_pos A) (hdiv i))
       (hpos i)
   constructor
   · intro i
-    simp only [oldClassFibreMultiplicity, oldClassFibreCard]
+    simp only [oldClassFibreMultiplicity]
     exact Nat.mul_div_cancel' (hdiv i)
   · intro h i
     exact oldClassFibreMultiplicity_invariant
