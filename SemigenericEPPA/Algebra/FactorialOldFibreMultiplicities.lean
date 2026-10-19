@@ -69,16 +69,13 @@ theorem factorialOldFibreMultiplicity_laws
     exact Nat.dvd_factorial (hpos i) hBound
   constructor
   · intro i
-    change 0 < coherentPaddingSize A /
-      Fintype.card (ReplicatedOldFibre cls i)
+    simp only [oldClassFibreMultiplicity, oldClassFibreCard]
     exact Nat.div_pos
       (Nat.le_of_dvd (coherentPaddingSize_pos A) (hdiv i))
       (hpos i)
   constructor
   · intro i
-    change Fintype.card (ReplicatedOldFibre cls i) *
-      (coherentPaddingSize A / Fintype.card (ReplicatedOldFibre cls i)) =
-        coherentPaddingSize A
+    simp only [oldClassFibreMultiplicity, oldClassFibreCard]
     exact Nat.mul_div_cancel' (hdiv i)
   · intro h i
     exact oldClassFibreMultiplicity_invariant
