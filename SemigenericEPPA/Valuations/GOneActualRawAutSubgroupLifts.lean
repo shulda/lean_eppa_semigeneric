@@ -37,8 +37,8 @@ variable {d : RawDatum G C}
 noncomputable def RawRectanglePresentation.gOneJointRawPresentation
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
-    (K : FixedJointRawCover P P.gOneFactorialGeometry
-      (P.gOneFactorialOldMap j)) :
+    (K : FixedJointRawCover.{u, v, w, w, t}
+      P P.gOneFactorialGeometry (P.gOneFactorialOldMap j)) :
     RawRectanglePresentation d (GOneJointRawCarrier P) :=
   rawCoverPresentation P.gOneFactorialGeometry
     K.code K.baseline K.baseline_reverse
@@ -47,8 +47,8 @@ noncomputable def RawRectanglePresentation.gOneJointRawPresentation
 abbrev RawRectanglePresentation.gOneJointRawAutGroup
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
-    (K : FixedJointRawCover P P.gOneFactorialGeometry
-      (P.gOneFactorialOldMap j)) :=
+    (K : FixedJointRawCover.{u, v, w, w, t}
+      P P.gOneFactorialGeometry (P.gOneFactorialOldMap j)) :=
   (P.gOneJointRawPresentation j K).actualRawAutomorphismGroup
 
 /-- One canonical original zero-section embedding in the
@@ -65,8 +65,8 @@ true automorphism subgroup of the SAME fixed full raw cover. -/
 theorem RawRectanglePresentation.exists_gOneExactRawArrowExtension
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
-    (K : FixedJointRawCover P P.gOneFactorialGeometry
-      (P.gOneFactorialOldMap j))
+    (K : FixedJointRawCover.{u, v, w, w, t}
+      P P.gOneFactorialGeometry (P.gOneFactorialOldMap j))
     (hPartial : P.HasAllJointRawPartialLifts j K)
     (S T : Set A)
     (f : ExactPartialIso P S T) :
@@ -101,8 +101,8 @@ automorphism subgroup, with literal extension on old vertices. -/
 theorem RawRectanglePresentation.exists_gOneRawSubgroupLift
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
-    (K : FixedJointRawCover P P.gOneFactorialGeometry
-      (P.gOneFactorialOldMap j))
+    (K : FixedJointRawCover.{u, v, w, w, t}
+      P P.gOneFactorialGeometry (P.gOneFactorialOldMap j))
     (hGroups : P.HasAllJointRawGroupLifts j K)
     (H : Type t) [Group H]
     (S : Set A) (rho : H →* Equiv.Perm S)
