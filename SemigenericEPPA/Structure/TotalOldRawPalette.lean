@@ -67,7 +67,7 @@ theorem totalOldRawColour_reverse
   rw [P.totalOldRawColour_cross x y hxy] at h
   have hy := P.totalOldRawColour_cross y x hyx
   rw [h] at hy
-  exact Option.some.inj hy
+  exact (Option.some.inj hy).symm
 
 /-- A group preserving the actual raw functional colouring preserves
 the total reference on every cross-class pair. No H-invariance of
