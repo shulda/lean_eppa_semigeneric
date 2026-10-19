@@ -115,6 +115,7 @@ import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
 import SemigenericEPPA.Structure.TotalOldRawPalette
 import SemigenericEPPA.Structure.OldRawReferenceOnBase
 import SemigenericEPPA.Structure.OldRawReferencePartialInvariance
+import SemigenericEPPA.Structure.OldRawReferenceGroupInvariance
 import SemigenericEPPA.Structure.RawEPPA
 import SemigenericEPPA.Structure.RelationalRawEPPA
 import SemigenericEPPA.Structure.RawPartialEffectiveReduct
