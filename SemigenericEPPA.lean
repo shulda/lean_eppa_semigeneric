@@ -111,6 +111,7 @@ import SemigenericEPPA.Structure.RelationalRawEPPA
 import SemigenericEPPA.Structure.RawPartialEffectiveReduct
 import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
+import SemigenericEPPA.Structure.SubsingletonFixedPartGeometry
 import SemigenericEPPA.Structure.ExtendedSkeleton
 import SemigenericEPPA.Structure.OnePointGaugeChoice
 import SemigenericEPPA.Structure.OnePointGaugeAttached
