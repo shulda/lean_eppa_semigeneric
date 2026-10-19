@@ -71,7 +71,8 @@ theorem replicatedFibreLabelMap_one
     replicatedFibreLabelMap rho iota cls hCls t ht 1 z = z := by
   have hfirst : rho (1 : H) z.1 = z.1 := by simp
   apply Sigma.ext hfirst
-  exact (Fin.heq_ext_iff (by rw [hfirst])).mpr rfl
+  exact (Fin.heq_ext_iff
+    (congrArg (fun x : S => Fin (t (cls x))) hfirst)).mpr rfl
 
 /-- Strict multiplication law in the nondependent ambient group H:
 no separate choices of extensions or accidental powers are used. -/
@@ -92,7 +93,8 @@ theorem replicatedFibreLabelMap_mul
     rw [map_mul]
     rfl
   apply Sigma.ext hfirst
-  exact (Fin.heq_ext_iff (by rw [hfirst])).mpr rfl
+  exact (Fin.heq_ext_iff
+    (congrArg (fun x : S => Fin (t (cls x))) hfirst)).mpr rfl
 
 /-- One homomorphism into permutations of ALL replicated labels,
 automatically invertible with inverse given by h⁻¹. -/
@@ -165,6 +167,7 @@ theorem replicatedFibreOldLabel_equivariant
       replicatedFibreOldLabel cls t hpos (rho h x) := by
   have hfirst : rho h x = rho h x := rfl
   apply Sigma.ext hfirst
-  exact (Fin.heq_ext_iff (by rw [hfirst])).mpr rfl
+  exact (Fin.heq_ext_iff
+    (congrArg (fun x : S => Fin (t (cls x))) hfirst)).mpr rfl
 
 end SemigenericEPPA
