@@ -160,6 +160,7 @@ import SemigenericEPPA.Structure.FreshPart
 import SemigenericEPPA.Bridge.CoherentEPPA
 import SemigenericEPPA.Bridge.CoherentGroupoidNormalForm
 import SemigenericEPPA.Bridge.BinaryRawAutomorphismSubgroup
+import SemigenericEPPA.Bridge.RawAutomorphismSubgroupTyped
 import SemigenericEPPA.Bridge.ExactRawPartialGroupoid
 import SemigenericEPPA.Bridge.UpstreamToExactRawGroupoid
 import SemigenericEPPA.Bridge.ExactRawGroupoidComponents
