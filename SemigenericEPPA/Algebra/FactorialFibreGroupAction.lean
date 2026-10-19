@@ -1,5 +1,7 @@
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fintype.Prod
+import Mathlib.Data.Fintype.Sets
 import Mathlib.Logic.Equiv.Fintype
 import Mathlib.Algebra.Group.Hom.Defs
 import Mathlib.GroupTheory.Perm.Basic
@@ -54,11 +56,12 @@ theorem exists_factorialFibreGroupAction
         simpa [ht0] using ht.symm
       exact (Nat.ne_of_gt (coherentPaddingSize_pos A)) hzero
     exact Nat.pos_of_ne_zero hne
+  letI : Fintype S := Finset.fintypeCoeSort S
   let z : Fin t := ⟨0, htpos⟩
   have hcard :
       Fintype.card (Fin (coherentPaddingSize A)) =
         Fintype.card (S × Fin t) := by
-    simpa [Fintype.card_prod] using ht.symm
+    simpa [Fintype.card_prod, Fintype.card_coe] using ht.symm
   let beta : Fin (coherentPaddingSize A) ≃ (S × Fin t) :=
     Fintype.equivOfCardEq hcard
   let j0 : S → Fin (coherentPaddingSize A) :=
@@ -92,7 +95,7 @@ theorem exists_factorialFibreGroupAction
       intro k h
       apply Equiv.ext
       intro x
-      simp [map_mul]
+      simp [map_mul, Prod.map, Function.comp_def]
   }
   refine ⟨action, ?_⟩
   intro h x
@@ -101,8 +104,11 @@ theorem exists_factorialFibreGroupAction
   calc
     action h (j x) =
         beta'.symm (rho h x,z) := by
-          simp only [action, Equiv.trans_apply, Equiv.prodCongr_apply,
-            Equiv.refl_apply, hbeta x]
+          change beta'.symm
+            ((Equiv.prodCongr (rho h) (Equiv.refl (Fin t)))
+              (beta' (j x))) = beta'.symm (rho h x,z)
+          rw [hbeta x]
+          rfl
     _ = beta'.symm (beta' (j (rho h x))) := by rw [hz]
     _ = j (rho h x) := beta'.symm_apply_apply _
 
