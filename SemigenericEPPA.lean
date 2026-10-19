@@ -93,6 +93,7 @@ import SemigenericEPPA.Algebra.CoherentPaddingSize
 import SemigenericEPPA.Algebra.FixedFactorialOldInjection
 import SemigenericEPPA.Algebra.EquivariantFibreMultiplicity
 import SemigenericEPPA.Algebra.OldClassFibreCardInstance
+import SemigenericEPPA.Valuations.FactorialSafeReplicatedAction
 import SemigenericEPPA.Algebra.FactorialOldFibreMultiplicities
 import SemigenericEPPA.Algebra.FixedFibreSliceCoding
 import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
