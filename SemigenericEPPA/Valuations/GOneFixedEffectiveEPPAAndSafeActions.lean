@@ -45,7 +45,7 @@ noncomputable def RawRectanglePresentation.gOneFactorialGeometry
     (Quotient P.effectiveReduct.part) (coherentPaddingSize A)
 
 /-- The old embedding chosen BEFORE any partial map or group H. -/
-def RawRectanglePresentation.gOneFactorialOldMap
+noncomputable def RawRectanglePresentation.gOneFactorialOldMap
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
     (x : A) : GOneFactorialCarrier P :=
