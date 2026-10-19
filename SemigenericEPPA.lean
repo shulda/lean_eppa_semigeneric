@@ -105,6 +105,7 @@ import SemigenericEPPA.Bridge.RawTypedEPPA
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveGeometry
+import SemigenericEPPA.Structure.InducedEffectiveGeometry
 import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
 import SemigenericEPPA.Structure.RawEPPA
 import SemigenericEPPA.Structure.RelationalRawEPPA
