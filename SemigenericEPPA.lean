@@ -165,6 +165,7 @@ import SemigenericEPPA.Bridge.ExactRawPartialGroupoid
 import SemigenericEPPA.Bridge.ExactRawAutomorphismGroups
 import SemigenericEPPA.Bridge.ExactRawGroupoidCoherentTransport
 import SemigenericEPPA.Bridge.ExactRawGroupoidOldExtension
+import SemigenericEPPA.Bridge.CoherentRawComponentAutArrow
 import SemigenericEPPA.Bridge.UpstreamToExactRawGroupoid
 import SemigenericEPPA.Bridge.ExactRawGroupoidComponents
 import SemigenericEPPA.Bridge.CoherentOrbitRectangle
