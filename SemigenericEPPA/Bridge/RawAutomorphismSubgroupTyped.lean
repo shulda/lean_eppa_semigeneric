@@ -78,7 +78,7 @@ theorem actualRawAutomorphism_toTyped_one
     (Q : RawRectanglePresentation d W) :
     Q.actualRawAutomorphism_toTyped 1 =
       Structure.Automorphism.id
-        (rectangleTrivialAction C) Q.toStructure := by
+        (act := rectangleTrivialAction C) Q.toStructure := by
   apply Structure.Automorphism.ext_of_lang_apply
   · rfl
   · intro x
