@@ -31,6 +31,28 @@ variable {d : RawDatum G C}
 
 namespace RawRectanglePresentation
 
+/-- General heterogeneous extensionality for exact raw isomorphisms
+over EQUAL old source and target subsets, without trying to eliminate
+equalities between arbitrary projections of upstream PartialEquiv. -/
+private theorem exactRawArrow_heq_of_pointwise
+    (P : RawRectanglePresentation d A)
+    {S S' T T' : Set A}
+    (hS : S = S') (hT : T = T')
+    (f : ExactPartialIso P S T)
+    (g : ExactPartialIso P S' T')
+    (hMap : ∀ (x : A) (hx : x ∈ S) (hx' : x ∈ S'),
+      (f.toEquiv ⟨x, hx⟩).val =
+        (g.toEquiv ⟨x, hx'⟩).val) :
+    HEq f g := by
+  cases hS
+  cases hT
+  apply heq_of_eq
+  apply ExactPartialIso.ext
+  apply Equiv.ext
+  intro x
+  apply Subtype.ext
+  exact hMap x.val x.property x.property
+
 /-- Equivalent upstream partial raw maps have the same exact
 raw groupoid arrow (after identifying their sources and targets). -/
 theorem upstreamToExactRawArrow_equivalent
@@ -42,17 +64,15 @@ theorem upstreamToExactRawArrow_equivalent
       (P.upstreamToExactRawArrow q) := by
   obtain ⟨hsrc, htgt, hmap⟩ :=
     P.upstreamEquivalent_exactSourceTarget p q heq
-  cases hsrc
-  cases htgt
-  apply heq_of_eq
-  apply ExactPartialIso.ext
-  apply Equiv.ext
-  intro x
-  apply Subtype.ext
-  exact hmap x.val x.property
+  apply exactRawArrow_heq_of_pointwise P hsrc htgt
+    (P.upstreamToExactRawArrow p)
+    (P.upstreamToExactRawArrow q)
+  intro x hx hx'
+  exact hmap x hx
 
 /-- Exact upstream composition is EQUAL to exact raw groupoid
-composition. In particular the composite has no shrunken source. -/
+composition, transporting the *intermediate subset* along the
+specified equality f.target=g.source rather than shrinking it. -/
 theorem upstreamToExactRawArrow_comp
     (P : RawRectanglePresentation d A)
     (f g : Structure.PartialAutomorphism
@@ -60,7 +80,9 @@ theorem upstreamToExactRawArrow_comp
     (htg : f.target = g.source) :
     HEq (P.upstreamToExactRawArrow (g.comp f htg))
       ((P.upstreamToExactRawArrow g).comp
-        (P.upstreamToExactRawArrow f)) := by
+        (htg ▸ P.upstreamToExactRawArrow f)) := by
+  generalize hT : f.target = T at htg ⊢
+  generalize hT' : g.source = T' at htg ⊢
   cases htg
   apply heq_of_eq
   apply ExactPartialIso.ext
