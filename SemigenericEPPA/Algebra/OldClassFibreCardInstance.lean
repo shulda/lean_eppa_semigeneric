@@ -35,7 +35,7 @@ theorem oldClassFibreCard_eq_givenFintype
   unfold oldClassFibreCard
   exact @Fintype.card_congr
     (OldClassFibre cls i) (OldClassFibre cls i)
-      (by infer_instance) hfin (Equiv.refl _)
+      (Subtype.fintype (fun x : S => cls x = i)) hfin (Equiv.refl _)
 
 /-- The same interface specialized to occupied E-class indices,
 where class-fibre types are named ReplicatedOldFibre. -/
