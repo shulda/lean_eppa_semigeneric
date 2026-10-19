@@ -75,10 +75,16 @@ theorem coherentComponentAutArrow_id
         (P.rawIsoRepresentative q) (P.rawComponentObjects q)
         (P.componentRawConnectors q) i i
         (ExactPartialIso.refl P i.val)) * (beta i)⁻¹ = 1
-  rw [ExactPartialIso.referenceCoordinate_id P
-    (P.rawIsoRepresentative q) (P.rawComponentObjects q)
-    (P.componentRawConnectors q) i]
-  simp
+  have hcoord :
+      ExactPartialIso.referenceCoordinate P
+        (P.rawIsoRepresentative q) (P.rawComponentObjects q)
+        (P.componentRawConnectors q) i i
+          (ExactPartialIso.refl P i.val) = 1 :=
+    ExactPartialIso.referenceCoordinate_id P
+      (P.rawIsoRepresentative q) (P.rawComponentObjects q)
+      (P.componentRawConnectors q) i
+  rw [hcoord, map_one]
+  group
 
 /-- Exact groupoid composition into the true raw-automorphism
 subgroup, with no supplementary coherence of beta. -/
@@ -106,9 +112,20 @@ theorem coherentComponentAutArrow_comp
       (beta j * rho (ExactPartialIso.referenceCoordinate P
           (P.rawIsoRepresentative q) (P.rawComponentObjects q)
           (P.componentRawConnectors q) i j f) * (beta i)⁻¹)
-  rw [ExactPartialIso.referenceCoordinate_comp P
-    (P.rawIsoRepresentative q) (P.rawComponentObjects q)
-    (P.componentRawConnectors q) i j k f g, map_mul]
+  have hcoord :
+      ExactPartialIso.referenceCoordinate P
+        (P.rawIsoRepresentative q) (P.rawComponentObjects q)
+        (P.componentRawConnectors q) i k (g.comp f) =
+      ExactPartialIso.referenceCoordinate P
+        (P.rawIsoRepresentative q) (P.rawComponentObjects q)
+        (P.componentRawConnectors q) j k g *
+      ExactPartialIso.referenceCoordinate P
+        (P.rawIsoRepresentative q) (P.rawComponentObjects q)
+        (P.componentRawConnectors q) i j f :=
+    ExactPartialIso.referenceCoordinate_comp P
+      (P.rawIsoRepresentative q) (P.rawComponentObjects q)
+      (P.componentRawConnectors q) i j k f g
+  rw [hcoord, map_mul]
   group
 
 /-- The groupoid automorphism carries the original embedded old
