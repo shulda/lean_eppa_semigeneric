@@ -1,6 +1,8 @@
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import Mathlib.Data.Fintype.EquivFin
 import Mathlib.Logic.Equiv.Fintype
+import Mathlib.Algebra.Group.Hom.Defs
+import Mathlib.GroupTheory.Perm.Basic
 
 /-!
 # Extending a finite group action to a prechosen factorial-size fibre
