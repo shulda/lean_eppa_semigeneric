@@ -167,6 +167,7 @@ import SemigenericEPPA.Bridge.ExactRawGroupoidCoherentTransport
 import SemigenericEPPA.Bridge.ExactRawGroupoidOldExtension
 import SemigenericEPPA.Bridge.CoherentRawComponentAutArrow
 import SemigenericEPPA.Bridge.CoherentAllRawComponents
+import SemigenericEPPA.Bridge.FlattenCoherentRawGroupoid
 import SemigenericEPPA.Valuations.GOneActualRawAutSubgroupLifts
 import SemigenericEPPA.Valuations.GOneCoherentAllComponents
 import SemigenericEPPA.Bridge.UpstreamToExactRawGroupoid
