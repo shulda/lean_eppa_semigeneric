@@ -46,7 +46,7 @@ in the literal raw automorphism group of the SAME witness. -/
 theorem exists_gOneGlobalCoherentExactRawFunctor
     (P : RawRectanglePresentation d A) :
     ∃ (j : A → Fin (coherentPaddingSize A))
-      (K : FixedJointRawCover.{u, v, w, w, max u (max v w)}
+      (K : FixedJointRawCover.{u, v, w, w, w}
         P P.gOneFactorialGeometry (P.gOneFactorialOldMap j))
       (F : (S T : Set A) → ExactPartialIso P S T →
         P.gOneJointRawAutGroup j K),
