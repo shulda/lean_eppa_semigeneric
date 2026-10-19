@@ -85,6 +85,7 @@ import SemigenericEPPA.Algebra.EffectiveGroupGaugeCocycles
 import SemigenericEPPA.Algebra.OccupiedGaugeCocycleCompletion
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import SemigenericEPPA.Algebra.EquivariantFibreMultiplicity
+import SemigenericEPPA.Algebra.FactorialOldFibreMultiplicities
 import SemigenericEPPA.Algebra.FixedFibreSliceCoding
 import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
 import SemigenericEPPA.Algebra.ExistAssembledReplicatedCoding
