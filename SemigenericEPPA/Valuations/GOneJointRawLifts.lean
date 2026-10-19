@@ -50,8 +50,8 @@ literal raw predicates from the old ZERO section. -/
 def RawRectanglePresentation.HasAllJointRawPartialLifts
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
-    (K : FixedJointRawCover P P.gOneFactorialGeometry
-        (P.gOneFactorialOldMap j)) : Prop :=
+    (K : FixedJointRawCover.{u, v, w, w, t}
+        P P.gOneFactorialGeometry (P.gOneFactorialOldMap j)) : Prop :=
   ∀ (S : Set A) (p : S → A),
     Function.Injective p →
     (∀ x y : S, P.part x.val y.val ↔
@@ -82,8 +82,8 @@ all literal old raw colours and old zero-section vertices. -/
 def RawRectanglePresentation.HasAllJointRawGroupLifts
     (P : RawRectanglePresentation d A)
     (j : A → Fin (coherentPaddingSize A))
-    (K : FixedJointRawCover P P.gOneFactorialGeometry
-        (P.gOneFactorialOldMap j)) : Prop :=
+    (K : FixedJointRawCover.{u, v, w, w, t}
+        P P.gOneFactorialGeometry (P.gOneFactorialOldMap j)) : Prop :=
   ∀ (H : Type t) [Group H]
       (S : Set A) (rho : H →* Equiv.Perm S),
     (∀ h : H, ∀ x y : S,
@@ -117,8 +117,8 @@ automorphism-group homomorphic lifts with no other assumptions. -/
 theorem RawRectanglePresentation.exists_gOneJointRawEPPA_andAllGroupLifts
     (P : RawRectanglePresentation d A) :
     ∃ (j : A → Fin (coherentPaddingSize A))
-      (K : FixedJointRawCover P P.gOneFactorialGeometry
-        (P.gOneFactorialOldMap j)),
+      (K : FixedJointRawCover.{u, v, w, w, t}
+        P P.gOneFactorialGeometry (P.gOneFactorialOldMap j)),
       Function.Injective (P.gOneFactorialOldMap j) ∧
       (∀ x y : A,
         P.gOneFactorialGeometry.part
@@ -128,7 +128,7 @@ theorem RawRectanglePresentation.exists_gOneJointRawEPPA_andAllGroupLifts
       P.HasAllJointRawGroupLifts j K := by
   classical
   obtain ⟨j, K, he, hpart, hpartial, hsafe⟩ :=
-    P.exists_gOneEffectiveAndJointRawCover
+    RawRectanglePresentation.exists_gOneEffectiveAndJointRawCover.{u, v, w, t} P
   let e : A → GOneFactorialCarrier P := P.gOneFactorialOldMap j
   let D := P.gOneFactorialGeometry
   have hpart' : ∀ x y : A,
