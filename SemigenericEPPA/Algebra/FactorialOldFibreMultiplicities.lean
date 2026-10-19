@@ -30,7 +30,7 @@ universe u v w z
 variable {H : Type u} [Group H]
 variable {A : Type v} [Fintype A]
 variable {S : Type w} [Fintype S]
-variable {I : Type z} [DecidableEq I]
+variable {I : Type z}
 
 /-- The canonical multiplicity from the original cardinal factorial
 satisfies positivity and the exact fibre product equation for every
