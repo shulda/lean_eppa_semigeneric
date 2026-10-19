@@ -45,7 +45,7 @@ isomorphism components of exact induced raw partial maps. -/
 theorem exists_gOneCoherentRawLifts_onAllComponents
     (P : RawRectanglePresentation d A) :
     ∃ (j : A → Fin (coherentPaddingSize A))
-      (K : FixedJointRawCover.{u, v, w, w, max u (max v w)}
+      (K : FixedJointRawCover.{u, v, w, w, w}
         P P.gOneFactorialGeometry (P.gOneFactorialOldMap j))
       (Phi : (q : RawIsoComponent P) →
         (i k : RawComponentObject P q) →
@@ -68,7 +68,7 @@ theorem exists_gOneCoherentRawLifts_onAllComponents
             P.gOneJointRawOldMap j (f.toEquiv x).val) := by
   classical
   obtain ⟨j, K, _he, _hPart, hPartial, hGroups⟩ :=
-    RawRectanglePresentation.exists_gOneJointRawEPPA_andAllGroupLifts.{u, v, w, max u (max v w)} P
+    RawRectanglePresentation.exists_gOneJointRawEPPA_andAllGroupLifts.{u, v, w, w} P
   let Aut := P.gOneJointRawAutGroup j K
   let psi : A → GOneJointRawCarrier P :=
     P.gOneJointRawOldMap j
