@@ -77,6 +77,7 @@ import SemigenericEPPA.Algebra.PartialGaugeFamilies
 import SemigenericEPPA.Algebra.EffectiveGroupGaugeCocycles
 import SemigenericEPPA.Algebra.OccupiedGaugeCocycleCompletion
 import SemigenericEPPA.Algebra.CoherentPaddingSize
+import SemigenericEPPA.Algebra.FactorialFibreGroupAction
 import SemigenericEPPA.Valuations.PartialGaugeFromGeometry
 import SemigenericEPPA.Algebra.CornerAmalgamation
 import SemigenericEPPA.Algebra.SamePartRows
