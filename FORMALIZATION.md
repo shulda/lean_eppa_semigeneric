@@ -14,8 +14,12 @@
   commit `d85fda061d0b43f2b78c2470ce51f16ecf5c4e8d` (verified green CI).
   Only definitions of language, structures, embeddings, exact partial maps
   and coherent extensions may be used; **do not invoke HKN EPPA existence**.
-- **No main theorem verified yet.** Paper proof audits are human only,
-  not Lean certificates; v0.8 PDF compilation is also unconfirmed.
+- **Current verified headline:** unconditional ordinary EPPA, for arbitrary
+  finite raw fibres and literal relational structures, including the typed
+  upstream `IsEPPAWitness` API. **Full coherent EPPA, DLF and unrestricted
+  finite SAP are still open.** Earlier OPEN gate cells below are historical;
+  use the dated checkpoints at the end. Paper audits and v0.8 PDF
+  compilation are distinct from Lean verification.
 
 ## Exact paper statements to target
 
@@ -811,3 +815,87 @@ group homomorphism using potential corrections; it need not literally
 be the pure index-relabeling action (3.29) from the particular
 paper presentation. Its semantic action on E and every P_c and on
 old zero-section points is the verified output.
+
+## 2026-10-19 — merged coherent-action infrastructure checkpoint
+
+**Authoritative certified base:** merged into public `main` with full Lean
+build and allowed-axiom audit, PRs **#158, #161, #162, #163, #164, #165**.
+Ordinary EPPA and typed `AllThoseEPPA` integration had already been verified
+on `main`. No new `sorry` or custom axiom is used here.
+
+### Fixed-fibre and strict H-actions
+
+- **#158:** `exists_factorialFibreGroupAction` proves that an arbitrary
+  H-action on a nonempty old fibre S extends homomorphically along **any
+  fixed injection** into `Fin(|A|!)`. The padded fibre carrier is fixed
+  before S and H; the multiplication coordinate construction respects
+  the prescribed injection exactly. This is a cardinality/action gate,
+  not an action on the complete semigeneric witness.
+- **#161:** `exists_subsingletonEffectiveWitnessGroupLift` builds an
+  honest homomorphism H→Perm of the whole two-layer effective valuation
+  witness when G is subsingleton, assuming compatible actions on real
+  labels and quotient E-classes. It preserves the whole effective E/F
+  geometry and the exact distinguished old vertices.
+- **#162:** `exists_paddedSubsingletonWitnessGroupLift` transports
+  compatible relative group actions from an induced subset S onto the
+  one fixed padded carrier `(V/E) × V`, then invokes #161. Old-class
+  equivariance is required on S, not on all old V.
+- **#163:** `exists_compatibleSubsetAndQuotientActions` removes those
+  extra input actions: any H→Perm(S) preserving the restricted E-relation
+  induces a strict H-action on *occupied* E-class indices (extended by
+  identity on unoccupied classes) and a strict old-label action (fixed
+  outside S). The old-label action is **not claimed** to preserve the
+  original E globally.
+- **#164:** `exists_inducedSubsingletonWitnessGroupLift` combines #162
+  and #163. For ANY S⊆V, group H and E-preserving H-action on S, the
+  **same preselected effective valuation witness** has a genuine
+  E/F-preserving H-action extending S. The skeleton and padded witness
+  are fixed BEFORE S and H. This is a complete effective H-action gate
+  for the trivial G sector, not a coherent raw-cover result.
+- **#165:** `projectedFlippedPair_hasSelfReversingRawColour` proves
+  a reusable flip-safety transfer: if a lifted pair exchanged by h
+  projects H-equivariantly to an actual old cross-E pair and old raw
+  colours are H-invariant, the projected colour is self-reversing.
+  This holds for ANY element h of H, not only involutions.
+
+### Mathematical guardrail: effective action ≠ raw-colour safety
+
+Do **not** feed the action of #164 blindly into the fixed-baseline raw
+lift #148. In the uniform padded product `(V/E) × V`, a nontrivial
+H-element exchanging occupied class indices i,j while fixing an
+outside-S old label x can artificially exchange **(i,x)** with
+**(j,x)**. That is a cross-part pair but does not project to an
+actual old cross-part pair. There need not be a self-reversing raw
+colour of its effective group colour. This invalidates any attempted
+claim that all swaps in #164 automatically satisfy #148's safety
+hypothesis. No such claim is made in the proved Lean files.
+
+A correct positive raw-coherent action will need either an additional
+H-equivariant fibre-copying/phase construction that removes these
+artificial flips, or another rigorous orbit-by-orbit safety argument.
+The factorial divisibility/action gate #158 may be useful when
+replicating the actual occupied old fibres, rather than copying a
+single global unrelated old label into every padded E-class.
+
+### Remaining obligations (not Lean-proved)
+
+1. Construct flip-safe **fixed-witness** H-actions for all relevant
+   induced S and H, not merely E/F-preserving group actions. Handle the
+   nontrivial-G affine/noncommutative sector with the existing cocycle
+   kernel; do not impose global S saturation in the DLF branch.
+2. Combine safe actions with the existing H2/H3 fixed raw baseline
+   lemmas (#145/#147/#148) for **one** fixed raw witness; for the
+   positive coherent branch use global congruence saturation only
+   where genuinely necessary.
+3. Formalize C0 coherent groupoid assembly with exact domains,
+   equivalence of partial isomorphisms and composition. Independent
+   group homomorphisms for each S are NOT already a functor.
+4. Prove the remaining coherent-negative implications, the relative
+   safe group construction and DLF classification, and the full finite
+   strong-amalgamation iteration. Keep the private mathematical v0.8
+   paper and this public Lean repository separate.
+
+**Related ongoing work at this checkpoint:** PR #166 packages the verified
+ordinary effective EPPA theorem with the universal effective H-actions
+from #164 into one fixed finite witness. It is NOT counted as merged
+or certified until its own CI and axiom audit pass.
