@@ -158,6 +158,7 @@ import SemigenericEPPA.Bridge.CoherentEPPA
 import SemigenericEPPA.Bridge.CoherentGroupoidNormalForm
 import SemigenericEPPA.Bridge.ExactRawPartialGroupoid
 import SemigenericEPPA.Bridge.ExactRawAutomorphismGroups
+import SemigenericEPPA.Bridge.ExactRawGroupoidCoherentTransport
 import SemigenericEPPA.Bridge.CoherentOrbitRectangle
 import SemigenericEPPA.Bridge.CoherentOrbitSwappedPair
 import SemigenericEPPA.Bridge.CoherentInvolutionForcing
