@@ -92,6 +92,7 @@ import SemigenericEPPA.Algebra.OccupiedGaugeCocycleCompletion
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import SemigenericEPPA.Algebra.FixedFactorialOldInjection
 import SemigenericEPPA.Algebra.EquivariantFibreMultiplicity
+import SemigenericEPPA.Algebra.OldClassFibreCardInstance
 import SemigenericEPPA.Algebra.FactorialOldFibreMultiplicities
 import SemigenericEPPA.Algebra.FixedFibreSliceCoding
 import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
@@ -116,6 +117,7 @@ import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
 import SemigenericEPPA.Structure.TotalOldRawPalette
 import SemigenericEPPA.Structure.OldRawReferenceOnBase
 import SemigenericEPPA.Structure.OldRawReferencePartialInvariance
+import SemigenericEPPA.Structure.OldRawReferenceGroupInvariance
 import SemigenericEPPA.Structure.RawEPPA
 import SemigenericEPPA.Structure.RelationalRawEPPA
 import SemigenericEPPA.Structure.RawPartialEffectiveReduct
