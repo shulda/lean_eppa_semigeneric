@@ -131,6 +131,7 @@ import SemigenericEPPA.Bridge.CoherentEPPA
 import SemigenericEPPA.Bridge.CoherentOrbitRectangle
 import SemigenericEPPA.Bridge.CoherentOrbitSwappedPair
 import SemigenericEPPA.Bridge.CoherentInvolutionForcing
+import SemigenericEPPA.Bridge.ProjectedFlipSafety
 import SemigenericEPPA.Bridge.InvariantRawOrbitColours
 import SemigenericEPPA.Bridge.InvariantRawGroupOrbits
 import SemigenericEPPA.Bridge.PrescribedGroupInvariantRawOrbits
