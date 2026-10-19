@@ -1,4 +1,5 @@
 import SemigenericEPPA.Algebra.EquivariantFibreMultiplicity
+import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import Mathlib.Data.Fintype.Card
 import Mathlib.Data.Fintype.Sets
