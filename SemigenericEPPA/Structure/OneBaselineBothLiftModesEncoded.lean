@@ -97,7 +97,7 @@ theorem exists_oneBaseline_encodedAndBothLiftModes
       (e x) (e y) ⟨x, rfl⟩ ⟨y, rfl⟩ hcross
   refine ⟨b, hb, ?_, ?_, ?_⟩
   · intro x y hx hy hxy
-    exact hAll S₀ (Subset.rfl) x y hx hy hxy
+    exact hAll S₀ (fun _ hx => hx) x y hx hy hxy
   · intro S p theta hOld hExt hE hF
     exact exists_rawCoverZeroSectionLift_alongEmbedding
       D code b hb e he (fun x y => old (e x) (e y))
