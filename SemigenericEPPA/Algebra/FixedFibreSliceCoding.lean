@@ -76,7 +76,7 @@ theorem exists_fixedFibreSliceCoding_family
     (M : ℕ)
     (t : I → ℕ)
     (htpos : ∀ i : I, 0 < t i)
-    (ht : ∀ i : I, Fintype.card (X i) * t i = M)
+    (ht : ∀ i : I, (@Fintype.card (X i) (hfin i)) * t i = M)
     (j : ∀ i : I, X i → Fin M)
     (hj : ∀ i : I, Function.Injective (j i)) :
     ∃ beta : ∀ i : I, Fin M ≃ X i × Fin (t i),
