@@ -52,6 +52,7 @@ import SemigenericEPPA.Valuations.WitnessCocycleAction
 import SemigenericEPPA.Valuations.InvariantSkeletonGroupAction
 import SemigenericEPPA.Valuations.SingletonEffectiveGroupLift
 import SemigenericEPPA.Valuations.PaddedSubsingletonGroupLift
+import SemigenericEPPA.Valuations.InducedSubsingletonGroupLift
 import SemigenericEPPA.Valuations.ReferencePartGroupAction
 import SemigenericEPPA.Valuations.ReferenceWitnessActionBridge
 import SemigenericEPPA.Valuations.OldPartialTwists
