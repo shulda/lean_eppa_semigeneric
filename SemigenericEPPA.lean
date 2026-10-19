@@ -108,6 +108,7 @@ import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveGeometry
 import SemigenericEPPA.Structure.InducedEffectiveGeometry
 import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
+import SemigenericEPPA.Structure.TotalOldRawPalette
 import SemigenericEPPA.Structure.RawEPPA
 import SemigenericEPPA.Structure.RelationalRawEPPA
 import SemigenericEPPA.Structure.RawPartialEffectiveReduct
