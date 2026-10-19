@@ -62,11 +62,6 @@ theorem exists_safeFactorialAction_onOldSubset
             j x.val) =
           (Quotient.mk P.effectiveReduct.part (rho h x).val,
             j (rho h x).val)) ∧
-      (∀ (h : H) (x : Quotient P.effectiveReduct.part ×
-          Fin (coherentPaddingSize A)),
-        (theta h x).1 =
-          (Quotient.mk P.effectiveReduct.part
-            (P.effectiveReduct.representative (theta h x).1)).1) ∧
       (∀ (h : H) (x y : Quotient P.effectiveReduct.part ×
           Fin (coherentPaddingSize A)),
         (subsingletonFixedPartGeometry d.s
@@ -161,12 +156,10 @@ theorem exists_safeFactorialAction_onOldSubset
       Subtype.val_injective cls hDpart hBpart old
       hPhi hReverse rho iota hcls hfix hRaw'
       jclass hjclass
-  refine ⟨theta, ?_, ?_, hPart, hColour, hSafe⟩
-  · intro h x
-    simpa only [fixedReplicaOldMap, cls, jclass]
-      using hOld h x
-  · intro h x
-    rfl
+  refine ⟨theta, ?_, hPart, hColour, hSafe⟩
+  intro h x
+  simpa only [fixedReplicaOldMap, cls, jclass]
+    using hOld h x
 
 end RawRectanglePresentation
 
