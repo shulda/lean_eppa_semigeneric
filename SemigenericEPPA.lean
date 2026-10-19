@@ -94,6 +94,7 @@ import SemigenericEPPA.Algebra.FixedFactorialOldInjection
 import SemigenericEPPA.Algebra.EquivariantFibreMultiplicity
 import SemigenericEPPA.Algebra.OldClassFibreCardInstance
 import SemigenericEPPA.Valuations.FactorialSafeReplicatedAction
+import SemigenericEPPA.Valuations.SafeFactorialActionOnOldSubset
 import SemigenericEPPA.Algebra.FactorialOldFibreMultiplicities
 import SemigenericEPPA.Algebra.FixedFibreSliceCoding
 import SemigenericEPPA.Algebra.AssembledReplicatedFibreCoding
