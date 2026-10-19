@@ -13,7 +13,7 @@ EPPA construction:
    beta∈K extends f along one fixed old embedding psi:A→W.
 
 From these two data, all connected components of the exact old
-raw groupoid admit simultaneous coherent extension functors.
+raw groupoid support simultaneous coherent extension functors.
 Choose one representative R_q per isomorphism component q, one
 homomorphic stabilizer lift rho_q, and a whole-witness extension
 beta_{q,i} of every chosen raw connector gamma_{q,i}:R_q→S_i.
