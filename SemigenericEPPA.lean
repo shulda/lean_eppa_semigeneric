@@ -170,6 +170,7 @@ import SemigenericEPPA.Bridge.ExactRawGroupoidOldExtension
 import SemigenericEPPA.Bridge.UpstreamToExactRawGroupoid
 import SemigenericEPPA.Bridge.UpstreamCoherentTripleExact
 import SemigenericEPPA.Bridge.UpstreamExactArrowFunctoriality
+import SemigenericEPPA.Bridge.RawExactFunctorToTypedCoherent
 import SemigenericEPPA.Bridge.ExactRawGroupoidComponents
 import SemigenericEPPA.Bridge.CoherentOrbitRectangle
 import SemigenericEPPA.Bridge.CoherentOrbitSwappedPair
