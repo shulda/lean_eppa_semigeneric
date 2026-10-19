@@ -64,10 +64,6 @@ theorem upstreamCoherentTriple_exactComposition
     hEquivalent.2.source_eq
   have hTarget : h.target = (g.comp f htg).target :=
     hEquivalent.2.target_eq
-  have hApply (x : A) (hx : x ∈ f.source) :
-      h x = (g.comp f htg) x := by
-    exact hEquivalent.2.eqOn x (by
-      simpa only [hSource] using hx)
   refine ⟨htg, ?_, ?_, ?_⟩
   · exact hSource
   · exact hTarget
