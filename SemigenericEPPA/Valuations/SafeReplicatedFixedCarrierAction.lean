@@ -57,6 +57,7 @@ choice of individual h-lifts is introduced. -/
 theorem exists_safeReplicatedFixedCarrierAction
     (d : RawDatum G C)
     (D : EffectiveGeometry d.s S)
+    (M : ℕ)
     (B : EffectiveGeometry d.s (I × Fin M))
     (cls : S → I)
     (hDpart : ∀ x y : S, D.part x y ↔ cls x = cls y)
