@@ -1,6 +1,7 @@
 import SemigenericEPPA.Bridge.ExactRawPartialGroupoid
 import Mathlib.Algebra.Group.End
 import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fintype.Perm
 
 /-!
 # Actual automorphism groups of induced raw substructures
