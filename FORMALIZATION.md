@@ -998,3 +998,67 @@ original-relational wrapper (#228). Both remain under CI at this
 checkpoint; do not report them as certified. Coherent nontrivial-G
 cases, negative coherent classification, relative DLF and finite
 SAP remain open.
+
+## 2026-10-20 — actual relational G=1 coherent EPPA finished; nontrivial G frontier
+
+**Verified in public GitHub Actions, including full Lean build and
+allowed-axiom audit:**
+
+- **PR #228** merges the human-facing original relational theorem
+  `IsRectangleStructure.finite_relationalTypedCoherentEPPA_witness`
+  from `SemigenericEPPA/Bridge/RelationalTypedCoherentEPPA.lean`.
+  For every finite ORIGINAL `Structure (rectangleLanguage C) V`
+  satisfying the complete literal `IsRectangleStructure d A` with
+  subsingleton effective G, it gives one FINITE genuine coherent
+  EPPA witness, actual upstream typed embedding and
+  `Structure.IsCoherentEPPAWitness (rectangleTrivialAction C)`.
+  The theorem needs no initially supplied raw function or auxiliary
+  old embedding. This supersedes the earlier checkpoint's statement
+  that the relational wrapper was pending.
+- **PR #241** proves the original-language exact partial
+  involution on the old tripleton E-part in the genuine 3+1 gadget,
+  irrespective of its three raw cross-colours.
+- **PR #243** proves that coherent typed witnesses for all genuine
+  2+1 old gadgets based at self-reversing raw colours force
+  `d.IsCongruenceSaturated`. This includes the case where the
+  good set is empty; it does not assert nonemptiness.
+- **PR #239** certifies the negative geometry of the 3+1
+  obstruction: a total raw-colour-preserving involution with
+  old effective profile `delta,1,1` for `delta≠1`
+  forces a genuinely self-reversing raw colour. The alternative
+  (new point in the old singleton's E-part) contradicts the
+  effective rectangle equation.
+- **PR #245** proves the positive affine congruence/gauge
+  transport law
+  `congruence s (s a * (s aStar)⁻¹) (s aStar * M * aStar)
+    = s a * M * a`
+  for arbitrary affine anti-involution on a nonabelian G.
+  Thus global congruence saturation transports good raw
+  representatives across all such effective gauge colours.
+  This key safety step was formalized WITHOUT assuming
+  `s 1 = 1` or recentering the group.
+
+**Not yet Lean certified at this checkpoint:** #242 upgrades
+the certified 3+1 geometry to a TRUE typed coherent-EPPA
+obstruction from the actual old partial involution; #244
+combines 2+1 saturation and 3+1 nonemptiness into the
+necessary dichotomy `Subsingleton G ∨
+(S.Nonempty ∧ d.IsCongruenceSaturated)`; #246 specializes
+that dichotomy to coherent EPPA of EVERY finite old raw
+presentation; #247 generalizes safe occupied old projections
+to effective colours agreeing only up to congruence orbit.
+
+The major remaining positive theorem for nontrivial effective
+G is the simultaneous, fixed-witness H-action with multipliers
+`M^h_{ij}`, references `L^h_{x,j}`, cocycle identities
+and the orbit safety condition. Many underlying multiplier,
+valuation and homomorphic raw-cover gates are already certified,
+but this actual nontrivial-G construction is NOT complete.
+The relative DLF criterion and finite SAP remain separate
+open formalization objectives. DLF must retain the weaker
+"one complete good congruence orbit" hypothesis, not silently
+require saturation of all good orbits.
+
+As always, do not infer a certified theorem from an open PR:
+check the current public main commit and GitHub Actions
+full CI/axiom audit before reporting completion.
