@@ -91,7 +91,7 @@ theorem RawRectanglePresentation.goodNonempty_of_threePointProfileInvolution
         (Q.effectiveReduct.F (T v) a)⁻¹ *
           Q.effectiveReduct.F (T v) c at hrect
       rw [hvaF, hvcF, hWa, hWc] at hrect
-      simpa only [mul_one, one_inv, one_mul] using hrect
+      simpa only [mul_one, inv_one] using hrect
     have hcontra : delta = 1 := by
       have h := congrArg (fun x : G => x⁻¹) hinv
       simpa only [inv_inv, inv_one] using h
