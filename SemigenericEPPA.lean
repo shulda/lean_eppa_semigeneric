@@ -161,6 +161,7 @@ import SemigenericEPPA.Structure.OnePointStrongSquare
 import SemigenericEPPA.Structure.FreshPart
 import SemigenericEPPA.Bridge.CoherentEPPA
 import SemigenericEPPA.Bridge.CoherentExtensionForcesInvolution
+import SemigenericEPPA.Bridge.CoherentClosedSubsetInvolution
 import SemigenericEPPA.Bridge.CoherentGroupoidNormalForm
 import SemigenericEPPA.Bridge.BinaryRawAutomorphismSubgroup
 import SemigenericEPPA.Bridge.RawAutomorphismSubgroupTyped
