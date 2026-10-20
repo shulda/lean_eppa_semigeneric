@@ -73,7 +73,8 @@ theorem fixedGoodSkeleton_reverse
     d.s (completeOccupiedSkeleton P.occupied P.skeleton
       (Classical.choose hGood) i j)
   exact completeOccupiedSkeleton_reverse d.s P.occupied P.skeleton
-    P.skeleton_reverse (Classical.choose hGood) hfixed i j hij
+    (fun i j _ _ hij => P.skeleton_reverse i j hij)
+    (Classical.choose hGood) hfixed i j hij
 
 /-- The same fixed completion agrees literally with all prescribed
 old skeleton values between distinct occupied E-classes. -/
@@ -109,10 +110,9 @@ theorem oldActionMultipliers_group_laws
           P.oldActionMultipliers rho iota h i j) := by
   have hMatrix := P.matrix_invariant_of_effective_H_action
     rho iota hLabel hEffective
-  simpa only [oldActionMultipliers, occupied] using
-    (completeOccupiedGaugeActionMultiplier_group_laws d.s
-      rho iota P.label P.vertexGauge P.skeleton
-      hLabel hMatrix)
+  exact completeOccupiedGaugeActionMultiplier_group_laws d.s
+    rho iota P.label P.vertexGauge P.skeleton
+    hLabel hMatrix
 
 /-- The canonical completed multiplier transports EVERY old gauge
 row to its H-image, not just the arbitrary anchor used to define it. -/
