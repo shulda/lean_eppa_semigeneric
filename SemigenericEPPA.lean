@@ -209,6 +209,7 @@ import SemigenericEPPA.Bridge.CoherentInvolutionForcing
 import SemigenericEPPA.Bridge.ProjectedFlipSafety
 import SemigenericEPPA.Bridge.OccupiedProjectionFlipSafety
 import SemigenericEPPA.Bridge.OccupiedOrbitProjectionFlipSafety
+import SemigenericEPPA.Valuations.SwappedWitnessGaugeMiddle
 import SemigenericEPPA.Bridge.InvariantRawOrbitColours
 import SemigenericEPPA.Bridge.InvariantRawGroupOrbits
 import SemigenericEPPA.Bridge.PrescribedGroupInvariantRawOrbits
