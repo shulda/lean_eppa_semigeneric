@@ -151,6 +151,7 @@ import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
 import SemigenericEPPA.Algebra.IndexedGaugeHActionMatrix
 import SemigenericEPPA.Algebra.IndexedGaugeFixedGoodHAction
+import SemigenericEPPA.Algebra.OccupiedGoodDiagonalFullLaws
 import SemigenericEPPA.Structure.CanonicalIndexedGaugeHBridge
 import SemigenericEPPA.Structure.SubsingletonFixedPartGeometry
 import SemigenericEPPA.Structure.SubsingletonFactorialEffectiveEPPA
