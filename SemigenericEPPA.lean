@@ -118,6 +118,7 @@ import SemigenericEPPA.Bridge.RawTypedAutomorphism
 import SemigenericEPPA.Bridge.RawTypedEPPA
 import SemigenericEPPA.Bridge.TypedRawAutomorphismPermutation
 import SemigenericEPPA.Bridge.TypedInvolutionGoodCongruence
+import SemigenericEPPA.Bridge.CoherentPartialSwapGoodCongruence
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.RelationalRoundtripEquality
 import SemigenericEPPA.Structure.EffectiveRawExtension
