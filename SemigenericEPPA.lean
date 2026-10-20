@@ -116,6 +116,7 @@ import SemigenericEPPA.Bridge.RawTypedEmbedding
 import SemigenericEPPA.Bridge.RawTypedAutomorphism
 import SemigenericEPPA.Bridge.RawTypedEPPA
 import SemigenericEPPA.Structure.RelationalRoundtrip
+import SemigenericEPPA.Structure.RelationalRoundtripEquality
 import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveGeometry
 import SemigenericEPPA.Structure.InducedEffectiveGeometry
@@ -173,6 +174,7 @@ import SemigenericEPPA.Valuations.GOneGlobalCoherentRawFunctor
 import SemigenericEPPA.Bridge.UpstreamExactArrowFunctoriality
 import SemigenericEPPA.Bridge.RawExactFunctorToTypedCoherent
 import SemigenericEPPA.Bridge.GOneTypedCoherentEPPA
+import SemigenericEPPA.Bridge.RelationalTypedCoherentEPPA
 import SemigenericEPPA.Valuations.GOneActualRawAutSubgroupLifts
 import SemigenericEPPA.Valuations.GOneCoherentAllComponents
 import SemigenericEPPA.Bridge.UpstreamToExactRawGroupoid
