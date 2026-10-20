@@ -16,8 +16,10 @@
   and coherent extensions may be used; **do not invoke HKN EPPA existence**.
 - **Current verified headline:** unconditional ordinary EPPA, for arbitrary
   finite raw fibres and literal relational structures, including the typed
-  upstream `IsEPPAWitness` API. **Full coherent EPPA, DLF and unrestricted
-  finite SAP are still open.** Earlier OPEN gate cells below are historical;
+  upstream `IsEPPAWitness` API; positive coherent EPPA for G=1 and the full
+  nontrivial-G NECESSARY coherent criterion are also verified. **Nontrivial-G
+  sufficiency, DLF and unrestricted finite SAP are still open.** Earlier
+  OPEN gate cells below are historical;
   use the dated checkpoints at the end. Paper audits and v0.8 PDF
   compilation are distinct from Lean verification.
 
@@ -1062,3 +1064,63 @@ require saturation of all good orbits.
 As always, do not infer a certified theorem from an open PR:
 check the current public main commit and GitHub Actions
 full CI/axiom audit before reporting completion.
+
+
+## 2026-10-20 — verified coherent-negative classification and positive algebra through PR #254
+
+**Authority:** current merged public `main` and full GitHub Actions
+build/allowed-axiom audit; historical sections above describe earlier
+checkpoints and MUST NOT be interpreted as current OPEN statuses.
+
+### Now complete and merged
+
+- **PR #228:** `IsRectangleStructure.finite_relationalTypedCoherentEPPA_witness`
+  proves actual finite original-language typed coherent EPPA for G=1.
+- **PRs #242, #244, #246:** the negative obstruction is now FULLY
+  upgraded from geometric gadgets to typed coherent witnesses. The
+  original-language necessary theorem is
+  `RawDatum.necessaryCoherentCondition_of_allFiniteRawPresentations`
+  in `Bridge/CoherentFiniteRawClassNecessity.lean`, proving
+  `Subsingleton G ∨ (d.selfReverseEffective.Nonempty ∧ d.IsCongruenceSaturated)`
+  from coherent EPPA of the full finite class. The old notes saying
+  these PRs are pending have been superseded.
+- **PRs #249–#251 and #253:** canonical occupied H-indexed gauge
+  multipliers come from actual old affine rank-one matrices; their
+  strict noncommutative cocycle and neutral all-index completion are
+  formalized. Literal matrix invariance follows from real old
+  effective H-automorphism equations, not from a hidden assumption.
+- **PR #252:** one fixed reversal-invariant effective default obtained
+  from a genuinely self-reversing raw colour completes the occupied
+  skeleton, including all affine multiplier equations and arbitrary
+  nonabelian G; no assumption `s 1 = 1`.
+- **PRs #245, #247, #254:** exact common-middle congruence transfer,
+  an equivariant occupied old projection, and **swapped-only** orbit
+  flip-safety for all H-elements (not just order-two elements).
+
+### Immediate positive nontrivial-G spine
+
+1. Obtain complete multipliers and a fixed good skeleton from genuine
+   old indexed H-actions; preserve the quantifier order that fixes the
+   witness/skeleton before any induced subset or H-action.
+2. Use the actual witness-coordinate permutation to prove the exact
+   swapped cross-pair common-middle formula (manuscript (4.29)).
+3. Construct the common full two-layer witness H-action, including
+   inhabited copied fibres, occupied and unused indices, old embedding,
+   and all effective E/F colours. Combine the actual swap analysis with
+   global congruence saturation to obtain raw reversal safety.
+4. Lift all induced stabilizer H-actions homomorphically on ONE fixed
+   raw-cover witness and reuse the already proved exact groupoid
+   normalization/typed converter from the G=1 coherent proof.
+
+The raw coherent groupoid assembly is already formalized; that does
+not by itself prove the nontrivial-G uniform group-lift hypothesis.
+
+**Submitted but not yet counted as verified at this checkpoint:**
+PR #255 (fixed old-index good skeleton + old H multipliers from actual
+invariance) and PR #256 (genuine swapped-witness formula) were opened
+for CI review. Consult their latest Actions status; do NOT treat an
+open PR or a green preparation step as proof completion.
+
+**Other goals:** Relative DLF requires just one whole good congruence
+orbit and a separate phase construction; the full strong-amalgamation
+iteration and optional classification appendix are not finished.
