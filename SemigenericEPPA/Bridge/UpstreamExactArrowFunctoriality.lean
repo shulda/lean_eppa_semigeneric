@@ -70,9 +70,24 @@ theorem upstreamToExactRawArrow_equivalent
   intro x hx hx'
   exact hmap x hx
 
-/-- Exact upstream composition is EQUAL to exact raw groupoid
-composition, transporting the *intermediate subset* along the
-specified equality f.target=g.source rather than shrinking it. -/
+/-- Transporting the TARGET subset of an exact raw arrow does
+not alter the underlying old vertex map. Kept separate to eliminate
+the dependent equality proof before the composition calculation. -/
+private theorem exactRawArrow_cast_target_val
+    (P : RawRectanglePresentation d A)
+    {S T T' : Set A}
+    (f : ExactPartialIso P S T)
+    (h : T = T')
+    (x : S) :
+    ((h ▸ f : ExactPartialIso P S T').toEquiv x).val =
+      (f.toEquiv x).val := by
+  cases h
+  rfl
+
+/-- Exact upstream composition agrees with literal raw groupoid
+composition, transporting only the intermediate target subset.
+Unlike generalizing the source or target of a partial equivalence,
+this proof does not change the dependent type of g.comp f htg. -/
 theorem upstreamToExactRawArrow_comp
     (P : RawRectanglePresentation d A)
     (f g : Structure.PartialAutomorphism
@@ -81,14 +96,15 @@ theorem upstreamToExactRawArrow_comp
     HEq (P.upstreamToExactRawArrow (g.comp f htg))
       ((P.upstreamToExactRawArrow g).comp
         (htg ▸ P.upstreamToExactRawArrow f)) := by
-  generalize hT : f.target = T at htg ⊢
-  generalize hT' : g.source = T' at htg ⊢
-  cases htg
   apply heq_of_eq
   apply ExactPartialIso.ext
   apply Equiv.ext
   intro x
-  rfl
+  apply Subtype.ext
+  change g (f x.val) =
+    g (((htg ▸ P.upstreamToExactRawArrow f).toEquiv x).val)
+  rw [exactRawArrow_cast_target_val P
+    (P.upstreamToExactRawArrow f) htg x]
 
 end RawRectanglePresentation
 
