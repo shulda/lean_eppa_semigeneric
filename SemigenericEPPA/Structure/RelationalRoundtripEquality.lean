@@ -42,10 +42,10 @@ theorem rectangleStructure_eq_of_rel_iff
   | mk relX funcX =>
     cases Y with
     | mk relY funcY =>
-      have hr : relX = relY := by
+      have hr : @relX = @relY := by
         funext n R xs
         exact propext (h R xs)
-      have hf : funcX = funcY := by
+      have hf : @funcX = @funcY := by
         funext n F
         exact PEmpty.elim F
       cases hr
@@ -62,14 +62,15 @@ theorem IsRectangleStructure.toRawPresentation_toStructure_eq
   intro n R xs
   rcases R with ⟨name, hn⟩
   subst n
+  have htuple : pairTuple (xs 0) (xs 1) = xs := by
+    funext i
+    fin_cases i <;> rfl
   cases name with
   | none =>
-      change partRel h.toRawPresentation.toStructure (xs 0) (xs 1) ↔
-        partRel A (xs 0) (xs 1)
-      exact h.rawPresentation_part_exact (xs 0) (xs 1)
+      simpa only [partRel, binarySymbol, htuple] using
+        h.rawPresentation_part_exact (xs 0) (xs 1)
   | some c =>
-      change rawRel h.toRawPresentation.toStructure c (xs 0) (xs 1) ↔
-        rawRel A c (xs 0) (xs 1)
-      exact h.rawPresentation_colour_exact c (xs 0) (xs 1)
+      simpa only [rawRel, binarySymbol, htuple] using
+        h.rawPresentation_colour_exact c (xs 0) (xs 1)
 
 end SemigenericEPPA
