@@ -41,6 +41,40 @@ variable {K : Type t} [Group K]
 
 namespace RawRectanglePresentation
 
+/-- Extensionality of functor values under exact source/target
+equalities and heterogeneous equality of old raw arrows. The
+equalities are eliminated only for ABSTRACT subset variables,
+never by destructing source/target projections of PartialEquiv. -/
+private theorem rawFunctor_heq_congr
+    (P : RawRectanglePresentation d A)
+    (F : (S T : Set A) → ExactPartialIso P S T → K)
+    {S S' T T' : Set A}
+    (hS : S = S') (hT : T = T')
+    (f : ExactPartialIso P S T)
+    (g : ExactPartialIso P S' T')
+    (hfg : HEq f g) :
+    F S T f = F S' T' g := by
+  cases hS
+  cases hT
+  exact congrArg (F S T) (eq_of_heq hfg)
+
+/-- Composition of F with an exact old arrow whose target is
+transported to the next arrow's source. Rewriting an abstract
+set equality here avoids dependent elimination of upstream
+PartialEquiv source/target projections. -/
+private theorem rawFunctor_comp_cast
+    (P : RawRectanglePresentation d A)
+    (F : (S T : Set A) → ExactPartialIso P S T → K)
+    (hComp : ∀ (S T U : Set A)
+      (f : ExactPartialIso P S T) (g : ExactPartialIso P T U),
+      F S U (g.comp f) = F T U g * F S T f)
+    {S T T' U : Set A} (h : T = T')
+    (f : ExactPartialIso P S T)
+    (g : ExactPartialIso P T' U) :
+    F S U (g.comp (h ▸ f)) = F T' U g * F S T f := by
+  cases h
+  exact hComp S T U f g
+
 /-- Any exact groupoid functor automatically ignores irrelevant
 off-domain values of upstream PartialEquiv representations. -/
 theorem rawFunctor_respectsUpstreamEquivalent
@@ -51,14 +85,12 @@ theorem rawFunctor_respectsUpstreamEquivalent
     (h : Structure.PartialIsomorphism.Equivalent p q) :
     F p.source p.target (P.upstreamToExactRawArrow p) =
       F q.source q.target (P.upstreamToExactRawArrow q) := by
-  obtain ⟨hs, ht, _⟩ := P.upstreamEquivalent_exactSourceTarget p q h
-  cases hs
-  cases ht
-  have hRaw :
-      P.upstreamToExactRawArrow p =
-      P.upstreamToExactRawArrow q :=
-    eq_of_heq (P.upstreamToExactRawArrow_equivalent p q h)
-  exact congrArg (F p.source p.target) hRaw
+  obtain ⟨hs, ht, _⟩ :=
+    P.upstreamEquivalent_exactSourceTarget p q h
+  exact rawFunctor_heq_congr P F hs ht
+    (P.upstreamToExactRawArrow p)
+    (P.upstreamToExactRawArrow q)
+    (P.upstreamToExactRawArrow_equivalent p q h)
 
 /-- Exact composition law in the old raw groupoid is precisely
 the upstream CoherentTriple equation after quotienting away
@@ -76,24 +108,26 @@ theorem rawFunctor_respectsUpstreamCoherentTriple
       F g.source g.target (P.upstreamToExactRawArrow g) *
         F f.source f.target (P.upstreamToExactRawArrow f) := by
   obtain ⟨htg, hEquivalent⟩ := hTriple
+  have hArrow :
+      HEq (P.upstreamToExactRawArrow (g.comp f htg))
+        ((P.upstreamToExactRawArrow g).comp
+          (htg ▸ P.upstreamToExactRawArrow f)) :=
+    P.upstreamToExactRawArrow_comp f g htg
   calc
     F h.source h.target (P.upstreamToExactRawArrow h) =
       F (g.comp f htg).source (g.comp f htg).target
         (P.upstreamToExactRawArrow (g.comp f htg)) :=
           P.rawFunctor_respectsUpstreamEquivalent F
             h (g.comp f htg) hEquivalent
-    _ = F g.source g.target (P.upstreamToExactRawArrow g) *
-          F f.source f.target (P.upstreamToExactRawArrow f) := by
-      cases htg
-      have hArrow :
-          P.upstreamToExactRawArrow (g.comp f rfl) =
-          (P.upstreamToExactRawArrow g).comp
-            (P.upstreamToExactRawArrow f) :=
-        eq_of_heq (P.upstreamToExactRawArrow_comp f g rfl)
+    _ = F f.source g.target
+          ((P.upstreamToExactRawArrow g).comp
+            (htg ▸ P.upstreamToExactRawArrow f)) := by
       change F f.source g.target
-        (P.upstreamToExactRawArrow (g.comp f rfl)) = _
-      rw [hArrow]
-      exact hComp f.source f.target g.target
+        (P.upstreamToExactRawArrow (g.comp f htg)) = _
+      exact congrArg (F f.source g.target) (eq_of_heq hArrow)
+    _ = F g.source g.target (P.upstreamToExactRawArrow g) *
+          F f.source f.target (P.upstreamToExactRawArrow f) :=
+      rawFunctor_comp_cast P F hComp htg
         (P.upstreamToExactRawArrow f)
         (P.upstreamToExactRawArrow g)
 
