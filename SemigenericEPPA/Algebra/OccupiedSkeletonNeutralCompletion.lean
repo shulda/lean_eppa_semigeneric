@@ -1,5 +1,6 @@
 import SemigenericEPPA.Algebra.OccupiedGaugeCocycleCompletion
 import SemigenericEPPA.Algebra.SkeletonMultipliers
+import SemigenericEPPA.Algebra.RawDatum
 import Mathlib.Tactic.Group
 
 /-!
@@ -146,5 +147,54 @@ theorem completedOccupiedSkeleton_multiplier_condition
       completeOccupiedSkeleton_default occupied K g0 i j hp]
     unfold AffineAntiInvolution.normalized
     group
+
+/-- The positive coherent colour-set hypothesis itself supplies
+the SAME globally fixed affine skeleton completion for every later
+H-action on E-part indices. The reversal-fixed neutral colour g0
+is selected once from a genuinely self-reversing RAW colour, not
+assumed equal to 1. This packages both the global reversal law
+and the full affine skeleton automorphism compatibility equation. -/
+theorem RawDatum.exists_completedOccupiedSkeleton_of_good
+    {C : Type*} (d : RawDatum G C)
+    (hGood : d.selfReverseEffective.Nonempty)
+    (iota : H →* Equiv.Perm I)
+    (occupied : I → Prop)
+    (hOcc : ∀ (h : H) (i : I),
+      occupied (iota h i) ↔ occupied i)
+    (K : I → I → G)
+    (hK : ∀ i j : I, occupied i → occupied j →
+      i ≠ j → K j i = d.s (K i j))
+    (M : H → I → I → G)
+    (hMSkeleton : ∀ (h : H) (i j : I),
+      occupied i → occupied j → i ≠ j →
+      d.s.normalized (M h i j) *
+          (K (iota h i) (iota h j))⁻¹ *
+            M h j i = (K i j)⁻¹) :
+    ∃ completed : I → I → G,
+      (∀ (i j : I), i ≠ j →
+        completed j i = d.s (completed i j)) ∧
+      (∀ (i j : I), occupied i → occupied j → i ≠ j →
+        completed i j = K i j) ∧
+      (∀ (h : H) (i j : I), i ≠ j →
+        d.s.normalized
+          (completeOccupiedGaugeMultipliers occupied M h i j) *
+        (completed (iota h i) (iota h j))⁻¹ *
+          completeOccupiedGaugeMultipliers occupied M h j i =
+            (completed i j)⁻¹) := by
+  obtain ⟨g0, hg0⟩ := hGood
+  have hfixed : d.s g0 = g0 :=
+    d.selfReverseEffective_subset_fixed hg0
+  let completed : I → I → G :=
+    completeOccupiedSkeleton occupied K g0
+  refine ⟨completed, ?_, ?_, ?_⟩
+  · intro i j hij
+    exact completeOccupiedSkeleton_reverse
+      d.s occupied K hK g0 hfixed i j hij
+  · intro i j hi hj hij
+    exact completeOccupiedSkeleton_occupied occupied K g0
+      i j hi hj hij
+  · intro h i j hij
+    exact completedOccupiedSkeleton_multiplier_condition
+      d.s iota occupied hOcc K g0 M hMSkeleton h i j hij
 
 end SemigenericEPPA
