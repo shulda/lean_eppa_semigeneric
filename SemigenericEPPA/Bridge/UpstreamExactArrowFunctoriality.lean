@@ -105,6 +105,7 @@ theorem upstreamToExactRawArrow_comp
     g (((htg ▸ P.upstreamToExactRawArrow f).toEquiv x).val)
   rw [exactRawArrow_cast_target_val P
     (P.upstreamToExactRawArrow f) htg x]
+  rfl
 
 end RawRectanglePresentation
 
