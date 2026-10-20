@@ -146,6 +146,7 @@ import SemigenericEPPA.Structure.RelationalRawEPPA
 import SemigenericEPPA.Structure.RawPartialEffectiveReduct
 import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
+import SemigenericEPPA.Algebra.IndexedGaugeHActionMatrix
 import SemigenericEPPA.Structure.SubsingletonFixedPartGeometry
 import SemigenericEPPA.Structure.SubsingletonFactorialEffectiveEPPA
 import SemigenericEPPA.Structure.ExtendedSkeleton
