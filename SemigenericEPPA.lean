@@ -119,6 +119,7 @@ import SemigenericEPPA.Bridge.TwoPlusOneCoherentOrbitSaturation
 import SemigenericEPPA.Bridge.RawTypedAutomorphism
 import SemigenericEPPA.Bridge.RawTypedEPPA
 import SemigenericEPPA.Bridge.TypedRawAutomorphismPermutation
+import SemigenericEPPA.Bridge.NoGoodColourInvolutionProfile
 import SemigenericEPPA.Bridge.TypedInvolutionGoodCongruence
 import SemigenericEPPA.Bridge.CoherentPartialSwapGoodCongruence
 import SemigenericEPPA.Structure.RelationalRoundtrip
