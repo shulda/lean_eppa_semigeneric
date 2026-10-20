@@ -90,6 +90,7 @@ import SemigenericEPPA.Algebra.AnchoredPartialGauge
 import SemigenericEPPA.Algebra.PartialGaugeFamilies
 import SemigenericEPPA.Algebra.EffectiveGroupGaugeCocycles
 import SemigenericEPPA.Algebra.OccupiedGaugeMultiplierExistence
+import SemigenericEPPA.Algebra.OccupiedGaugeMultiplierAction
 import SemigenericEPPA.Algebra.OccupiedGaugeCocycleCompletion
 import SemigenericEPPA.Algebra.CoherentPaddingSize
 import SemigenericEPPA.Algebra.FixedFactorialOldInjection
