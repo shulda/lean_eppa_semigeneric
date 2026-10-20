@@ -64,8 +64,7 @@ theorem finite_typedCoherentEPPA_witness
       finite_universalResidualCarrier
     exact finite_rawCoverVertices
   obtain ⟨j, K, hInj, hPart, hPartial, hGroups⟩ :=
-    RawRectanglePresentation.exists_gOneJointRawEPPA_andAllGroupLifts.
-      {u, v, w, w} P
+    RawRectanglePresentation.exists_gOneJointRawEPPA_andAllGroupLifts.{u, v, w, w} P
   let Q : RawRectanglePresentation d (GOneJointRawCarrier P) :=
     P.gOneJointRawPresentation j K
   let psi : A → GOneJointRawCarrier P :=
