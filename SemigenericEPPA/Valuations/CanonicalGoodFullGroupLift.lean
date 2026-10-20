@@ -3,6 +3,7 @@ import SemigenericEPPA.Structure.CanonicalDiagonalGauge
 import SemigenericEPPA.Algebra.OccupiedGoodDiagonalFullLaws
 import SemigenericEPPA.Algebra.NormalizedDiagonalOldRowTransport
 import SemigenericEPPA.Valuations.IndexedMultipliersOldVertexAction
+import SemigenericEPPA.Valuations.OldEmbedding
 
 /-!
 # One canonical good effective witness and every genuine old H-action
