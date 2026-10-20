@@ -34,14 +34,25 @@ variable {V : Type w}
 variable {d : RawDatum G C}
 variable {A : Structure (rectangleLanguage C) V}
 
+/-- Fix one canonical finite enumeration of the old relational
+carrier before forming the factorial-size witness. This choice
+is made from `Finite V`, and does not depend on any later
+partial map, group action or induced substructure. -/
+noncomputable abbrev IsRectangleStructure.finiteRelationalCoherentCarrier
+    [Finite V] (h : IsRectangleStructure d A) :=
+  letI : Fintype V := Fintype.ofFinite V
+  GOneJointRawCarrier h.toRawPresentation
+
 /-- Every finite relational member of the exact generalized
 semigeneric class with trivial effective group has one finite
-coherent EPPA witness in the ORIGINAL R1--R3 binary language. -/
+coherent EPPA witness in the ORIGINAL R1--R3 binary language.
+Only `Finite V` is required: the factorial-size enumeration is
+selected once by `finiteRelationalCoherentCarrier`. -/
 theorem IsRectangleStructure.finite_relationalTypedCoherentEPPA_witness
     [Finite V] (h : IsRectangleStructure d A) :
-    Finite (GOneJointRawCarrier h.toRawPresentation) ∧
+    Finite (h.finiteRelationalCoherentCarrier) ∧
     ∃ (Q : RawRectanglePresentation d
-          (GOneJointRawCarrier h.toRawPresentation))
+          (h.finiteRelationalCoherentCarrier))
       (ψ : Structure.Embedding
         (rectangleTrivialAction C) A Q.toStructure),
       Structure.IsCoherentEPPAWitness
@@ -50,6 +61,7 @@ theorem IsRectangleStructure.finite_relationalTypedCoherentEPPA_witness
   letI : Fintype V := Fintype.ofFinite V
   have hTyped :=
     h.toRawPresentation.finite_typedCoherentEPPA_witness
-  simpa only [h.toRawPresentation_toStructure_eq] using hTyped
+  simpa only [IsRectangleStructure.finiteRelationalCoherentCarrier,
+    h.toRawPresentation_toStructure_eq] using hTyped
 
 end SemigenericEPPA
