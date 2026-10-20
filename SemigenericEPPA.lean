@@ -223,6 +223,12 @@ import SemigenericEPPA.Structure.SafePrescribedGroupRawCoverAction
 import SemigenericEPPA.Structure.SafeGroupRawCoverAction
 import SemigenericEPPA.Bridge.PrescribedRawOrbitColours
 
+import SemigenericEPPA.Algebra.OccupiedGoodDiagonalFullLaws
+import SemigenericEPPA.Algebra.NormalizedDiagonalOldRowTransport
+import SemigenericEPPA.Algebra.OccupiedGaugeAllRows
+import SemigenericEPPA.Algebra.GoodDefaultSkeletonOrbit
+import SemigenericEPPA.Valuations.IndexedMultipliersOldVertexAction
+
 /-!
 # Generalized semigeneric rectangle structures
 
