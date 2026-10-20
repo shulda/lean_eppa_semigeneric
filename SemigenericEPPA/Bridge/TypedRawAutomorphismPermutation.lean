@@ -103,7 +103,7 @@ theorem RawRectanglePresentation.typedAutomorphismPerm_colour
       have h := T.toPartialIsomorphism.map_rel_iff
         (binarySymbol C (some c)) (pairTuple x y) hdom
       change T.toPartialIsomorphism.lang = (1 : Equiv.Perm (Fin 0)) at hlang
-  rw [hlang, Language.Action.onRel_one] at h
+      rw [hlang, Language.Action.onRel_one] at h
       change Q.colour (T x) (T y) = some c ↔
         Q.colour x y = some c at h
       exact h.mpr hc
