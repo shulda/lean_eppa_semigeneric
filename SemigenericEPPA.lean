@@ -175,6 +175,7 @@ import SemigenericEPPA.Valuations.GOneActualRawAutSubgroupLifts
 import SemigenericEPPA.Valuations.GOneCoherentAllComponents
 import SemigenericEPPA.Bridge.UpstreamToExactRawGroupoid
 import SemigenericEPPA.Bridge.UpstreamCoherentTripleExact
+import SemigenericEPPA.Bridge.UpstreamExactArrowFunctoriality
 import SemigenericEPPA.Bridge.ExactRawGroupoidComponents
 import SemigenericEPPA.Bridge.CoherentOrbitRectangle
 import SemigenericEPPA.Bridge.CoherentOrbitSwappedPair
