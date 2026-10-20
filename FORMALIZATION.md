@@ -972,3 +972,29 @@ classification, relative safe-phase DLF and its converse, and
 unrestricted finite SAP iteration are still open. Never use global
 congruence saturation in the weaker DLF branch. Private manuscript
 repo has no CI.
+
+## 2026-10-20 — positive G=1 typed coherent EPPA certified
+
+**Verified by full public Lean build and permitted-axiom audit:**
+`RawRectanglePresentation.finite_typedCoherentEPPA_witness` in
+`SemigenericEPPA/Bridge/GOneTypedCoherentEPPA.lean`, PR #227,
+merged as `fc35a357ad05f05eef16a9575f4194daef19e00f`.
+
+For any finite original raw rectangle presentation with finite
+raw colour type C and subsingleton finite effective group G, there
+is a finite actual raw witness, a typed embedding of the original
+binary R1--R3 relational structure, and one authentic upstream
+`Structure.IsCoherentEPPAWitness` with exact Equivalent and
+CoherentTriple laws. Its proof uses the CI-certified global raw
+groupoid functor #222 and the typed converter #221. A single raw
+carrier, old zero-section embedding, universal residual code and
+baseline are selected before all partial maps, induced subgroups
+and connectors. No HKN EPPA theorem is invoked.
+
+**Still pending:** direct statement for arbitrary original
+`IsRectangleStructure d A`, requiring the literal
+`h.toRawPresentation.toStructure = A` roundtrip (#225) and final
+original-relational wrapper (#228). Both remain under CI at this
+checkpoint; do not report them as certified. Coherent nontrivial-G
+cases, negative coherent classification, relative DLF and finite
+SAP remain open.
