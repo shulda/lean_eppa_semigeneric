@@ -1,5 +1,6 @@
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import Mathlib.Tactic.FinCases
+import Mathlib.Data.Fintype.Fin
 
 /-!
 # The functional/relational round trip is actual Lean structure equality
