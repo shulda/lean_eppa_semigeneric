@@ -136,19 +136,14 @@ theorem occupiedGaugeActionMultiplier_cocycle
       occupiedGaugeActionMultiplier rho iota cls a k
         (iota h i) (iota h j) *
       occupiedGaugeActionMultiplier rho iota cls a h i j := by
-  apply occupiedGaugeMultipliers_cocycle_of_transport
+  exact occupiedGaugeMultipliers_cocycle_of_transport
     rho iota cls a
       (occupiedGaugeActionMultiplier rho iota cls a) hcls
-  · intro h' i' j' hi' hj' hij' x hx
-    exact (occupiedGaugeActionMultiplier_preserves_old_pair
-      s rho iota cls a K hMatrix h' i' j' hi' hj' hij').1 x hx
-  · exact k
-  · exact h
-  · exact i
-  · exact j
-  · exact hi
-  · exact hj
-  · exact hij
+      (by
+        intro h' i' j' hi' hj' hij' x hx
+        exact (occupiedGaugeActionMultiplier_preserves_old_pair
+          s rho iota cls a K hMatrix h' i' j' hi' hj' hij').1 x hx)
+      k h i j hi hj hij
 
 /-- One single canonical TOTAL multiplier family exists for every
 H-element and every ordered index pair, with neutral values on
