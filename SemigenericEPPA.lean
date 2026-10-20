@@ -163,6 +163,7 @@ import SemigenericEPPA.Structure.FiniteOnePointRaw
 import SemigenericEPPA.Structure.LiteralOnePointSAP
 import SemigenericEPPA.Structure.LiteralSAPEmbeddings
 import SemigenericEPPA.Structure.QuotientGaugeConverse
+import SemigenericEPPA.Structure.CanonicalDiagonalGauge
 import SemigenericEPPA.Structure.UniformPadding
 import SemigenericEPPA.Structure.PaddedQuotientEquiv
 import SemigenericEPPA.Structure.OnePointEffective
