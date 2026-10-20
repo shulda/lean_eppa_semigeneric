@@ -110,6 +110,7 @@ import SemigenericEPPA.Valuations.PartialGaugeFromGeometry
 import SemigenericEPPA.Algebra.CornerAmalgamation
 import SemigenericEPPA.Algebra.SamePartRows
 import SemigenericEPPA.Algebra.CongruenceAction
+import SemigenericEPPA.Algebra.AffineCongruenceGaugeMiddle
 import SemigenericEPPA.Structure.Language
 import SemigenericEPPA.Structure.PairwiseEmbedding
 import SemigenericEPPA.Structure.RawPresentation
