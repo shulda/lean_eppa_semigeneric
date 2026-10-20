@@ -149,29 +149,36 @@ theorem indexedWitnessAction_maps_old
         exact (witnessCocyclePerm_part D sigma rho
           (referenceWitnessPartAction_fibre_compat D rho iota z hcls)
           m h X).symm
+  have hSigmaPart : (T h X).part = sigma h X.part := by
+    change (witnessCocyclePerm D sigma rho
+      (referenceWitnessPartAction_fibre_compat D rho iota z hcls)
+      m h X).part = sigma h X.part
+    exact witnessCocyclePerm_part D sigma rho
+      (referenceWitnessPartAction_fibre_compat D rho iota z hcls)
+      m h X
+  have htransNe : sigma h u ≠ (T h X).part := by
+    intro heq
+    apply hu
+    apply (sigma h).injective
+    calc
+      sigma h u = (T h X).part := heq
+      _ = sigma h X.part := hSigmaPart
+  have htargetNe : sigma h u ≠ Y.part := by
+    intro heq
+    apply hu
+    apply (sigma h).injective
+    calc
+      sigma h u = Y.part := heq
+      _ = (T h X).part := hpart.symm
+      _ = sigma h X.part := hSigmaPart
   have htransport :
-      (T h X).crossIncidence (sigma h u) (by
-        intro heq
-        exact hu ((sigma h).injective
-          (heq.trans (by
-            change (T h X).part = sigma h X.part
-            exact (witnessCocyclePerm_part D sigma rho
-              (referenceWitnessPartAction_fibre_compat D rho iota z hcls)
-              m h X).symm))) =
+      (T h X).crossIncidence (sigma h u) htransNe =
         m h X.part u * X.crossIncidence u hu :=
     witnessCocyclePerm_incidence D sigma rho
       (referenceWitnessPartAction_fibre_compat D rho iota z hcls)
       m h X u hu
-  have htarget : Y.crossIncidence (sigma h u) (by
-      intro heq
-      apply hu
-      apply (sigma h).injective
-      calc
-        sigma h u = Y.part := heq
-        _ = sigma h X.part := hpart.symm.trans
-          (witnessCocyclePerm_part D sigma rho
-            (referenceWitnessPartAction_fibre_compat D rho iota z hcls)
-            m h X)) =
+  have htarget :
+      Y.crossIncidence (sigma h u) htargetNe =
         m h X.part u * X.crossIncidence u hu := by
     have hClass : (sigma h u).1 = iota h u.1 :=
       referenceWitnessPartAction_class D rho iota z h u
