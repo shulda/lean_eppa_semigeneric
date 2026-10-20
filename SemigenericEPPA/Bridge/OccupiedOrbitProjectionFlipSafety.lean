@@ -1,5 +1,6 @@
 import SemigenericEPPA.Bridge.OccupiedProjectionFlipSafety
 import SemigenericEPPA.Algebra.CongruenceAction
+import SemigenericEPPA.Algebra.AffineCongruenceGaugeMiddle
 
 /-!
 # Raw flip safety through an occupied projection UP TO congruence orbit
