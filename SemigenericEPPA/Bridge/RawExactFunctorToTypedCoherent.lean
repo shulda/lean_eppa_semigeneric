@@ -179,9 +179,17 @@ theorem coherentTypedEPPA_of_exactRawFunctor
     · intro x hx
       change (F p.source p.target
         (P.upstreamToExactRawArrow p)).val (psi x) = psi (p x)
-      have hx' : (⟨x, hx⟩ : p.source).val = x := rfl
-      simpa only using hFext p.source p.target
-        (P.upstreamToExactRawArrow p) ⟨x, hx⟩
+      have hEndpoint :
+          ((P.upstreamToExactRawArrow p).toEquiv
+            (⟨x, hx⟩ : p.source)).val = p x := rfl
+      calc
+        (F p.source p.target
+          (P.upstreamToExactRawArrow p)).val (psi x) =
+            psi ((P.upstreamToExactRawArrow p).toEquiv
+              (⟨x, hx⟩ : p.source)).val :=
+                hFext p.source p.target
+                  (P.upstreamToExactRawArrow p) ⟨x, hx⟩
+        _ = psi (p x) := congrArg psi hEndpoint
   · intro p q heq
     change Q.actualRawAutomorphism_toTyped
       (F p.source p.target (P.upstreamToExactRawArrow p)) =
