@@ -161,6 +161,7 @@ import SemigenericEPPA.Structure.FreshPart
 import SemigenericEPPA.Bridge.CoherentEPPA
 import SemigenericEPPA.Bridge.CoherentGroupoidNormalForm
 import SemigenericEPPA.Bridge.BinaryRawAutomorphismSubgroup
+import SemigenericEPPA.Bridge.RawAutomorphismSubgroupTyped
 import SemigenericEPPA.Bridge.ExactRawPartialGroupoid
 import SemigenericEPPA.Bridge.ExactRawAutomorphismGroups
 import SemigenericEPPA.Bridge.ExactRawGroupoidCoherentTransport
@@ -175,6 +176,7 @@ import SemigenericEPPA.Bridge.GOneTypedCoherentEPPA
 import SemigenericEPPA.Valuations.GOneActualRawAutSubgroupLifts
 import SemigenericEPPA.Valuations.GOneCoherentAllComponents
 import SemigenericEPPA.Bridge.UpstreamToExactRawGroupoid
+import SemigenericEPPA.Bridge.UpstreamCoherentTripleExact
 import SemigenericEPPA.Bridge.ExactRawGroupoidComponents
 import SemigenericEPPA.Bridge.CoherentOrbitRectangle
 import SemigenericEPPA.Bridge.CoherentOrbitSwappedPair
