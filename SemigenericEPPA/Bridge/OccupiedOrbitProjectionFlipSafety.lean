@@ -1,5 +1,6 @@
 import SemigenericEPPA.Bridge.OccupiedProjectionFlipSafety
 import SemigenericEPPA.Algebra.CongruenceAction
+import SemigenericEPPA.Algebra.AffineCongruenceGaugeMiddle
 
 /-!
 # Raw flip safety through an occupied projection UP TO congruence orbit
@@ -119,5 +120,169 @@ theorem allFlippedCrossPairs_safe_of_occupiedOrbitProjection
     hsat k (D.F a b) hgood
   rw [←hcol] at hwgood
   exact hwgood
+
+/-- **Minimal flip-only orbit interface.** To prove raw flip-safety
+for an arbitrary nonabelian effective group, it suffices that the
+effective witness colour is in the congruence orbit of the old
+projected effective colour ONLY WHEN some H-element actually swaps
+the two witness vertices. It is NOT necessary (and generally
+unwarranted) to demand orbit agreement for every cross-part pair.
+
+The old raw reference is genuinely invariant, and the projected
+old pair becomes swapped under the same h by H-equivariance of
+the partial projection. Consequently its raw colour is fixed by
+reversal; congruence saturation transports that goodness to the
+specific swapped witness colour. No unoccupied old projections
+or h²=1 hypothesis. -/
+theorem allFlippedCrossPairs_safe_of_swappedOccupiedOrbitProjection
+    (d : RawDatum G C)
+    (D : EffectiveGeometry d.s V)
+    (B : EffectiveGeometry d.s W)
+    (old : V → V → C)
+    (hPhi : ∀ x y : V, ¬D.part x y →
+      d.phi (old x y) = D.F x y)
+    (hReverse : ∀ x y : V, ¬D.part x y →
+      old y x = d.reverse (old x y))
+    (rhoOld : H →* Equiv.Perm V)
+    (rhoNew : H →* Equiv.Perm W)
+    (iota : H →* Equiv.Perm I)
+    (idx : W → I)
+    (occupied : I → Prop)
+    (hBpart : ∀ x y : W, B.part x y ↔ idx x = idx y)
+    (hIdx : ∀ (h : H) (x : W),
+      idx (rhoNew h x) = iota h (idx x))
+    (hFixed : ∀ (h : H) (i : I),
+      ¬occupied i → iota h i = i)
+    (proj : W → Option V)
+    (hSome : ∀ x : W, occupied (idx x) →
+      ∃ a : V, proj x = some a)
+    (hProj : ∀ (h : H) (x : W),
+      proj (rhoNew h x) = Option.map (rhoOld h) (proj x))
+    (hCross : ∀ (x y : W) (a b : V),
+      proj x = some a → proj y = some b →
+      ¬B.part x y → ¬D.part a b)
+    (hOrbit : ∀ (h : H) (x y : W) (a b : V),
+      proj x = some a → proj y = some b →
+      ¬B.part x y →
+      rhoNew h x = y → rhoNew h y = x →
+      ∃ k : G, B.F x y = congruence d.s k (D.F a b))
+    (hRaw : ∀ (h : H) (a b : V), ¬D.part a b →
+      old (rhoOld h a) (rhoOld h b) = old a b)
+    (hsat : d.IsCongruenceSaturated) :
+    ∀ (h : H) (x y : W), ¬B.part x y →
+      rhoNew h x = y → rhoNew h y = x →
+      ∃ c : C, d.phi c = B.F x y ∧ d.reverse c = c := by
+  intro h x y hxy hswapx hswapy
+  have hidx : idx x ≠ idx y := by
+    intro heq
+    exact hxy ((hBpart x y).mpr heq)
+  obtain ⟨hOccx, hOccy⟩ :=
+    flippedCrossPart_occupied idx rhoNew iota occupied
+      hIdx hFixed h x y hidx hswapx
+  obtain ⟨a, ha⟩ := hSome x hOccx
+  obtain ⟨b, hb⟩ := hSome y hOccy
+  have hab : ¬D.part a b := hCross x y a b ha hb hxy
+  have hax : rhoOld h a = b := by
+    have heq : some b = some (rhoOld h a) := by
+      calc
+        some b = proj y := hb.symm
+        _ = proj (rhoNew h x) := congrArg proj hswapx.symm
+        _ = Option.map (rhoOld h) (proj x) := hProj h x
+        _ = some (rhoOld h a) := by rw [ha]; rfl
+    exact (Option.some.inj heq).symm
+  have hby : rhoOld h b = a := by
+    have heq : some a = some (rhoOld h b) := by
+      calc
+        some a = proj x := ha.symm
+        _ = proj (rhoNew h y) := congrArg proj hswapy.symm
+        _ = Option.map (rhoOld h) (proj y) := hProj h y
+        _ = some (rhoOld h b) := by rw [hb]; rfl
+    exact (Option.some.inj heq).symm
+  have hInv : old b a = old a b := by
+    have hpres := hRaw h a b hab
+    rw [hax, hby] at hpres
+    exact hpres
+  have hgood : D.F a b ∈ d.selfReverseEffective :=
+    ⟨old a b, hPhi a b hab,
+      (hReverse a b hab).symm.trans hInv⟩
+  obtain ⟨k, hcol⟩ :=
+    hOrbit h x y a b ha hb hxy hswapx hswapy
+  have hwgood : congruence d.s k (D.F a b) ∈
+      d.selfReverseEffective :=
+    hsat k (D.F a b) hgood
+  rw [←hcol] at hwgood
+  exact hwgood
+
+
+/-- A load-bearing gauge-geometric sufficient condition for
+general nontrivial-G raw flip-safety: for each ACTUALLY swapped
+witness cross-pair, suppose its witness effective colour and that
+of its projected genuinely swapped old pair have compatible gauge expressions
+with one COMMON middle term M,
+  B.F(x,y)=s(aNew)*M*aNew,
+  D.F(a,b)=s(aOld)*M*aOld.
+The exact noncommutative congruence identity then proves that
+these colours lie in the same good-colour orbit, so saturation
+gives a reversal-fixed raw representative on the witness edge.
+
+Unlike the original #247 theorem, no orbit agreement or gauge
+decomposition is assumed for non-swapped edges. This is the
+desired interface to the concrete occupied pair multiplier
+construction, including arbitrary affine s(1). -/
+theorem allFlippedCrossPairs_safe_of_swappedCommonGaugeMiddle
+    (d : RawDatum G C)
+    (D : EffectiveGeometry d.s V)
+    (B : EffectiveGeometry d.s W)
+    (old : V → V → C)
+    (hPhi : ∀ x y : V, ¬D.part x y →
+      d.phi (old x y) = D.F x y)
+    (hReverse : ∀ x y : V, ¬D.part x y →
+      old y x = d.reverse (old x y))
+    (rhoOld : H →* Equiv.Perm V)
+    (rhoNew : H →* Equiv.Perm W)
+    (iota : H →* Equiv.Perm I)
+    (idx : W → I)
+    (occupied : I → Prop)
+    (hBpart : ∀ x y : W, B.part x y ↔ idx x = idx y)
+    (hIdx : ∀ (h : H) (x : W),
+      idx (rhoNew h x) = iota h (idx x))
+    (hFixed : ∀ (h : H) (i : I),
+      ¬occupied i → iota h i = i)
+    (proj : W → Option V)
+    (hSome : ∀ x : W, occupied (idx x) →
+      ∃ a : V, proj x = some a)
+    (hProj : ∀ (h : H) (x : W),
+      proj (rhoNew h x) = Option.map (rhoOld h) (proj x))
+    (hCross : ∀ (x y : W) (a b : V),
+      proj x = some a → proj y = some b →
+      ¬B.part x y → ¬D.part a b)
+    (hMiddle : ∀ (h : H) (x y : W) (a b : V),
+      proj x = some a → proj y = some b →
+      ¬B.part x y →
+      rhoNew h x = y → rhoNew h y = x →
+      ∃ aNew aOld middle : G,
+        B.F x y = d.s aNew * middle * aNew ∧
+        D.F a b = d.s aOld * middle * aOld)
+    (hRaw : ∀ (h : H) (a b : V), ¬D.part a b →
+      old (rhoOld h a) (rhoOld h b) = old a b)
+    (hsat : d.IsCongruenceSaturated) :
+    ∀ (h : H) (x y : W), ¬B.part x y →
+      rhoNew h x = y → rhoNew h y = x →
+      ∃ c : C, d.phi c = B.F x y ∧ d.reverse c = c := by
+  have hOrbit : ∀ (h : H) (x y : W) (a b : V),
+      proj x = some a → proj y = some b →
+      ¬B.part x y →
+      rhoNew h x = y → rhoNew h y = x →
+      ∃ k : G, B.F x y = congruence d.s k (D.F a b) := by
+    intro h x y a b ha hb hxy hswapx hswapy
+    obtain ⟨aNew, aOld, middle, hNew, hOld⟩ :=
+      hMiddle h x y a b ha hb hxy hswapx hswapy
+    refine ⟨d.s aNew * (d.s aOld)⁻¹, ?_⟩
+    rw [hNew, hOld]
+    exact (congruence_commonGaugeMiddle d.s aNew aOld middle).symm
+  exact allFlippedCrossPairs_safe_of_swappedOccupiedOrbitProjection
+    d D B old hPhi hReverse rhoOld rhoNew
+    iota idx occupied hBpart hIdx hFixed
+    proj hSome hProj hCross hOrbit hRaw hsat
 
 end SemigenericEPPA
