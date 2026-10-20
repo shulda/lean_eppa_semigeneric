@@ -86,7 +86,12 @@ theorem RawRectanglePresentation.goodNonempty_of_threePointProfileInvolution
       (Q.effectiveReduct_equalColour (T v) c v c hrawWc hQc).trans hvcF
     have hrect := D.rectangle v (T v) a c hvwD hacD hvaD
     have hinv : delta⁻¹ = 1 := by
-      simpa [hvaF, hvcF, hWa, hWc] using hrect
+      change (Q.effectiveReduct.F v a)⁻¹ *
+          Q.effectiveReduct.F v c =
+        (Q.effectiveReduct.F (T v) a)⁻¹ *
+          Q.effectiveReduct.F (T v) c at hrect
+      rw [hvaF, hvcF, hWa, hWc] at hrect
+      simpa only [mul_one, one_inv, one_mul] using hrect
     have hcontra : delta = 1 := by
       have h := congrArg (fun x : G => x⁻¹) hinv
       simpa only [inv_inv, inv_one] using h
@@ -96,7 +101,7 @@ theorem RawRectanglePresentation.goodNonempty_of_threePointProfileInvolution
       cases hcol : Q.colour v (T v) with
       | none =>
           exact False.elim (hvw ((Q.colour_none_iff v (T v)).mp hcol))
-      | some raw => exact ⟨raw, hcol⟩
+      | some raw => exact ⟨raw, rfl⟩
     have hswap :
         Q.colour (T v) v = Q.colour v (T v) := by
       simpa only [hT2 v] using hTcolour v (T v)
