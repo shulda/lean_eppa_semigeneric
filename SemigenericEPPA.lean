@@ -117,6 +117,7 @@ import SemigenericEPPA.Bridge.RawTypedEmbedding
 import SemigenericEPPA.Bridge.RawTypedAutomorphism
 import SemigenericEPPA.Bridge.RawTypedEPPA
 import SemigenericEPPA.Structure.RelationalRoundtrip
+import SemigenericEPPA.Structure.RelationalRoundtripEquality
 import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveGeometry
 import SemigenericEPPA.Structure.InducedEffectiveGeometry
