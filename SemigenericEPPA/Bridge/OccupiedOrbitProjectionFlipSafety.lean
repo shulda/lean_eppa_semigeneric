@@ -217,7 +217,7 @@ theorem allFlippedCrossPairs_safe_of_swappedOccupiedOrbitProjection
 /-- A load-bearing gauge-geometric sufficient condition for
 general nontrivial-G raw flip-safety: for each ACTUALLY swapped
 witness cross-pair, suppose its witness effective colour and that
-of its projected genuinely swapped old pair admit gauge expressions
+of its projected genuinely swapped old pair have compatible gauge expressions
 with one COMMON middle term M,
   B.F(x,y)=s(aNew)*M*aNew,
   D.F(a,b)=s(aOld)*M*aOld.
