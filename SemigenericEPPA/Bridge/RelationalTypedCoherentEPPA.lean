@@ -61,7 +61,7 @@ theorem IsRectangleStructure.finite_relationalTypedCoherentEPPA_witness
   letI : Fintype V := Fintype.ofFinite V
   have hTyped :=
     h.toRawPresentation.finite_typedCoherentEPPA_witness
-  simpa only [IsRectangleStructure.finiteRelationalCoherentCarrier,
-    h.toRawPresentation_toStructure_eq] using hTyped
+  rw [h.toRawPresentation_toStructure_eq] at hTyped
+  simpa only [IsRectangleStructure.finiteRelationalCoherentCarrier] using hTyped
 
 end SemigenericEPPA
