@@ -1,4 +1,5 @@
 import SemigenericEPPA.Bridge.RawTypedEmbedding
+import SemigenericEPPA.Bridge.RawTypedEPPA
 import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
 
 /-!
