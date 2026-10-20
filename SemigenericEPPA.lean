@@ -127,6 +127,7 @@ import SemigenericEPPA.Structure.InducedEffectiveGeometry
 import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
 import SemigenericEPPA.Structure.TwoPlusOneRawObstruction
 import SemigenericEPPA.Structure.ThreePlusOneRawObstruction
+import SemigenericEPPA.Bridge.ThreePlusOneTypedTransposition
 import SemigenericEPPA.Bridge.TwoPlusOneTypedTransposition
 import SemigenericEPPA.Structure.TotalOldRawPalette
 import SemigenericEPPA.Structure.OldRawReferenceOnBase
