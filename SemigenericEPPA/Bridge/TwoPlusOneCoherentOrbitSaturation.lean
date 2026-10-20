@@ -104,7 +104,7 @@ theorem RawDatum.goodCongruence_of_twoPlusOneCoherentWitness
     a (d.phi c₀) hgood heffUZ heffVZ
 
 /-- If all 2+1 gadgets based at EVERY self-reversing raw colour
-admit literal typed coherent witnesses (possibly on different
+have literal typed coherent witnesses (possibly on different
 carriers), the ENTIRE self-reversing effective-colour set is
 congruence-saturated. This requires no assumption on G≠1,
 finiteness, or existence of an initial self-reversing colour. -/
