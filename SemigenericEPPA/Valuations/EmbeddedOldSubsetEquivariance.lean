@@ -142,6 +142,6 @@ theorem embeddedOldSubset_cross_invariant
     _ = D.F a.val b.val := hF h a b hCross
     _ = B.F (old a.val) (old b.val) :=
       (hEmbedColour _ _ hCross).symm
-    _ = B.F x.val y.val := by rw [ha, hb]
+    _ = B.F x.val y.val := congrArg₂ B.F ha hb
 
 end SemigenericEPPA
