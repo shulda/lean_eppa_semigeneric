@@ -47,6 +47,7 @@ import SemigenericEPPA.Algebra.SkeletonMultipliers
 import SemigenericEPPA.Algebra.GlobalWitnessMultipliers
 import SemigenericEPPA.Algebra.ConstrainedWitnessMultipliers
 import SemigenericEPPA.Valuations.EffectiveCarrier
+import SemigenericEPPA.Valuations.FixedSkeletonExtensionality
 import SemigenericEPPA.Valuations.CoordinateTransport
 import SemigenericEPPA.Valuations.ColourPreservingTransport
 import SemigenericEPPA.Valuations.TransportEquiv
