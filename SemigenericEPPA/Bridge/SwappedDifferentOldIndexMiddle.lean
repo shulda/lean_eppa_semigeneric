@@ -130,7 +130,7 @@ theorem RawDatum.good_of_swappedWitness_projectedOldMiddle
     calc
       D.F a b = P.effective a b := (hColour a b hab).symm
       _ = d.s aOld * middle * aOld := by
-        simpa only [aOld, middle, i, j] using hP
+        simpa only [aOld, middle, i, j, mul_assoc] using hP
   have hNewFormula : K.toEffectiveGeometry.F X Y =
       d.s aNew * middle * aNew := by
     have hf := witnessCocyclePerm_swapped_crossColour
