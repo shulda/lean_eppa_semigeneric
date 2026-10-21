@@ -155,6 +155,7 @@ import SemigenericEPPA.Structure.RawPartialEffectiveReduct
 import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
 import SemigenericEPPA.Structure.IndexedGaugeReindexing
+import SemigenericEPPA.Valuations.FactorialRelativeEffectiveWitnessAction
 import SemigenericEPPA.Structure.RestrictedIndexedGaugeHAction
 import SemigenericEPPA.Structure.ConstantSkeletonGauge
 import SemigenericEPPA.Structure.FixedConstantGaugePadding
