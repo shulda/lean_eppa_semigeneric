@@ -156,6 +156,7 @@ import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
 import SemigenericEPPA.Structure.RestrictedIndexedGaugeHAction
 import SemigenericEPPA.Structure.ConstantSkeletonGauge
+import SemigenericEPPA.Structure.ConstantGaugeSelectedHInvariance
 import SemigenericEPPA.Structure.FixedConstantGaugePadding
 import SemigenericEPPA.Structure.FixedGoodFactorialEffectiveBase
 import SemigenericEPPA.Valuations.ConstantSkeletonOldEmbedding
