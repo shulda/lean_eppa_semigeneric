@@ -57,8 +57,8 @@ theorem constantQuotientIndexedGauge_diagonal_one
         ((D.constantQuotientIndexedGauge g0 hfixed).label x) =
       (IndexedGauge.ofQuotientGauge D.toQuotientGauge).vertexGauge x
         ((IndexedGauge.ofQuotientGauge D.toQuotientGauge).label x) := by
-        exact (IndexedGauge.ofQuotientGauge D.toQuotientGauge)
-          .constantSkeletonGauge_diagonal g0 hfixed x
+        exact IndexedGauge.constantSkeletonGauge_diagonal
+          (IndexedGauge.ofQuotientGauge D.toQuotientGauge) g0 hfixed x
     _ = D.toQuotientGauge.vertexGauge x (Quotient.mk D.part x) := rfl
     _ = 1 := D.quotientGauge_diagonal_one hSame x
 
