@@ -230,6 +230,7 @@ import SemigenericEPPA.Bridge.SwappedWitnessOldProjection
 import SemigenericEPPA.Bridge.OccupiedOrbitProjectionFlipSafety
 import SemigenericEPPA.Valuations.SwappedWitnessGaugeMiddle
 import SemigenericEPPA.Bridge.SwappedSameOldIndexGood
+import SemigenericEPPA.Bridge.SwappedDifferentOldIndexMiddle
 import SemigenericEPPA.Valuations.IndexedMultipliersWitnessHAction
 import SemigenericEPPA.Bridge.InvariantRawOrbitColours
 import SemigenericEPPA.Bridge.InvariantRawGroupOrbits
