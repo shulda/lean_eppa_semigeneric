@@ -152,6 +152,7 @@ import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
 import SemigenericEPPA.Structure.ConstantSkeletonGauge
 import SemigenericEPPA.Valuations.ConstantSkeletonOldEmbedding
+import SemigenericEPPA.Structure.ConstantGaugeDiagonal
 import SemigenericEPPA.Algebra.IndexedGaugeHActionMatrix
 import SemigenericEPPA.Algebra.IndexedGaugeFixedGoodHAction
 import SemigenericEPPA.Structure.CanonicalIndexedGaugeHBridge
