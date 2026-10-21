@@ -155,6 +155,7 @@ import SemigenericEPPA.Structure.ConstantSkeletonGauge
 import SemigenericEPPA.Valuations.ConstantSkeletonOldEmbedding
 import SemigenericEPPA.Algebra.IndexedGaugeHActionMatrix
 import SemigenericEPPA.Algebra.IndexedGaugeFixedGoodHAction
+import SemigenericEPPA.Algebra.SelectedOldGroupMultipliers
 import SemigenericEPPA.Structure.CanonicalIndexedGaugeHBridge
 import SemigenericEPPA.Structure.SubsingletonFixedPartGeometry
 import SemigenericEPPA.Structure.SubsingletonFactorialEffectiveEPPA
@@ -233,6 +234,8 @@ import SemigenericEPPA.Algebra.OccupiedGaugeAllRows
 import SemigenericEPPA.Algebra.GoodDefaultSkeletonOrbit
 import SemigenericEPPA.Valuations.IndexedMultipliersOldVertexAction
 import SemigenericEPPA.Valuations.ReferenceIndexedOldSubsetLift
+import SemigenericEPPA.Valuations.SelectedReferenceEffectiveHAction
+import SemigenericEPPA.Valuations.SelectedRelativeFullEffectiveGroupLift
 import SemigenericEPPA.Valuations.CanonicalGoodFullGroupLift
 
 /-!
