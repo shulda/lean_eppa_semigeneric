@@ -161,8 +161,8 @@ theorem fixedUniformPaddingOldMap_colour
         g0
         (P.fixedUniformPaddingRow j (P.fixedUniformPaddingOldMap j y)
           (P.label x)) := by
-            exact (P.fixedUniformPaddingGauge g0 hfixed M j)
-              .effective_cross _ _ hcross
+            exact IndexedGauge.effective_cross
+              (P.fixedUniformPaddingGauge g0 hfixed M j) _ _ hcross
     _ = gaugeColour s (P.vertexGauge x (P.label y)) g0
         (P.vertexGauge y (P.label x)) := by
           rw [P.fixedUniformPaddingRow_old j hj x (P.label y) hxy,
