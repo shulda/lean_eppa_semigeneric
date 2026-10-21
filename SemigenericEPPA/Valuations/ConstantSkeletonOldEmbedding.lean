@@ -41,6 +41,45 @@ def constantEffectiveWitnessSkeleton
     intro _ _ _
     exact hfixed.symm
 
+/-- A typed constant-skeleton indexed gauge on the ORIGINAL quotient
+sort. The quotient of the reconstructed QuotientGauge's setoid is
+definitionally the original quotient, but Lean's typeclass search
+does not unfold this fact while looking for a linear order. -/
+noncomputable def constantQuotientIndexedGauge
+    (D : EffectiveGeometry s V)
+    [LinearOrder (Quotient D.part)]
+    (g0 : G) (hfixed : s g0 = g0) :
+    IndexedGauge s V (Quotient D.part) := by
+  letI : LinearOrder (Quotient D.toQuotientGauge.part) :=
+    (inferInstance : LinearOrder (Quotient D.part))
+  exact (IndexedGauge.ofQuotientGauge D.toQuotientGauge).constantSkeletonGauge
+    g0 hfixed
+
+/-- The constant-skeleton gauge preserves the actual old effective
+cross-part colour, not only the abstract rectangle identity. -/
+theorem constantQuotientIndexedGauge_cross
+    (D : EffectiveGeometry s V)
+    [LinearOrder (Quotient D.part)]
+    (g0 : G) (hfixed : s g0 = g0)
+    (x y : V) (hxy : ¬D.part x y) :
+    (D.constantQuotientIndexedGauge g0 hfixed).effective x y =
+      D.F x y := by
+  letI : LinearOrder (Quotient D.toQuotientGauge.part) :=
+    (inferInstance : LinearOrder (Quotient D.part))
+  have hi : (IndexedGauge.ofQuotientGauge D.toQuotientGauge).label x ≠
+      (IndexedGauge.ofQuotientGauge D.toQuotientGauge).label y := by
+    change Quotient.mk D.part x ≠ Quotient.mk D.part y
+    intro heq
+    exact hxy (Quotient.exact heq)
+  calc
+    (D.constantQuotientIndexedGauge g0 hfixed).effective x y =
+        (IndexedGauge.ofQuotientGauge D.toQuotientGauge).effective x y := by
+      exact (IndexedGauge.ofQuotientGauge D.toQuotientGauge).constantSkeletonGauge_cross
+        g0 hfixed x y hi
+    _ = D.toQuotientGauge.effective x y :=
+      IndexedGauge.ofQuotientGauge_effective D.toQuotientGauge x y
+    _ = D.F x y := D.quotientGauge_reconstruct_cross x y hxy
+
 /-- A copy of the literal old vertex x in the constant-skeleton
 witness. Its part/label are neutral; only its independent target
 valuation has been recoded using the constant gauge normal form. -/
@@ -53,8 +92,7 @@ noncomputable def constantGaugeOldWitnessVertex
   old := x
   belongs := rfl
   vertexValuation := fun r =>
-    ((IndexedGauge.ofQuotientGauge D.toQuotientGauge).constantSkeletonGauge
-      g0 hfixed).vertexGauge x r.1.1
+    (D.constantQuotientIndexedGauge g0 hfixed).vertexGauge x r.1.1
 
 /-- The revised old embedding is still injective because it
 remembers the old real label as its second coordinate. -/
@@ -91,8 +129,8 @@ theorem constantGaugeOldWitnessVertex_crossIncidence
     (hr : oldWitnessPart D y ≠ oldWitnessPart D x) :
     (D.constantGaugeOldWitnessVertex g0 hfixed x).crossIncidence
       (oldWitnessPart D y) hr =
-      ((IndexedGauge.ofQuotientGauge D.toQuotientGauge).constantSkeletonGauge
-        g0 hfixed).vertexGauge x (Quotient.mk D.part y) := by
+      (D.constantQuotientIndexedGauge g0 hfixed).vertexGauge x
+        (Quotient.mk D.part y) := by
   simp [EffectiveWitnessVertex.crossIncidence,
     constantGaugeOldWitnessVertex, oldWitnessPart,
     distinguishedWitnessPart, neutralPartValuation]
@@ -110,10 +148,8 @@ theorem constantGaugeOldWitnessVertex_colour
       (D.constantGaugeOldWitnessVertex g0 hfixed x)
       (D.constantGaugeOldWitnessVertex g0 hfixed y) =
       D.F x y := by
-  let P : IndexedGauge s V (Quotient D.part) :=
-    IndexedGauge.ofQuotientGauge D.toQuotientGauge
   let R : IndexedGauge s V (Quotient D.part) :=
-    P.constantSkeletonGauge g0 hfixed
+    D.constantQuotientIndexedGauge g0 hfixed
   let K : EffectiveWitnessSkeleton D :=
     D.constantEffectiveWitnessSkeleton g0 hfixed
   let X : EffectiveWitnessVertex D :=
@@ -122,7 +158,7 @@ theorem constantGaugeOldWitnessVertex_colour
     D.constantGaugeOldWitnessVertex g0 hfixed y
   have hparts : oldWitnessPart D x ≠ oldWitnessPart D y :=
     D.oldWitnessPart_ne x y hxy
-  have hIndex : P.label x ≠ P.label y := by
+  have hIndex : R.label x ≠ R.label y := by
     change Quotient.mk D.part x ≠ Quotient.mk D.part y
     intro h
     exact hxy (Quotient.exact h)
@@ -147,11 +183,7 @@ theorem constantGaugeOldWitnessVertex_colour
         g0 (R.vertexGauge y (Quotient.mk D.part x)) := hformula
     _ = R.effective x y :=
       (R.effective_cross x y hIndex).symm
-    _ = P.effective x y :=
-      P.constantSkeletonGauge_cross g0 hfixed x y hIndex
-    _ = D.F x y := by
-      change D.toQuotientGauge.effective x y = D.F x y
-      exact D.quotientGauge_reconstruct_cross x y hxy
+    _ = D.F x y := D.constantQuotientIndexedGauge_cross g0 hfixed x y hxy
 
 end EffectiveGeometry
 
