@@ -224,6 +224,7 @@ import SemigenericEPPA.Bridge.CoherentOrbitSwappedPair
 import SemigenericEPPA.Bridge.CoherentInvolutionForcing
 import SemigenericEPPA.Bridge.ProjectedFlipSafety
 import SemigenericEPPA.Bridge.OccupiedProjectionFlipSafety
+import SemigenericEPPA.Bridge.SwappedWitnessOldProjection
 import SemigenericEPPA.Bridge.OccupiedOrbitProjectionFlipSafety
 import SemigenericEPPA.Valuations.SwappedWitnessGaugeMiddle
 import SemigenericEPPA.Bridge.SwappedSameOldIndexGood
