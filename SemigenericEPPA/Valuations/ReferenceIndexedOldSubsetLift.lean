@@ -73,7 +73,7 @@ noncomputable def referenceIndexedWitnessAction
       M (k * h) i j =
         M k (iota h i) (iota h j) * M h i j) :
     H →* Equiv.Perm (EffectiveWitnessVertex D) :=
-  D.referenceWitnessCocycleAction rho iota z hcls
+  referenceWitnessCocycleAction D rho iota z hcls
     (fun h q r => M h q.1 r.1)
     (by
       intro q r _
