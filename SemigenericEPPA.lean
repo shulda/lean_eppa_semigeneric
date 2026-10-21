@@ -154,6 +154,7 @@ import SemigenericEPPA.Structure.QuotientGauge
 import SemigenericEPPA.Structure.IndexedGauge
 import SemigenericEPPA.Structure.RestrictedIndexedGaugeHAction
 import SemigenericEPPA.Structure.ConstantSkeletonGauge
+import SemigenericEPPA.Structure.FixedConstantGaugePadding
 import SemigenericEPPA.Valuations.ConstantSkeletonOldEmbedding
 import SemigenericEPPA.Structure.ConstantGaugeDiagonal
 import SemigenericEPPA.Algebra.IndexedGaugeHActionMatrix
