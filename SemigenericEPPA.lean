@@ -89,6 +89,7 @@ import SemigenericEPPA.Algebra.GaugeConverse
 import SemigenericEPPA.Algebra.AnchoredPartialGauge
 import SemigenericEPPA.Algebra.PartialGaugeFamilies
 import SemigenericEPPA.Algebra.EffectiveGroupGaugeCocycles
+import SemigenericEPPA.Algebra.SelectedReferenceGauge
 import SemigenericEPPA.Algebra.OccupiedGaugeMultiplierExistence
 import SemigenericEPPA.Algebra.OccupiedGaugeMultiplierAction
 import SemigenericEPPA.Algebra.OccupiedGaugeMultiplierStrictCocycle
@@ -230,6 +231,7 @@ import SemigenericEPPA.Algebra.OccupiedGaugeAllRows
 import SemigenericEPPA.Algebra.GoodDefaultSkeletonOrbit
 import SemigenericEPPA.Valuations.IndexedMultipliersOldVertexAction
 import SemigenericEPPA.Valuations.ReferenceIndexedOldSubsetLift
+import SemigenericEPPA.Valuations.SelectedReferenceEffectiveHAction
 import SemigenericEPPA.Valuations.CanonicalGoodFullGroupLift
 
 /-!
