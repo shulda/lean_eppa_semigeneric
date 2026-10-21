@@ -43,7 +43,7 @@ namespace EffectiveGeometry
 
 /-- On the TRUE reference-indexed valuation group action, an
 actually swapped witness cross-edge with different original E-part
-indices is raw-good whenever its old padded labels admit the
+indices is raw-good whenever its old padded labels have the
 canonical occupied-only equivariant projection onto a selected raw
 H-structure and M is the actual selected-old gauge multiplier.
 
