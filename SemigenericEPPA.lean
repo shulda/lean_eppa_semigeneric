@@ -232,6 +232,7 @@ import SemigenericEPPA.Algebra.NormalizedDiagonalOldRowTransport
 import SemigenericEPPA.Algebra.OccupiedGaugeAllRows
 import SemigenericEPPA.Algebra.GoodDefaultSkeletonOrbit
 import SemigenericEPPA.Valuations.IndexedMultipliersOldVertexAction
+import SemigenericEPPA.Valuations.ReferenceIndexedOldSubsetLift
 import SemigenericEPPA.Valuations.CanonicalGoodFullGroupLift
 
 /-!
