@@ -228,6 +228,7 @@ import SemigenericEPPA.Algebra.NormalizedDiagonalOldRowTransport
 import SemigenericEPPA.Algebra.OccupiedGaugeAllRows
 import SemigenericEPPA.Algebra.GoodDefaultSkeletonOrbit
 import SemigenericEPPA.Valuations.IndexedMultipliersOldVertexAction
+import SemigenericEPPA.Valuations.CanonicalGoodFullGroupLift
 
 /-!
 # Generalized semigeneric rectangle structures
