@@ -132,6 +132,7 @@ import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.RelationalRoundtripEquality
 import SemigenericEPPA.Structure.EffectiveRawExtension
 import SemigenericEPPA.Structure.EffectiveGeometry
+import SemigenericEPPA.Structure.FixedFibreQuotientGroupAction
 import SemigenericEPPA.Structure.InducedEffectiveGeometry
 import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
 import SemigenericEPPA.Structure.TwoPlusOneRawObstruction
