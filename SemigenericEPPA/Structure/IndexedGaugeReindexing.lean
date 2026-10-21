@@ -58,7 +58,11 @@ theorem reindexedPartLabels_part
       P.toEffectiveGeometry.part x y := by
   change (e (P.label x) = e (P.label y)) ↔
     P.label x = P.label y
-  exact ⟨e.injective, congrArg e⟩
+  constructor
+  · intro heq
+    exact e.injective heq
+  · intro heq
+    exact congrArg e heq
 
 /-- Every group-valued effective colour is preserved, not merely
 its affine congruence class. Same-part dummy values are also 1. -/
