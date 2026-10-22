@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.RelativeDLFGraphFreeAction
 import SemigenericEPPA.Algebra.RelativeDLFLeftCosetAction
 import SemigenericEPPA.Bridge.FiniteOriginalRelationalSaturatedEPPA
 import SemigenericEPPA.Bridge.RelationalSaturatedTypedCoherentEPPA
