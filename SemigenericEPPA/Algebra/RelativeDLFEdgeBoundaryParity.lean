@@ -30,9 +30,10 @@ variable [Fintype V] [Fintype E]
 
 /-- Linear F₂ boundary of an arbitrary finite unoriented graph with
 possible parallel edges; every edge contributes at both endpoints. -/
-def edgeBoundary (source target : E → V)
-    (c : E → ZMod 2) : V → ZMod 2 :=
-  fun x => ∑ e : E,
+noncomputable def edgeBoundary (source target : E → V)
+    (c : E → ZMod 2) : V → ZMod 2 := by
+  classical
+  exact fun x => ∑ e : E,
     ((if x = source e then c e else 0) +
       (if x = target e then c e else 0))
 
@@ -71,8 +72,9 @@ theorem augmentation_edgeBoundary_zero
 
 /-- One vertex has odd total parity, including when V has one
 element. -/
-def pointVertexChain (x : V) : V → ZMod 2 :=
-  fun v => if v = x then 1 else 0
+noncomputable def pointVertexChain (x : V) : V → ZMod 2 := by
+  classical
+  exact fun v => if v = x then 1 else 0
 
 @[simp] theorem augmentation_pointVertexChain
     (x : V) :
