@@ -110,7 +110,7 @@ theorem exists_factorialAuxiliaryAction_withOccupiedProjection
     apply Subtype.ext
     apply Subtype.ext
     exact hj hxy
-  obtain ⟨e, hCoding, hOldCoding⟩ :=
+  obtain ⟨e, hCoding, hOldCoding0⟩ :=
     exists_exactReplicatedOccupiedCoding cls t
       (coherentPaddingSize A) hFin hPos hSizeExact jClass hjClass
   let occupied : Quotient D.part → Prop :=
@@ -133,7 +133,7 @@ theorem exists_factorialAuxiliaryAction_withOccupiedProjection
   have hOldCoding (x : S) :
       (e (replicatedFibreOldLabel cls t hPosS x)).val =
         (cls x, j x.val) := by
-    simpa only [jClass] using hOldCoding x
+    simpa only [jClass] using hOldCoding0 x
   have hOld (h : H) (x : S) :
       tau h (cls x, j x.val) =
         (cls (rho h x), j (rho h x).val) :=
