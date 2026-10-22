@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.FiniteRelationalCoherentClassification
 import SemigenericEPPA.Bridge.FiniteOriginalRelationalSaturatedEPPA
 import SemigenericEPPA.Bridge.RelationalSaturatedTypedCoherentEPPA
 import SemigenericEPPA.Bridge.GlobalRawFunctorFromGroupAndConnectors
