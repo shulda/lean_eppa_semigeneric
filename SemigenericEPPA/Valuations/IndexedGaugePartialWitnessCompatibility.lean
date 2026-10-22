@@ -157,7 +157,7 @@ theorem prescribedEffectiveWitnessAutomorphism_maps_gaugeOld
         _ = sigma X.part := congrArg sigma heq
         _ = (T X).part :=
           (prescribedEffectiveWitnessAutomorphism_part
-            D sigma rho P m X).symm
+            D K sigma rho P m X).symm
     have htransport :=
       prescribedEffectiveWitnessAutomorphism_incidence
         D K sigma rho P m X u hu hP
