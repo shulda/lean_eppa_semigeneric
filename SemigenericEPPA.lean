@@ -1,3 +1,5 @@
+import SemigenericEPPA.Algebra.RelativeDLFEdgeBoundaryParity
+import SemigenericEPPA.Algebra.DLFInvariantFreeInvolutionParity
 import SemigenericEPPA.Bridge.FiniteRawCoherentClassification
 import SemigenericEPPA.Bridge.FiniteRelationalCoherentClassification
 import SemigenericEPPA.Bridge.FiniteCanonicalUniverseCoherentClassification
