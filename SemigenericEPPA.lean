@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.CompleteGoodOrbitSameIndexFlips
 import SemigenericEPPA.Structure.FixedRawCoverIndividualAutConnector
 import SemigenericEPPA.Valuations.TwistedIndexedGaugeOldVertexExtension
 import SemigenericEPPA.Valuations.IndexedGaugePartialWitnessCompatibility
