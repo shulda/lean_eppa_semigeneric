@@ -32,42 +32,51 @@ universe u v
 variable {G : Type u} [Group G] [Finite G]
 variable {C : Type v} [Finite C]
 
-/-- Entire finite raw R1--R3 class has typed coherent EPPA exactly
-when G is trivial, or the set of truly self-reversing effective
-colours is nonempty and a union of complete congruence orbits.
+/-- For a NONTRIVIAL finite effective group, finite typed coherent EPPA
+for all original R1–R3 raw members in one fixed sufficiently large
+universe is equivalent to the genuine good-effective-colour set being
+nonempty and globally congruence-saturated.
 
-The fixed witness universe can be selected uniformly large
-enough for every finite old carrier in Type 0. -/
-theorem RawDatum.finiteRawTypedCoherentEPPA_iff
-    (d : RawDatum G C) :
+The trivial-G case is covered independently by
+`finite_typedCoherentEPPA_witness`. Its smaller witness type
+universe is not silently identified with a larger one here. -/
+theorem RawDatum.finiteRawTypedCoherentEPPA_nontrivial_iff
+    (d : RawDatum G C) (hNontriv : ¬ Subsingleton G) :
     (∀ (V : Type) [Fintype V]
+        (P : RawRectanglePresentation d V),
+        ∃ (W : Type (max u v))
+          (Q : RawRectanglePresentation d W),
+          Finite W ∧
+          ∃ psi : Structure.Embedding (rectangleTrivialAction C)
+            P.toStructure Q.toStructure,
+          Structure.IsCoherentEPPAWitness (rectangleTrivialAction C) psi) ↔
+      (d.selfReverseEffective.Nonempty ∧
+        d.IsCongruenceSaturated) := by
+  constructor
+  · intro hEPPA
+    have hRaw : ∀ (V : Type) [Fintype V]
         (P : RawRectanglePresentation d V),
         ∃ (W : Type (max u v))
           (Q : RawRectanglePresentation d W)
           (psi : Structure.Embedding (rectangleTrivialAction C)
             P.toStructure Q.toStructure),
-          Structure.IsCoherentEPPAWitness (rectangleTrivialAction C) psi) ↔
-    (Subsingleton G ∨
-      (d.selfReverseEffective.Nonempty ∧
-        d.IsCongruenceSaturated)) := by
-  constructor
-  · intro hEPPA
-    exact d.necessaryCoherentCondition_of_allFiniteRawPresentations
-      hEPPA
-  · rintro (hTriv | ⟨hGood, hSat⟩)
-    · letI : Subsingleton G := hTriv
+          Structure.IsCoherentEPPAWitness
+            (rectangleTrivialAction C) psi := by
       intro V _ P
-      obtain ⟨_hFinite, Q, psi, hCoherent⟩ :=
-        P.finite_typedCoherentEPPA_witness
-      exact ⟨GOneJointRawCarrier P, Q, psi, hCoherent⟩
-    · intro V _ P
-      obtain ⟨_j, Q, _R, K, J, _hFinite, psi, hCoherent⟩ :=
-        P.finite_typedCoherentEPPA_witness_of_saturated hGood hSat
-      exact ⟨RawCoverVertex
-          (EffectiveWitnessVertex Q.toEffectiveGeometry)
-          (UniversalResidualCarrier C),
-        rawCoverPresentation K.toEffectiveGeometry
-          J.code J.baseline J.baseline_reverse,
-        psi, hCoherent⟩
+      obtain ⟨W, Q, _hFinite, psi, hCoherent⟩ := hEPPA V P
+      exact ⟨W, Q, psi, hCoherent⟩
+    have hNec :=
+      d.necessaryCoherentCondition_of_allFiniteRawPresentations hRaw
+    exact hNec.resolve_left hNontriv
+  · rintro ⟨hGood, hSat⟩
+    intro V _ P
+    obtain ⟨_j, Q, _R, K, J, hFinite, psi, hCoherent⟩ :=
+      P.finite_typedCoherentEPPA_witness_of_saturated hGood hSat
+    exact ⟨RawCoverVertex
+        (EffectiveWitnessVertex Q.toEffectiveGeometry)
+        (UniversalResidualCarrier C),
+      rawCoverPresentation K.toEffectiveGeometry
+        J.code J.baseline J.baseline_reverse,
+      hFinite, psi, hCoherent⟩
 
 end SemigenericEPPA
