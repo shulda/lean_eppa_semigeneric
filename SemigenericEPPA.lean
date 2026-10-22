@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.RelativeDLFEdgeBoundaryParity
 import SemigenericEPPA.Bridge.FiniteCanonicalUniverseCoherentClassification
 import SemigenericEPPA.Bridge.FiniteOriginalRelationalSaturatedEPPA
 import SemigenericEPPA.Bridge.RelationalSaturatedTypedCoherentEPPA
