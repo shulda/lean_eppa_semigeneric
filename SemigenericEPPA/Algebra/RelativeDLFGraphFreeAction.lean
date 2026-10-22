@@ -95,7 +95,8 @@ def vertexAction (H : Subgroup Q) :
     intro x
     cases x with
     | inl x =>
-        simp [vertexPerm]
+        change leftCosetTranslate H 1 x = x
+        exact leftCosetTranslate_one H x
     | inr y =>
         rcases y with ⟨layer, q⟩
         simp
@@ -138,7 +139,11 @@ theorem edgeSource_equivariant (H : Subgroup Q)
     edgeSource H (edgePerm H g e) =
       vertexPerm H g (edgeSource H e) := by
   cases e with
-  | inl q => simp [edgeSource, leftCosetTranslate_mk]
+  | inl q =>
+      change Quotient.mk (leftCosetSetoid H) (g * q) =
+        leftCosetTranslate H g
+          (Quotient.mk (leftCosetSetoid H) q)
+      exact (leftCosetTranslate_mk H g q).symm
   | inr qr => rcases qr with ⟨q,r⟩; simp [edgeSource]
 
 theorem edgeTarget_equivariant (H : Subgroup Q)
