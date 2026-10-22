@@ -33,12 +33,16 @@ universe u v
 variable {G : Type u} [Group G] [Finite G]
 variable {C : Type v} [Finite C]
 
-/-- Whole finite original relational R1--R3 class has typed coherent
-EPPA if and only if either G is trivial, or the genuine set of
-self-reversing effective colours is nonempty and a union of complete
-congruence orbits. All witnesses in the class property are finite. -/
-theorem RawDatum.finiteRelationalTypedCoherentEPPA_iff
-    (d : RawDatum G C) :
+/-- For a NONTRIVIAL finite effective group, finite typed coherent
+EPPA of every original relational R1–R3 member is equivalent to
+the nonempty globally congruence-saturated good set.
+
+For a trivial effective group coherent EPPA is unconditional by the
+separate already-certified original relational theorem. We keep
+this clean uniform-witness-universe iff in the nontrivial sector,
+avoiding an unjustified universe identification in the G=1 branch. -/
+theorem RawDatum.finiteRelationalTypedCoherentEPPA_nontrivial_iff
+    (d : RawDatum G C) (hNontriv : ¬ Subsingleton G) :
     (∀ (V : Type) [Fintype V]
         (A : Structure (rectangleLanguage C) V),
         IsRectangleStructure d A →
@@ -49,9 +53,8 @@ theorem RawDatum.finiteRelationalTypedCoherentEPPA_iff
               (rectangleTrivialAction C) A Q.toStructure,
             Structure.IsCoherentEPPAWitness
               (rectangleTrivialAction C) psi) ↔
-      (Subsingleton G ∨
-        (d.selfReverseEffective.Nonempty ∧
-          d.IsCongruenceSaturated)) := by
+      (d.selfReverseEffective.Nonempty ∧
+        d.IsCongruenceSaturated) := by
   constructor
   · intro hRel
     have hRaw : ∀ (V : Type) [Fintype V]
@@ -66,17 +69,13 @@ theorem RawDatum.finiteRelationalTypedCoherentEPPA_iff
       obtain ⟨W, Q, _hFinite, psi, hCoherent⟩ :=
         hRel V P.toStructure P.toStructure_isRectangleStructure
       exact ⟨W, Q, psi, hCoherent⟩
-    exact d.necessaryCoherentCondition_of_allFiniteRawPresentations hRaw
-  · rintro (hTriv | ⟨hGood, hSat⟩)
-    · letI : Subsingleton G := hTriv
-      intro V _ A hA
-      obtain ⟨hFinite, Q, psi, hCoherent⟩ :=
-        hA.finite_relationalTypedCoherentEPPA_witness
-      exact ⟨hA.finiteRelationalCoherentCarrier,
-        Q, hFinite, psi, hCoherent⟩
-    · intro V _ A hA
-      obtain ⟨W, Q, hFinite, psi, hCoherent⟩ :=
-        hA.finite_originalCoherentEPPA_of_saturated hGood hSat
-      exact ⟨W, Q, hFinite, psi, hCoherent⟩
+    have hNec :=
+      d.necessaryCoherentCondition_of_allFiniteRawPresentations hRaw
+    exact hNec.resolve_left hNontriv
+  · rintro ⟨hGood, hSat⟩
+    intro V _ A hA
+    obtain ⟨W, Q, hFinite, psi, hCoherent⟩ :=
+      hA.finite_originalCoherentEPPA_of_saturated hGood hSat
+    exact ⟨W, Q, hFinite, psi, hCoherent⟩
 
 end SemigenericEPPA
