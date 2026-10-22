@@ -230,11 +230,8 @@ theorem exists_oneFiniteGoodEffectiveWitness_allRelativeGroupActions
         R hRLabel hRConst hRDiagOne hRF S ρ hE hF
     have hEq : K' = K :=
       K'.eq_of_sameConstant K g0 hK' hKConst
-    refine ⟨Θ, ?_, ?_, ?_⟩
-    · intro h x
-      exact hOld h x
-    · simpa only [hEq] using hETheta
-    · simpa only [hEq] using hFTheta
+    rw [hEq] at hETheta hFTheta
+    exact ⟨Θ, hOld, hETheta, hFTheta⟩
   exact ⟨j, Q, R, K, hInjective, hψE, hψF, hFiniteWitness, hAll⟩
 
 end EffectiveGeometry
