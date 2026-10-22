@@ -1,4 +1,5 @@
 import Mathlib.GroupTheory.Coset.Defs
+import Mathlib.Algebra.Group.End
 import Mathlib.Tactic.Group
 
 /-!
