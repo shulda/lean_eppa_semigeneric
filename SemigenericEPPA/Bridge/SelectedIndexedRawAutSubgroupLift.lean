@@ -99,7 +99,8 @@ theorem IndexedGauge.exists_selectedIndexedRawAutSubgroupLift
     (hsat : d.IsCongruenceSaturated)
     (Praw : RawRectanglePresentation d U)
     (e : U → EffectiveWitnessVertex D)
-    (J : FixedJointRawCover Praw K.toEffectiveGeometry e)
+    (J : FixedJointRawCover.{u, v, z, max u w, t}
+      Praw K.toEffectiveGeometry e)
     (he : Function.Injective e)
     (hPartEmbed : ∀ a b : U,
       K.toEffectiveGeometry.part (e a) (e b) ↔ Praw.part a b)
