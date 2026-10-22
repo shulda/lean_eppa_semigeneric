@@ -1,3 +1,5 @@
+import SemigenericEPPA.Bridge.FiniteRawCoherentClassification
+import SemigenericEPPA.Bridge.FiniteRelationalCoherentClassification
 import SemigenericEPPA.Bridge.FiniteCanonicalUniverseCoherentClassification
 import SemigenericEPPA.Bridge.FiniteOriginalRelationalSaturatedEPPA
 import SemigenericEPPA.Bridge.RelationalSaturatedTypedCoherentEPPA
