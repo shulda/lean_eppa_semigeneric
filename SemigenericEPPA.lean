@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.RelationalSaturatedTypedCoherentEPPA
 import SemigenericEPPA.Bridge.GlobalRawFunctorFromGroupAndConnectors
 import SemigenericEPPA.Bridge.NontrivialSaturatedTypedCoherentEPPA
 import SemigenericEPPA.Bridge.FixedRawAllGroupAndConnectorLifts
