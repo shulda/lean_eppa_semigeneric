@@ -105,7 +105,10 @@ def vertexAction (H : Subgroup Q) :
     intro x
     cases x with
     | inl x =>
-        simp [mul_comm]
+        change Sum.inl (leftCosetAction H (g * h) x) =
+          Sum.inl (leftCosetAction H g (leftCosetAction H h x))
+        rw [map_mul]
+        rfl
     | inr y =>
         rcases y with ⟨layer, q⟩
         simp [mul_assoc]
@@ -155,7 +158,7 @@ theorem no_edge_inversion (H : Subgroup Q)
   cases e with
   | inl q =>
       intro h
-      exact Sum.inl_ne_inr h.1
+      cases h.1
   | inr qr =>
       rcases qr with ⟨q,r⟩
       intro h
@@ -172,16 +175,18 @@ theorem edgeAction_free_of_ne_one (H : Subgroup Q)
       intro heq
       have hq : g * q = q := Sum.inl.inj heq
       apply hg
-      apply mul_right_cancel (b := 1 * q)
-      simpa only [one_mul] using hq
+      have heq : g * q = (1 : Q) * q := by
+        simpa only [one_mul] using hq
+      exact mul_right_cancel heq
   | inr qr =>
       rcases qr with ⟨q,r⟩
       intro heq
       have hq : g * q = q :=
         congrArg Prod.fst (Sum.inr.inj heq)
       apply hg
-      apply mul_right_cancel (b := 1 * q)
-      simpa only [one_mul] using hq
+      have heq : g * q = (1 : Q) * q := by
+        simpa only [one_mul] using hq
+      exact mul_right_cancel heq
 
 /-- An element not conjugate into H fixes no vertex in ANY layer.
 The coset layer uses the exact nonnormal coset-stabilizer lemma,
@@ -205,8 +210,9 @@ theorem vertexAction_free_of_no_conjugate
       have hq : g * q = q :=
         congrArg Prod.snd (Sum.inr.inj heq)
       apply hg
-      apply mul_right_cancel (b := 1 * q)
-      simpa only [one_mul] using hq
+      have heq : g * q = (1 : Q) * q := by
+        simpa only [one_mul] using hq
+      exact mul_right_cancel heq
 
 end RelativeDLF
 
