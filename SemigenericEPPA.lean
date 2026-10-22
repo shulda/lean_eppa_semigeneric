@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.FixedRawCoverIndividualAutConnector
 import SemigenericEPPA.Bridge.SelectedIndexedRawAutSubgroupLift
 import SemigenericEPPA.Structure.FixedGoodSelectedRawLiftData
 import SemigenericEPPA.Structure.SelectedRawEffectiveGroupAction
