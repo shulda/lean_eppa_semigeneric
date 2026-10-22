@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFChainPermutationAction
 import SemigenericEPPA.Bridge.FiniteRawCoherentClassification
 import SemigenericEPPA.Bridge.FiniteRelationalCoherentClassification
 import SemigenericEPPA.Bridge.FiniteCanonicalUniverseCoherentClassification
