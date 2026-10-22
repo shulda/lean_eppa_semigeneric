@@ -1,3 +1,8 @@
+import SemigenericEPPA.Bridge.SelectedIndexedRawAutSubgroupLift
+import SemigenericEPPA.Structure.FixedGoodSelectedRawLiftData
+import SemigenericEPPA.Structure.SelectedRawEffectiveGroupAction
+import SemigenericEPPA.Valuations.FactorialSelectedIndexedGaugeHAction
+import SemigenericEPPA.Bridge.FixedSelectedRawSubgroupLifts
 import SemigenericEPPA.Algebra.RawDatum
 import SemigenericEPPA.Algebra.InvolutionRetraction
 import SemigenericEPPA.Algebra.EquivariantFibreRetraction
