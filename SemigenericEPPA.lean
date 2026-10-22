@@ -1,3 +1,5 @@
+import SemigenericEPPA.Valuations.IndexedGaugePartialMultipliers
+import SemigenericEPPA.Valuations.IndexedGaugePartialEffectiveConnector
 import SemigenericEPPA.Valuations.TwistedIndexedGaugeOldVertexExtension
 import SemigenericEPPA.Valuations.IndexedGaugePartialWitnessCompatibility
 import SemigenericEPPA.Algebra.RawDatum
