@@ -92,6 +92,7 @@ import SemigenericEPPA.Algebra.RankOneGaugeTorsor
 import SemigenericEPPA.Algebra.GaugeConverse
 import SemigenericEPPA.Algebra.AnchoredPartialGauge
 import SemigenericEPPA.Algebra.PartialGaugeFamilies
+import SemigenericEPPA.Valuations.IndexedGaugePartialMultipliers
 import SemigenericEPPA.Algebra.EffectiveGroupGaugeCocycles
 import SemigenericEPPA.Algebra.SelectedReferenceGauge
 import SemigenericEPPA.Algebra.OccupiedGaugeMultiplierExistence
