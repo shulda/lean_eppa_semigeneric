@@ -1,3 +1,6 @@
+import SemigenericEPPA.Algebra.RelativeDLFLeftCosetAction
+import SemigenericEPPA.Algebra.RelativeDLFGraphFreeAction
+import SemigenericEPPA.Algebra.RelativeDLFGraphConnected
 import SemigenericEPPA.Bridge.FiniteRawCoherentClassification
 import SemigenericEPPA.Bridge.FiniteRelationalCoherentClassification
 import SemigenericEPPA.Bridge.FiniteCanonicalUniverseCoherentClassification
