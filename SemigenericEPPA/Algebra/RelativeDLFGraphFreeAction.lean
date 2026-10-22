@@ -95,8 +95,8 @@ def vertexAction (H : Subgroup Q) :
     intro x
     cases x with
     | inl x =>
-        simpa [vertexPerm, leftCosetPerm] using
-          (leftCosetTranslate_one H x)
+        rw [vertexPerm_coset]
+        simp
     | inr y =>
         rcases y with ⟨layer, q⟩
         simp
@@ -140,8 +140,8 @@ theorem edgeSource_equivariant (H : Subgroup Q)
       vertexPerm H g (edgeSource H e) := by
   cases e with
   | inl q =>
-      simpa [edgeSource, edgePerm, vertexPerm, leftCosetPerm] using
-        (leftCosetTranslate_mk H g q).symm
+      simp only [edgePerm_cosetEdge, edgeSource, vertexPerm_coset]
+      rfl
   | inr qr => rcases qr with ⟨q,r⟩; simp [edgeSource]
 
 theorem edgeTarget_equivariant (H : Subgroup Q)
