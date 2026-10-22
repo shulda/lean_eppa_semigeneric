@@ -1,6 +1,5 @@
 import SemigenericEPPA.Valuations.FixedFactorialEffectivePartialConnector
 import SemigenericEPPA.Structure.FixedRawCoverIndividualAutConnector
-import SemigenericEPPA.Structure.SelectedRawEffectiveGroupAction
 
 /-!
 # Every old raw partial map extends inside one preselected good raw cover
