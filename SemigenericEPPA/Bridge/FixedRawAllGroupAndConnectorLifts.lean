@@ -93,7 +93,7 @@ theorem exists_oneFixedRawCover_allGroupsAndPartialConnectors
                 (ψ (rhoS h a).val,
                   fun _ : EffectiveWitnessVertex B =>
                     (0 : UniversalResidualCarrier C))) ∧
-(∀ (S : Set A) (p : S → A),
+        (∀ (S : Set A) (p : S → A),
           Function.Injective p →
           (∀ x y : S,
             Praw.part x.val y.val ↔ Praw.part (p x) (p y)) →
