@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.FixedRawAllGroupAndConnectorLifts
 import SemigenericEPPA.Structure.FixedRawCoverIndividualAutConnector
 import SemigenericEPPA.Structure.FixedGoodRawPartialConnector
 import SemigenericEPPA.Valuations.FactorialPartialLabelPermutations
