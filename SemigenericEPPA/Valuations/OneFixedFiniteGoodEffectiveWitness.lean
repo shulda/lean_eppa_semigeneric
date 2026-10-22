@@ -99,21 +99,47 @@ theorem exists_oneFiniteGoodEffectiveWitness_allRelativeGroupActions
                 K.toEffectiveGeometry.F X Y)) := by
   classical
   let W := Quotient D.part × Fin (coherentPaddingSize A)
-  obtain ⟨j, P, Q, hj, hPLabel, _hPConstant, _hPDiag,
-      hQData, _hPOldE, hPOldF, hFiniteW⟩ :=
-    D.exists_fixedGoodFactorialEffectiveBase hSame hGood
-  let B : EffectiveGeometry d.s W := Q.toEffectiveGeometry
-  have hQLabel (z : W) : Q.label z = z.1 :=
-    (hQData z).1
-  have hQDiag (z : W) : Q.vertexGauge z z.1 = 1 :=
-    (hQData z).2
+  letI : Fintype (Quotient D.part) := Fintype.ofFinite _
+  letI : LinearOrder (Quotient D.part) :=
+    LinearOrder.lift' (Fintype.equivFin (Quotient D.part))
+      (Fintype.equivFin (Quotient D.part)).injective
+  obtain ⟨j, hj⟩ := exists_fixedFactorialOldInjection A
   let g0 : G := Classical.choose hGood
   have hGoodFixed : d.s g0 = g0 :=
     d.selfReverseEffective_subset_fixed (Classical.choose_spec hGood)
+  let P : IndexedGauge d.s A (Quotient D.part) :=
+    D.constantQuotientIndexedGauge g0 hGoodFixed
+  let Q : IndexedGauge d.s W (Quotient D.part) :=
+    P.fixedUniformPaddingGauge g0 hGoodFixed
+      (coherentPaddingSize A) j
+  let B : EffectiveGeometry d.s W := Q.toEffectiveGeometry
+  have hPLabel (x : A) :
+      P.label x = Quotient.mk D.part x := rfl
+  have hQLabel (z : W) : Q.label z = z.1 := rfl
+  have hQDiag (z : W) : Q.vertexGauge z z.1 = 1 :=
+    P.fixedUniformPaddingGauge_diagonal g0 hGoodFixed
+      (coherentPaddingSize A) j z
   have hQConst (i k : Quotient D.part) :
-      Q.skeleton i k = g0 := by
-    -- The globally fixed padded skeleton is definitionally constant.
-    rfl
+      Q.skeleton i k = g0 := rfl
+  have hFiniteW : Finite W := by
+    infer_instance
+  have hPOldF (x y : A) (hxy : ¬D.part x y) :
+      B.F (P.fixedUniformPaddingOldMap j x)
+        (P.fixedUniformPaddingOldMap j y) = D.F x y := by
+    have hne : P.label x ≠ P.label y := by
+      rw [hPLabel x, hPLabel y]
+      intro heq
+      exact hxy (Quotient.exact heq)
+    calc
+      B.F (P.fixedUniformPaddingOldMap j x)
+          (P.fixedUniformPaddingOldMap j y) =
+        P.toEffectiveGeometry.F x y :=
+          P.fixedUniformPaddingOldMap_colour
+            g0 hGoodFixed (fun _ _ => rfl)
+              (coherentPaddingSize A) j hj x y hne
+      _ = D.F x y :=
+        D.constantQuotientIndexedGauge_cross
+          g0 hGoodFixed x y hxy
   have hPositive : 0 < coherentPaddingSize A :=
     coherentPaddingSize_pos A
   obtain ⟨R, hRLabel, hRConst, hRDiag, _hRPart, hRF⟩ :=
