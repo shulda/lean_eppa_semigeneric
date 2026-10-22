@@ -185,10 +185,7 @@ theorem exists_factorialAuxiliaryAction_withOccupiedProjection
           {z : Quotient D.part × Fin (coherentPaddingSize A) //
             occupied z.1}) = zero := by
       rw [← heq, e.symm_apply_apply]
-    change (if hh : occupied (cls x) then
-        some (e.symm ⟨(cls x, j x.val), hh⟩).1 else none) =
-      some x
-    simp only [dif_pos hx]
+    simp only [proj, replicatedOccupiedProjection, dif_pos hx]
     rw [hinv]
     rfl
   refine ⟨iota, tau, proj, hIndex, ?_, ?_, ?_,
