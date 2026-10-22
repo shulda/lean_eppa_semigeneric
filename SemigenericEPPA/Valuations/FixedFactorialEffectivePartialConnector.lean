@@ -1,4 +1,5 @@
 import SemigenericEPPA.Valuations.IndexedGaugePartialEffectiveConnector
+import SemigenericEPPA.Valuations.WitnessFiniteness
 import SemigenericEPPA.Valuations.FactorialPartialLabelPermutations
 import SemigenericEPPA.Structure.FixedFibreQuotientGroupAction
 
@@ -162,6 +163,8 @@ theorem exists_fixedFactorialEffectivePartialConnector
     change (pi z).1 = iota z.1
     exact hPiPart z
   letI : Finite W := by infer_instance
+  letI : Fintype W := Fintype.ofFinite _
+  letI : Fintype G := Fintype.ofFinite _
   letI : Fintype (EffectiveWitnessPart B) :=
     B.fintypeEffectiveWitnessParts
   letI : LinearOrder (EffectiveWitnessPart B) :=
