@@ -105,7 +105,7 @@ theorem EffectiveGeometry.exists_factorialProjection_withSelectedEF
       calc
         tau h (old (rhoS h⁻¹ x)) = old x := by
           rw [hOld h]
-          simp
+          simp [old]
         _ = tau h z := hx
   have hOldPart (x y : S) :
       B.part (old x) (old y) ↔ D.part x.val y.val := by
