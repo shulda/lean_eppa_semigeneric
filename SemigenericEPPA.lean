@@ -17,6 +17,7 @@ import SemigenericEPPA.Structure.RawCoverZeroSectionIndividualLifts
 import SemigenericEPPA.Structure.OneBaselineBothLiftModes
 import SemigenericEPPA.Structure.OneBaselineBothLiftModesEncoded
 import SemigenericEPPA.Structure.FixedJointRawCover
+import SemigenericEPPA.Structure.FixedRawCoverSelectedSubgroupAction
 import SemigenericEPPA.Structure.RawCoverSectionLifts
 import SemigenericEPPA.Algebra.AffineResidualCode
 import SemigenericEPPA.Algebra.AffineResidualGlobalEncoder
