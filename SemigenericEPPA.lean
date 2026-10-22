@@ -1,3 +1,5 @@
+import SemigenericEPPA.Structure.FixedRawCoverIndividualAutConnector
+import SemigenericEPPA.Structure.FixedGoodRawPartialConnector
 import SemigenericEPPA.Valuations.FactorialPartialLabelPermutations
 import SemigenericEPPA.Valuations.FixedFactorialEffectivePartialConnector
 import SemigenericEPPA.Valuations.IndexedGaugePartialMultipliers
