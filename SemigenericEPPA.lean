@@ -1,3 +1,4 @@
+import SemigenericEPPA.Valuations.IndexedGaugePartialWitnessCompatibility
 import SemigenericEPPA.Algebra.RawDatum
 import SemigenericEPPA.Algebra.InvolutionRetraction
 import SemigenericEPPA.Algebra.EquivariantFibreRetraction
