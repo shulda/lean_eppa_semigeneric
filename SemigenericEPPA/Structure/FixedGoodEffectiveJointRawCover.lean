@@ -43,7 +43,7 @@ namespace RawRectanglePresentation
 at least one genuine good effective colour, fix ONE finite
 effective witness, ONE literal old zero-section, and ONE finite
 joint raw cover with its residual code and baseline. All selected
-old H-actions admit strict effective extensions on the same
+old H-actions have strict effective extensions on the same
 witness; the cover retains its conditional homomorphic raw
 lift API for all such actions.
 
