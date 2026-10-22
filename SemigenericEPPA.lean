@@ -1,3 +1,4 @@
+import SemigenericEPPA.Valuations.TwistedIndexedGaugeOldVertexExtension
 import SemigenericEPPA.Valuations.IndexedGaugePartialWitnessCompatibility
 import SemigenericEPPA.Algebra.RawDatum
 import SemigenericEPPA.Algebra.InvolutionRetraction
