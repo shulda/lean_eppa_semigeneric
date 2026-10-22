@@ -19,7 +19,7 @@ occupied Option projection on the actual quotient, and preserves
 the fixed quotient gauge F on the selected old labels. The SAME
 canonical selected multiplier matrix and selected reference gauge
 then produce a strict full two-layer effective H-action whose
-ACTUALLY exchanged edges admit self-reversing raw representatives.
+ACTUALLY exchanged edges possess self-reversing raw representatives.
 The fixed raw cover lifts that very H-action homomorphically to
 the literal automorphism subgroup preserving E and every R_c.
 
