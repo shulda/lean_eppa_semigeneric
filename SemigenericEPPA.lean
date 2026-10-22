@@ -1,3 +1,5 @@
+import SemigenericEPPA.Algebra.CompleteGoodOrbitSameIndexFlips
+import SemigenericEPPA.Algebra.DLFCompleteGoodOrbitTransport
 import SemigenericEPPA.Bridge.FiniteRawCoherentClassification
 import SemigenericEPPA.Bridge.FiniteRelationalCoherentClassification
 import SemigenericEPPA.Bridge.FiniteCanonicalUniverseCoherentClassification
