@@ -49,7 +49,7 @@ theorem FixedJointRawCover.exists_rawGroupLift_of_selectedRawAction
     (P : RawRectanglePresentation d U)
     (D : EffectiveGeometry d.s V)
     (e : U → V)
-    (J : FixedJointRawCover P D e)
+    (J : FixedJointRawCover.{v, w, z, t, u} P D e)
     (he : Function.Injective e)
     (hPartEmbed : ∀ x y : U,
       D.part (e x) (e y) ↔ P.part x y)
