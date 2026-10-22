@@ -1,3 +1,5 @@
+import SemigenericEPPA.Valuations.IndexedGaugePartialMultipliers
+import SemigenericEPPA.Valuations.FactorialPartialLabelPermutations
 import SemigenericEPPA.Bridge.SelectedIndexedRawAutSubgroupLift
 import SemigenericEPPA.Structure.FixedGoodSelectedRawLiftData
 import SemigenericEPPA.Structure.SelectedRawEffectiveGroupAction
