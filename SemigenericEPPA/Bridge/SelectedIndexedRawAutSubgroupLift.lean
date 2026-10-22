@@ -145,7 +145,7 @@ theorem IndexedGauge.exists_selectedIndexedRawAutSubgroupLift
         rw [hEmbedAction h a]
       _ = e (rhoS h a).val := (hOldSection (rhoS h a)).symm
   exact FixedJointRawCover.exists_rawAutSubgroupLift_of_selectedRawAction
-    Praw K.toEffectiveGeometry e J he hPartEmbed
+    (H := H) Praw K.toEffectiveGeometry e J he hPartEmbed
     T rhoS Theta hOldActual hPartOld hColourOld
     hThetaPart hThetaColour hFlip
 
