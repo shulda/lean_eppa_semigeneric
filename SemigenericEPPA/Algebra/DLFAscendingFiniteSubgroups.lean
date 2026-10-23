@@ -72,7 +72,7 @@ theorem locallyFinite_of_ascendingFiniteSubgroups
     intro q hq
     exact hn q hq
   have hclosure : Subgroup.closure (s : Set Q) ≤ H n :=
-    Subgroup.closure_le.mpr hsubset
+    (Subgroup.closure_le (H n)).2 hsubset
   letI : Finite (H n) := hfinite n
   exact Finite.of_injective
     (fun x : Subgroup.closure (s : Set Q) =>
@@ -80,6 +80,6 @@ theorem locallyFinite_of_ascendingFiniteSubgroups
     (by
       intro x y h
       apply Subtype.ext
-      exact congrArg Subtype.val h)
+      exact congrArg (fun z : H n => (z : Q)) h)
 
 end SemigenericEPPA
