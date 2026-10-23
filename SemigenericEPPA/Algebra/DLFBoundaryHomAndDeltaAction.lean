@@ -1,5 +1,6 @@
 import SemigenericEPPA.Algebra.RelativeDLFEdgeBoundaryParity
 import SemigenericEPPA.Algebra.DLFChainPermutationAction
+import Mathlib.Tactic.Ring
 
 /-!
 # Linear F₂ graph boundary and the Q-equivariant vertex delta chains
@@ -63,10 +64,18 @@ theorem edgeBoundary_add
           (if x = target e then d e else 0))) := by
       apply Finset.sum_congr rfl
       intro e _
-      by_cases hs : x = source e <;>
-        by_cases ht : x = target e <;>
-          simp [hs, ht] <;> abel
-    _ = _ := by rw [Finset.sum_add_distrib]
+      by_cases hs : x = source e
+      · by_cases ht : x = target e
+        · simp only [if_pos hs, if_pos ht]
+          ring
+        · simp only [if_pos hs, if_neg ht]
+          ring
+      · by_cases ht : x = target e
+        · simp only [if_neg hs, if_pos ht]
+          ring
+        · simp only [if_neg hs, if_neg ht]
+          ring
+    _ = _ := by simpa only [Finset.sum_add_distrib]
 
 /-- The actual group homomorphism ∂:C₁→C₀ of finite F₂ chains. -/
 noncomputable def edgeBoundaryHom
@@ -111,8 +120,12 @@ theorem chainPermutationAction_pointVertexChain
     · intro h
       calc
         v = rhoV g (rhoV g⁻¹ v) := by
-          rw [← map_mul, mul_inv_cancel, map_one]
-          rfl
+          have hAction : rhoV g (rhoV g⁻¹ v) = v := by
+            calc
+              rhoV g (rhoV g⁻¹ v) =
+                  rhoV (g * g⁻¹) v := by rw [map_mul]; rfl
+              _ = v := by simp
+          exact hAction.symm
         _ = rhoV g x := congrArg (rhoV g) h
     · intro h
       rw [h]
