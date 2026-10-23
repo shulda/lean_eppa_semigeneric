@@ -18,7 +18,7 @@ prescribed colours reverse correctly on the entire saturation.
 Only then do we invoke the certified invariant/reversal orbit
 selection theorem on the H-invariant saturation.
 
-Any H-reversed orbit lying OUTSIDE the saturation must admit
+Any H-reversed orbit lying OUTSIDE the saturation must possess
 a raw reversal-fixed representative over its effective colour;
 this is exactly the relative safe H-action flip condition.
 
