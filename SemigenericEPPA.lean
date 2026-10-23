@@ -1,3 +1,5 @@
+import SemigenericEPPA.Structure.ConstantNewPartRawRectangle
+import SemigenericEPPA.Structure.ConstantNewPartRawGroupAction
 import SemigenericEPPA.Algebra.DLFChainSemidirectFinite
 import SemigenericEPPA.Algebra.DLFActualRelativeCoverNoBadInvolution
 import SemigenericEPPA.Algebra.RelativeDLFNoBadInvolutionParity
