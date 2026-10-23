@@ -1,3 +1,6 @@
+import SemigenericEPPA.Structure.DLFFullRawAutSafeCofinalCover
+import SemigenericEPPA.Structure.DLFFiniteCoverAuxiliaryInstances
+import SemigenericEPPA.Structure.DLFSafeFullRawAutRange
 import SemigenericEPPA.Bridge.DLFDeltaProfileInvolutionCrossing
 import SemigenericEPPA.Structure.DLFFullRawAutomorphismGroup
 import SemigenericEPPA.Structure.DLFNoGoodOrbitSafeInvolutions
