@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFRelativeCoverPartialConnectors
 import SemigenericEPPA.Structure.DLFOneFaithfulSafeRawEPPA
 import SemigenericEPPA.Structure.DLFFaithfulRelativeGroupLift
 import SemigenericEPPA.Structure.DLFSafeInvolutionPhaseAndRawBase
