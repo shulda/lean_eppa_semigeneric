@@ -29,40 +29,51 @@ variable {H : Type u} [Group H] {V : Type v}
 
 /-- Explicit invertible action on base points with a regular
 phase factor only outside the distinguished invariant subset. -/
-def relativePhasePerm
+noncomputable def relativePhasePerm
     (rho : H →* Equiv.Perm V)
     (S : Set V)
     (hS : ∀ (h : H) (x : V), x ∈ S ↔ rho h x ∈ S)
-    (h : H) : (V × H) ≃ (V × H) where
-  toFun := fun X =>
-    (rho h X.1, if X.1 ∈ S then X.2 else h * X.2)
-  invFun := fun Y =>
-    (rho h⁻¹ Y.1, if Y.1 ∈ S then Y.2 else h⁻¹ * Y.2)
-  left_inv := by
-    rintro ⟨x,r⟩
+    (h : H) : (V × H) ≃ (V × H) := by
+  classical
+  refine {
+    toFun := fun X =>
+      (rho h X.1, if X.1 ∈ S then X.2 else h * X.2)
+    invFun := fun Y =>
+      (rho h⁻¹ Y.1, if Y.1 ∈ S then Y.2 else h⁻¹ * Y.2)
+    left_inv := ?_
+    right_inv := ?_
+  }
+  · rintro ⟨x, r⟩
     have hbase : rho h⁻¹ (rho h x) = x := by
       calc
         rho h⁻¹ (rho h x) = rho (h⁻¹ * h) x := by rw [map_mul]; rfl
         _ = x := by simp
+    change (rho h⁻¹ (rho h x),
+      if rho h x ∈ S then
+        (if x ∈ S then r else h * r)
+      else h⁻¹ * (if x ∈ S then r else h * r)) = (x, r)
     by_cases hx : x ∈ S
     · have hy : rho h x ∈ S := (hS h x).mp hx
-      simp [relativePhasePerm, hx, hy, hbase]
+      simp [hx, hy, hbase]
     · have hy : rho h x ∉ S := fun z => hx ((hS h x).mpr z)
-      simp [relativePhasePerm, hx, hy, hbase, inv_mul_cancel_left]
-  right_inv := by
-    rintro ⟨y,r⟩
+      simp [hx, hy, hbase]
+  · rintro ⟨y, r⟩
     have hbase : rho h (rho h⁻¹ y) = y := by
       calc
         rho h (rho h⁻¹ y) = rho (h * h⁻¹) y := by rw [map_mul]; rfl
         _ = y := by simp
+    change (rho h (rho h⁻¹ y),
+      if rho h⁻¹ y ∈ S then
+        (if y ∈ S then r else h⁻¹ * r)
+      else h * (if y ∈ S then r else h⁻¹ * r)) = (y, r)
     by_cases hy : y ∈ S
     · have hx : rho h⁻¹ y ∈ S := (hS h⁻¹ y).mp hy
-      simp [relativePhasePerm, hy, hx, hbase]
+      simp [hy, hx, hbase]
     · have hx : rho h⁻¹ y ∉ S := fun z => hy ((hS h⁻¹ y).mpr z)
-      simp [relativePhasePerm, hy, hx, hbase, mul_inv_cancel_left]
+      simp [hy, hx, hbase]
 
 /-- Strict group action on the complete phase-blown-up carrier. -/
-def relativePhaseAction
+noncomputable def relativePhaseAction
     (rho : H →* Equiv.Perm V)
     (S : Set V)
     (hS : ∀ (h : H) (x : V), x ∈ S ↔ rho h x ∈ S) :
@@ -114,8 +125,11 @@ theorem relativePhaseAction_swapOutside_square_one
     h * h = 1 := by
   have hY : Y.1 ∉ S := by
     intro hy
+    have hbaseXY : rho h X.1 = Y.1 :=
+      (relativePhaseAction_base rho S hS h X).symm.trans
+        (congrArg Prod.fst hXY)
     have hx : rho h X.1 ∈ S := by
-      rw [← congrArg Prod.fst hXY]
+      rw [hbaseXY]
       exact hy
     exact hX ((hS h X.1).mpr hx)
   have hp : h * X.2 = Y.2 := by
