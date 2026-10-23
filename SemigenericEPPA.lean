@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFOldPartCloneExtension
 import SemigenericEPPA.Structure.DLFArbitrarySingletonRawPart
 import SemigenericEPPA.Bridge.DLFIncompleteOrbitKiller
 import SemigenericEPPA.Structure.DLFFiniteSafeGroupEPPAExtension
