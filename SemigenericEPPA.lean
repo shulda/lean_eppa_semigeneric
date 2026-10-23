@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.DLFDeltaSingletonNoFixedThirdExtension
 import SemigenericEPPA.Bridge.DLFDeltaProfileMovingThirdPoint
 import SemigenericEPPA.Bridge.DLFDeltaProfileInvolutionCrossing
 import SemigenericEPPA.Structure.DLFFullRawAutomorphismGroup
