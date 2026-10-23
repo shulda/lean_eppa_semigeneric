@@ -4,6 +4,7 @@ import SemigenericEPPA.Structure.OldRawReferenceGroupInvariance
 import SemigenericEPPA.Valuations.EmbeddedOldSubsetEquivariance
 import SemigenericEPPA.Valuations.DLFRelativeRawOldPhaseSafety
 import SemigenericEPPA.Valuations.DLFPhaseOldReturnConsistency
+import Mathlib.Data.Fintype.Prod
 
 /-!
 # Relative safe raw EPPA: automatic regular phase and one raw joint cover
@@ -285,6 +286,9 @@ theorem exists_relativePhaseRawJointWitness_of_effectiveAction
       hPartial T p hp hTp hTc
     exact D.phasePullback_liftIndividualOldPartial
       e T p theta hOld hThetaE hThetaF
+  letI : Fintype V := Fintype.ofFinite _
+  letI : Fintype H := Fintype.ofFinite _
+  letI : Finite (V × H) := inferInstance
   exact Praw.exists_relativeSafeRawJointWitness_of_effectiveData
     DPhase code ePhase hPhaseInjective hPhasePart
     rhoPhase hPhaseE hPhaseF oldPhase
