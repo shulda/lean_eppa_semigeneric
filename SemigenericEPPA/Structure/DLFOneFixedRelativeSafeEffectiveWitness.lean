@@ -70,6 +70,8 @@ theorem exists_oneFixedRelativeSafeEffectiveWitness
         Function.Injective psi ∧
         (∀ x y : A,
           K.toEffectiveGeometry.part (psi x) (psi y) ↔ Praw.part x y) ∧
+        (∀ x y : A, ¬Praw.part x y →
+          K.toEffectiveGeometry.F (psi x) (psi y) = D.F x y) ∧
         Finite (EffectiveWitnessVertex B) ∧
         (∀ (H : Type t) [Group H] (S : Set A)
           (rhoS : H →* Equiv.Perm S),
@@ -117,7 +119,7 @@ theorem exists_oneFixedRelativeSafeEffectiveWitness
   obtain ⟨g0, hg0, hOrbit⟩ := hGoodOrbit
   obtain ⟨j, Q, R, K, J, hj, _hQLabel,
       hBPart, hRLabel, hRConst, hRDiag, hRF, hKConst,
-      _hBaseE, hBaseF, hPsiInj, hPsiPart, _hPsiF, hFinite⟩ :=
+      _hBaseE, hBaseF, hPsiInj, hPsiPart, hPsiF, hFinite⟩ :=
     Praw.exists_fixedGoodSelectedRawLiftData_of_seed g0 hg0
   let D : EffectiveGeometry d.s A := Praw.effectiveReduct
   let B := Q.toEffectiveGeometry
@@ -130,7 +132,7 @@ theorem exists_oneFixedRelativeSafeEffectiveWitness
         (distinguishedWitnessPart B k) = R.skeleton i k :=
     (hKConst _ _).trans (hRConst i k).symm
   refine ⟨g0, j, Q, R, K, J, hOrbit,
-    hPsiInj, hPsiPart, hFinite, ?_, ?_⟩
+    hPsiInj, hPsiPart, hPsiF, hFinite, ?_, ?_⟩
   · intro H _ S rhoS hPart hColour hOldSafe
     exact Praw.exists_selectedSafeEffectiveAction_onFixedSeedGauge
       g0 hOrbit j hj B hBPart hBaseF R hRLabel hRF
