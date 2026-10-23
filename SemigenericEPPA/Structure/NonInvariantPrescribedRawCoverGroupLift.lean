@@ -1,4 +1,5 @@
 import SemigenericEPPA.Bridge.GeometricNonInvariantRawCrossPairs
+import SemigenericEPPA.Algebra.AffineResidualGlobalEncoder
 import SemigenericEPPA.Structure.RawCoverFixedGroupLift
 
 /-!
