@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFChainSemidirectFinite
 import SemigenericEPPA.Algebra.DLFActualRelativeCoverNoBadInvolution
 import SemigenericEPPA.Algebra.RelativeDLFNoBadInvolutionParity
 import SemigenericEPPA.Algebra.RelativeDLFGraphNoBadInvolution
