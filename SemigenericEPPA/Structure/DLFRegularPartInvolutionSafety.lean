@@ -48,7 +48,7 @@ theorem adjoinConstantNewPart_old_effectiveCross
   have hSome : ∃ c : C, P.colour x y = some c := by
     cases hc : P.colour x y with
     | none => exact False.elim (hxy ((P.colour_none_iff x y).mp hc))
-    | some c => exact ⟨c, hc⟩
+    | some c => exact ⟨c, rfl⟩
   obtain ⟨c,hc⟩ := hSome
   have hNew :
       (P.adjoinConstantNewPart (R := R) c0).colour
