@@ -30,7 +30,7 @@ namespace SemigenericEPPA
 universe u v w z
 variable {G : Type u} [Group G]
 variable {V : Type v} {U : Type w}
-variable {H : Type z}
+variable {H : Type z} [Group H]
 variable {s : AffineAntiInvolution G}
 
 namespace EffectiveGeometry
