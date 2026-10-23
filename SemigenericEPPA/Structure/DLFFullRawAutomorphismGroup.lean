@@ -67,6 +67,13 @@ theorem finite_fullRawAutGroup
     Finite P.fullRawAutGroup := by
   classical
   letI : Fintype V := Fintype.ofFinite _
+  have hPermFinite : Finite (Equiv.Perm V) := by
+    apply Finite.of_injective (fun f : Equiv.Perm V => f.toFun)
+    intro f g he
+    apply Equiv.ext
+    intro x
+    exact congrFun he x
+  letI : Finite (Equiv.Perm V) := hPermFinite
   infer_instance
 
 /-- Genuine inclusion of the full raw automorphism group in
