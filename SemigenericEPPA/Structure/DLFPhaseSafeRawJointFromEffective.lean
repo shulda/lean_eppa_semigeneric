@@ -178,6 +178,30 @@ theorem exists_relativePhaseRawJointWitness_of_effectiveAction
       hPartEmbed S rhoS
       (fun h a b => (hPartOld h a b).symm)
       hColourOld rho hOldExt h x y hx hy hcross
+  have hRawAInvariantAll : ∀ (h : H) (x y : V),
+      x ∈ Aimg → y ∈ Aimg →
+      oldRaw (rho h x) (rho h y) = oldRaw x y := by
+    intro h x y hx hy
+    by_cases hxy : D.part x y
+    · obtain ⟨a, rfl⟩ := hx
+      obtain ⟨b, rfl⟩ := hy
+      have hab : Praw.part a.val b.val :=
+        (hPartEmbed a.val b.val).mp hxy
+      have habNew :
+          Praw.part (rhoS h a).val (rhoS h b).val :=
+        (hPartOld h a b).mpr hab
+      change
+        oldRawReferenceOnBase Praw e
+          (Classical.choose (d.phi_surjective 1))
+            (rho h (e a.val)) (rho h (e b.val)) =
+        oldRawReferenceOnBase Praw e
+          (Classical.choose (d.phi_surjective 1))
+            (e a.val) (e b.val)
+      rw [hOldExt h a, hOldExt h b,
+        oldRawReferenceOnBase_old Praw e he,
+        oldRawReferenceOnBase_old Praw e he]
+      simp [RawRectanglePresentation.totalOldRawColour, hab, habNew]
+    · exact hRawAInvariant h x y hx hy hxy
   obtain ⟨hPhaseE, hPhaseF, _hPhaseOld, hPhaseSafe⟩ :=
     D.relativePhaseAction_safe_of_rawOldAndOrbitSafeInvolutions
       rho Aimg hA hE hF oldRaw
@@ -243,7 +267,7 @@ theorem exists_relativePhaseRawJointWitness_of_effectiveAction
     change oldRaw (rho h (e a)) (rho h (e b)) =
       oldRaw (e a) (e b)
     exact relativePhaseAction_oldRaw_returnConsistency
-      rho Aimg Bimg hA oldRaw hRawAInvariant
+      rho Aimg Bimg hA oldRaw hRawAInvariantAll
       h (e a) (e b) hRx hRy
   have hPhasePartial : ∀ (T : Set U) (p : T → U),
       Function.Injective p →
