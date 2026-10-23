@@ -29,10 +29,10 @@ namespace SemigenericEPPA
 
 open AllThoseEPPA
 
-universe u v w t
+universe u v w t z
 variable {V : Type u} {L : Type v} [AddCommGroup L]
 variable {H : Type w} [Group H]
-variable {G : Type t} [Group G] {C : Type t}
+variable {G : Type t} [Group G] {C : Type z}
 variable {d : RawDatum G C}
 
 /-- A potential lift preserves the complete old zero-section
