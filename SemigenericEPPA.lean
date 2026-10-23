@@ -1,3 +1,7 @@
+import SemigenericEPPA.Algebra.DLFFiniteRelativeCoverPackage
+import SemigenericEPPA.Structure.ConstantNewPartRawRectangle
+import SemigenericEPPA.Structure.ConstantNewPartRawGroupAction
+import SemigenericEPPA.Structure.ConstantNewPartActualAutGroup
 import SemigenericEPPA.Algebra.DLFGraphPathChainBoundary
 import SemigenericEPPA.Algebra.DLFRelativeCoverSurjectiveSplit
 import SemigenericEPPA.Algebra.DLFChainSemidirectFinite
