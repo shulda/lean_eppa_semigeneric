@@ -167,7 +167,6 @@ theorem exists_relativeSafeRawEPPA_of_completeGoodOrbit
       h (psi x.val) (show psi x.val ∈ embeddedOldSubset psi S
         from ⟨x, rfl⟩)]
     rw [hOld h x]
-    rfl
   · intro T p hp hTp hTc
     exact hPartials T p hp hTp hTc
 
