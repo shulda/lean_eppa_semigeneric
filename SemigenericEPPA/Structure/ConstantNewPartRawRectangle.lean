@@ -75,9 +75,15 @@ def RawRectanglePresentation.adjoinConstantNewPart
         P.colour_none_iff]
   colour_reverse := by
     intro x y
-    cases x <;> cases y <;>
-      simp [constantNewPartColour, P.colour_reverse,
-        d.reverse_involutive]
+    cases x with
+    | inl a =>
+        cases y with
+        | inl b => exact P.colour_reverse a b
+        | inr r => simp [constantNewPartColour, d.reverse_involutive]
+    | inr r =>
+        cases y with
+        | inl a => rfl
+        | inr r' => rfl
   rectangle := by
     intro x₀ x₁ y₀ y₁ hx hy c₀₀ c₀₁ c₁₀ c₁₁ h00 h01 h10 h11
     cases x₀ <;> cases x₁ <;> cases y₀ <;> cases y₁ <;>
