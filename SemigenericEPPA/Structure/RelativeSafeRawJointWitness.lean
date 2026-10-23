@@ -1,5 +1,6 @@
 import SemigenericEPPA.Structure.NonInvariantPrescribedRawCoverGroupLift
 import SemigenericEPPA.Structure.RawCoverZeroSectionIndividualLifts
+import SemigenericEPPA.Structure.TotalOldRawPalette
 
 /-!
 # Relative SAFE finite raw witness: H-actions and partial map connectors
