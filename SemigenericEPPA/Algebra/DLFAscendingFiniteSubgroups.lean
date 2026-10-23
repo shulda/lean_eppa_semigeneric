@@ -57,8 +57,8 @@ theorem finiteSubset_in_ascendingSubgroup
       · exact (hmono (le_max_right n m)) (hm q hqs)
 
 /-- A covering ascending union of finite subgroups is locally
-finite. In particular the eventual union group of the DLF
-construction has no infinitely generated finite subgroups. -/
+finite. In particular every finitely generated subgroup of an eventual
+ascending union of finite automorphism groups is finite. -/
 theorem locallyFinite_of_ascendingFiniteSubgroups
     (H : ℕ → Subgroup Q)
     (hmono : Monotone H)
