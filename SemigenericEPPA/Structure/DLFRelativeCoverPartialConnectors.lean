@@ -29,7 +29,8 @@ finite cover, acting on the old summand of the actual new-class
 permutation action. -/
 theorem relativeCover_liftOldPartialConnector
     (H : Subgroup Q)
-    [Fintype (CoverVertex H)] [Fintype (CoverEdge H)]
+    [Fintype (CoverVertex H)] [LinearOrder (CoverVertex H)]
+    [Fintype (CoverEdge H)] [LinearOrder (CoverEdge H)]
     (rho : Q →* Equiv.Perm V)
     (e : A → V)
     (T : Set A) (p : T → A)
@@ -54,7 +55,8 @@ theorem relativeCover_liftOldPartialConnector
 old partial-map connector, on the same cover and the same embedding. -/
 theorem relativeCover_liftAllOldPartialConnectors
     (H : Subgroup Q)
-    [Fintype (CoverVertex H)] [Fintype (CoverEdge H)]
+    [Fintype (CoverVertex H)] [LinearOrder (CoverVertex H)]
+    [Fintype (CoverEdge H)] [LinearOrder (CoverEdge H)]
     (rho : Q →* Equiv.Perm V)
     (e : A → V)
     (hAll : ∀ (T : Set A) (p : T → A),
