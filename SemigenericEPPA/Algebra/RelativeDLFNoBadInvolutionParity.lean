@@ -49,7 +49,7 @@ theorem weighted_edgeBoundary
       ((if x = source e then c e else 0) +
         (if x = target e then c e else 0))) =
       ∑ e : E, c e * (χ (source e) + χ (target e))
-  simp only [Finset.mul_sum]
+  simp only [mul_sum]
   rw [Finset.sum_comm]
   apply Finset.sum_congr rfl
   intro e _
