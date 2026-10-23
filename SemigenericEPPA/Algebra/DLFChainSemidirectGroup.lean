@@ -85,7 +85,7 @@ instance (rho : Q →* Equiv.Perm E) : Group (ChainSemidirect rho) where
         a.chain + chainPermutationAction rho a.base
           (b.chain + chainPermutationAction rho b.base c.chain)
       rw [chainPermutationAction_mul, chainPermutationAction_add]
-      abel
+      exact add_assoc _ _ _
   one_mul a := by
     apply ChainSemidirect.ext
     · simp
