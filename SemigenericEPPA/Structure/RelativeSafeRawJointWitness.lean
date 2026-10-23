@@ -120,7 +120,8 @@ theorem RawRectanglePresentation.exists_relativeSafeRawJointWitness_of_effective
               X Y)) := by
   classical
   let S : Set V := Set.range e
-  obtain ⟨hFinite, b, hb, lift, hbOld, hAllZero, hPart, hRaw⟩ :=
+  obtain ⟨hFinite, b, hb, lift, hbOld, hColourS,
+      hAllZero, hPart, hRaw⟩ :=
     exists_nonInvariantPrescribedRawCoverGroupLift
       D code rho hE hF S old
       hOldPhi hOldReverse hReturn hSafe
@@ -149,23 +150,7 @@ theorem RawRectanglePresentation.exists_relativeSafeRawJointWitness_of_effective
             (e x, fun _ : V => (0 : L))
             (e y, fun _ : V => (0 : L)) =
           some (old (e x) (e y)) :=
-            (by
-              simpa only [hOldExact x y] using
-                ((by
-                  have h := hbOld (e x) (e y) ⟨x,rfl⟩ ⟨y,rfl⟩ hexy
-                  have hp : d.phi (old (e x) (e y)) = D.F (e x) (e y) :=
-                    hOldPhi (e x) (e y) ⟨x,rfl⟩ ⟨y,rfl⟩ hexy
-                  have hd : (code.decode (D.F (e x) (e y))
-                      (code.encodeRaw (old (e x) (e y)))).val =
-                      old (e x) (e y) := by
-                    rw [← code.encode_of_projection (old (e x) (e y))
-                      (D.F (e x) (e y)) hp]
-                    exact congrArg Subtype.val
-                      (code.decode_encode _ ⟨old (e x) (e y), hp⟩)
-                  simp [rawCoverColour, hexy, rawResidual, h, hd]
-                ) : rawCoverColour D code b
-                  (e x, fun _ : V => (0 : L))
-                  (e y, fun _ : V => (0 : L)) = some (old (e x) (e y))))
+            hColourS (e x) (e y) ⟨x,rfl⟩ ⟨y,rfl⟩ hexy
         _ = some (P.totalOldRawColour x y) := by rw [hOldExact x y]
         _ = P.colour x y :=
           (P.totalOldRawColour_cross x y hxy).symm
