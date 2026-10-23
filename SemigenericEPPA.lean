@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.NonInvariantPrescribedRawOrbitSelection
 import SemigenericEPPA.Bridge.OrbitSaturationPrescribedReversal
 import SemigenericEPPA.Bridge.OrbitSaturationPrescribedColours
 import SemigenericEPPA.Algebra.DLFFiniteRelativeCoverPackage
