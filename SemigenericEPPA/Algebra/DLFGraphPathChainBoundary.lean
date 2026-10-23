@@ -1,5 +1,6 @@
 import SemigenericEPPA.Algebra.DLFBoundaryHomAndDeltaAction
 import SemigenericEPPA.Algebra.RelativeDLFGraphConnected
+import Mathlib.Tactic.Abel
 
 /-!
 # Graph paths have F₂ boundaries equal to their two endpoints
@@ -93,15 +94,16 @@ theorem edgeConnected_exists_twoPointBoundary
       obtain ⟨c2, hc2⟩ := ihyz
       refine ⟨c1 + c2, ?_⟩
       rw [edgeBoundary_add, hc1, hc2]
-      calc
-        (pointVertexChain _ + pointVertexChain _) +
-          (pointVertexChain _ + pointVertexChain _) =
-          pointVertexChain _ +
-            (pointVertexChain _ + pointVertexChain _) +
-              pointVertexChain _ := by simp only [add_assoc]
-        _ = _ := by
-          rw [pointVertexChain_add_self]
-          simp
+      have hCancel (a b d : CoverVertex H) :
+          (pointVertexChain a + pointVertexChain b) +
+            (pointVertexChain b + pointVertexChain d) =
+            pointVertexChain a + pointVertexChain d := by
+        calc
+          _ = pointVertexChain a +
+                (pointVertexChain b + pointVertexChain b) +
+                  pointVertexChain d := by abel
+          _ = _ := by rw [pointVertexChain_add_self]; simp
+      exact hCancel _ _ _
   | symm h ih =>
       obtain ⟨c, hc⟩ := ih
       refine ⟨c, ?_⟩
