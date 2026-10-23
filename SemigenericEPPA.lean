@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.DLFDeltaSingletonNoSafeExtension
 import SemigenericEPPA.Bridge.DLFDeltaProfileInvolutionCrossing
 import SemigenericEPPA.Structure.DLFFullRawAutomorphismGroup
 import SemigenericEPPA.Structure.DLFNoGoodOrbitSafeInvolutions
