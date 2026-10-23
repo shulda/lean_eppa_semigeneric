@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFGraphPathChainBoundary
 import SemigenericEPPA.Algebra.DLFBoundaryHomAndDeltaAction
 import SemigenericEPPA.Algebra.CompleteGoodOrbitSameIndexFlips
 import SemigenericEPPA.Algebra.DLFCompleteGoodOrbitTransport
