@@ -1,6 +1,7 @@
 import SemigenericEPPA.Bridge.DLFExplicitSeedInvolutionSafeHAction
 import SemigenericEPPA.Structure.SelectedRawEffectiveGroupAction
 import SemigenericEPPA.Valuations.FactorialSelectedIndexedGaugeHAction
+import SemigenericEPPA.Structure.FixedGoodSelectedRawLiftData
 
 /-!
 # Relative DLF: a genuine selected raw group acts safely on the SAME fixed witness
