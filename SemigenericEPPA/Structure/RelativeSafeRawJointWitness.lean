@@ -36,11 +36,11 @@ namespace SemigenericEPPA
 
 open AllThoseEPPA
 
-universe u v w t z
+universe u v w t z q
 variable {H : Type u} [Group H]
 variable {G : Type v} [Group G] {C : Type w}
 variable {L : Type t} [AddCommGroup L]
-variable {U : Type z} {V : Type z}
+variable {U : Type q} {V : Type z}
 variable {d : RawDatum G C}
 
 /-- One finite raw witness simultaneously extends a prescribed
