@@ -94,6 +94,9 @@ theorem EffectiveGeometry.exists_relativePhaseNonInvariantRawCoverGroupLift
       (lift : H →* Equiv.Perm (RawCoverVertex (V × H) L)),
       (∀ x y, x ∈ T → y ∈ T →
         ¬(D.phasePullback H).part x y →
+        b x y = code.encodeRaw (oldPhase x y)) ∧
+      (∀ x y, x ∈ T → y ∈ T →
+        ¬(D.phasePullback H).part x y →
         rawCoverColour (D.phasePullback H) code b
           (x, fun _ : V × H => (0 : L))
           (y, fun _ : V × H => (0 : L)) = some (oldPhase x y)) ∧
