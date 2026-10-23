@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFSafeConjugateInvolution
 import SemigenericEPPA.Algebra.DLFGraphPathChainBoundary
 import SemigenericEPPA.Algebra.DLFRelativeCoverSurjectiveSplit
 import SemigenericEPPA.Algebra.DLFChainSemidirectFinite
