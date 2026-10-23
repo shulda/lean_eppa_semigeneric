@@ -53,6 +53,7 @@ theorem rawCover_effectiveReduct_crossF
       (rawCoverPresentation D code b hb).colour X Y = some c := by
     change rawCoverColour D code b X Y = some c
     simp only [rawCoverColour, if_neg hxy]
+    rfl
   calc
     (rawCoverPresentation D code b hb).effectiveReduct.F X Y =
         d.phi c :=
