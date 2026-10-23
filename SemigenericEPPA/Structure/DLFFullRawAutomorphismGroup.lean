@@ -1,5 +1,6 @@
 import SemigenericEPPA.Bridge.BinaryRawAutomorphismSubgroup
 import SemigenericEPPA.Structure.RawPresentation
+import Mathlib.Data.Fintype.EquivFin
 
 /-!
 # The canonical full finite automorphism group in the original raw language
@@ -50,14 +51,14 @@ theorem fullRawAutGroup_colour
   | none =>
       cases hR : P.colour x y with
       | none =>
-          exact hL.trans hR.symm
+          rfl
       | some c =>
           have hc : P.colour (q.val x) (q.val y) = some c :=
             (q.property.2 c x y).mpr hR
           rw [hL] at hc
           cases hc
   | some c =>
-      exact hL.trans ((q.property.2 c x y).mp hL).symm
+      exact ((q.property.2 c x y).mp hL).symm
 
 /-- The canonical automorphism group of a finite original raw
 rectangle is itself finite. -/
@@ -91,6 +92,8 @@ def fullRawAutHom
       intro h
       refine ⟨hPart h, ?_⟩
       intro c x y
+      change (P.colour (rho h x) (rho h y) = some c) ↔
+        (P.colour x y = some c)
       rw [hColour h x y])
 
 /-- Faithfulness is unchanged by embedding into the exact full
