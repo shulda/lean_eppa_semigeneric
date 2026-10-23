@@ -1,3 +1,5 @@
+import SemigenericEPPA.Valuations.DLFPhaseIndividualEffectiveExtension
+import SemigenericEPPA.Structure.DLFPhaseSafeRawJointFromEffective
 import SemigenericEPPA.Bridge.DLFSwappedWitnessCommonMiddleOrbit
 import SemigenericEPPA.Bridge.DLFSwappedSameIndexCompleteOrbit
 import SemigenericEPPA.Bridge.DLFSwappedDifferentIndexLocalOrbit
