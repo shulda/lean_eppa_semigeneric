@@ -68,9 +68,9 @@ noncomputable def relativePhasePerm
       else h * (if y ∈ S then r else h⁻¹ * r)) = (y, r)
     by_cases hy : y ∈ S
     · have hx : rho h⁻¹ y ∈ S := (hS h⁻¹ y).mp hy
-      simp [hy, hx, hbase]
+      simp only [hy, hx, ite_true, hbase]
     · have hx : rho h⁻¹ y ∉ S := fun z => hy ((hS h⁻¹ y).mpr z)
-      simp [hy, hx, hbase]
+      simp only [hy, hx, ite_false, hbase, mul_inv_cancel_left]
 
 /-- Strict group action on the complete phase-blown-up carrier. -/
 noncomputable def relativePhaseAction
