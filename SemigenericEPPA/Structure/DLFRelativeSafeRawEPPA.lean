@@ -130,7 +130,9 @@ theorem exists_relativeSafeRawEPPA_of_completeGoodOrbit
     P.exists_relativePhaseRawJointWitness_of_effectiveAction
       K.toEffectiveGeometry code psi hPsiInj
       hPsiPart hPhi S rhoS hPartOld hColourOld
-      Theta hOld hThetaE hThetaF hThetaSafe hAllPartial
+      Theta hOld hThetaE hThetaF
+      (fun h x y hh hxy hx hy => hThetaSafe h hh x y hxy hx hy)
+      hAllPartial
   let DPhase := (K.toEffectiveGeometry).phasePullback H
   let ePhase : A → V × H := fun x => (psi x, 1)
   let W := RawCoverVertex (V × H) L
