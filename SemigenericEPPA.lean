@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.OrbitSaturationPrescribedColours
 import SemigenericEPPA.Algebra.DLFFiniteRelativeCoverPackage
 import SemigenericEPPA.Structure.ConstantNewPartRawRectangle
 import SemigenericEPPA.Structure.ConstantNewPartRawGroupAction
