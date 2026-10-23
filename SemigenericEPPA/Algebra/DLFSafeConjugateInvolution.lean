@@ -1,6 +1,7 @@
 import SemigenericEPPA.Algebra.DLFCompleteGoodOrbitTransport
 import SemigenericEPPA.Structure.EffectiveGeometry
 import Mathlib.Tactic.Group
+import Mathlib.GroupTheory.Coset.Defs
 
 /-!
 # Good-orbit safety of involutions is invariant under group conjugacy
