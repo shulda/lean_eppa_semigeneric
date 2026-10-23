@@ -1,3 +1,5 @@
+import SemigenericEPPA.Structure.RawPresentationEffectiveBridge
+import Mathlib.Algebra.Group.Subgroup.Ker
 import SemigenericEPPA.Structure.DLFFullRawAutomorphismGroup
 import SemigenericEPPA.Algebra.DLFCompleteGoodOrbitTransport
 
