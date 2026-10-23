@@ -164,7 +164,16 @@ theorem exists_selectedSafeEffectiveAction_onFixedSeedGauge
       oldS hEmbedClass hEmbedAction hEmbedColour hEmbedMem
   refine ⟨Theta, ?_, hThetaE, hThetaF, hThetaSafe⟩
   intro h a
-  exact hThetaOld h (oldS a) (hEmbedMem a)
+  change Theta h
+      (B.gaugeOldWitnessVertex R.vertexGauge (oldS a)) =
+    B.gaugeOldWitnessVertex R.vertexGauge (oldS (rhoS h a))
+  calc
+    Theta h (B.gaugeOldWitnessVertex R.vertexGauge (oldS a)) =
+        B.gaugeOldWitnessVertex R.vertexGauge (tau h (oldS a)) :=
+      hThetaOld h (oldS a) (hEmbedMem a)
+    _ = B.gaugeOldWitnessVertex R.vertexGauge (oldS (rhoS h a)) :=
+      congrArg (B.gaugeOldWitnessVertex R.vertexGauge)
+        (hEmbedAction h a)
 
 end RawRectanglePresentation
 
