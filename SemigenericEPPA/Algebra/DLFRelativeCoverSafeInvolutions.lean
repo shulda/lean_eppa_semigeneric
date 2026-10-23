@@ -33,7 +33,7 @@ variable {d : RawDatum G C}
 
 /-- The fixed relative cover acts on the old geometry through
 its canonical projection to Q, with no independent action choices. -/
-def relativeCoverOldAction
+noncomputable def relativeCoverOldAction
     (H : Subgroup Q)
     [Fintype (CoverVertex H)] [LinearOrder (CoverVertex H)]
     [Fintype (CoverEdge H)] [LinearOrder (CoverEdge H)]
