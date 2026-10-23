@@ -40,11 +40,11 @@ namespace SemigenericEPPA
 
 open AllThoseEPPA
 
-universe u v w t z
+universe u v w t z q
 variable {G : Type u} [Group G] {C : Type v}
 variable {U : Type w} {V : Type t} [Finite V]
 variable {H : Type z} [Group H] [Finite H]
-variable {L : Type u} [AddCommGroup L] [Finite L]
+variable {L : Type q} [AddCommGroup L] [Finite L]
 variable {d : RawDatum G C}
 
 namespace RawRectanglePresentation
