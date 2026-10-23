@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFNoGoodOrbitSafeInvolutions
 import SemigenericEPPA.Structure.DLFFiniteSafeRawGroupPackage
 import SemigenericEPPA.Structure.DLFOneFaithfulSafeRawEPPA
 import SemigenericEPPA.Structure.DLFFaithfulRelativeGroupLift
