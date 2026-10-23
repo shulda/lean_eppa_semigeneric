@@ -28,13 +28,14 @@ namespace SemigenericEPPA
 universe u v w t
 variable {G : Type u} [Group G] {C : Type v}
 variable {V : Type w} {H : Type t} [Group H]
+variable {s : AffineAntiInvolution G}
 
 namespace EffectiveGeometry
 
 /-- Reindex the exact E/F rectangle geometry onto phase copies
 without adding new effective colours or any orientation. -/
 def phasePullback
-    (D : EffectiveGeometry (s : AffineAntiInvolution G) V)
+    (D : EffectiveGeometry s V)
     (H : Type t) : EffectiveGeometry s (V × H) where
   part := {
     r := fun X Y => D.part X.1 Y.1
@@ -56,19 +57,19 @@ def phasePullback
     exact D.rectangle X₀.1 X₁.1 Y₀.1 Y₁.1 hX hY hCross
 
 @[simp] theorem phasePullback_part
-    (D : EffectiveGeometry (s : AffineAntiInvolution G) V)
+    (D : EffectiveGeometry s V)
     (X Y : V × H) :
-    D.phasePullback H |>.part X Y ↔ D.part X.1 Y.1 := Iff.rfl
+    (D.phasePullback H).part X Y ↔ D.part X.1 Y.1 := Iff.rfl
 
 @[simp] theorem phasePullback_F
-    (D : EffectiveGeometry (s : AffineAntiInvolution G) V)
+    (D : EffectiveGeometry s V)
     (X Y : V × H) :
     (D.phasePullback H).F X Y = D.F X.1 Y.1 := rfl
 
 /-- The strict phase action preserves the pulled-back E/F
 geometry whenever the original H-action preserves D. -/
 theorem relativePhaseAction_preserves_effective
-    (D : EffectiveGeometry (s : AffineAntiInvolution G) V)
+    (D : EffectiveGeometry s V)
     (rho : H →* Equiv.Perm V)
     (S : Set V)
     (hS : ∀ (h : H) (x : V), x ∈ S ↔ rho h x ∈ S)
