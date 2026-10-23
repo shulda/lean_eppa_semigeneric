@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.ConstantNewPartProjectedCoverAutGroup
 import SemigenericEPPA.Structure.ConstantNewPartActualAutGroup
 import SemigenericEPPA.Structure.ConstantNewPartRawGroupAction
 import SemigenericEPPA.Structure.ConstantNewPartRawRectangle
