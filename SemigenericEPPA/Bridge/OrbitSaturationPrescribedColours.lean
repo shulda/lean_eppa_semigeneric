@@ -87,8 +87,11 @@ theorem exists_invariantColour_extending_nonInvariantSubset
     have hs : a ∈ Sat := hS a ha
     have hspec := Classical.choose_spec hs
     obtain ⟨hchoose, h, heq⟩ := hspec
+    have htarget : rho h (Classical.choose hs) ∈ S := by
+      rw [heq]
+      exact ha
     have hcol := hReturn h (Classical.choose hs)
-      hchoose ha
+      hchoose htarget
     rw [heq] at hcol
     simpa only [colour, dif_pos hs] using hcol.symm
   refine ⟨colour, hOld, ?_⟩
@@ -105,8 +108,10 @@ theorem exists_invariantColour_extending_nonInvariantSubset
       calc
         rho k2 (rho (k2⁻¹ * h * k1) (Classical.choose hb)) =
           rho (k2 * (k2⁻¹ * h * k1)) (Classical.choose hb) := by
-            rw [map_mul]
-            rfl
+            have hh := congrArg
+              (fun p : Equiv.Perm A => p (Classical.choose hb))
+              (rho.map_mul k2 (k2⁻¹ * h * k1))
+            exact hh.symm
         _ = rho (h * k1) (Classical.choose hb) := by
             have hg : k2 * (k2⁻¹ * h * k1) = h * k1 := by group
             rw [hg]
@@ -115,11 +120,17 @@ theorem exists_invariantColour_extending_nonInvariantSubset
             rfl
         _ = rho h b := congrArg (rho h) hk1
         _ = rho k2 (Classical.choose hb') := hk2.symm
+    have htarget :
+        rho (k2⁻¹ * h * k1) (Classical.choose hb) ∈ S := by
+      rw [hrep]
+      exact ha2
     have hcol :
         old (Classical.choose hb') =
-          old (Classical.choose hb) :=
-      hReturn (k2⁻¹ * h * k1) (Classical.choose hb)
-        ha1 ha2 hrep
+          old (Classical.choose hb) := by
+      have hh := hReturn (k2⁻¹ * h * k1)
+        (Classical.choose hb) ha1 htarget
+      rw [hrep] at hh
+      exact hh
     simpa only [colour, dif_pos hb', dif_pos hb] using hcol
   · have hb' : rho h b ∉ Sat := by
       intro hmem
