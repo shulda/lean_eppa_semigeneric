@@ -51,9 +51,6 @@ theorem exists_groupInvariantRawCrossColour_extendingNonInvariantSubset
       ¬D.part x y → d.phi (old x y) = D.F x y)
     (hOldReverse : ∀ x y, x ∈ S → y ∈ S →
       ¬D.part x y → old y x = d.reverse (old x y))
-    (hOldInvariant : ∀ h : H, ∀ x y, x ∈ S → y ∈ S →
-      ¬D.part x y →
-      old (rho h x) (rho h y) = old x y)
     (hOldReturn : ∀ h : H, ∀ x y : V,
       x ∈ S → y ∈ S → ¬D.part x y →
       rho h x ∈ S → rho h y ∈ S →
