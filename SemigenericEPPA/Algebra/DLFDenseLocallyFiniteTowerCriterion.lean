@@ -61,9 +61,10 @@ theorem exists_locallyFinite_denseByFiniteRestrictions_of_tower
     have hinj : Function.Injective
         (fun z : Kinside n => (⟨z.val.val, z.property⟩ : K n)) := by
       intro x y hxy
-      apply Subtype.ext
-      apply Subtype.ext
-      exact congrArg Subtype.val hxy
+      have hPerm : (x.val.val : Equiv.Perm V) = y.val.val :=
+        congrArg (fun z : K n => (z : Equiv.Perm V)) hxy
+      have hInUnion : x.val = y.val := Subtype.ext hPerm
+      exact Subtype.ext hInUnion
     exact Finite.of_injective _ hinj
   have hInsideCover : ∀ k : L, ∃ n, k ∈ Kinside n := by
     intro k
