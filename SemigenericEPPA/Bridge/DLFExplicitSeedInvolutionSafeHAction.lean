@@ -34,7 +34,7 @@ theorem IndexedGauge.exists_selectedInvolutionOrbitSafeEffectiveHAction_of_seed
     (hPLabel : ∀ x : V, P.label x = Quotient.mk D.part x)
     (hPColour : ∀ x y : V, ¬D.part x y →
       P.effective x y = D.F x y)
-    (g0 : G) (hFixed : d.s g0 = g0)
+    (g0 : G) (hSeedFixed : d.s g0 = g0)
     (hGoodOrbit : d.GoodCompleteOrbitAt g0)
     (hConst : ∀ i j : Quotient D.part,
       P.skeleton i j = g0)
@@ -99,7 +99,7 @@ theorem IndexedGauge.exists_selectedInvolutionOrbitSafeEffectiveHAction_of_seed
           d.GoodCompleteOrbitAt (K.toEffectiveGeometry.F X Y)) := by
   obtain ⟨M, hOne, hMul, hDiagM, hVisited, hOld, hE, hFEff⟩ :=
     P.exists_selectedExplicitRelativeEffectiveHAction_of_fixedSeed
-      D hPLabel g0 hFixed hConst hDiagP K hK
+      D hPLabel g0 hSeedFixed hConst hDiagP K hK
       S rho iota hS hcls hF
   let clsV : V → Quotient D.part :=
     fun w => Quotient.mk D.part w
