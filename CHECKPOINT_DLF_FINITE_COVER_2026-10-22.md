@@ -131,3 +131,92 @@ yet been checked in Lean end-to-end.
 **Method:** prefer small CI-certified Lean modules, no `sorry`,
 `admit`, or new custom axioms. If CI crashes or turns end without an
 answer, GitHub source and exact CI head SHA are authoritative.
+
+
+## 2026-10-23 checkpoint — relative finite cover is in construction
+
+This update supersedes the *active-PR status* above, but not the mathematical
+definitions or the relative safety cautions. Status is based on the exact CI
+heads observed in the 2026-10-23 conversation; recheck CI before merging.
+
+### Verified and merged into main
+
+- Main `f0b7bc92cd55181be3f26a92e1736b88f89e995e`:
+  exact seven source modules from independently green #350–#356, green
+  combined full build/axiom audit, merged as PR #358. This includes
+  direct quotient-free fixedpoint-free graph involution parity, the
+  ACTUAL Q/H graph application, the group Q⋉F₂^E, additive/equivariant
+  boundary, the prescribed boundary subgroup, and the square-one
+  invariant-chain obstruction.
+- Main `95630713b82f7b0f53565cbcfe2c1419a36154cd`:
+  PR #359 proves the ACTUAL prescribed-boundary subgroup
+  `relativeBoundaryCover H` cannot contain a square-one element
+  projecting to any t outside all conjugates of H. Green full
+  build/axiom audit. This is the central no-bad-involution statement.
+
+### Individually green results or work in integration
+
+- PR #357: `DLFGraphPathChainBoundary.lean` proved that explicit
+  graph connectivity supplies a chain with boundary δ_x+δ_y.
+  Final checked head `f0e9e220` green after eliminating ambiguous
+  endpoint metavariables.
+- PR #361: `DLFChainSemidirectFinite.lean` certifies the semidirect
+  group's finite carrier and all its finite subgroups. Final head
+  `4affa5bc` green. Old PR was retargeted to main but had an import
+  conflict; clean source replay is PR #364, CI pending.
+- PR #360: `DLFRelativeCoverSurjectiveSplit.lean` intends the
+  surjective projection from the genuine relative boundary subgroup
+  onto Q and an injective homomorphic section of H. First CI flagged
+  a coset-vertex equality elaboration at line 68. Corrected head
+  `05fa6bde` sent to CI; **NOT yet certified** at time of writing.
+  This is the next mathematical closure gate.
+
+### Faithful R1–R3 realization and relative safe EPPA
+
+- PR #362: adding one entire new equivalence class with constant
+  new-to-old raw colours, and proving the exact R1–R3 rectangle
+  axioms. First CI encountered recursive simplification in the
+  raw-reversal proof, replaced by explicit four cases on branch
+  `formalize/dlf-constant-new-e-class` (head `495f5727`).
+  CI pending.
+- PR #363: strict action T on old V and on one new regular T-class,
+  preserving all E/raw colours and faithful even if old action is
+  not faithful. Stacked on #362; parent reversal fix was propagated
+  to the stacked branch (head `45abc588`); CI pending.
+- PR #365: land that regular action inside literal
+  `binaryRawAutSubgroup` of the genuine enlarged raw presentation,
+  with strict homomorphism and injection, stacked on #363.
+  Parent reversal fix propagated (head `27412820`); CI pending.
+- PR #366: independent relative regular-phase H-action on
+  V×H, trivial phase on an invariant old subset S and left H
+  phase elsewhere. Proves that a swapped outside-S pair forces
+  h²=1, **not** on S. This preserves the corrected human proof,
+  where order-four h can swap old-sector pairs. CI pending.
+
+### Next mathematical work
+
+1. Finish CI and merge #360 and #364 on the canonical main with
+   no separate H-dependent choices. This closes the algebraic
+   relative cover: a finite group with surjection to Q, split
+   original H, and no bad involution lifts.
+2. Complete #362/#363/#365 to realize the cover group faithfully as
+   actual E- and every R_c-preserving permutations after adjoining
+   exactly one new E-class.
+3. Formalize the **relative safe H-action extension for A⊆B** under
+   one complete good congruence orbit, starting from #366, the
+   existing factorial effective H-action and safe prescribed raw
+   colour/baseline APIs. The phase action over B\\A must be regular;
+   old A sector must have trivial phase. Do NOT require H to act
+   on B before the extension.
+4. From relative safe EPPA + relative cover, construct cofinal
+   finite safe pairs and the semi-coherent extension property.
+   Formalize the negative orbit-killer/delta-profile obstruction.
+5. Only then formalize the Fraïssé-limit/Sági DLF bridge and the
+   resulting iff. Ordinary EPPA and coherent EPPA do not entail
+   this stronger/separate theorem.
+
+One critical invariance: on real old selected pairs, a reversed
+H-orbit has a genuinely self-reversing raw colour; on new phase
+orbits the order-two condition and one complete good congruence
+orbit supply raw flip-safety. Do not replace this with global
+saturation or assume all h flipping a pair are involutions.
