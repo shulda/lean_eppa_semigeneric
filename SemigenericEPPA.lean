@@ -1,3 +1,5 @@
+import SemigenericEPPA.Bridge.DLFDeltaProfileMovingThirdPoint
+import SemigenericEPPA.Bridge.DLFDeltaSingletonNoFixedThirdExtension
 import SemigenericEPPA.Structure.DLFArbitrarySingletonRawPart
 import SemigenericEPPA.Bridge.DLFIncompleteOrbitKiller
 import SemigenericEPPA.Structure.DLFFiniteSafeGroupEPPAExtension
