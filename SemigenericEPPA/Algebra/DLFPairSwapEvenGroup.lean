@@ -1,5 +1,4 @@
 import Mathlib.GroupTheory.FixedPointFree
-import Mathlib.Tactic.Omega
 
 /-!
 # Two-cycle in a finite group action forces an involution in the group
@@ -37,7 +36,8 @@ theorem oddPower_sends_swappedPair
   | zero =>
       simpa only [mul_zero, zero_add, pow_one] using hxy
   | succ n ih =>
-      have hs : 2 * (n + 1) + 1 = 2 + (2 * n + 1) := by omega
+      have hs : 2 * (n + 1) + 1 = 2 + (2 * n + 1) := by
+        simp [Nat.mul_succ, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm]
       calc
         (f ^ (2 * (n + 1) + 1)) x =
             (f ^ (2 + (2 * n + 1))) x := by rw [hs]
@@ -100,7 +100,7 @@ theorem exists_nontrivial_involution_of_swappedPair
   refine ⟨a, ?_, ?_⟩
   · intro hOne
     rw [hOne, orderOf_one] at ha
-    omega
+    simp at ha
   · have hPow := pow_orderOf_eq_one a
     rw [ha] at hPow
     simpa only [pow_two] using hPow
