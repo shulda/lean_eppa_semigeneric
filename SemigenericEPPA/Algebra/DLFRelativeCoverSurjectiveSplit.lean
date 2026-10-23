@@ -65,8 +65,11 @@ theorem relativeBaseVertex_fixed_by_H
       Quotient.mk (leftCosetSetoid H) (1 : Q) := by
     apply (leftCosetAction_fixed_iff H h.val 1).mpr
     simpa using h.property
-  simpa only [relativeBaseVertex, vertexPerm_coset] using
-    congrArg Sum.inl hfix
+  change vertexPerm H h.val
+      (.inl (Quotient.mk (leftCosetSetoid H) (1 : Q))) =
+    .inl (Quotient.mk (leftCosetSetoid H) (1 : Q))
+  rw [vertexPerm_coset]
+  exact congrArg Sum.inl hfix
 
 /-- The zero-chain lift h↦(h,0) is a strict homomorphism
 from H into the exact boundary-constrained group cover. -/
