@@ -1,3 +1,5 @@
+import SemigenericEPPA.Algebra.DLFDirectedPermUnionDensity
+import SemigenericEPPA.Algebra.DLFDenseLocallyFiniteTowerCriterion
 import SemigenericEPPA.Algebra.DLFAscendingFiniteSubgroups
 import SemigenericEPPA.Structure.DLFOldPartCloneExtension
 import SemigenericEPPA.Bridge.DLFDeltaProfileMovingThirdPoint
