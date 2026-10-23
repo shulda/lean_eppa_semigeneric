@@ -1,6 +1,7 @@
 import SemigenericEPPA.Bridge.BinaryRawAutomorphismSubgroup
 import SemigenericEPPA.Structure.RawPresentation
 import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fintype.Pi
 
 /-!
 # The canonical full finite automorphism group in the original raw language
@@ -67,12 +68,12 @@ theorem finite_fullRawAutGroup
     Finite P.fullRawAutGroup := by
   classical
   letI : Fintype V := Fintype.ofFinite _
-  have hPermFinite : Finite (Equiv.Perm V) := by
-    apply Finite.of_injective (fun f : Equiv.Perm V => f.toFun)
-    intro f g he
-    apply Equiv.ext
-    intro x
-    exact congrFun he x
+  have hPermFinite : Finite (Equiv.Perm V) :=
+    Finite.of_injective
+      (fun f : Equiv.Perm V => f.toFun)
+      (by
+        intro f g he
+        exact Equiv.ext (fun x => congrFun he x))
   letI : Finite (Equiv.Perm V) := hPermFinite
   infer_instance
 
