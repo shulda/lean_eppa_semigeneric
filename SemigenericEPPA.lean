@@ -1,3 +1,5 @@
+import SemigenericEPPA.Structure.DLFFaithfulRelativeGroupLift
+import SemigenericEPPA.Structure.DLFSafeInvolutionPhaseAndRawBase
 import SemigenericEPPA.Structure.DLFExplicitGoodSeedFixedRawCover
 import SemigenericEPPA.Structure.DLFOneFixedRelativeSafeEffectiveWitness
 import SemigenericEPPA.Structure.DLFPhaseSafeRawJointFromEffective
