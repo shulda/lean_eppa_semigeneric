@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.RelativeSafeRawJointWitness
 import SemigenericEPPA.Structure.NonInvariantPrescribedRawCoverGroupLift
 import SemigenericEPPA.Bridge.GeometricNonInvariantRawCrossPairs
 import SemigenericEPPA.Bridge.NonInvariantPrescribedRawOrbitSelection
