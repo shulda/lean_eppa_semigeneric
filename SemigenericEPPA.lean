@@ -1,3 +1,5 @@
+import SemigenericEPPA.Algebra.DLFSafeConjugateInvolution
+import SemigenericEPPA.Algebra.DLFRelativeCoverSafeInvolutions
 import SemigenericEPPA.Algebra.DLFFiniteRelativeCoverPackage
 import SemigenericEPPA.Structure.ConstantNewPartRawRectangle
 import SemigenericEPPA.Structure.ConstantNewPartRawGroupAction
