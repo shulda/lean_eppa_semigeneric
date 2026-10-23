@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFAscendingFiniteSubgroups
 import SemigenericEPPA.Structure.DLFFiniteSafeGroupEPPAExtension
 import SemigenericEPPA.Structure.DLFFullRawAutSafeCofinalCover
 import SemigenericEPPA.Structure.DLFFiniteCoverAuxiliaryInstances
