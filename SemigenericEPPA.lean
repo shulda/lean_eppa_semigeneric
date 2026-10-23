@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFChainSemidirectFinite
 import SemigenericEPPA.Algebra.DLFChainSemidirectGroup
 import SemigenericEPPA.Algebra.CompleteGoodOrbitSameIndexFlips
 import SemigenericEPPA.Algebra.DLFCompleteGoodOrbitTransport
