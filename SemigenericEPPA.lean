@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.ConstantNewPartRawRectangle
 import SemigenericEPPA.Algebra.CompleteGoodOrbitSameIndexFlips
 import SemigenericEPPA.Algebra.DLFCompleteGoodOrbitTransport
 import SemigenericEPPA.Algebra.RelativeDLFLeftCosetAction
