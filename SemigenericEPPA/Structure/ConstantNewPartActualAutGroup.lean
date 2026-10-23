@@ -53,8 +53,13 @@ def RawRectanglePresentation.adjoinRegularPartRawAutHom
   · exact sumRawGroupAction_preserves_part
       P c0 rho (rawLeftRegularAction T) hPart h
   · intro c x y
+    change
+      ((P.adjoinConstantNewPart (R := T) c0).colour
+        (sumRawGroupAction rho (rawLeftRegularAction T) h x)
+        (sumRawGroupAction rho (rawLeftRegularAction T) h y) = some c) ↔
+      ((P.adjoinConstantNewPart (R := T) c0).colour x y = some c)
     rw [sumRawGroupAction_preserves_colour
-      P c0 rho (rawLeftRegularAction T) hColour h]
+      P c0 rho (rawLeftRegularAction T) hColour h x y]
 
 /-- The resulting action inside the ACTUAL raw automorphism
 group is faithful, even when rho itself is not injective. -/
