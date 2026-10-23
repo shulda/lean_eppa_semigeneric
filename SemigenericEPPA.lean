@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFPositiveCofinalSafeEPPA
 import SemigenericEPPA.Structure.DLFFiniteSafeGroupEPPAExtension
 import SemigenericEPPA.Structure.DLFFullRawAutSafeCofinalCover
 import SemigenericEPPA.Structure.DLFFiniteCoverAuxiliaryInstances
