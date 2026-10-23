@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFPairSwapEvenGroup
 import SemigenericEPPA.Structure.DLFArbitrarySingletonRawPart
 import SemigenericEPPA.Bridge.DLFIncompleteOrbitKiller
 import SemigenericEPPA.Structure.DLFFiniteSafeGroupEPPAExtension
