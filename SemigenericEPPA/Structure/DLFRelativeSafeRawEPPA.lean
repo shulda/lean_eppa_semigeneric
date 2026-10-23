@@ -98,8 +98,8 @@ theorem exists_relativeSafeRawEPPA_of_completeGoodOrbit
   classical
   obtain ⟨g0, j, Q, R, K, J, hSeed, hPsiInj,
       hPsiPart, hPsiF, hFiniteEff, hAllGroups, hAllPartial⟩ :=
-    P.exists_oneFixedRelativeSafeEffectiveWitness
-      hGoodOrbit
+    RawRectanglePresentation.exists_oneFixedRelativeSafeEffectiveWitness.{u, v, w, t, v}
+      P hGoodOrbit
   let B := Q.toEffectiveGeometry
   let V := EffectiveWitnessVertex B
   let psi : A → V :=
