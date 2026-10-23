@@ -26,6 +26,8 @@ the global negative DLF conclusion.
 
 namespace SemigenericEPPA
 
+open AllThoseEPPA
+
 universe u v w
 variable {G : Type u} [Group G] {C : Type v}
 variable {V : Type w} {d : RawDatum G C}
