@@ -1,3 +1,5 @@
+import SemigenericEPPA.Algebra.DLFGraphPathChainBoundary
+import SemigenericEPPA.Algebra.DLFRelativeCoverSurjectiveSplit
 import SemigenericEPPA.Algebra.DLFChainSemidirectFinite
 import SemigenericEPPA.Algebra.DLFActualRelativeCoverNoBadInvolution
 import SemigenericEPPA.Algebra.RelativeDLFNoBadInvolutionParity
