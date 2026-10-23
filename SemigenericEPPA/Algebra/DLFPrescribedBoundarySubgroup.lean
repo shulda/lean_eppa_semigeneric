@@ -90,7 +90,8 @@ def prescribedOrbitBoundarySubgroup
       pointVertexChain x0 +
         (pointVertexChain (rhoV a.base x0) +
           pointVertexChain (rhoV a.base x0)) +
-        pointVertexChain (rhoV (a.base * b.base) x0) := by abel
+        pointVertexChain (rhoV (a.base * b.base) x0) := by
+          simp only [add_assoc]
       _ = pointVertexChain x0 +
           pointVertexChain (rhoV (a.base * b.base) x0) := by
         rw [pointVertexChain_add_self]
