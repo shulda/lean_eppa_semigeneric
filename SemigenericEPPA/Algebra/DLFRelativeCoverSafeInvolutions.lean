@@ -35,6 +35,8 @@ variable {d : RawDatum G C}
 its canonical projection to Q, with no independent action choices. -/
 def relativeCoverOldAction
     (H : Subgroup Q)
+    [Fintype (CoverVertex H)] [LinearOrder (CoverVertex H)]
+    [Fintype (CoverEdge H)] [LinearOrder (CoverEdge H)]
     (rho : Q →* Equiv.Perm V) :
     relativeBoundaryCover H →* Equiv.Perm V :=
   rho.comp (relativeCoverProjection H)
