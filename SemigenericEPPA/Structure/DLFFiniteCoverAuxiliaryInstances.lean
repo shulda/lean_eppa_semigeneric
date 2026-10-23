@@ -3,6 +3,8 @@ import SemigenericEPPA.Algebra.RelativeDLFGraphFreeAction
 import Mathlib.Data.Fintype.EquivFin
 import Mathlib.Data.Fintype.Sum
 import Mathlib.Data.Fintype.Prod
+import Mathlib.Basic.Finite.Sum
+import Mathlib.Basic.Finite.Prod
 import Mathlib.Order.Basic
 
 /-!
