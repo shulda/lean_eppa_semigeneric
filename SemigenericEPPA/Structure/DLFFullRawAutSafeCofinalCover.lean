@@ -1,4 +1,5 @@
 import SemigenericEPPA.Structure.DLFFiniteSafeRawGroupPackage
+import SemigenericEPPA.Structure.DLFFiniteCoverAuxiliaryInstances
 import SemigenericEPPA.Structure.DLFSafeFullRawAutRange
 import Mathlib.Data.Fintype.EquivFin
 import Mathlib.Order.Basic
@@ -100,14 +101,9 @@ theorem fullRawAut_exists_finiteSafeCofinalCover
     exact P.fullRawAutHom_range_involutionSafe
       rho hPart hColour hFaithful hSafe
       h hh x y hxy hx hy
-  letI : Fintype (RelativeDLF.CoverVertex Hsub) := Fintype.ofFinite _
-  let eVert := Fintype.equivFin (RelativeDLF.CoverVertex Hsub)
-  letI : LinearOrder (RelativeDLF.CoverVertex Hsub) :=
-    LinearOrder.lift' eVert eVert.injective
-  letI : Fintype (RelativeDLF.CoverEdge Hsub) := Fintype.ofFinite _
-  let eEdge := Fintype.equivFin (RelativeDLF.CoverEdge Hsub)
-  letI : LinearOrder (RelativeDLF.CoverEdge Hsub) :=
-    LinearOrder.lift' eEdge eEdge.injective
+  -- The two finite graph orders come from the auxiliary (non-language)
+  -- instances; using the same choices in the statement and proof is
+  -- necessary because they also parameterize the exact boundary cover.
   let T := RelativeDLF.relativeBoundaryCover Hsub
   let Pplus : RawRectanglePresentation d (V ⊕ T) :=
     P.adjoinConstantNewPart (R := T) c0
