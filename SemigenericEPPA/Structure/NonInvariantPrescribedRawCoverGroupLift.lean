@@ -70,6 +70,8 @@ theorem exists_nonInvariantPrescribedRawCoverGroupLift
         b y x = code.shift (D.F x y) - b x y)
       (lift : H →* Equiv.Perm (RawCoverVertex V L)),
       (∀ x y, x ∈ S → y ∈ S → ¬D.part x y →
+        b x y = code.encodeRaw (old x y)) ∧
+      (∀ x y, x ∈ S → y ∈ S → ¬D.part x y →
         rawCoverColour D code b
           (x, fun _ : V => (0 : L))
           (y, fun _ : V => (0 : L)) = some (old x y)) ∧
@@ -114,13 +116,16 @@ theorem exists_nonInvariantPrescribedRawCoverGroupLift
       (by intro x y hx hy hxy; rfl)
       rho hE hF hInvariantB
       (by intro h x hx; exact Set.mem_univ _)
-  refine ⟨hFinite, b, hb, lift, ?_, ?_, hPart, hRaw⟩
+  have hBaselineOld : ∀ x y, x ∈ S → y ∈ S →
+      ¬D.part x y → b x y = code.encodeRaw (old x y) := by
+    intro x y hx hy hxy
+    change code.encodeRaw (colour x y) = code.encodeRaw (old x y)
+    rw [hPrescribed x y hx hy hxy]
+  refine ⟨hFinite, b, hb, lift, hBaselineOld, ?_, ?_, hPart, hRaw⟩
   · intro x y hx hy hxy
     have hProjection : d.phi (old x y) = D.F x y :=
       hOldPhi x y hx hy hxy
-    have hBaseline : b x y = code.encodeRaw (old x y) := by
-      change code.encodeRaw (colour x y) = code.encodeRaw (old x y)
-      rw [hPrescribed x y hx hy hxy]
+    have hBaseline := hBaselineOld x y hx hy hxy
     have hDecode :
         (code.decode (D.F x y)
           (code.encodeRaw (old x y))).val = old x y := by
