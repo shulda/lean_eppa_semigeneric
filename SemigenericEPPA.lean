@@ -1,3 +1,5 @@
+import SemigenericEPPA.Structure.DLFFullRawAutomorphismGroup
+import SemigenericEPPA.Structure.DLFNoGoodOrbitSafeInvolutions
 import SemigenericEPPA.Structure.DLFRelativeCoverPartialConnectors
 import SemigenericEPPA.Structure.DLFFiniteSafeRawGroupPackage
 import SemigenericEPPA.Structure.DLFOneFaithfulSafeRawEPPA
