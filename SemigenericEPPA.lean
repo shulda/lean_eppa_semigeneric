@@ -1,3 +1,5 @@
+import SemigenericEPPA.Structure.DLFFaithfulRelativeCoverSafety
+import SemigenericEPPA.Structure.DLFRegularPartInvolutionSafety
 import SemigenericEPPA.Algebra.DLFSafeConjugateInvolution
 import SemigenericEPPA.Algebra.DLFRelativeCoverSafeInvolutions
 import SemigenericEPPA.Algebra.DLFFiniteRelativeCoverPackage
