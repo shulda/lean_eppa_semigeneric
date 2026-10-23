@@ -1,4 +1,5 @@
 import SemigenericEPPA.Structure.NonInvariantPrescribedRawCoverGroupLift
+import Mathlib.Data.Fintype.Prod
 import SemigenericEPPA.Valuations.DLFRelativeRawOldPhaseSafety
 
 /-!
@@ -115,6 +116,8 @@ theorem EffectiveGeometry.exists_relativePhaseNonInvariantRawCoverGroupLift
           (rawCoverPresentation (D.phasePullback H) code b hb).toStructure
           c X Y) := by
   classical
+  letI : Fintype V := Fintype.ofFinite V
+  letI : Fintype H := Fintype.ofFinite H
   letI : Finite (V × H) := inferInstance
   obtain ⟨hPhaseE, hPhaseF, _hOldZeroPhase, hPhaseSafe⟩ :=
     D.relativePhaseAction_safe_of_rawOldAndOrbitSafeInvolutions
