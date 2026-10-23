@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.RelativeDLFNoBadInvolutionParity
 import SemigenericEPPA.Algebra.CompleteGoodOrbitSameIndexFlips
 import SemigenericEPPA.Algebra.DLFCompleteGoodOrbitTransport
 import SemigenericEPPA.Algebra.RelativeDLFLeftCosetAction
