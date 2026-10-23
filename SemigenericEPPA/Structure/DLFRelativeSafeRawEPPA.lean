@@ -98,7 +98,7 @@ theorem exists_relativeSafeRawEPPA_of_completeGoodOrbit
   classical
   obtain ⟨g0, j, Q, R, K, J, hSeed, hPsiInj,
       hPsiPart, hPsiF, hFiniteEff, hAllGroups, hAllPartial⟩ :=
-    P.exists_oneFixedRelativeSafeEffectiveWitness (t := t)
+    P.exists_oneFixedRelativeSafeEffectiveWitness
       hGoodOrbit
   let B := Q.toEffectiveGeometry
   let V := EffectiveWitnessVertex B
