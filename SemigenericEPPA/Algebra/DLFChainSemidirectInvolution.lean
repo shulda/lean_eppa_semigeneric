@@ -58,7 +58,7 @@ theorem chainSemidirect_square_chain_invariant
       a.chain e + a.chain e =
           (2 : ZMod 2) * a.chain e := by ring
       _ = 0 := by rw [hTwo]; simp
-  exact add_left_cancel (hAt.symm.trans hSelf)
+  exact add_left_cancel (hAt.trans hSelf.symm)
 
 end RelativeDLF
 end SemigenericEPPA
