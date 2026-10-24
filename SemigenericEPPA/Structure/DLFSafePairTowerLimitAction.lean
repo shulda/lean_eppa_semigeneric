@@ -43,7 +43,15 @@ theorem limitAct_of (T : FiniteSafeRawPairTower d V)
     (i : ℕ) (h : (T.stage i).subgroup) (x : V i) :
     T.limitAct (T.groupOf i h) (T.vertexOf i x) =
       T.vertexOf i (h.val.val x) := by
-  simp only [limitAct, groupOf, vertexOf, DirectLimit.map₂_def]
+  unfold limitAct groupOf vertexOf
+  exact DirectLimit.map₂_def
+    (f₁ := T.groupTransition) (f₂ := T.vertexTransition)
+    (f := T.vertexTransition)
+    (ih := fun j (g : (T.stage j).subgroup) (v : V j) => g.val.val v)
+    (compat := by
+      intro j k hjk g v
+      exact ((T.between j k hjk).group_action g v).symm)
+    i h x
 
 end FiniteSafeRawPairTower
 end SemigenericEPPA
