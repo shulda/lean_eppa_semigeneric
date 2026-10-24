@@ -1,3 +1,6 @@
+import SemigenericEPPA.Algebra.DLFPairSwapEvenGroup
+import SemigenericEPPA.Structure.DLFFiniteSafePairEmbeddings
+import SemigenericEPPA.Structure.DLFInducedRawEffectiveReduct
 import SemigenericEPPA.Algebra.DLFDirectedPermUnionDensity
 import SemigenericEPPA.Algebra.DLFDenseLocallyFiniteTowerCriterion
 import SemigenericEPPA.Structure.DLFPositiveRelativeSafeSubgroupAPI
