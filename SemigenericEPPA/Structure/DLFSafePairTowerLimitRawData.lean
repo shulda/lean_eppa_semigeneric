@@ -53,7 +53,6 @@ theorem limitPart_of (T : FiniteSafeRawPairTower d V)
     T.limitPart (T.vertexOf i x) (T.vertexOf i y) ↔
       (T.stage i).raw.part x y := by
   simp only [limitPart, vertexOf, DirectLimit.lift₂_def]
-  exact Iff.rfl
 
 /-- Every ordered raw R_c predicate is exactly preserved and reflected
 by the canonical inclusion into the vertex colimit. -/
@@ -61,7 +60,14 @@ theorem limitColour_of (T : FiniteSafeRawPairTower d V)
     (i : ℕ) (x y : V i) :
     T.limitColour (T.vertexOf i x) (T.vertexOf i y) =
       (T.stage i).raw.colour x y := by
-  simp only [limitColour, vertexOf, DirectLimit.lift₂_def]
+  unfold limitColour vertexOf
+  exact DirectLimit.lift₂_def
+    (f₁ := T.vertexTransition) (f₂ := T.vertexTransition)
+    (ih := fun j a b => (T.stage j).raw.colour a b)
+    (compat := by
+      intro j k hjk a b
+      exact ((T.between j k hjk).colour_eq a b).symm)
+    i x y
 
 end FiniteSafeRawPairTower
 end SemigenericEPPA
