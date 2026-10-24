@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFSafePairAgeJointSuccessor
 import SemigenericEPPA.Structure.DisjointRawJointEmbedding
 import SemigenericEPPA.Structure.DLFSafePairTowerFiniteSupport
 import SemigenericEPPA.Structure.DLFSafePairTowerLimitAction
