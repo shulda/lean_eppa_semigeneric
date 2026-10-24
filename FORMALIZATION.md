@@ -1,4 +1,4 @@
-# Formalization ledger — 2026-10-16
+# Formalization ledger — historical gates from 2026-10-16, with 2026-10-24 status update
 
 ## Authority and verification status
 
@@ -14,14 +14,19 @@
   commit `d85fda061d0b43f2b78c2470ce51f16ecf5c4e8d` (verified green CI).
   Only definitions of language, structures, embeddings, exact partial maps
   and coherent extensions may be used; **do not invoke HKN EPPA existence**.
-- **Current verified headline:** unconditional ordinary EPPA, for arbitrary
-  finite raw fibres and literal relational structures, including the typed
-  upstream `IsEPPAWitness` API; positive coherent EPPA for G=1 and the full
-  nontrivial-G NECESSARY coherent criterion are also verified. **Nontrivial-G
-  sufficiency, DLF and unrestricted finite SAP are still open.** Earlier
-  OPEN gate cells below are historical;
-  use the dated checkpoints at the end. Paper audits and v0.8 PDF
-  compilation are distinct from Lean verification.
+- **Current verified headline (2026-10-24):** unconditional ordinary
+  finite EPPA and **complete** original-relational coherent-EPPA
+  classification (including the nontrivial-G positive direction)
+  have passed full Lean build/axiom auditing. See
+  `Bridge/FiniteCanonicalUniverseCoherentClassification.lean`.
+  Relative finite safe-group EPPA for DLF under a single whole good
+  orbit is likewise proved in
+  `Structure/DLFFiniteSafeGroupEPPAExtension.lean`. The actual
+  countable DLF/Fraïssé-limit bridge and final iff are NOT finished.
+  Original-language one-point SAP is certified, but arbitrary finite
+  SAP iteration remains open. **The gate table and older dated entries
+  below are historical snapshots, not the present theorem status.**
+  See [README](README.md) and verified current main for headlines.
 
 ## Exact paper statements to target
 
