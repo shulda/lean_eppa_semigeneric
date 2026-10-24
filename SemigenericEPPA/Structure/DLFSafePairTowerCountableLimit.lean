@@ -1,5 +1,5 @@
 import SemigenericEPPA.Structure.DLFSafePairTowerDirectedLimits
-import Mathlib.Basic.Countable.Defs
+import Mathlib.Basic.Countable.Basic
 
 /-!
 # The true quotient vertex limit of finite safe pairs is countable
@@ -29,6 +29,7 @@ actual countable quotient vertex carrier. -/
 theorem countable_vertexLimit (T : FiniteSafeRawPairTower d V) :
     Countable T.VertexLimit := by
   classical
+  letI : ∀ n : ℕ, Countable (V n) := fun n => inferInstance
   have hSigma : Countable (Σ n : ℕ, V n) := inferInstance
   have hSurj : Function.Surjective
       (fun a : Σ n : ℕ, V n =>
