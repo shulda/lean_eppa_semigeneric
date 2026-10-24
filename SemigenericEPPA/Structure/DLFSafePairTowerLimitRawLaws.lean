@@ -42,7 +42,7 @@ theorem limitPart_equivalence (T : FiniteSafeRawPairTower d V) :
       T.limitPart (T.vertexOf i b) (T.vertexOf i a)
     intro hab
     exact (T.limitPart_of i b a).2
-      ((T.stage i).raw.part_equiv.symm a b ((T.limitPart_of i a b).1 hab))
+      ((T.stage i).raw.part_equiv.symm ((T.limitPart_of i a b).1 hab))
   · intro x y z
     refine DirectLimit.induction₃ (f := T.vertexTransition) ?_ x y z
     intro i a b c
@@ -51,7 +51,7 @@ theorem limitPart_equivalence (T : FiniteSafeRawPairTower d V) :
       T.limitPart (T.vertexOf i a) (T.vertexOf i c)
     intro hab hbc
     exact (T.limitPart_of i a c).2
-      ((T.stage i).raw.part_equiv.trans a b c
+      ((T.stage i).raw.part_equiv.trans
         ((T.limitPart_of i a b).1 hab)
         ((T.limitPart_of i b c).1 hbc))
 
