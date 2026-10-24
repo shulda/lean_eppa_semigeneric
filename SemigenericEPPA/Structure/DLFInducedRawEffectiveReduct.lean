@@ -59,5 +59,38 @@ theorem pullbackRaw_effectiveReduct_part_iff
   exact ((P.pullbackRaw f).effectiveReduct_part x y).trans
     (P.effectiveReduct_part (f x) (f y)).symm
 
+/-- Exact canonical effective colour of an induced raw embedding.
+No injectivity of `f` is required here: preserving the Option-valued
+raw colour on the image of every pair already gives literal equality
+of effective G-colours on every originally crossed pair. -/
+theorem effectiveReduct_crossColour_of_inducedRawColours
+    (P : RawRectanglePresentation d V)
+    (Q : RawRectanglePresentation d W)
+    (f : V → W)
+    (hcolour : ∀ x y : V, Q.colour (f x) (f y) = P.colour x y)
+    (x y : V) (hcross : ¬P.part x y) :
+    Q.effectiveReduct.F (f x) (f y) = P.effectiveReduct.F x y := by
+  cases hc : P.colour x y with
+  | none =>
+      exact False.elim
+        (hcross ((P.colour_none_iff x y).mp hc))
+  | some c =>
+      have hQc : Q.colour (f x) (f y) = some c :=
+        (hcolour x y).trans hc
+      exact (Q.effectiveReduct_crossColour (f x) (f y) c hQc).symm.trans
+        (P.effectiveReduct_crossColour x y c hc)
+
+/-- Exact E-part agreement for an arbitrary induced raw embedding. -/
+theorem effectiveReduct_part_iff_of_inducedRawPart
+    (P : RawRectanglePresentation d V)
+    (Q : RawRectanglePresentation d W)
+    (f : V → W)
+    (hpart : ∀ x y : V, Q.part (f x) (f y) ↔ P.part x y)
+    (x y : V) :
+    Q.effectiveReduct.part (f x) (f y) ↔
+      P.effectiveReduct.part x y :=
+  (Q.effectiveReduct_part (f x) (f y)).trans
+    ((hpart x y).trans (P.effectiveReduct_part x y).symm)
+
 end RawRectanglePresentation
 end SemigenericEPPA
