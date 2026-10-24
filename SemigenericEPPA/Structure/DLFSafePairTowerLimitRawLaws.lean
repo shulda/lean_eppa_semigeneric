@@ -33,18 +33,27 @@ theorem limitPart_equivalence (T : FiniteSafeRawPairTower d V) :
   · intro x
     refine DirectLimit.induction (f := T.vertexTransition) ?_ x
     intro i a
-    rw [T.limitPart_of]
-    exact (T.stage i).raw.part_equiv.refl a
+    change T.limitPart (T.vertexOf i a) (T.vertexOf i a)
+    exact (T.limitPart_of i a a).2 ((T.stage i).raw.part_equiv.refl a)
   · intro x y
     refine DirectLimit.induction₂ (f := T.vertexTransition) ?_ x y
     intro i a b
-    rw [T.limitPart_of, T.limitPart_of]
-    exact (T.stage i).raw.part_equiv.symm a b
+    change T.limitPart (T.vertexOf i a) (T.vertexOf i b) →
+      T.limitPart (T.vertexOf i b) (T.vertexOf i a)
+    intro hab
+    exact (T.limitPart_of i b a).2
+      ((T.stage i).raw.part_equiv.symm a b ((T.limitPart_of i a b).1 hab))
   · intro x y z
     refine DirectLimit.induction₃ (f := T.vertexTransition) ?_ x y z
     intro i a b c
-    rw [T.limitPart_of, T.limitPart_of, T.limitPart_of]
-    exact (T.stage i).raw.part_equiv.trans a b c
+    change T.limitPart (T.vertexOf i a) (T.vertexOf i b) →
+      T.limitPart (T.vertexOf i b) (T.vertexOf i c) →
+      T.limitPart (T.vertexOf i a) (T.vertexOf i c)
+    intro hab hbc
+    exact (T.limitPart_of i a c).2
+      ((T.stage i).raw.part_equiv.trans a b c
+        ((T.limitPart_of i a b).1 hab)
+        ((T.limitPart_of i b c).1 hbc))
 
 /-- Complete literal raw-colour support is precisely the complement
 of E, in the actual quotient direct-limit structure. -/
@@ -53,6 +62,8 @@ theorem limitColour_none_iff (T : FiniteSafeRawPairTower d V)
     T.limitColour x y = none ↔ T.limitPart x y := by
   refine DirectLimit.induction₂ (f := T.vertexTransition) ?_ x y
   intro i a b
+  change T.limitColour (T.vertexOf i a) (T.vertexOf i b) = none ↔
+    T.limitPart (T.vertexOf i a) (T.vertexOf i b)
   rw [T.limitColour_of, T.limitPart_of]
   exact (T.stage i).raw.colour_none_iff a b
 
@@ -64,6 +75,8 @@ theorem limitColour_reverse (T : FiniteSafeRawPairTower d V)
       Option.map d.reverse (T.limitColour x y) := by
   refine DirectLimit.induction₂ (f := T.vertexTransition) ?_ x y
   intro i a b
+  change T.limitColour (T.vertexOf i b) (T.vertexOf i a) =
+    Option.map d.reverse (T.limitColour (T.vertexOf i a) (T.vertexOf i b))
   rw [T.limitColour_of, T.limitColour_of]
   exact (T.stage i).raw.colour_reverse a b
 
