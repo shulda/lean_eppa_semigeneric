@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFSafePairTowerLimitRawRectangle
 import SemigenericEPPA.Structure.DLFSafePairTowerLimitRawLaws
 import SemigenericEPPA.Structure.DLFSafePairTowerLimitRawData
 import SemigenericEPPA.Structure.DLFSafePairTowerDirectedLimits
