@@ -40,7 +40,10 @@ theorem limitAct_faithful
   have hFix : ∀ x : V n, h.val.val x = x := by
     intro x
     have hz := hg (T.vertexOf n x)
-    rw [hh, T.limitAct_of] at hz
+    rw [hh] at hz
+    change T.limitAct (T.groupOf n h) (T.vertexOf n x) =
+      T.vertexOf n x at hz
+    rw [T.limitAct_of] at hz
     exact T.vertexOf_injective n hz
   have hPerm : h.val.val = 1 := by
     ext x
