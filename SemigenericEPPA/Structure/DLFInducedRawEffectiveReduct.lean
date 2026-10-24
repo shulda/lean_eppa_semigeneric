@@ -43,7 +43,7 @@ theorem pullbackRaw_effectiveReduct_crossColour
         exact False.elim
           (hcross ((P.colour_none_iff (f x) (f y)).mp h))
     | some c =>
-        exact ⟨c, h⟩
+        exact ⟨c, rfl⟩
   obtain ⟨c, hc⟩ := hc
   have hcpull : (P.pullbackRaw f).colour x y = some c := hc
   exact ((P.pullbackRaw f).effectiveReduct_crossColour x y c hcpull).symm.trans
