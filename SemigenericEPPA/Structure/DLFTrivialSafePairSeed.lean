@@ -1,4 +1,5 @@
 import SemigenericEPPA.Structure.DLFFiniteSafePairEmbeddings
+import Mathlib.Algebra.Group.Subgroup.Lattice
 
 /-!
 # Every finite original raw rectangle has a trivially safe acting subgroup
