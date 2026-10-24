@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFGOneAutomaticRawSubgroupSafety
 import SemigenericEPPA.Structure.DLFSafePairTowerAgeSchedule
 import SemigenericEPPA.Structure.DLFTrivialSafePairSeed
 import SemigenericEPPA.Structure.DLFNormalizeFiniteRawToFin
