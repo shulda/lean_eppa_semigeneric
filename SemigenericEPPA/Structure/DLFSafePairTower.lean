@@ -54,12 +54,14 @@ the strict identity. -/
 theorem between_self_vertex
     (T : FiniteSafeRawPairTower d V)
     (n : ℕ) (x : V n) :
-    (T.between n n le_rfl).vertex x = x := rfl
+    (T.between n n le_rfl).vertex x = x := by
+  simp [between, Nat.leRecOn_self, FiniteSafeRawPairEmbedding.refl]
 
 theorem between_self_group
     (T : FiniteSafeRawPairTower d V)
     (n : ℕ) (h : (T.stage n).subgroup) :
-    (T.between n n le_rfl).groupMap h = h := rfl
+    (T.between n n le_rfl).groupMap h = h := by
+  simp [between, Nat.leRecOn_self, FiniteSafeRawPairEmbedding.refl]
 
 /-- Every element of an early finite group has a specified
 homomorphic extension to any later stage, exactly intertwining
