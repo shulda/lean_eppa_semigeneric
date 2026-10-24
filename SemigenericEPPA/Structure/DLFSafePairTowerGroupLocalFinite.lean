@@ -26,7 +26,7 @@ namespace FiniteSafeRawPairTower
 
 /-- Each genuine finite automorphism subgroup embeds homomorphically
 in the actual algebraic directed-limit group. -/
-def groupOfHom (T : FiniteSafeRawPairTower d V) (n : ℕ) :
+noncomputable def groupOfHom (T : FiniteSafeRawPairTower d V) (n : ℕ) :
     (T.stage n).subgroup →* T.GroupLimit where
   toFun := T.groupOf n
   map_one' := by
@@ -37,7 +37,7 @@ def groupOfHom (T : FiniteSafeRawPairTower d V) (n : ℕ) :
       (f := T.groupTransition) n x y).symm
 
 /-- Actual finite subgroup at level n, inside the ONE group limit. -/
-def stageImage (T : FiniteSafeRawPairTower d V) (n : ℕ) :
+noncomputable def stageImage (T : FiniteSafeRawPairTower d V) (n : ℕ) :
     Subgroup T.GroupLimit :=
   (T.groupOfHom n).range
 
