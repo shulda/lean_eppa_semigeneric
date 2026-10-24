@@ -31,7 +31,7 @@ variable {V : ℕ → Type w} [∀ n, Finite (V n)]
 namespace FiniteSafeRawPairTower
 
 /-- A genuine element of the group colimit and TWO genuine vertices
-admit representatives at one common finite stage. Both group and
+have representatives at one common finite stage. Both group and
 vertex transition maps are the original strictly equivariant maps. -/
 theorem exists_group_two_vertices_at_sameStage
     (T : FiniteSafeRawPairTower d V)
