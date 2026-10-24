@@ -1,4 +1,5 @@
 import SemigenericEPPA.Structure.DLFSafePairTowerAgeSchedule
+import SemigenericEPPA.Structure.DLFOldPartCloneExtension
 import Mathlib.Basic.Countable.Basic
 import Mathlib.Basic.Finite.Defs
 import Mathlib.Data.Fintype.Fin
