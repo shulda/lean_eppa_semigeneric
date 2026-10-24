@@ -42,7 +42,9 @@ theorem groupLimit_squareOne_has_finiteRepresentative
       T.groupOf n (1 : (T.stage n).subgroup) := by
     calc
       T.groupOf n (h * h) = T.groupOf n h * T.groupOf n h := hProd.symm
-      _ = g * g := by rw [← hh]
+      _ = g * g := by
+        change (⟦⟨n, h⟩⟧ : T.GroupLimit) * ⟦⟨n, h⟩⟧ = g * g
+        rw [← hh]
       _ = 1 := hg
       _ = T.groupOf n 1 := hOne
   have hSquare : h * h = 1 :=
