@@ -13,7 +13,7 @@ All the necessary ingredients now exist:
 * Classical recursion builds an actual countable tower for
   any schedule of finite original R1–R3 raw presentations.
 * Since C is finite, the canonical finite carriers Fin n have
-  finitely many raw E/R_c presentations for each n, hence ALL
+  finitely many raw E/R_c presentations for each n, hence
   there is a surjective ℕ enumeration of those presentations.
 * Every scheduled old target embeds inducedly in the true quotient
   colimit; the same tower has all connectors. Existing CI-certified
@@ -64,7 +64,15 @@ theorem universalAgeFin_of_canonicalSchedule
   have hScheduled :=
     safeTower_ageSchedule_embedsInLimit
       T (canonicalFiniteRawTargets (d := d)) hTargets i
-  simpa only [canonicalFiniteRawTargets, hi] using hScheduled
+  simp only [canonicalFiniteRawTargets, hi] at hScheduled
+  obtain ⟨e, he, hp, hc⟩ := hScheduled
+  refine ⟨fun x => e (ULift.up x), he.comp ULift.up_injective, ?_, ?_⟩
+  · intro x y
+    simpa only [RawRectanglePresentation.pullbackRaw] using
+      hp (ULift.up x) (ULift.up y)
+  · intro x y
+    simpa only [RawRectanglePresentation.pullbackRaw] using
+      hc (ULift.up x) (ULift.up y)
 
 /-- Under ONE complete good affine orbit, from any initial finite
 safe original raw pair there exists a GENUINE countable chain whose
