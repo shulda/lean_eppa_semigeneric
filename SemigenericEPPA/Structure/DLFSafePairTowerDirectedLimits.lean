@@ -30,8 +30,8 @@ namespace FiniteSafeRawPairTower
 /-- Actual vertex maps of the tower, preserving and reflecting all
 old E and ordered R_c predicates. -/
 def vertexTransition (T : FiniteSafeRawPairTower d V)
-    (i j : ℕ) (h : i ≤ j) : V i → V j :=
-  (T.between i j h).vertex
+    (i j : ℕ) (h : i ≤ j) : V i ↪ V j :=
+  ⟨(T.between i j h).vertex, (T.between i j h).vertex_injective⟩
 
 /-- Actual finite automorphism-group homomorphisms from the tower.
 Every map is injective and strictly intertwines vertex transitions. -/
@@ -86,7 +86,7 @@ theorem vertexOf_injective (T : FiniteSafeRawPairTower d V) (i : ℕ) :
     Function.Injective (T.vertexOf i) := by
   exact DirectLimit.mk_injective
     (f := T.vertexTransition)
-    (fun a b hab => (T.between a b hab).vertex_injective) i
+    (fun a b hab => (T.vertexTransition a b hab).injective) i
 
 /-- Every finite safe group injects into the algebraic group limit:
 the direct limit does not collapse any nontrivial old automorphism. -/
