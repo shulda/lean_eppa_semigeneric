@@ -45,8 +45,9 @@ def between
     (n m : ℕ) (h : n ≤ m) :
     FiniteSafeRawPairEmbedding (T.stage n) (T.stage m) :=
   Nat.leRecOn h
+    (fun k (f : FiniteSafeRawPairEmbedding (T.stage n) (T.stage k)) =>
+      FiniteSafeRawPairEmbedding.comp f (T.step k))
     (FiniteSafeRawPairEmbedding.refl (T.stage n))
-    (fun k f => FiniteSafeRawPairEmbedding.comp f (T.step k))
 
 /-- Between a stage and itself, both vertex and group maps are
 the strict identity. -/
