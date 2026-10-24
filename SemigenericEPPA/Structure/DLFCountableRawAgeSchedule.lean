@@ -108,9 +108,9 @@ noncomputable def canonicalFiniteRawTargets :
   fun i =>
     let a := canonicalFiniteRawSchedule (d := d) i
     {
-      carrier := Fin a.1
+      carrier := ULift.{max u v} (Fin a.1)
       finite_carrier := inferInstance
-      raw := a.2
+      raw := a.2.pullbackRaw ULift.down
     }
 
 end SemigenericEPPA
