@@ -75,6 +75,7 @@ theorem exists_targetConnectorSuccessor
   classical
   letI : Finite A.carrier := A.finite_carrier
   letI : Fintype A.carrier := Fintype.ofFinite A.carrier
+  letI : Finite Q.carrier := Q.finite_carrier
   letI : Fintype Q.carrier := Fintype.ofFinite Q.carrier
   obtain ⟨W, hW, B, f, q, hqInj, hqPart, hqColour, hOld⟩ :=
     A.pair.exists_safeExtension_containingFiniteRaw_withConnectors
