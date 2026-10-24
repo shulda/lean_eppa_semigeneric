@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFInducedPartialConnectorTransport
 import SemigenericEPPA.Structure.DLFSafePairTowerLimitRawRectangle
 import SemigenericEPPA.Structure.DLFSafePairTowerLimitActionFaithful
 import SemigenericEPPA.Structure.DLFSafePairTowerLimitInvolutions
