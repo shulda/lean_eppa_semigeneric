@@ -58,11 +58,12 @@ theorem exists_safeExtension_withAllPartialMaps
   classical
   letI : Finite A.subgroup := A.finite_subgroup
   let S : Set V := Set.univ
-  let u : V ≃ S where
+  let u : V ≃ S := {
     toFun := fun x => ⟨x, Set.mem_univ x⟩
     invFun := Subtype.val
     left_inv := by intro x; rfl
     right_inv := by intro x; cases x; rfl
+  }
   let rhoH : A.subgroup →* Equiv.Perm V :=
     A.raw.fullRawAutAction.comp A.subgroup.subtype
   let rhoS : A.subgroup →* Equiv.Perm S :=
@@ -107,11 +108,12 @@ theorem exists_safeExtension_withAllPartialMaps
       (H := A.subgroup) hOrbit S rhoS hFaithful
       hPart hColour hSafe
   letI : Finite W := hFiniteW
-  let B : FiniteSafeRawPair d W where
+  let B : FiniteSafeRawPair d W := {
     raw := Pnew
     subgroup := K
     safe := hKSafe
-  let f : FiniteSafeRawPairEmbedding A B where
+  }
+  let f : FiniteSafeRawPairEmbedding A B := {
     vertex := e
     vertex_injective := hEInj
     part_iff := hEPart
@@ -123,6 +125,7 @@ theorem exists_safeExtension_withAllPartialMaps
       have hx := hThetaOld h (u x)
       change (theta h).val.val (e x) = e (rhoS h (u x)).val at hx
       exact hx.trans (congrArg e (hMove h (u x)))
+  }
   refine ⟨W, hFiniteW, B, f, ?_⟩
   intro T p hp hPartOld hColourOld
   exact hPartials T p hp hPartOld hColourOld
