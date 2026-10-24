@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFSafePairTowerCoherence
 import SemigenericEPPA.Structure.DLFSafePairTower
 import SemigenericEPPA.Structure.DLFFiniteSafePairOneStep
 import SemigenericEPPA.Algebra.DLFPairSwapEvenGroup
