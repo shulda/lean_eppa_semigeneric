@@ -1,6 +1,7 @@
 import Mathlib.Algebra.Group.Subgroup.Basic
 import Mathlib.GroupTheory.Perm.Basic
 import Mathlib.Data.Finset.Basic
+import Mathlib.Data.Finset.Union
 import Mathlib.Data.Fintype.EquivFin
 
 /-!
