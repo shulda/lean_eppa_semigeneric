@@ -48,8 +48,9 @@ theorem limitAct_mul_of (T : FiniteSafeRawPairTower d V)
     T.limitAct (T.groupOf i h * T.groupOf i k) (T.vertexOf i x) =
       T.limitAct (T.groupOf i h)
         (T.limitAct (T.groupOf i k) (T.vertexOf i x)) := by
-  have hMul : T.groupOf i h * T.groupOf i k = T.groupOf i (h * k) :=
-    DirectLimit.mul_def (f := T.groupTransition) i h k
+  have hMul : T.groupOf i h * T.groupOf i k = T.groupOf i (h * k) := by
+    change (⟦⟨i, h⟩⟧ : T.GroupLimit) * ⟦⟨i, k⟩⟧ = ⟦⟨i, h * k⟩⟧
+    exact DirectLimit.mul_def (f := T.groupTransition) i h k
   rw [hMul, T.limitAct_of, T.limitAct_of, T.limitAct_of]
   change T.vertexOf i ((h.val.val * k.val.val) x) =
     T.vertexOf i (h.val.val (k.val.val x))
