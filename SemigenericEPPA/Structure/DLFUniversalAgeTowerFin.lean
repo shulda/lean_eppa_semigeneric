@@ -65,7 +65,6 @@ theorem universalAgeFin_of_canonicalSchedule
     safeTower_ageSchedule_embedsInLimit
       T (canonicalFiniteRawTargets (d := d)) hTargets i
   dsimp only [canonicalFiniteRawTargets] at hScheduled
-  dsimp only at hScheduled
   rw [hi] at hScheduled
   obtain ⟨e, he, hp, hc⟩ := hScheduled
   refine ⟨fun x => e (ULift.up x), he.comp ULift.up_injective, ?_, ?_⟩
