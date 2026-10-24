@@ -14,7 +14,7 @@ All the necessary ingredients now exist:
   any schedule of finite original R1–R3 raw presentations.
 * Since C is finite, the canonical finite carriers Fin n have
   finitely many raw E/R_c presentations for each n, hence ALL
-  those presentations admit a surjective ℕ enumeration.
+  there is a surjective ℕ enumeration of those presentations.
 * Every scheduled old target embeds inducedly in the true quotient
   colimit; the same tower has all connectors. Existing CI-certified
   theorems then supply original-language ultrahomogeneity and one
