@@ -1,5 +1,5 @@
 import SemigenericEPPA.Structure.DLFSafePairTowerAgeSchedule
-import Mathlib.Basic.Countable.Defs
+import Mathlib.Basic.Countable.Basic
 import Mathlib.Basic.Finite.Defs
 import Mathlib.Data.Fintype.Fin
 
@@ -81,6 +81,8 @@ theorem exists_surjective_canonicalFiniteRawSchedule :
   classical
   letI : ∀ n : ℕ, Finite (RawRectanglePresentation d (Fin n)) :=
     fun n => finiteRawPresentation_onFin n
+  letI : ∀ n : ℕ, Countable (RawRectanglePresentation d (Fin n)) :=
+    fun n => inferInstance
   have hCount :
       Countable (Σ n : ℕ, RawRectanglePresentation d (Fin n)) :=
     inferInstance
