@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFTrivialSafePairSeed
 import SemigenericEPPA.Structure.DLFSafePairAgeJointSuccessorWithConnectors
 import SemigenericEPPA.Structure.DLFSafePairTowerActualDLFCriterion
 import SemigenericEPPA.Structure.DLFSafePairTowerLimitHomogeneity
