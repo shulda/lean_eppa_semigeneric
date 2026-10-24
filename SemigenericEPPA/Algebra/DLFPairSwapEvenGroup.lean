@@ -96,7 +96,10 @@ theorem exists_nontrivial_involution_of_swappedPair
   have heven : 2 ∣ Nat.card H :=
     (even_iff_two_dvd).mp
       (even_natCard_of_swappedPair rho h x y hxy hyx hneq)
-  obtain ⟨a, ha⟩ := exists_prime_orderOf_dvd_card 2 heven
+  letI : Fintype H := Fintype.ofFinite H
+  have hevenF : 2 ∣ Fintype.card H := by
+    simpa only [Nat.card_eq_fintype_card] using heven
+  obtain ⟨a, ha⟩ := exists_prime_orderOf_dvd_card 2 hevenF
   refine ⟨a, ?_, ?_⟩
   · intro hOne
     rw [hOne, orderOf_one] at ha
