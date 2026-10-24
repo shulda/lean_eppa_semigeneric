@@ -1,3 +1,4 @@
+import SemigenericEPPA.Algebra.DLFDenseSwappedPairForcesInvolution
 import SemigenericEPPA.Algebra.DLFLocallyFiniteFiniteContainer
 import SemigenericEPPA.Structure.DLFSafePairAgeJointSuccessorWithConnectors
 import SemigenericEPPA.Structure.DLFSafePairTowerActualDLFCriterion
