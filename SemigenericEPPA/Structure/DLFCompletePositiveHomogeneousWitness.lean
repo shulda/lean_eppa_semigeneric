@@ -85,9 +85,9 @@ theorem RawDatum.exists_countableHomogeneousDLF_of_completeGoodOrbit
           EveryFinitelyGeneratedSubgroupFinite L) := by
   classical
   let A₀ : FiniteSafePairState d := {
-    carrier := Fin 0
+    carrier := ULift.{max u v} (Fin 0)
     finite_carrier := inferInstance
-    pair := (emptyFiniteRaw (d := d)).trivialSafePair
+    pair := ((emptyFiniteRaw (d := d)).pullbackRaw ULift.down).trivialSafePair
   }
   obtain ⟨V, hV, T, hConn, _hOld, hFin, hDLF⟩ :=
     exists_universalHomogeneousDLFTower_onFin A₀ hOrbit
