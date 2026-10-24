@@ -137,7 +137,22 @@ theorem exists_safeTower_with_nextStageConnectors
   }
   refine ⟨V, hV, T, ?_, ?_⟩
   · intro n S p hp hPart hColour
-    exact (Classical.choose_spec (hSucc n)) S p hp hPart hColour
+    obtain ⟨k, hk⟩ :=
+      (Classical.choose_spec (hSucc n)) S p hp hPart hColour
+    have hStep (x : V n) :
+        (T.vertexTransition n (n+1) (Nat.le_succ n)) x =
+          (T.step n).vertex x := by
+      change (T.between n (n+1) (Nat.le_succ n)).vertex x =
+        (T.step n).vertex x
+      rw [T.between_succ_vertex n n le_rfl x,
+        T.between_self_vertex n x]
+    refine ⟨k, ?_⟩
+    intro x
+    change k.val.val
+      ((T.vertexTransition n (n+1) (Nat.le_succ n)) x.val) =
+      (T.vertexTransition n (n+1) (Nat.le_succ n)) (p x)
+    rw [hStep x.val, hStep (p x)]
+    exact hk x
   · rfl
 
 end SemigenericEPPA
