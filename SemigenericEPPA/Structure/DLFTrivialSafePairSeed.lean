@@ -43,8 +43,10 @@ noncomputable def trivialSafePair
       rw [hPerm]
       rfl
     have hEq : x = y := hFix.symm.trans hx
-    subst y
-    exact False.elim (hcross (P.part_equiv.refl x))
+    have hSame : P.part x y := by
+      rw [← hEq]
+      exact P.part_equiv.refl x
+    exact False.elim (hcross hSame)
 
 end RawRectanglePresentation
 end SemigenericEPPA
