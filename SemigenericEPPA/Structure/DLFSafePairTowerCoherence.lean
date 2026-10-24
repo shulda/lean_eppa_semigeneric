@@ -30,8 +30,9 @@ theorem between_succ_vertex
     (n m : ℕ) (hnm : n ≤ m) (x : V n) :
     (T.between n (m + 1) (Nat.le_succ_of_le hnm)).vertex x =
       (T.step m).vertex ((T.between n m hnm).vertex x) := by
-  simp only [between, Nat.leRecOn_succ,
-    FiniteSafeRawPairEmbedding.comp_vertex_apply]
+  unfold between
+  rw [Nat.leRecOn_succ hnm]
+  rfl
 
 /-- Identical successor law for the finite acting group. -/
 theorem between_succ_group
@@ -39,8 +40,9 @@ theorem between_succ_group
     (n m : ℕ) (hnm : n ≤ m) (h : (T.stage n).subgroup) :
     (T.between n (m + 1) (Nat.le_succ_of_le hnm)).groupMap h =
       (T.step m).groupMap ((T.between n m hnm).groupMap h) := by
-  simp only [between, Nat.leRecOn_succ,
-    FiniteSafeRawPairEmbedding.comp_group_apply]
+  unfold between
+  rw [Nat.leRecOn_succ hnm]
+  rfl
 
 end FiniteSafeRawPairTower
 end SemigenericEPPA
