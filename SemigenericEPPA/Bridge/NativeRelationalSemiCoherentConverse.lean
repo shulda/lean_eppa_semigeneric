@@ -1,4 +1,5 @@
 import SemigenericEPPA.Bridge.NativeRelationalSemiCoherentPositive
+import SemigenericEPPA.Bridge.SemiCoherentRelationalDLFClassification
 
 /-!
 # Native original-relational semi-coherent EP implies raw semi-coherence
