@@ -48,7 +48,7 @@ group-action embedding and all old partial raw connectors.
 No global good-orbit condition is imposed. -/
 theorem exists_gOneSafeExtension_withAllPartialMaps
     (A : FiniteSafeRawPair d V) :
-    ∃ (W : Type (max u (max v w))) (hW : Finite W),
+    ∃ (W : Type (max v w)) (hW : Finite W),
       letI : Finite W := hW
       ∃ (B : FiniteSafeRawPair d W)
         (f : FiniteSafeRawPairEmbedding A B),
@@ -64,7 +64,7 @@ theorem exists_gOneSafeExtension_withAllPartialMaps
   let P := A.raw
   obtain ⟨j, K, hOldInj, hOldPart, hPartial, hGroups⟩ :=
     P.exists_gOneJointRawEPPA_andAllGroupLifts.{u, v, w, w}
-  let W : Type (max u (max v w)) := GOneJointRawCarrier P
+  let W : Type (max v w) := GOneJointRawCarrier P
   letI : Finite (GOneFactorialCarrier P) := inferInstance
   letI : Finite (UniversalResidualCarrier C) :=
     finite_universalResidualCarrier
