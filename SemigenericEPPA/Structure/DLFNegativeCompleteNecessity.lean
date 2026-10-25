@@ -95,8 +95,11 @@ theorem no_denseLocallyFinite_of_noCompleteGoodOrbit
   have hTSquare : (t.val * t.val : Equiv.Perm V) = 1 :=
     congrArg Subtype.val htTwo
   have hTtwo (z : V) : T (T z) = z := by
-    have h := congrArg (fun p : Equiv.Perm V => p z) hTSquare
-    simpa only [T, Equiv.Perm.mul_apply, one_apply] using h
+    calc
+      T (T z) = ((t.val * t.val : Equiv.Perm V) z) := rfl
+      _ = (1 : Equiv.Perm V) z :=
+        congrArg (fun p : Equiv.Perm V => p z) hTSquare
+      _ = z := rfl
   have hTOne : T = 1 := hNoInvol T hTcolour hTtwo
   have htOne : t = 1 := Subtype.ext hTOne
   exact htNe htOne
