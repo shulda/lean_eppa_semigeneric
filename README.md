@@ -57,6 +57,27 @@ coherence vocabulary.
   independently packaged Fraïssé-uniqueness theorem are **not** Lean
   results; the DLF proof instead constructs its homogeneous witness
   and derives the converse directly from its full-age homogeneity.
+- **Finite safe-action semi-coherence: complete.**
+  [`RawDatum.cofinalSafeFiniteGroupExtension_iff`](SemigenericEPPA/Structure/DLFSemiCoherentSafeDLFClassification.lean)
+  classifies the *concrete cofinal family of all safe finite original-raw
+  automorphism actions*: it exists exactly when `G=1` or there is one
+  complete good congruence orbit. Its proof includes a genuine countable
+  age-cofinal finite-subgroup tower and a dense locally finite subgroup
+  in the automorphism group of the limit.
+- **Unrestricted semi-coherent finite EP: definition and positive
+  implication are complete.**
+  [`RawDatum.HasFiniteRawSemiCoherentEP`](SemigenericEPPA/Structure/DLFFiniteUnrestrictedSemiCoherentEP.lean)
+  allows an *arbitrary*, not necessarily safe, selected cofinal family
+  of actual finite automorphism groups. Its exact relative embeddings
+  and all-partial-map extension clause are formalized, as is
+  `HasCountableHomogeneousDLF → HasFiniteRawSemiCoherentEP`.
+  The converse for arbitrary selected families is under active
+  Lean CI review in PR #567 and is **not yet certified**.
+- **Explicit separation example: complete.**
+  [`FourColourSeparation.c4Datum`](SemigenericEPPA/Examples/FourColourDLFNotCoherent.lean)
+  has `G = C₄` and `S = {0,1,2}`. Lean checks its concrete
+  original raw colours and proves DLF while coherent EPPA fails
+  for the same original-relational finite class.
 - **SAP:** genuine one-point original-language strong amalgamation is
   certified, including actual induced embeddings; the unrestricted
   finite SAP iteration and Fraïssé existence bridge remain open.

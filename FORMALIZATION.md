@@ -31,6 +31,28 @@
   See [README](README.md) and
   [DLF audit](DLF_CLASSIFICATION_AUDIT_2026-10-25.md) for current statements.
 
+## Latest certified finite semi-coherent developments (2026-10-25)
+
+- `Structure/DLFSemiCoherentSafeDLFClassification.lean` proves the full
+  iff between the concrete cofinal **safe** finite subgroup-extension
+  family and actual original-raw homogeneous DLF. Combined original
+  E/R_c language CI passed before integration at commit `867ee0b`.
+- `Structure/DLFFiniteUnrestrictedSemiCoherentEP.lean` formalizes
+  Sági-style unrestricted selected finite action families with no
+  involution safety hypothesis and proves the positive implication
+  DLF ⇒ unrestricted semi-coherent EP. CI passed on PR #557.
+- `Structure/DLFSemiCoherentUnrestrictedAgeTargetSuccessor.lean`
+  gives the finite arbitrary prescribed-age successor for such a
+  selected family. CI passed on PR #560.
+- `Examples/FourColourDLFNotCoherent.lean` supplies a literal
+  explicit C₄ model with DLF and failure of coherent EPPA;
+  full CI passed on PR #558.
+- The **converse** unrestricted semi-coherent EP ⇒ DLF for this
+  particular class is not yet certified. The direct-limit proof
+  modules in PR #567 are under iterative Lean CI repair. The
+  still more general Sági equivalence for arbitrary homogeneous
+  finite-relational structures is a separate future formalization.
+
 ## Exact paper statements to target
 
 Let `G` be finite, `s` an affine anti-involution,
