@@ -17,7 +17,7 @@ group, without applying Sagi's general theorem as an axiom.
 namespace SemigenericEPPA
 
 universe u v w
-variable {G : Type u} [Group G] {C : Type v}
+variable {G : Type u} [Group G] [Finite G] {C : Type v} [Finite C]
 variable {d : RawDatum G C}
 variable {V : ℕ → Type w} [∀ n, Finite (V n)]
 
