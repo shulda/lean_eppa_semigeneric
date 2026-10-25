@@ -1,6 +1,6 @@
 import SemigenericEPPA.Structure.OnePointChainSAP
 import SemigenericEPPA.Structure.Pullback
-import Mathlib.Tactic.Omega
+import Mathlib.Tactic
 
 /-!
 # Canonical finite one-point chain inside an arbitrary finite extension
