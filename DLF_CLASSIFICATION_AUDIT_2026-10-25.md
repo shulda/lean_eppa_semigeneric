@@ -147,10 +147,13 @@ group. It requires no semicoherent finite action family.
   arbitrary finite genuine R1–R3 relational carrier types.
   These statements supplement, not weaken, the original raw iff.
 - The explicit `G=C₄, S={0,1,2}` original-relational DLF
-  but non-coherent-EPPA example is already Lean-certified in
-  `Examples/FourColourDLFNotCoherent.lean`. An additional named
-  semi-coherent/non-coherent conjunction is under CI review in
-  PR #572. The manuscript's human-facing editorial cleanup
+  but non-coherent-EPPA example is Lean-certified in
+  `Examples/FourColourDLFNotCoherent.lean`. The strictly stronger
+  combined statement (unrestricted semi-coherent EP and DLF, but not
+  coherent EPPA) is certified in
+  `Examples/FourColourSemiCoherentSeparation.lean` on PR #572,
+  successful full build/axiom-audit head `7a9e2c34`, merged into
+  `main`. The manuscript's human-facing editorial cleanup
   remains separate.
 
 ## Verification discipline
