@@ -1,5 +1,6 @@
 import SemigenericEPPA.Algebra.DLFFiniteInvariantOrbitCarrier
 import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fintype.Prod
 
 /-!
 # A finite faithful permutation group has a finite faithful invariant carrier
