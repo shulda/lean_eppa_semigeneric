@@ -1,3 +1,4 @@
+import SemigenericEPPA.Examples.FourColourDLFNotCoherent
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedAgeTargetSuccessor
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedFiniteTower
 import SemigenericEPPA.Structure.DLFFiniteUnrestrictedSemiCoherentEP
