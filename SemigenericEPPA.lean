@@ -374,6 +374,7 @@ import SemigenericEPPA.Structure.OnePointNormalization
 import SemigenericEPPA.Structure.AdjoinSubset
 import SemigenericEPPA.Structure.RelativeOnePointSAP
 import SemigenericEPPA.Structure.OnePointSquarePasting
+import SemigenericEPPA.Structure.FiniteExtensionNormalForm
 import SemigenericEPPA.Structure.OnePointChainSAP
 import SemigenericEPPA.Structure.PartMatrix
 import SemigenericEPPA.Structure.PartQuotient
