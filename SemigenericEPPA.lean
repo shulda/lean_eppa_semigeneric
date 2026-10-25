@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFSemiCoherentSafeAgeScheduledTower
 import SemigenericEPPA.Structure.DLFSemiCoherentSafeAgeTargetSuccessor
 import SemigenericEPPA.Structure.DLFCofinalSafeFiniteActionProperty
 import SemigenericEPPA.Structure.DLFRelationalAutomorphismBridge
