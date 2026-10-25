@@ -143,15 +143,9 @@ def prefixStructure_step {X : Type w} {m : ℕ}
     (prefixStructure P n) (prefixStructure P (n+1))
     f (prefixStep_injective m n hn)
   · intro x y
-    change partRel P (prefixToFinal m (n+1) (f x))
-        (prefixToFinal m (n+1) (f y)) ↔
-      partRel P (prefixToFinal m n x) (prefixToFinal m n y)
-    rw [he x, he y]
+    simp only [prefixStructure, pullback_partRel, he x, he y]
   · intro c x y
-    change rawRel P c (prefixToFinal m (n+1) (f x))
-        (prefixToFinal m (n+1) (f y)) ↔
-      rawRel P c (prefixToFinal m n x) (prefixToFinal m n y)
-    rw [he x, he y]
+    simp only [prefixStructure, pullback_rawRel, he x, he y]
 
 /-- Every arbitrary finite original R1--R3 structure on
 X ⊕ Fin m canonically yields an honest *finite* one-point
