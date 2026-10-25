@@ -56,7 +56,7 @@ theorem rawOption_eq_of_allRelEquiv
   | none =>
       cases hz : h.rawOption z w with
       | none =>
-          exact hx.trans hz.symm
+          rfl
       | some c =>
           have hRelZ : rawRel A c z w :=
             (h.rawOption_some_iff c z w).mp hz
@@ -71,7 +71,7 @@ theorem rawOption_eq_of_allRelEquiv
       have hRelZ : rawRel A c z w := (hRel c).mp hRelX
       have hRawZ : h.rawOption z w = some c :=
         (h.rawOption_some_iff c z w).mpr hRelZ
-      exact hx.trans hRawZ.symm
+      exact hRawZ.symm
 
 /-- Equality of canonical raw options preserves and reflects
 every ordered original relation symbol R_c. -/
@@ -153,8 +153,8 @@ theorem countableRelationalHomogeneousDLF_iff_raw
         intro c x y
         exact hA.rawRel_iff_of_rawOption_eq
           (p x) (p y) x.val y.val (hColour x y) c
-      simpa only [hA.relationalFullAutGroup_eq_raw] using
-        (hHom F p hp hPart hRel)
+      rw [← hA.relationalFullAutGroup_eq_raw]
+      exact hHom F p hp hPart hRel
     · simpa only [hA.relationalFullAutGroup_eq_raw] using hDLF
   · rintro ⟨X, M, hCount, hAge, hHom, hDLF⟩
     let A : Structure (rectangleLanguage C) X := M.toStructure
@@ -178,8 +178,8 @@ theorem countableRelationalHomogeneousDLF_iff_raw
         change hA.rawOption (p x) (p y) =
           hA.rawOption x.val y.val at hh
         simpa only [M.toStructure_rawOption_eq] using hh
-      simpa only [M.fullRawAutGroup_eq_relational] using
-        (hHom F p hp hPart hOption)
+      rw [← M.fullRawAutGroup_eq_relational]
+      exact hHom F p hp hPart hOption
     · simpa only [M.fullRawAutGroup_eq_relational] using hDLF
 
 /-- Fully original-relational version of the complete DLF iff:
