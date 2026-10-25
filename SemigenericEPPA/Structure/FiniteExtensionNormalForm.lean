@@ -1,5 +1,5 @@
 import SemigenericEPPA.Structure.Pullback
-import Mathlib.Data.Fintype.EquivFin
+import Mathlib.SetTheory.Cardinal.NatCard
 import Mathlib.Logic.Equiv.Set
 
 /-!
@@ -39,12 +39,10 @@ noncomputable def finiteExtensionNormalEquiv
     X ⊕ Fin (finiteExtensionExtraCount f) ≃ Y := by
   classical
   let S := { y : Y // y ∉ Set.range f }
-  letI : Fintype S := Fintype.ofFinite S
   let eOld : X ≃ { y : Y // y ∈ Set.range f } :=
     Equiv.ofInjective f hf
-  let eNew : Fin (finiteExtensionExtraCount f) ≃ S := by
-    simpa only [finiteExtensionExtraCount, Nat.card_eq_fintype_card]
-      using (Fintype.equivFin S).symm
+  let eNew : Fin (finiteExtensionExtraCount f) ≃ S :=
+    (Finite.equivFin S).symm
   exact (eOld.sumCongr eNew).trans
     (Equiv.sumCompl (fun y : Y => y ∈ Set.range f))
 
