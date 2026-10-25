@@ -1,11 +1,11 @@
 import SemigenericEPPA.Structure.OnePointSquarePasting
 
 /-!
-# A one-point extension amalgamates strongly against an entire chain
+# A one-point extension amalgamates strongly against a finite chain
 
 An honest sequence of finite original R1--R3 structures, with each
 successive embedding adding exactly one vertex, can be amalgamated
-with a fixed one-point extension of the initial stage.
+with a fixed one-point extension of the initial stage through a finite prefix.
 
 At every stage we retain actual induced AllThoseEPPA embeddings and
 an EXACT strong square. The induction uses the certified one-point
@@ -30,15 +30,17 @@ structure FiniteRelationalOnePointChain
     (d : RawDatum G C)
     (V : ℕ → Type (max u v))
     [∀ n, Fintype (V n)] where
+  length : ℕ
   stage : ∀ n, Structure (rectangleLanguage C) (V n)
   valid : ∀ n, IsRectangleStructure d (stage n)
-  step : ∀ n,
+  step : ∀ n, n < length →
     Structure.Embedding (rectangleTrivialAction C)
       (stage n) (stage (n+1))
-  fresh : ∀ n, V (n+1)
-  fresh_out : ∀ n (x : V n), step n x ≠ fresh n
-  cover : ∀ n (y : V (n+1)),
-    y = fresh n ∨ ∃ x : V n, step n x = y
+  fresh : ∀ n, n < length → V (n+1)
+  fresh_out : ∀ n (hn : n < length) (x : V n),
+    step n hn x ≠ fresh n hn
+  cover : ∀ n (hn : n < length) (y : V (n+1)),
+    y = fresh n hn ∨ ∃ x : V n, step n hn x = y
 
 namespace FiniteRelationalOnePointChain
 
@@ -60,7 +62,7 @@ theorem amalgamate_onePoint_against_chain
     (freshB : Y)
     (freshB_out : ∀ x : V 0, f x ≠ freshB)
     (coverB : ∀ b : Y, b = freshB ∨ ∃ x : V 0, f x = b) :
-    ∀ n : ℕ,
+    ∀ n : ℕ, n ≤ T.length →
       ∃ (W : Type (max u v)) (hW : Fintype W)
         (D : Structure (rectangleLanguage C) W),
         IsRectangleStructure d D ∧
@@ -78,6 +80,7 @@ theorem amalgamate_onePoint_against_chain
   intro n
   induction n with
   | zero =>
+      intro _hn
       let e : Structure.Embedding (rectangleTrivialAction C)
           (T.stage 0) (T.stage 0) :=
         Structure.Embedding.id (T.stage 0)
@@ -86,18 +89,20 @@ theorem amalgamate_onePoint_against_chain
       refine ⟨Y, inferInstance, B, hB, e, i, f, ?_⟩
       exact StrongSquare.identity_right (fun x : V 0 => f x)
   | succ n ih =>
-      obtain ⟨W, hW, D, hD, g, i, j, hSquare⟩ := ih
+      intro hn
+      have hlt : n < T.length := Nat.lt_of_succ_le hn
+      obtain ⟨W, hW, D, hD, g, i, j, hSquare⟩ := ih (Nat.le_of_lt hlt)
       letI : Fintype W := hW
       obtain ⟨S, hS, p, q, hNewSquare⟩ :=
         strongSquare_extend_right_onePoint
           (d := d)
           (T := W)
           (hM := T.valid n) (hD := hD) (hE := T.valid (n+1))
-          f g i j (T.step n) hSquare
+          f g i j (T.step n hlt) hSquare
           freshB freshB_out coverB
-          (T.fresh n) (T.fresh_out n) (T.cover n)
+          (T.fresh n hlt) (T.fresh_out n hlt) (T.cover n hlt)
       refine ⟨TwoPointCarrier (V n), inferInstance, S, hS,
-        (T.step n).comp g, p.comp i, q, ?_⟩
+        (T.step n hlt).comp g, p.comp i, q, ?_⟩
       exact hNewSquare
 
 end FiniteRelationalOnePointChain
