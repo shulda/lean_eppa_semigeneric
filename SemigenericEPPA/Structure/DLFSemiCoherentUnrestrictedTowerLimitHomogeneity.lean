@@ -14,7 +14,7 @@ No claim of tower existence is made in this module.
 namespace SemigenericEPPA
 
 universe u v w
-variable {G : Type u} [Group G] [Finite G] {C : Type v}
+variable {G : Type u} [Group G] [Finite G] {C : Type v} [Finite C]
 variable {d : RawDatum G C}
 variable {V : ℕ → Type w} [∀ n, Finite (V n)]
 
