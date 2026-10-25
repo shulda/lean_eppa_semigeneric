@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.DLFNegativeNoWithinPartInvolution
 import SemigenericEPPA.Structure.DLFNegativeRelativeOnePointRawExtensions
 import SemigenericEPPA.Structure.DLFGOneCompletePositiveHomogeneousWitness
 import SemigenericEPPA.Structure.DLFGOneAgeScheduledSafeTower
