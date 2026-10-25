@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFNegativeGlobalTwoCycle
 import SemigenericEPPA.Structure.DLFNegativeRelativeRowMultiplier
 import SemigenericEPPA.Structure.DLFGOneCompletePositiveHomogeneousWitness
 import SemigenericEPPA.Structure.DLFGOneAgeScheduledSafeTower
