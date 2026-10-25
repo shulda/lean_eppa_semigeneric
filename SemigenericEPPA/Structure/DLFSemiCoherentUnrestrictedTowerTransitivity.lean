@@ -16,7 +16,7 @@ group, without applying Sagi's general theorem as an axiom.
 namespace SemigenericEPPA
 
 universe u v w
-variable {G : Type u} [Group G] {C : Type v}
+variable {G : Type u} [Group G] [Finite G] {C : Type v}
 variable {d : RawDatum G C}
 variable {V : ℕ → Type w} [∀ n, Finite (V n)]
 
@@ -31,8 +31,7 @@ theorem between_trans_vertex
       (T.between m k hmk).vertex ((T.between n m hnm).vertex x) := by
   induction k, hmk using Nat.le_induction with
   | base =>
-      rw [T.between_self_vertex]
-      rfl
+      simpa only [between_self_vertex]
   | succ k hmk ih =>
       calc
         (T.between n (k + 1)
@@ -61,8 +60,7 @@ theorem between_trans_group
         ((T.between n m hnm).groupMap h) := by
   induction k, hmk using Nat.le_induction with
   | base =>
-      rw [T.between_self_group]
-      rfl
+      simpa only [between_self_group]
   | succ k hmk ih =>
       calc
         (T.between n (k + 1)
