@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFGOneSafePairAgeJointSuccessorWithConnectors
 import SemigenericEPPA.Structure.DLFGOneSafePairOverAgeExtension
 import SemigenericEPPA.Algebra.DLFFiniteInvariantOrbitCarrier
 import SemigenericEPPA.Algebra.DLFDenseSwappedPairForcesInvolution
