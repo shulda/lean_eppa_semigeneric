@@ -1,4 +1,5 @@
 import SemigenericEPPA.Structure.StrongSquare
+import Mathlib.Logic.Equiv.Defs
 
 /-!
 # Reindexing strong-amalgamation squares by actual carrier equivalences
