@@ -445,6 +445,7 @@ import SemigenericEPPA.Bridge.RelationalFiniteSemiCoherentPairs
 import SemigenericEPPA.Bridge.NativeRelationalSemiCoherentEP
 import SemigenericEPPA.Bridge.RelationalRawInducedColourTransport
 import SemigenericEPPA.Bridge.NativeRelationalSemiCoherentPositive
+import SemigenericEPPA.Bridge.NativeRelationalSemiCoherentConverse
 
 /-!
 # Generalized semigeneric rectangle structures
