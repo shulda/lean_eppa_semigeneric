@@ -1,3 +1,5 @@
+import SemigenericEPPA.Structure.DLFNegativeCompleteNecessity
+import SemigenericEPPA.Structure.DLFNegativeGlobalTwoCycle
 import SemigenericEPPA.Bridge.DLFNegativeNoGlobalInvolutions
 import SemigenericEPPA.Bridge.DLFNegativeCrossInvolutionOrbitForcing
 import SemigenericEPPA.Structure.DLFNegativeRelativeRowMultiplier
