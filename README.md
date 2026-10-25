@@ -44,6 +44,13 @@ coherence vocabulary.
   group. See the [positive complete-orbit limit](SemigenericEPPA/Structure/DLFCompletePositiveHomogeneousWitness.lean),
   [positive G=1 limit](SemigenericEPPA/Structure/DLFGOneCompletePositiveHomogeneousWitness.lean),
   and [negative necessity](SemigenericEPPA/Structure/DLFNegativeCompleteNecessity.lean).
+  There is also a **direct original-relational formulation**
+  [`RawDatum.countableRelationalHomogeneousDLF_iff`](SemigenericEPPA/Structure/DLFRelationalClassification.lean)
+  with an actual `AllThoseEPPA.Structure (rectangleLanguage C)`,
+  original `E` and every ordered `R_c`, and the literal automorphism
+  subgroup. [The arbitrary finite relational age audit](SemigenericEPPA/Structure/DLFRelationalFullAgeAudit.lean)
+  verifies induced universality on any finite carrier, not only
+  canonical `Fin n` presentations.
   Original relational structures and raw presentations have an exact
   [round-trip equality](SemigenericEPPA/Structure/RelationalRoundtripEquality.lean).
   The *independent general semi-coherent EP ⇔ DLF theorem* and an
