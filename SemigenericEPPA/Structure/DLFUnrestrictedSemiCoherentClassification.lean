@@ -47,8 +47,8 @@ theorem hasCountableHomogeneousDLF_of_finiteRawSemiCoherentEP
   have hAgeTarget :=
     d.hasAgeTargetSuccessors_of_finiteRawSemiCoherentEP hSemi
   obtain ⟨V, hV, T, hConn, hTargets⟩ :=
-    d.exists_unrestrictedSemiCoherentTower_realizingAgeSchedule
-      hAgeTarget (canonicalFiniteRawTargets (d := d))
+    exists_unrestrictedSemiCoherentTower_realizingAgeSchedule
+      d hAgeTarget (canonicalFiniteRawTargets (d := d))
   letI : ∀ n, Finite (V n) := hV
   have hFin : ∀ (n : ℕ) (P : RawRectanglePresentation d (Fin n)),
       ∃ e : Fin n → T.VertexLimit,
