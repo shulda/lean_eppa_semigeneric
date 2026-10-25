@@ -16,7 +16,7 @@ not a subgroup of an auxiliary effective colour group.
 (1) Every finite original raw age member P has the safe seed
 (P,{1}), hence the family's underlying structures are cofinal.
 (2) For any safe (A,H) and any arbitrary finite age extension
-A -> P (P need not admit any H action), there is one finite safe
+A -> P (P need not carry any H action), there is one finite safe
 (B,K), an exact induced P -> B embedding, and a faithful
 equivariant group embedding H -> K. EVERY original partial raw
 automorphism of P extends to an element of this SAME K.
