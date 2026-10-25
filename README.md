@@ -86,7 +86,11 @@ coherence vocabulary.
   [`FourColourSeparation.c4Datum`](SemigenericEPPA/Examples/FourColourDLFNotCoherent.lean)
   has `G = C₄` and `S = {0,1,2}`. Lean checks its concrete
   original raw colours and proves DLF while coherent EPPA fails
-  for the same original-relational finite class.
+  for the same original-relational finite class. The additional
+  [strict separation theorem](SemigenericEPPA/Examples/FourColourSemiCoherentSeparation.lean)
+  establishes unrestricted semi-coherent EP and original-relational
+  DLF together with failure of coherent EPPA in this single concrete
+  example (PR #572, green head `7a9e2c34`, merged).
 - **SAP:** genuine one-point original-language strong amalgamation is
   certified, including actual induced embeddings; the unrestricted
   finite SAP iteration and Fraïssé existence bridge remain open.
