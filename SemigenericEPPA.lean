@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFCompleteClassification
 import SemigenericEPPA.Structure.DLFNegativeCompleteNecessity
 import SemigenericEPPA.Structure.DLFNegativeGlobalTwoCycle
 import SemigenericEPPA.Bridge.DLFNegativeNoGlobalInvolutions
