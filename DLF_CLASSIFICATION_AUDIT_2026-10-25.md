@@ -46,9 +46,11 @@ The language is the original binary `E,R_c` language:
 relational object, and
 `IsRectangleStructure.toRawPresentation_toStructure_eq`
 proves exact round-trip equality from any original relational
-R1–R3 structure. Nevertheless, the final DLF **named theorem**
-is phrased using the functional raw presentation, not as a
-separate top-level `AllThoseEPPA.Structure` predicate.
+R1–R3 structure. A separate named original-relational theorem,
+`RawDatum.countableRelationalHomogeneousDLF_iff`, now exists in
+`Structure/DLFRelationalClassification.lean` and uses an actual
+`AllThoseEPPA.Structure (rectangleLanguage C)` and its genuine
+relational full automorphism group.
 
 ## Mathematical statement and manuscript cross-check
 
@@ -116,10 +118,19 @@ group. It requires no semicoherent finite action family.
 ## Still separate / not claimed formalized
 
 - A *general* proof of Sági's equivalence between the finite
-  semi-coherent extension property and DLF for all countable
-  homogeneous finite-relational structures; and a direct
-  named classification of the semi-coherent extension property.
-  The manuscript gives a human proof, not yet the Lean theorem.
+  semi-coherent extension property and DLF for arbitrary countable
+  homogeneous finite-relational structures remains unformalized.
+  For **these semigeneric rectangle classes**, however, the genuine
+  unrestricted finite subgroup-action property is now Lean-certified:
+  `RawDatum.finiteRawSemiCoherentEP_iff_dlf` and
+  `RawDatum.finiteRawSemiCoherentEP_iff` in
+  `Structure/DLFUnrestrictedSemiCoherentClassification.lean`,
+  and the original-relational DLF bridge
+  `RawDatum.finiteRawSemiCoherentEP_iff_relationalDLF` in
+  `Bridge/SemiCoherentRelationalDLFClassification.lean`.
+  These results impose NO safety hypothesis on the selected cofinal
+  action pairs. Exact green PR heads #570 `67f2d243` and
+  #571 `58ebcdd8`; both have been merged.
 - An independent general finite SAP induction and stand-alone
   unconditional Fraïssé existence and uniqueness theorem for
   all data. The positive DLF branches construct the needed
@@ -135,9 +146,12 @@ group. It requires no semicoherent finite action family.
   `DLFRelationalFullAgeAudit.lean` proves universality for
   arbitrary finite genuine R1–R3 relational carrier types.
   These statements supplement, not weaken, the original raw iff.
-- The optional `G=C₄, S={0,1,2}` explicit separator as a
-  single packaged example theorem and the manuscript's
-  human-facing editorial cleanup.
+- The explicit `G=C₄, S={0,1,2}` original-relational DLF
+  but non-coherent-EPPA example is already Lean-certified in
+  `Examples/FourColourDLFNotCoherent.lean`. An additional named
+  semi-coherent/non-coherent conjunction is under CI review in
+  PR #572. The manuscript's human-facing editorial cleanup
+  remains separate.
 
 ## Verification discipline
 
