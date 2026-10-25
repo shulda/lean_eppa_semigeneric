@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFFiniteInvariantRawAction
 import SemigenericEPPA.Algebra.DLFFiniteFaithfulInvariantCarrier
 import SemigenericEPPA.Algebra.DLFFiniteInvariantOrbitCarrier
 import SemigenericEPPA.Structure.DLFSafePairTowerAgeSchedule
