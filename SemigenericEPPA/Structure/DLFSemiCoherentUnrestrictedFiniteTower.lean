@@ -34,8 +34,8 @@ variable {A : FiniteRawActionPair d V}
 variable {B : FiniteRawActionPair d W}
 variable {D : FiniteRawActionPair d X}
 
-/-- Identity safe-pair morphism in the actual raw language. -/
-def refl (A : FiniteSafeRawPair d V) :
+/-- Identity raw action-pair morphism in the actual original language. -/
+def refl (A : FiniteRawActionPair d V) :
     FiniteRawActionPairEmbedding A A where
   vertex := id
   vertex_injective := Function.injective_id
@@ -75,14 +75,14 @@ def comp
       g.vertex (f.vertex (h.val.val x))
     rw [g.group_action (f.groupMap h) (f.vertex x), f.group_action h x]
 
-/-- Literal vertex map of a composed safe-pair embedding. -/
+/-- Literal vertex map of a composed raw action-pair embedding. -/
 theorem comp_vertex_apply
     (f : FiniteRawActionPairEmbedding A B)
     (g : FiniteRawActionPairEmbedding B D)
     (x : V) :
     (comp f g).vertex x = g.vertex (f.vertex x) := rfl
 
-/-- Literal group map of a composed safe-pair embedding. -/
+/-- Literal group map of a composed raw action-pair embedding. -/
 theorem comp_group_apply
     (f : FiniteRawActionPairEmbedding A B)
     (g : FiniteRawActionPairEmbedding B D)
@@ -94,7 +94,7 @@ end FiniteRawActionPairEmbedding
 
 variable {V : ℕ → Type w} [∀ n, Finite (V n)]
 
-/-- A genuine sequence of finite safe original-language pairs
+/-- A genuine sequence of arbitrary finite original-language action pairs
 with exact injective and equivariant successive morphisms. -/
 structure FiniteRawActionPairTower
     (d : RawDatum G C) (V : ℕ → Type w)
