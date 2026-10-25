@@ -439,6 +439,8 @@ import SemigenericEPPA.Valuations.SelectedReferenceEffectiveHAction
 import SemigenericEPPA.Valuations.SelectedRelativeFullEffectiveGroupLift
 import SemigenericEPPA.Valuations.CanonicalGoodFullGroupLift
 
+import SemigenericEPPA.Bridge.SemiCoherentRelationalDLFClassification
+
 /-!
 # Generalized semigeneric rectangle structures
 
