@@ -50,6 +50,12 @@
 - `Examples/FourColourDLFNotCoherent.lean` supplies a literal
   explicit C₄ model with DLF and failure of coherent EPPA;
   full CI passed on PR #558.
+- `Examples/FourColourSemiCoherentSeparation.lean` now proves the
+  unrestricted semi-coherent finite extension property for that
+  same C₄ datum and packages semi-coherent EP + original-relational
+  DLF + failure of coherent EPPA in one exact conjunction.
+  Full build and axiom audit passed on PR #572, head `7a9e2c34`,
+  merged as `c3a8f29`.
 - **UNRESTRICTED converse and classification certified.**
   `Structure/DLFUnrestrictedSemiCoherentClassification.lean` proves
   `RawDatum.finiteRawSemiCoherentEP_iff_dlf` and
