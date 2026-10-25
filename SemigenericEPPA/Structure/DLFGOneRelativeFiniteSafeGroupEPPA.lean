@@ -51,7 +51,7 @@ theorem exists_gOneRelativeFiniteSafeGroupEPPA
     (hColour : ∀ (h : H) (x y : S),
       P.colour (rho h x).val (rho h y).val =
         P.colour x.val y.val) :
-    ∃ (W : Type (max u (max v w))) (hW : Finite W),
+    ∃ (W : Type (max v w)) (hW : Finite W),
       letI : Finite W := hW
       ∃ (B : FiniteSafeRawPair d W)
         (e : X → W)
@@ -75,7 +75,7 @@ theorem exists_gOneRelativeFiniteSafeGroupEPPA
   classical
   obtain ⟨j, K, hOldInj, hOldPart, hPartial, hGroups⟩ :=
     P.exists_gOneJointRawEPPA_andAllGroupLifts.{u, v, w, t}
-  let W : Type (max u (max v w)) := GOneJointRawCarrier P
+  let W : Type (max v w) := GOneJointRawCarrier P
   letI : Finite (GOneFactorialCarrier P) := inferInstance
   letI : Finite (UniversalResidualCarrier C) :=
     finite_universalResidualCarrier
