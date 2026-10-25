@@ -73,8 +73,8 @@ theorem finiteInvariantRawAction_part
     (hF : ∀ h : H, ∀ x : V, x ∈ F → h.val x ∈ F)
     (h : H) (x y : {x : V // x ∈ F}) :
     (M.pullbackRaw Subtype.val).part
-        ((M.finiteInvariantRawAction H F hF h) x)
-        ((M.finiteInvariantRawAction H F hF h) y) ↔
+        ((finiteInvariantRawAction H F hF h) x)
+        ((finiteInvariantRawAction H F hF h) y) ↔
       (M.pullbackRaw Subtype.val).part x y := by
   let hRaw : M.fullRawAutGroup := ⟨h.val, hAut h.property⟩
   change M.part (h.val x.val) (h.val y.val) ↔ M.part x.val y.val
@@ -90,8 +90,8 @@ theorem finiteInvariantRawAction_colour
     (hF : ∀ h : H, ∀ x : V, x ∈ F → h.val x ∈ F)
     (h : H) (x y : {x : V // x ∈ F}) :
     (M.pullbackRaw Subtype.val).colour
-        ((M.finiteInvariantRawAction H F hF h) x)
-        ((M.finiteInvariantRawAction H F hF h) y) =
+        ((finiteInvariantRawAction H F hF h) x)
+        ((finiteInvariantRawAction H F hF h) y) =
       (M.pullbackRaw Subtype.val).colour x y := by
   let hRaw : M.fullRawAutGroup := ⟨h.val, hAut h.property⟩
   change M.colour (h.val x.val) (h.val y.val) =
