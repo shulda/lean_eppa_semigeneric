@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFUnrestrictedSemiCoherentClassification
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedAgeTargetSuccessor
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedFiniteTower
 import SemigenericEPPA.Structure.DLFFiniteUnrestrictedSemiCoherentEP
