@@ -81,8 +81,11 @@ theorem reindexTarget
   · intro b c
     change eD (fromB b) = eD (fromC c) ↔
       ∃ a, b = toB a ∧ c = toC a
-    rw [eD.injective.eq_iff]
-    exact h.exact_overlap b c
+    constructor
+    · intro heq
+      exact (h.exact_overlap b c).mp (eD.injective heq)
+    · intro heq
+      exact congrArg eD ((h.exact_overlap b c).mpr heq)
   · intro d
     rcases h.jointly_surjective (eD.symm d) with ⟨b, hb⟩ | ⟨c, hc⟩
     · exact Or.inl ⟨b, by
