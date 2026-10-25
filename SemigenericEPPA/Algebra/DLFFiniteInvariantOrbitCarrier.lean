@@ -42,6 +42,7 @@ theorem finiteGroupOrbitFinset_contains
     (F : Finset V) :
     F ⊆ finiteGroupOrbitFinset H F := by
   classical
+  letI : Fintype H := Fintype.ofFinite H
   intro x hx
   unfold finiteGroupOrbitFinset
   apply Finset.mem_biUnion.mpr
@@ -58,6 +59,7 @@ theorem finiteGroupOrbitFinset_invariant
     (x : V) (hx : x ∈ finiteGroupOrbitFinset H F) :
     h.val x ∈ finiteGroupOrbitFinset H F := by
   classical
+  letI : Fintype H := Fintype.ofFinite H
   unfold finiteGroupOrbitFinset at hx ⊢
   obtain ⟨k, _, hk⟩ := Finset.mem_biUnion.mp hx
   obtain ⟨y, hy, hky⟩ := Finset.mem_image.mp hk
