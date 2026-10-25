@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedFiniteTower
 import SemigenericEPPA.Structure.DLFFiniteUnrestrictedSemiCoherentEP
 import SemigenericEPPA.Structure.DLFSemiCoherentSafeDLFClassification
 import SemigenericEPPA.Structure.DLFSemiCoherentSafeAgeScheduledTower
