@@ -31,7 +31,8 @@ theorem between_trans_vertex
       (T.between m k hmk).vertex ((T.between n m hnm).vertex x) := by
   induction k, hmk using Nat.le_induction with
   | base =>
-      simpa only [between_self_vertex]
+      rw [T.between_self_vertex]
+      rfl
   | succ k hmk ih =>
       calc
         (T.between n (k + 1)
@@ -60,7 +61,8 @@ theorem between_trans_group
         ((T.between n m hnm).groupMap h) := by
   induction k, hmk using Nat.le_induction with
   | base =>
-      simpa only [between_self_group]
+      rw [T.between_self_group]
+      rfl
   | succ k hmk ih =>
       calc
         (T.between n (k + 1)
