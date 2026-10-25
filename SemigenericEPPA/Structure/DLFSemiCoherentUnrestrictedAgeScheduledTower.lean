@@ -144,15 +144,9 @@ theorem exists_unrestrictedSemiCoherentTower_realizingAgeSchedule
     stage := fun n => (states n).pair
     step := fun n => Classical.choose (hSucc n)
   }
-  have hStep (n : ℕ) (x : V n) :
-      T.vertexTransition n (n+1) (Nat.le_succ n) x =
-        (T.step n).vertex x := by
-    change (T.between n (n+1) (Nat.le_succ n)).vertex x =
-      (T.step n).vertex x
-    rw [T.between_succ_vertex n n le_rfl x,
-      T.between_self_vertex n x]
   refine ⟨V, hV, T, ?_, ?_⟩
   · intro n S p hp hpPart hpColour
+    letI : Finite (V (n+1)) := hV (n+1)
     obtain ⟨q, _hqInj, _hqPart, _hqColour, hPartials⟩ :=
       Classical.choose_spec (hSucc n)
     obtain ⟨k, hk⟩ := hPartials S p hp hpPart hpColour
@@ -161,7 +155,13 @@ theorem exists_unrestrictedSemiCoherentTower_realizingAgeSchedule
     change k.val.val
       ((T.vertexTransition n (n+1) (Nat.le_succ n)) x.val) =
       (T.vertexTransition n (n+1) (Nat.le_succ n)) (p x)
-    rw [hStep n x.val, hStep n (p x)]
+    change k.val.val
+      ((T.between n (n+1) (Nat.le_succ n)).vertex x.val) =
+      (T.between n (n+1) (Nat.le_succ n)).vertex (p x)
+    rw [T.between_succ_vertex n n le_rfl x.val,
+      T.between_succ_vertex n n le_rfl (p x),
+      T.between_self_vertex n x.val,
+      T.between_self_vertex n (p x)]
     exact hk x
   · intro n
     obtain ⟨q, hInj, hPart, hColour, _hOld⟩ :=
