@@ -53,10 +53,44 @@ coherence vocabulary.
   canonical `Fin n` presentations.
   Original relational structures and raw presentations have an exact
   [round-trip equality](SemigenericEPPA/Structure/RelationalRoundtripEquality.lean).
-  The *independent general semi-coherent EP ⇔ DLF theorem* and an
-  independently packaged Fraïssé-uniqueness theorem are **not** Lean
-  results; the DLF proof instead constructs its homogeneous witness
-  and derives the converse directly from its full-age homogeneity.
+  The semigeneric-specific unrestricted semi-coherent EP ⇔ DLF
+  theorem is also Lean-certified; it is proved by a direct finite
+  action-pair tower, not by assuming Sági's general result. An
+  independent *general* Sági theorem and a stand-alone Fraïssé
+  existence/uniqueness theorem are **not** yet Lean results.
+- **Finite safe-action semi-coherence: complete.**
+  [`RawDatum.cofinalSafeFiniteGroupExtension_iff`](SemigenericEPPA/Structure/DLFSemiCoherentSafeDLFClassification.lean)
+  classifies the *concrete cofinal family of all safe finite original-raw
+  automorphism actions*: it exists exactly when `G=1` or there is one
+  complete good congruence orbit. Its proof includes a genuine countable
+  age-cofinal finite-subgroup tower and a dense locally finite subgroup
+  in the automorphism group of the limit.
+- **Unrestricted semi-coherent EP: complete equivalence and classification.**
+  [`RawDatum.HasFiniteRawSemiCoherentEP`](SemigenericEPPA/Structure/DLFFiniteUnrestrictedSemiCoherentEP.lean)
+  selects an *arbitrary*, not necessarily locally safe, cofinal
+  family of actual finite original-raw automorphism subgroup actions.
+  The genuine relative group embeddings and all-partial-map
+  extension clause are part of its definition. The full Lean-certified
+  [converse and iff](SemigenericEPPA/Structure/DLFUnrestrictedSemiCoherentClassification.lean)
+  prove
+  `d.HasFiniteRawSemiCoherentEP ↔ d.HasCountableHomogeneousDLF` and
+  `d.HasFiniteRawSemiCoherentEP ↔ Subsingleton G ∨ d.HasCompleteGoodOrbit`.
+  The proof constructs an explicit age-cofinal finite-action tower
+  and its faithful, dense locally finite subgroup in the full raw
+  automorphism group; **no safety condition** is imposed on the
+  selected family. The original-relational DLF correspondence is
+  [also certified](SemigenericEPPA/Bridge/SemiCoherentRelationalDLFClassification.lean).
+  Exact green heads: #570 `67f2d243` and #571 `58ebcdd8`
+  (both merged into `main`).
+- **Explicit separation example: complete.**
+  [`FourColourSeparation.c4Datum`](SemigenericEPPA/Examples/FourColourDLFNotCoherent.lean)
+  has `G = C₄` and `S = {0,1,2}`. Lean checks its concrete
+  original raw colours and proves DLF while coherent EPPA fails
+  for the same original-relational finite class. The additional
+  [strict separation theorem](SemigenericEPPA/Examples/FourColourSemiCoherentSeparation.lean)
+  establishes unrestricted semi-coherent EP and original-relational
+  DLF together with failure of coherent EPPA in this single concrete
+  example (PR #572, green head `7a9e2c34`, merged).
 - **SAP:** genuine one-point original-language strong amalgamation is
   certified, including actual induced embeddings; the unrestricted
   finite SAP iteration and Fraïssé existence bridge remain open.
