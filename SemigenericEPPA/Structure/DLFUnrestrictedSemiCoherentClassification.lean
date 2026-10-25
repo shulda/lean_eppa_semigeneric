@@ -1,4 +1,6 @@
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedAgeScheduledTower
+import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedTowerCountableLimit
+import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedTowerLimitHomogeneity
 import SemigenericEPPA.Structure.DLFCompleteClassification
 import SemigenericEPPA.Structure.DLFUniversalAgeTowerFin
 
