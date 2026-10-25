@@ -8,7 +8,7 @@ import SemigenericEPPA.Algebra.DLFDenseSwappedPairForcesInvolution
 
 For a NONTRIVIAL finite effective group G, a homogeneous
 original-language raw R1–R3 structure containing every finite
-raw rectangle on canonical carriers Fin n cannot admit a
+raw rectangle on canonical carriers Fin n cannot contain a
 dense locally finite subgroup of its ACTUAL raw automorphism
 group unless there is a complete good affine orbit.
 
