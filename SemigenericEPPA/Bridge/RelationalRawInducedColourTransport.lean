@@ -48,14 +48,14 @@ theorem IsRectangleStructure.rawOption_eq_of_induced
       have hq : hQ.rawOption (f x) (f y) = none :=
         (hQ.rawOption_none_iff (f x) (f y)).mpr
           ((hPart x y).mpr hp)
-      exact hq.trans hc.symm
+      exact hq
   | some c =>
       have hp : rawRel P c x y :=
         (hP.rawOption_some_iff c x y).mp hc
       have hq : hQ.rawOption (f x) (f y) = some c :=
         (hQ.rawOption_some_iff c (f x) (f y)).mpr
           ((hRaw c x y).mpr hp)
-      exact hq.trans hc.symm
+      exact hq
 
 /-- Conversely, equality of raw Option-C colours preserves and
 reflects each original ordered relation R_c literally. -/
@@ -73,7 +73,9 @@ theorem IsRectangleStructure.rawRel_iff_of_rawColour_eq
         hQ.rawOption (f x) (f y) = some c :=
       (hQ.rawOption_some_iff c (f x) (f y)).symm
     _ ↔ hP.rawOption x y = some c := by
-      rw [← hColour x y]
+      have hh : hQ.rawOption (f x) (f y) = hP.rawOption x y :=
+        hColour x y
+      rw [← hh]
     _ ↔ rawRel P c x y :=
       hP.rawOption_some_iff c x y
 
