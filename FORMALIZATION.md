@@ -22,6 +22,9 @@
   `d.HasCountableHomogeneousDLF ↔ Subsingleton G ∨ d.HasCompleteGoodOrbit`.
   This combines both separately constructed positive limits and the
   direct original-raw negative converse, without Sági's bridge.
+  The unrestricted semigeneric-specific semi-coherent EP ⇔ DLF
+  equivalence and its original-relational DLF formulation are now
+  additionally certified in PRs #570 and #571 (merged into main).
   The old relative finite safe-group EPPA module remains one of the
   finite positive ingredients. The arbitrary finite SAP iteration,
   unconditional stand-alone Fraïssé existence/uniqueness formalization,
@@ -47,11 +50,33 @@
 - `Examples/FourColourDLFNotCoherent.lean` supplies a literal
   explicit C₄ model with DLF and failure of coherent EPPA;
   full CI passed on PR #558.
-- The **converse** unrestricted semi-coherent EP ⇒ DLF for this
-  particular class is not yet certified. The direct-limit proof
-  modules in PR #567 are under iterative Lean CI repair. The
-  still more general Sági equivalence for arbitrary homogeneous
-  finite-relational structures is a separate future formalization.
+- **UNRESTRICTED converse and classification certified.**
+  `Structure/DLFUnrestrictedSemiCoherentClassification.lean` proves
+  `RawDatum.finiteRawSemiCoherentEP_iff_dlf` and
+  `RawDatum.finiteRawSemiCoherentEP_iff` for an arbitrary selected
+  cofinal family of genuine finite automorphism subgroup actions,
+  with no involution-safety assumption. The finite relative
+  successor, actual countable vertex/group directed limits, faithful
+  raw automorphism action, full finite age, ultrahomogeneity, density
+  and local finiteness are all constructed in Lean. Full build and
+  permitted-axiom audit passed on PR #570, exact head `67f2d243`;
+  merged into `main` as `7d4528d`.
+- **Original-relational DLF bridge certified.**
+  `Bridge/SemiCoherentRelationalDLFClassification.lean` states
+  `RawDatum.finiteRawSemiCoherentEP_iff_relationalDLF` for an
+  actual `AllThoseEPPA.Structure (rectangleLanguage C)` with its
+  literal full relational automorphism group; it also proves
+  original-relational coherent EPPA ⇒ unrestricted semi-coherent EP
+  ⇒ original-relational DLF. Full build and permitted-axiom audit
+  passed on PR #571, exact head `58ebcdd8`; merged as `5a1f486`.
+  The finite semi-coherent predicate is expressed via equivalent
+  complete original-raw presentations, not yet as a separately named
+  native `AllThoseEPPA.Structure` finite-action predicate.
+- The **general Sági equivalence** for arbitrary homogeneous
+  finite-relational structures, and an independent Fraïssé
+  uniqueness theorem for externally specified limits, remain
+  separate future formalization tasks. The dated gate table below
+  is a historical snapshot, not a claim these current results are open.
 
 ## Exact paper statements to target
 
