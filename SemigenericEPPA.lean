@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.SemiCoherentRelationalDLFClassification
 import SemigenericEPPA.Structure.DLFUnrestrictedSemiCoherentClassification
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedAgeTargetSuccessor
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedFiniteTower
