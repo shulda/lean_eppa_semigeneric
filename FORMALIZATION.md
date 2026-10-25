@@ -1,4 +1,4 @@
-# Formalization ledger — historical gates from 2026-10-16, with 2026-10-24 status update
+# Formalization ledger — historical gates from 2026-10-16, with 2026-10-25 status update
 
 ## Authority and verification status
 
@@ -14,19 +14,22 @@
   commit `d85fda061d0b43f2b78c2470ce51f16ecf5c4e8d` (verified green CI).
   Only definitions of language, structures, embeddings, exact partial maps
   and coherent extensions may be used; **do not invoke HKN EPPA existence**.
-- **Current verified headline (2026-10-24):** unconditional ordinary
-  finite EPPA and **complete** original-relational coherent-EPPA
-  classification (including the nontrivial-G positive direction)
-  have passed full Lean build/axiom auditing. See
-  `Bridge/FiniteCanonicalUniverseCoherentClassification.lean`.
-  Relative finite safe-group EPPA for DLF under a single whole good
-  orbit is likewise proved in
-  `Structure/DLFFiniteSafeGroupEPPAExtension.lean`. The actual
-  countable DLF/Fraïssé-limit bridge and final iff are NOT finished.
-  Original-language one-point SAP is certified, but arbitrary finite
-  SAP iteration remains open. **The gate table and older dated entries
+- **Current verified headline (2026-10-25):** ordinary finite EPPA
+  and the complete original-relational coherent-EPPA classification
+  are Lean-certified. The complete countable homogeneous DLF
+  **existence** criterion is also Lean-certified in
+  `Structure/DLFCompleteClassification.lean`:
+  `d.HasCountableHomogeneousDLF ↔ Subsingleton G ∨ d.HasCompleteGoodOrbit`.
+  This combines both separately constructed positive limits and the
+  direct original-raw negative converse, without Sági's bridge.
+  The old relative finite safe-group EPPA module remains one of the
+  finite positive ingredients. The arbitrary finite SAP iteration,
+  unconditional stand-alone Fraïssé existence/uniqueness formalization,
+  and the *general* Sági semi-coherent↔DLF equivalence are separate
+  unformalized tasks. **The gate table and older dated entries
   below are historical snapshots, not the present theorem status.**
-  See [README](README.md) and verified current main for headlines.
+  See [README](README.md) and
+  [DLF audit](DLF_CLASSIFICATION_AUDIT_2026-10-25.md) for current statements.
 
 ## Exact paper statements to target
 
