@@ -127,10 +127,14 @@ group. It requires no semicoherent finite action family.
   conditions**. The final Lean DLF predicate is existential;
   uniqueness/isomorphism to an externally postulated Fraïssé
   limit is not a separate certified theorem.
-- A separately exported *relational-typed* DLF iff API
-  (rather than using the already certified exact raw/relational
-  correspondence). This is an API/documentation enhancement,
-  not a missing algebraic step in the proved raw theorem.
+- The original-relational-typed DLF iff API is now present:
+  `RawDatum.countableRelationalHomogeneousDLF_iff` in
+  `Structure/DLFRelationalClassification.lean`.
+  `DLFRelationalAutomorphismBridge.lean` identifies literal
+  original-relational and raw full automorphism subgroups; and
+  `DLFRelationalFullAgeAudit.lean` proves universality for
+  arbitrary finite genuine R1–R3 relational carrier types.
+  These statements supplement, not weaken, the original raw iff.
 - The optional `G=C₄, S={0,1,2}` explicit separator as a
   single packaged example theorem and the manuscript's
   human-facing editorial cleanup.
