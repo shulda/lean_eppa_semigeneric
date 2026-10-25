@@ -63,7 +63,7 @@ theorem exists_relativeSingletonRawRow_of_fullAge_homogeneous
   obtain ⟨t, ht, htPart, htColour⟩ := hAge _ Q
   obtain ⟨j, hj, hjPart, hjColour, hjOld⟩ :=
     P.relative_embedding_of_age_and_homogeneity
-      Q M (fun x => some x) Option.some_injective
+      Q M (fun x => some x) (by intro x y h; exact Option.some.inj h)
       (by intro x y; rfl)
       (by intro x y; rfl)
       Subtype.val Subtype.val_injective
@@ -114,7 +114,7 @@ theorem exists_freshRelativeOldPartClone_of_fullAge_homogeneous
   obtain ⟨t, ht, htPart, htColour⟩ := hAge _ Q
   obtain ⟨j, hj, hjPart, hjColour, hjOld⟩ :=
     P.relative_embedding_of_age_and_homogeneity
-      Q M (fun x => some x) Option.some_injective
+      Q M (fun x => some x) (by intro x y h; exact Option.some.inj h)
       (by intro x y; rfl)
       (by intro x y; rfl)
       Subtype.val Subtype.val_injective
@@ -135,8 +135,9 @@ theorem exists_freshRelativeOldPartClone_of_fullAge_homogeneous
   · intro x
     have h := hjColour none (some x)
     have hQ : Q.colour none (some x) = P.colour a x := rfl
-    rw [hQ] at h
-    simpa only [hjOld x] using h
+    rw [hQ, hjOld x] at h
+    change M.colour (j none) x.val = M.colour a.val x.val at h
+    exact h
 
 end RawRectanglePresentation
 end SemigenericEPPA

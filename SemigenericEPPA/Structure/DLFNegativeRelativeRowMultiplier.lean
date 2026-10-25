@@ -34,9 +34,14 @@ variable {V : Type w} {d : RawDatum G C}
 def fullOnePartBoolRaw (d : RawDatum G C) :
     RawRectanglePresentation d Bool where
   part := fun _ _ => True
-  part_equiv := ⟨fun _ => trivial,
-    fun _ _ _ => trivial,
-    fun _ _ _ _ _ => trivial⟩
+  part_equiv := by
+    constructor
+    · intro _
+      trivial
+    · intro _ _ _
+      trivial
+    · intro _ _ _ _ _
+      trivial
   colour := fun _ _ => none
   colour_none_iff := by
     intro x y
@@ -76,7 +81,7 @@ theorem exists_threeVertex_leftMultiplier
   have hcolour : ∃ c : C, P.colour x y = some c := by
     cases h : P.colour x y with
     | none => exact False.elim (hxy ((P.colour_none_iff x y).1 h))
-    | some c => exact ⟨c, h⟩
+    | some c => exact ⟨c, rfl⟩
   obtain ⟨c₀, hc₀⟩ := hcolour
   obtain ⟨c₁, hc₁⟩ :=
     d.phi_surjective (a * P.effectiveReduct.F x y)
@@ -153,10 +158,11 @@ theorem leftMultiplierRows_of_fullAge_homogeneous
     intro h
     apply hxy
     simpa only [h] using M.part_equiv.refl y
+  have hneqyx : y ≠ x := Ne.symm hneq
   have hold : Function.Injective old := by
     intro b c h
     cases b <;> cases c <;>
-      simp [old, crossPairActual, hneq] at h ⊢
+      simp [old, crossPairActual, hneq, hneqyx] at h ⊢
   obtain ⟨t, ht, htPart, htColour⟩ := hAge (Option Bool) Q
   obtain ⟨j, hj, hjPart, hjColour, hjOld⟩ :=
     P.relative_embedding_of_age_and_homogeneity
@@ -166,10 +172,10 @@ theorem leftMultiplierRows_of_fullAge_homogeneous
       (by intro b c; rfl)
       t ht htPart htColour hHom
   have hjx : j (some false) = x := by
-    simpa only [e, crossPairIntoTriple, old, crossPairActual]
+    simpa [e, crossPairIntoTriple, old, crossPairActual]
       using hjOld false
   have hjy : j none = y := by
-    simpa only [e, crossPairIntoTriple, old, crossPairActual]
+    simpa [e, crossPairIntoTriple, old, crossPairActual]
       using hjOld true
   let z : V := j (some true)
   have hxz : M.part x z := by
