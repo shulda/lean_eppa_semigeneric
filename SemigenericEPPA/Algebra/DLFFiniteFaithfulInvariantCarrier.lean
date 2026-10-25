@@ -53,6 +53,7 @@ theorem finiteGroup_exists_finiteFaithfulInvariantCarrier
   classical
   letI : Fintype H := Fintype.ofFinite H
   let Pairs := {p : H × H // p.1 ≠ p.2}
+  letI : Finite Pairs := Finite.of_injective Subtype.val Subtype.val_injective
   letI : Fintype Pairs := Fintype.ofFinite Pairs
   let w : Pairs → V := fun p =>
     Classical.choose
