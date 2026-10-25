@@ -441,6 +441,7 @@ import SemigenericEPPA.Valuations.CanonicalGoodFullGroupLift
 
 import SemigenericEPPA.Bridge.SemiCoherentRelationalDLFClassification
 import SemigenericEPPA.Examples.FourColourSemiCoherentSeparation
+import SemigenericEPPA.Bridge.RelationalFiniteSemiCoherentPairs
 
 /-!
 # Generalized semigeneric rectangle structures
