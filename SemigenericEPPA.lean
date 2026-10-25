@@ -1,3 +1,6 @@
+import SemigenericEPPA.Algebra.DLFFiniteInvariantOrbitCarrier
+import SemigenericEPPA.Algebra.DLFDenseSwappedPairForcesInvolution
+import SemigenericEPPA.Algebra.DLFDenseLocallyFiniteFiniteApprox
 import SemigenericEPPA.Structure.DLFCompletePositiveHomogeneousWitness
 import SemigenericEPPA.Structure.DLFCountableRawAgeSchedule
 import SemigenericEPPA.Structure.DLFSafePairTowerCountableLimit
