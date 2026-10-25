@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFCompleteClassification
 import SemigenericEPPA.Structure.DLFNegativeRelativeRowMultiplier
 import SemigenericEPPA.Structure.DLFNegativeRelativeOnePointRawExtensions
 import SemigenericEPPA.Bridge.DLFNegativeNoWithinPartInvolution
