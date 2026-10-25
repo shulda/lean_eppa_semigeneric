@@ -66,6 +66,29 @@ theorem reindexSides
       refine ⟨eC.symm c, ?_⟩
       simpa only [Function.comp_apply, Equiv.apply_symm_apply] using hc
 
+/-- Reindex the common OLD BASE by a bijection. Exact overlap
+is preserved because the new base still enumerates every old
+point exactly once. -/
+theorem reindexBase
+    {toB : A → B} {toC : A → C}
+    {fromB : B → D} {fromC : C → D}
+    {A' : Type y}
+    (h : StrongSquare toB toC fromB fromC)
+    (eA : A' ≃ A) :
+    StrongSquare (toB ∘ eA) (toC ∘ eA) fromB fromC := by
+  refine ⟨?_, ?_, h.jointly_surjective⟩
+  · intro a
+    exact h.commute (eA a)
+  · intro b c
+    constructor
+    · intro heq
+      obtain ⟨a, hb, hc⟩ := (h.exact_overlap b c).mp heq
+      refine ⟨eA.symm a, ?_, ?_⟩
+      · simpa only [Function.comp_apply, Equiv.apply_symm_apply] using hb
+      · simpa only [Function.comp_apply, Equiv.apply_symm_apply] using hc
+    · rintro ⟨a, hb, hc⟩
+      exact (h.exact_overlap b c).mpr ⟨eA a, hb, hc⟩
+
 /-- Transport the target carrier of a strong square by a
 bijection; exact overlap is preserved by injectivity. -/
 theorem reindexTarget
