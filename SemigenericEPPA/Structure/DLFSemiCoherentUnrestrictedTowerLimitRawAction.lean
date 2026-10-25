@@ -13,7 +13,7 @@ Full Lean CI and axiom audit required.
 namespace SemigenericEPPA
 
 universe u v w
-variable {G : Type u} [Group G] {C : Type v}
+variable {G : Type u} [Group G] [Finite G] {C : Type v}
 variable {d : RawDatum G C}
 variable {V : ℕ → Type w} [∀ n, Finite (V n)]
 
