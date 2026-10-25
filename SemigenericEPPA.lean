@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.DLFNegativeRelativeRowMultiplier
 import SemigenericEPPA.Structure.DLFGOneCompletePositiveHomogeneousWitness
 import SemigenericEPPA.Structure.DLFGOneAgeScheduledSafeTower
 import SemigenericEPPA.Structure.DLFGOneSafePairAgeJointSuccessorWithConnectors
