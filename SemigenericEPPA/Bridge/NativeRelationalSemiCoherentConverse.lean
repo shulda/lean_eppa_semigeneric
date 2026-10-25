@@ -76,20 +76,25 @@ theorem hasFiniteRawSemiCoherentEP_of_relational
         e0 he0inj he0partRel he0rawRel
     letI : Finite W := hW
     let fRaw : FiniteRawActionPairEmbedding
-        Arel.toRawActionPair Brel.toRawActionPair := {
-      vertex := f.vertex
-      vertex_injective := f.vertex_injective
-      part_iff := by
-        intro x y
-        exact f.part_iff x y
-      colour_eq := by
-        intro x y
-        exact Arel.isRectangle.rawOption_eq_of_induced
-          Brel.isRectangle f.vertex f.part_iff f.raw_iff x y
-      groupMap := f.groupMap
-      group_injective := f.group_injective
-      group_action := f.group_action
-    }
+        Arel.toRawActionPair Brel.toRawActionPair := by
+      have hAutA := Arel.isRectangle.relationalFullAutGroup_eq_raw
+      have hAutB := Brel.isRectangle.relationalFullAutGroup_eq_raw
+      cases hAutA
+      cases hAutB
+      exact {
+        vertex := f.vertex
+        vertex_injective := f.vertex_injective
+        part_iff := by
+          intro x y
+          exact f.part_iff x y
+        colour_eq := by
+          intro x y
+          exact Arel.isRectangle.rawOption_eq_of_induced
+            Brel.isRectangle f.vertex f.part_iff f.raw_iff x y
+        groupMap := f.groupMap
+        group_injective := f.group_injective
+        group_action := f.group_action
+      }
     refine ⟨W, hW, Brel.toRawActionPair, fRaw, eP,
       ⟨Brel, hBselected, rfl⟩, hePInj, hePPart, ?_, hOld, ?_⟩
     · intro x y
@@ -105,6 +110,8 @@ theorem hasFiniteRawSemiCoherentEP_of_relational
         change P.colour x.val y.val = some c ↔
           P.colour (p x) (p y) = some c
         rw [hpColour x y]
+      have hAutB := Brel.isRectangle.relationalFullAutGroup_eq_raw
+      cases hAutB
       exact hPartials T p hp hpPart hpRaw
 
 /-- The EXACT native original-relational semi-coherent EP
