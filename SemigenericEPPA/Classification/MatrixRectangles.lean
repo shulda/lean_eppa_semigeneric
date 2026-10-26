@@ -50,7 +50,7 @@ def squareMatrix (a b c d : C) : Bool → Bool → C
 of the 2+2 matrix, using only rectangle isomorphism symmetries. -/
 theorem squareMatrix_admissible (a b c d : C)
     (h : R.allowed a b c d) :
-    R.MatrixAdmissible (R.squareMatrix a b c d) := by
+    R.MatrixAdmissible (squareMatrix a b c d) := by
   have hcol : R.allowed b a d c := (R.col_swap a b c d).mp h
   have hrow : R.allowed c d a b := (R.row_swap a b c d).mp h
   have hboth : R.allowed d c b a :=
