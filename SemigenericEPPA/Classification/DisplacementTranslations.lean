@@ -115,7 +115,8 @@ theorem preserving_eval_injective (e : X) :
     (f : Equiv.Perm X) =
       S.translation e ((f : Equiv.Perm X) e) :=
         S.preserving_perm_eq_translation f f.property e
-    _ = S.translation e ((g : Equiv.Perm X) e) := by rw [h]
+    _ = S.translation e ((g : Equiv.Perm X) e) :=
+      congrArg (S.translation e) h
     _ = (g : Equiv.Perm X) :=
       (S.preserving_perm_eq_translation g g.property e).symm
 
@@ -157,7 +158,6 @@ theorem act_iff_mul_coordinate (e x y : X) (g : S.preservingGroup) :
   constructor
   · intro h
     apply S.preserving_eval_injective e
-    change (g * S.coordinate e x : S.preservingGroup) = S.coordinate e y
     change ((g : Equiv.Perm X) *
       (S.translation e x)) e = (S.translation e y) e
     rw [Equiv.Perm.mul_apply, S.translation_anchor,
@@ -194,6 +194,10 @@ theorem displacement_iff_group_difference (e a b c d : X) :
       (S.coordinate e a)⁻¹ * S.coordinate e b =
         (S.coordinate e c)⁻¹ * S.coordinate e d := by
   rw [S.displacement_iff_translation a b c d]
+  change (((S.translationElement a c : S.preservingGroup) :
+    Equiv.Perm X) b = d) ↔
+    (S.coordinate e a)⁻¹ * S.coordinate e b =
+      (S.coordinate e c)⁻¹ * S.coordinate e d
   rw [S.act_iff_mul_coordinate e b d (S.translationElement a c)]
   rw [S.translationElement_eq_coordinates e a c]
   constructor
