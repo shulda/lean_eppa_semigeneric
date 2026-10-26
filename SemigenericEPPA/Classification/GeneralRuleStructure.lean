@@ -1,3 +1,4 @@
+import SemigenericEPPA.Classification.MatrixRectangles
 import SemigenericEPPA.Classification.AffineClassification
 import SemigenericEPPA.Structure.FiniteRelationalStrongSAPComplete
 
