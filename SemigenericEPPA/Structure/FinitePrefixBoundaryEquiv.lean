@@ -21,29 +21,60 @@ open AllThoseEPPA
 
 universe u v
 
-/-- The initial prefix has exactly the original vertices. -/
-noncomputable def prefixInitialEquiv
-    (X : Type u) (m : ℕ) :
-    PrefixCarrier X m 0 ≃ X := by
-  simpa [PrefixCarrier] using (Equiv.sumEmpty X (Fin 0))
+/-- The initial prefix has exactly the original vertices. Defining the
+equivalence directly avoids a hidden dependent cast from simp. -/
+def prefixInitialEquiv (X : Type u) (m : ℕ) :
+    PrefixCarrier X m 0 ≃ X where
+  toFun
+    | Sum.inl x => x
+    | Sum.inr i => Fin.elim0 i
+  invFun := Sum.inl
+  left_inv := by
+    intro z
+    cases z with
+    | inl x => rfl
+    | inr i => exact Fin.elim0 i
+  right_inv := by
+    intro x
+    rfl
 
-/-- The final prefix is just the full original carrier. -/
-noncomputable def prefixFinalEquiv
-    (X : Type u) (m : ℕ) :
-    PrefixCarrier X m m ≃ X ⊕ Fin m := by
-  simpa [PrefixCarrier] using (Equiv.refl (X ⊕ Fin m))
+/-- The final prefix is literally the full original carrier. We use
+explicit Fin indices rather than transporting an Equiv through simp. -/
+def prefixFinalEquiv (X : Type u) (m : ℕ) :
+    PrefixCarrier X m m ≃ X ⊕ Fin m where
+  toFun
+    | Sum.inl x => Sum.inl x
+    | Sum.inr i => Sum.inr ⟨i.val, by simpa using i.isLt⟩
+  invFun
+    | Sum.inl x => Sum.inl x
+    | Sum.inr i => Sum.inr ⟨i.val, by simpa using i.isLt⟩
+  left_inv := by
+    intro z
+    cases z with
+    | inl x => rfl
+    | inr i =>
+        apply congrArg Sum.inr
+        apply Fin.ext
+        rfl
+  right_inv := by
+    intro z
+    cases z with
+    | inl x => rfl
+    | inr i =>
+        apply congrArg Sum.inr
+        apply Fin.ext
+        rfl
 
-theorem prefixInitialEquiv_inl
+@[simp] theorem prefixInitialEquiv_inl
     {X : Type u} (m : ℕ) (x : X) :
-    prefixInitialEquiv X m (Sum.inl x) = x := by
-  simp [prefixInitialEquiv]
+    prefixInitialEquiv X m (Sum.inl x) = x :=
+  rfl
 
 theorem prefixFinalEquiv_toFinal
     {X : Type u} (m : ℕ) (x : PrefixCarrier X m m) :
     prefixFinalEquiv X m x = prefixToFinal m m x := by
   cases x with
-  | inl a =>
-      simp [prefixFinalEquiv, prefixToFinal]
+  | inl x => rfl
   | inr i =>
       apply congrArg Sum.inr
       apply Fin.ext
