@@ -59,12 +59,14 @@ theorem prefixStep_injective {X : Type w} (m n : ℕ) (hn : n < m) :
       | inl b =>
           simp [prefixStep] at h
       | inr b =>
-          have hab : a.val = b.val := by
-            have heq : (⟨a.val, by have hi := a.isLt; omega⟩ :
-                Fin (min (n+1) m)) =
-                ⟨b.val, by have hi := b.isLt; omega⟩ :=
-              Sum.inr.inj (by simpa [prefixStep] using h)
-            exact congrArg Fin.val heq
+          have h' :
+              (Sum.inr (⟨a.val, by have hi := a.isLt; omega⟩ :
+                Fin (min (n+1) m)) : PrefixCarrier X m (n+1)) =
+                Sum.inr (⟨b.val, by have hi := b.isLt; omega⟩ :
+                  Fin (min (n+1) m)) := by
+            simpa only [prefixStep] using h
+          have hab : a.val = b.val :=
+            congrArg Fin.val (Sum.inr.inj h')
           exact congrArg Sum.inr (Fin.ext hab)
 
 /-- The two prefix embeddings into the full finite structure
