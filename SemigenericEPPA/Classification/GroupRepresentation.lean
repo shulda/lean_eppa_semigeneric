@@ -61,9 +61,8 @@ theorem reconstructedPhi_origin_one (origin : C) :
   let e : R.Palette hrow hcorner :=
     Quotient.mk (R.colourSetoid hrow hcorner) origin
   apply S.preserving_eval_injective e
-  change (S.translation e e) e = (1 : Equiv.Perm _) e
-  rw [S.translation_anchor]
-  rfl
+  change (S.translation e e) e = e
+  exact S.translation_anchor e e
 
 /-- The exact group-valued classification formula, *without* a
 pre-existing group on raw or effective colours. -/
