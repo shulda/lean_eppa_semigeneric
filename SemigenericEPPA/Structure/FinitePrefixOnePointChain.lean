@@ -49,7 +49,8 @@ theorem prefixStep_injective {X : Type w} (m n : ℕ) (hn : n < m) :
   | inl a =>
       cases y with
       | inl b =>
-          have hab : a = b := Sum.inl.inj (by simpa [prefixStep] using h)
+          change (Sum.inl a : PrefixCarrier X m (n+1)) = Sum.inl b at h
+          have hab : a = b := Sum.inl.inj h
           exact congrArg Sum.inl hab
       | inr b =>
           simp [prefixStep] at h
