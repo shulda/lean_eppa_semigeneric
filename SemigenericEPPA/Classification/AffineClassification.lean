@@ -1,7 +1,7 @@
 import SemigenericEPPA.Classification.GroupRepresentation
 import SemigenericEPPA.Algebra.RawDatum
 import Mathlib.Tactic.Group
-import Mathlib.Data.Finite.Defs
+import Mathlib.Data.Fintype.EquivFin
 
 /-!
 # The affine anti-involution reconstructed from starred transpose
