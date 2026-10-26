@@ -1,6 +1,7 @@
 import SemigenericEPPA.Structure.DisjointRawJointEmbedding
 import SemigenericEPPA.Structure.RelationalRoundtrip
 import SemigenericEPPA.Structure.PairwiseEmbedding
+import SemigenericEPPA.Bridge.RawTypedEPPA
 
 /-!
 # Original-relational finite joint embedding
