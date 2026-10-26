@@ -33,7 +33,7 @@ An entirely local clean build should use the Lean toolchain from `lean-toolchain
 
 - the full literal `E,R_c` class rather than a colour-coarsened reduct;
 - the actual quantifier order of finite EPPA/coherent EPPA;
-- the distinction `\forall`-orbit saturation vs. `\exists`-one-good-orbit;
+- the distinction $\forall$-orbit saturation vs. $\exists$-one-good-orbit;
 - the genuine automorphism group, countable full age, ultrahomogeneity, density and local finiteness in DLF;
 - the native semi-coherent selected-action quantifier pattern;
 - arbitrary prescribed SAP embeddings and exact strong overlap.
