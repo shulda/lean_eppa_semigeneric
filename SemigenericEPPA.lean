@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.FiniteRelationalJEP
 import SemigenericEPPA.Structure.DLFUnrestrictedSemiCoherentClassification
 import SemigenericEPPA.Examples.FourColourDLFNotCoherent
 import SemigenericEPPA.Structure.DLFSemiCoherentUnrestrictedAgeTargetSuccessor
