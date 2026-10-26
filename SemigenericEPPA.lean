@@ -1,3 +1,4 @@
+import SemigenericEPPA.Structure.FiniteRelationalStrongSAPComplete
 import SemigenericEPPA.Structure.OnePointAgainstCanonicalFiniteSAP
 import SemigenericEPPA.Structure.DLFUnrestrictedSemiCoherentClassification
 import SemigenericEPPA.Examples.FourColourDLFNotCoherent
