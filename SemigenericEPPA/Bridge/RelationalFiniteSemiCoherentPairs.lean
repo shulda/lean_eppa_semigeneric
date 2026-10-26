@@ -48,9 +48,9 @@ vertices and transport the literal subgroup via full-Aut equality. -/
 noncomputable def toRawActionPair (A : FiniteRelationalActionPair d V) :
     FiniteRawActionPair d V where
   raw := A.isRectangle.toRawPresentation
-  subgroup :=
-    Eq.mp (congrArg Subgroup A.isRectangle.relationalFullAutGroup_eq_raw)
-      A.subgroup
+  subgroup := by
+    rw [← A.isRectangle.relationalFullAutGroup_eq_raw]
+    exact A.subgroup
 
 /-- Every original E relation survives the conversion exactly. -/
 theorem toRawActionPair_part_iff
