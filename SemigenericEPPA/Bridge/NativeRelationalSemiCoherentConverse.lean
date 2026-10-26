@@ -30,6 +30,12 @@ subgroups. Equality is handled in a GENERIC setting, with independent
 subgroup variables, rather than dependent elimination on the specific
 raw and relational predicates of one finite rectangle. -/
 
+private def transportedSubgroup
+    {V : Type*} {S S' : Subgroup (Equiv.Perm V)}
+    (hS : S = S') (H : Subgroup S) : Subgroup S' := by
+  cases hS
+  exact H
+
 private def transportSubgroupHom
     {V W : Type*}
     {S S' : Subgroup (Equiv.Perm V)}
@@ -37,7 +43,7 @@ private def transportSubgroupHom
     (hS : S = S') (hT : T = T')
     {H : Subgroup S} {K : Subgroup T}
     (f : H →* K) :
-    (hS ▸ H) →* (hT ▸ K) := by
+    (transportedSubgroup hS H) →* (transportedSubgroup hT K) := by
   cases hS
   cases hT
   exact f
@@ -63,7 +69,7 @@ private theorem transportSubgroupHom_action
     (f : H →* K) (e : V → W)
     (he : ∀ (h : H) (x : V),
       (f h).val.val (e x) = e (h.val.val x)) :
-    ∀ (h : hS ▸ H) (x : V),
+    ∀ (h : transportedSubgroup hS H) (x : V),
       ((transportSubgroupHom hS hT f) h).val.val (e x) =
         e (h.val.val x) := by
   cases hS
@@ -73,7 +79,7 @@ private theorem transportSubgroupHom_action
 private def transportSubgroupElem
     {V : Type*} {S S' : Subgroup (Equiv.Perm V)}
     (hS : S = S') {H : Subgroup S} (h : H) :
-    hS ▸ H := by
+    transportedSubgroup hS H := by
   cases hS
   exact h
 
