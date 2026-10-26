@@ -1,6 +1,6 @@
 # Generalized semigeneric structures — Lean formalization
 
-Formalization of the group-valued rectangle construction, EPPA, coherent EPPA, and the dense-locally-finite (DLF) criterion.
+Formalization of the group-valued rectangle construction, finite SAP and JEP, EPPA, coherent EPPA, semi-coherent EPPA, and the dense-locally-finite (DLF) criterion.
 
 **Mathematical source:** private `shulda/generalized_semigeneric`, in
 `paper_formalization_prep/` (initial Lean target:
@@ -11,7 +11,7 @@ The explicit valuation/raw-colour proofs are used rather than the HKN EPPA
 existence theorem; the `AllThoseEPPA` dependency supplies typed syntax and
 coherence vocabulary.
 
-## Verified results (25 October 2026)
+## Verified results (26 October 2026)
 
 - **Ordinary finite EPPA: complete.** Actual witnesses for *all* finite
   original relational R1–R3 members and equivalent raw presentations,
@@ -91,12 +91,30 @@ coherence vocabulary.
   establishes unrestricted semi-coherent EP and original-relational
   DLF together with failure of coherent EPPA in this single concrete
   example (PR #572, green head `7a9e2c34`, merged).
-- **SAP:** genuine one-point original-language strong amalgamation is
-  certified, including actual induced embeddings; the unrestricted
-  finite SAP iteration and Fraïssé existence bridge remain open.
-  See [literal one-point SAP](SemigenericEPPA/Structure/LiteralSAPEmbeddings.lean).
+- **Full finite original-relational strong amalgamation (SAP): complete.**
+  [`RawDatum.finiteRelationalStrongSAP`](SemigenericEPPA/Structure/FiniteRelationalStrongSAPComplete.lean)
+  proves unconditional SAP for any three finite R1–R3 structures
+  and any two **prescribed induced** original `E/R_c` embeddings.
+  The result supplies a finite original-language amalgam with an exact
+  strong square: the copies intersect precisely in the old base and
+  jointly cover the amalgam carrier. The canonical finite one-point
+  chain, relative transport and exact second induction are all
+  Lean-certified. Integration [PR #600](https://github.com/shulda/lean_eppa_semigeneric/pull/600),
+  green head `d1a31ebb`, merged into `main` as `43db8433`.
+- **Finite original-relational joint embedding (JEP): complete.**
+  [`RawDatum.finiteRelationalJEP`](SemigenericEPPA/Structure/FiniteRelationalJEP.lean)
+  constructs actual induced embeddings from any two finite original
+  `E/R_c` structures into one finite member by disjoint raw union.
+  Green [PR #598](https://github.com/shulda/lean_eppa_semigeneric/pull/598),
+  merged as `f6e59b86`.
+- **Fraïssé existence/uniqueness:** the mathematical consequences
+  of hereditary closure, JEP, SAP and a finite relational language
+  are standard, but an *independent Lean construction/uniqueness proof*
+  for the Fraïssé limit is deliberately not claimed here.
 
-See the [DLF classification audit](DLF_CLASSIFICATION_AUDIT_2026-10-25.md) for the precise statement, proof dependencies, manuscript comparison and remaining scope.
+See the [final statement-and-scope audit](FINAL_STATEMENT_AUDIT_2026-10-26.md)
+and the [DLF classification audit](DLF_CLASSIFICATION_AUDIT_2026-10-25.md)
+for the exact theorem interfaces, proof dependencies and manuscript comparison.
 
 **Audit rule:** a theorem in a PR counts as certified only on an exact
 head SHA with successful full GitHub Actions Lean build and allowed-axiom

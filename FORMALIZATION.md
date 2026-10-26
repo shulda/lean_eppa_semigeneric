@@ -1,4 +1,31 @@
-# Formalization ledger — historical gates from 2026-10-16, with 2026-10-25 status update
+# Formalization ledger — historical gates from 2026-10-16, current audit 2026-10-26
+
+## Final certified scope (2026-10-26)
+
+The current authority is [README](README.md) and the
+[final statement audit](FINAL_STATEMENT_AUDIT_2026-10-26.md);
+the many dated entries below are retained as historical snapshots.
+The exact original-relational `E/R_c` SAP theorem
+`RawDatum.finiteRelationalStrongSAP` is Lean-certified on green
+PR #600 head `d1a31ebb` and merged into `main` as `43db8433`.
+Arbitrary finite prescribed induced embeddings, exact overlap
+and jointly-surjective strong amalgams are covered with no DLF,
+coherence, safety or saturation hypotheses. Literal finite
+original-relational JEP `RawDatum.finiteRelationalJEP` was independently
+certified on PR #598 and merged as `f6e59b86`.
+
+Ordinary finite EPPA, the complete finite coherent-EPPA
+classification, the semigeneric-specific unrestricted
+semi-coherent EP iff DLF theorem, the full-age countable homogeneous
+original-relational DLF classification and the C4 strict separator
+were certified earlier and remain unchanged.
+
+**Intentionally excluded:** a separate general Sági theorem,
+optional converse rectangle-law classification, and an independent
+Fraïssé limit construction/uniqueness bridge. The manuscript's
+Fraïssé consequences are not silently attributed to an unproved
+stand-alone Lean Fraïssé theorem.
+
 
 ## Authority and verification status
 
@@ -14,7 +41,7 @@
   commit `d85fda061d0b43f2b78c2470ce51f16ecf5c4e8d` (verified green CI).
   Only definitions of language, structures, embeddings, exact partial maps
   and coherent extensions may be used; **do not invoke HKN EPPA existence**.
-- **Current verified headline (2026-10-25):** ordinary finite EPPA
+- **Historical verified headline (2026-10-25, superseded above):** ordinary finite EPPA
   and the complete original-relational coherent-EPPA classification
   are Lean-certified. The complete countable homogeneous DLF
   **existence** criterion is also Lean-certified in
