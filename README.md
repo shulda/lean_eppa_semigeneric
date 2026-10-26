@@ -11,6 +11,16 @@ The explicit valuation/raw-colour proofs are used rather than the HKN EPPA
 existence theorem; the `AllThoseEPPA` dependency supplies typed syntax and
 coherence vocabulary.
 
+## Research Wiki
+
+[Human-readable main theorems](docs/wiki/Main-theorems.md),
+[mathematical definitions](docs/wiki/Mathematical-definitions.md), and
+[independent manuscript-to-Lean audit](docs/wiki/Adversarial-audit.md)
+are maintained in the [source-controlled research Wiki](docs/wiki/README.md).
+The pages are synchronized to the [GitHub Wiki tab](https://github.com/shulda/lean_eppa_semigeneric/wiki)
+once that separate Wiki repository is initialized; the public source
+pages remain available regardless of Wiki initialization.
+
 ## Verified results (26 October 2026)
 
 - **Ordinary finite EPPA: complete.** Actual witnesses for *all* finite
