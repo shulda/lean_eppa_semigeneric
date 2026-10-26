@@ -32,7 +32,10 @@ theorem IsRectangleStructure.finite_relationalTypedEPPA_witness
       (ψ : Structure.Embedding
         (rectangleTrivialAction C) A R.toStructure),
       Structure.IsEPPAWitness (rectangleTrivialAction C) ψ := by
-  simpa only [h.toRawPresentation_toStructure_eq] using
+  obtain ⟨hFinite, R, ψ, hEPPA⟩ :=
     h.toRawPresentation.finite_typedEPPA_witness
+  refine ⟨hFinite, R, ?_⟩
+  rw [← h.toRawPresentation_toStructure_eq]
+  exact ⟨ψ, hEPPA⟩
 
 end SemigenericEPPA
