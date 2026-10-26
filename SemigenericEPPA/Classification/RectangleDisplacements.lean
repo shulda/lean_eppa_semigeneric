@@ -203,6 +203,36 @@ theorem paletteReverse_involutive (x : R.Palette hrow hcorner) :
     (Quotient.mk _ a)
   rw [R.reverse_involutive]
 
+/-- Starred transpose descends exactly to the effective palette.
+This is the algebraic source of the affine anti-involution. -/
+theorem palette_starred_transpose
+    (a b c d : R.Palette hrow hcorner) :
+    R.paletteDisplacement hrow hcorner a b =
+      R.paletteDisplacement hrow hcorner c d ↔
+    R.paletteDisplacement hrow hcorner
+      (R.paletteReverse hrow hcorner a)
+      (R.paletteReverse hrow hcorner c) =
+    R.paletteDisplacement hrow hcorner
+      (R.paletteReverse hrow hcorner b)
+      (R.paletteReverse hrow hcorner d) := by
+  refine Quotient.inductionOn a ?_
+  intro a
+  refine Quotient.inductionOn b ?_
+  intro b
+  refine Quotient.inductionOn c ?_
+  intro c
+  refine Quotient.inductionOn d ?_
+  intro d
+  change (R.displacement hrow hcorner a b =
+    R.displacement hrow hcorner c d) ↔
+    (R.displacement hrow hcorner (R.reverse a) (R.reverse c) =
+      R.displacement hrow hcorner (R.reverse b) (R.reverse d))
+  exact (R.displacement_eq_iff hrow hcorner a b c d).trans
+    ((R.starred_transpose a b c d).trans
+      (R.displacement_eq_iff hrow hcorner
+        (R.reverse a) (R.reverse c)
+        (R.reverse b) (R.reverse d)).symm)
+
 /-- Every row of the descended displacement map is injective. -/
 theorem palette_row_injective (x : R.Palette hrow hcorner) :
     Function.Injective (R.paletteDisplacement hrow hcorner x) := by
