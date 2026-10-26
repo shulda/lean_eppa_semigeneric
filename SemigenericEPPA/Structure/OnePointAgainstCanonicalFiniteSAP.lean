@@ -109,7 +109,7 @@ theorem onePoint_againstCanonicalFinite_strongSAP
   have hPFinal : prefixStructure P m = pullbackRectangle P eFinal := by
     have heq : prefixToFinal m m = eFinal := by
       funext z
-      exact (prefixFinalEquiv_toFinal X m z).symm
+      exact (prefixFinalEquiv_toFinal m z).symm
     change pullbackRectangle P (prefixToFinal m m) =
       pullbackRectangle P eFinal
     rw [heq]
