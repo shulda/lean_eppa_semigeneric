@@ -51,7 +51,7 @@ noncomputable def finiteExtensionNormalEquiv
     (f : X → Y) (hf : Function.Injective f) (x : X) :
     finiteExtensionNormalEquiv f hf (Sum.inl x) = f x := by
   classical
-  simp [finiteExtensionNormalEquiv]
+  rfl
 
 variable {G : Type z} [Group G] {C : Type w}
 
