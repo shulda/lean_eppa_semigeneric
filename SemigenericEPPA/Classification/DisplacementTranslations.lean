@@ -1,5 +1,5 @@
 import Mathlib.GroupTheory.Perm.Basic
-import Mathlib.GroupTheory.Subgroup.Basic
+import Mathlib.Algebra.Group.Subgroup.Basic
 import Mathlib.Tactic.Group
 
 /-!
@@ -133,12 +133,6 @@ noncomputable def coordinateEquiv (e : X) : X ≃ S.preservingGroup :=
   (Equiv.ofBijective
     (fun g : S.preservingGroup => ((g : Equiv.Perm X) e))
     ⟨S.preserving_eval_injective e, S.preserving_eval_surjective e⟩).symm
-
-theorem coordinateEquiv_apply (e a : X) :
-    S.coordinateEquiv e a = S.coordinate e a := by
-  apply S.preserving_eval_injective e
-  simp only [coordinateEquiv, Equiv.ofBijective_symm_apply]
-  exact (S.coordinate_anchor e a).symm
 
 /-- A displacement can be transported from any initial point a to c. -/
 theorem displacement_iff_translation (a b c d : X) :
