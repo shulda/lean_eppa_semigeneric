@@ -208,7 +208,8 @@ theorem displacement_iff_group_difference (e a b c d : X) :
           (S.coordinate e c *
             ((S.coordinate e a)⁻¹ * S.coordinate e b)) := by group
       _ = (S.coordinate e c)⁻¹ * S.coordinate e d := by
-        rw [← mul_assoc, h]
+        exact congrArg (fun t => (S.coordinate e c)⁻¹ * t)
+          (by simpa only [mul_assoc] using h)
   · intro h
     calc
       S.coordinate e c * (S.coordinate e a)⁻¹ * S.coordinate e b =
