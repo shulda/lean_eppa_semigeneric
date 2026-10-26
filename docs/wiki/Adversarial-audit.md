@@ -18,6 +18,10 @@
 | `thm:converse-classification` (optional appendix) | — | **Not formalized** by agreement. It is not used as an assumption in EPPA, SAP or DLF. |
 | `thm:sagi-bridge` (general Sági theorem) | — | **Not formalized** by agreement. The class-specific semi-coherent ⇔ DLF theorem is proved internally instead. |
 
+## Additional post-baseline native wrappers
+
+The main theorem crosswalk above is pinned to `df21cfa9`. A separate [successful full CI + axiom audit on PR #601](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40349653163) additionally certifies two *non-strengthening* interface results, merged as `e094e5c0`: [original-relational typed EPPA](https://github.com/shulda/lean_eppa_semigeneric/blob/e094e5c094de1909df70ef8267258e2d92c3f49b/SemigenericEPPA/Bridge/RelationalTypedEPPA.lean) from literal source-structure equality, and [the fully native C4 separation](https://github.com/shulda/lean_eppa_semigeneric/blob/e094e5c094de1909df70ef8267258e2d92c3f49b/SemigenericEPPA/Examples/FourColourNativeSemiCoherentSeparation.lean) from raw↔relational semi-coherent equivalence. These wrappers make the correspondence easier to consume directly in Lean but do not alter the proven criteria.
+
 ## Checks designed to catch misleading theorem names
 
 ### 1. Is the class genuinely the printed binary class?

@@ -4,6 +4,8 @@
 
 **Exact certification run:** [GitHub Actions #40344432058 — success](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40344432058). The final full finite SAP had also passed [PR #600 run #40342181226](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40342181226); the independent canonical iteration passed [#40338960118](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40338960118); and literal JEP passed [#40337127618](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40337127618).
 
+**Additional source-facing corollaries:** [PR #601 run #40349653163 — success](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40349653163) certifies literal-source typed EPPA and a native-relational C4 separation wrapper; merged in [`e094e5c0`](https://github.com/shulda/lean_eppa_semigeneric/commit/e094e5c094de1909df70ef8267258e2d92c3f49b). These do not modify the main criteria audited at the earlier pinned baseline.
+
 ## What CI checks
 
 The public [Lean workflow](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/.github/workflows/lean.yml) performs:

@@ -46,6 +46,19 @@ open SemigenericEPPA
 
 For the theorem bodies and definitions, follow [Main theorems](Main-theorems.md). When reusing a class predicate, inspect its definition rather than inferring its quantifiers from its name.
 
+## Newer original-relational convenience API
+
+Two directly source-facing lemmas were added **after** the pinned `df21cfa9` baseline, with a separate successful [full CI/axiom audit on PR #601](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40349653163). To use them, select commit [`e094e5c0`](https://github.com/shulda/lean_eppa_semigeneric/commit/e094e5c094de1909df70ef8267258e2d92c3f49b) or a later verified revision:
+
+~~~lean
+import SemigenericEPPA
+
+#check SemigenericEPPA.IsRectangleStructure.finite_relationalTypedEPPA_witness
+#check SemigenericEPPA.FourColourSeparation.nativeSemiCoherentDLFNotCoherent
+~~~
+
+The first is a genuinely typed original `E/R_c` EPPA witness without manually rewriting the source to its raw presentation. The second packages the strict `C_4` example entirely with native original-relational predicates.
+
 ## Three example tasks
 
 **Prove finite SAP for your raw datum.** If `d : RawDatum G C`, the expression `d.finiteRelationalStrongSAP` has the exact property `d.HasFiniteRelationalStrongSAP`. It needs no additional good-colour or DLF assumption.

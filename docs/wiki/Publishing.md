@@ -4,6 +4,12 @@ The authoritative page sources live at [`docs/wiki/`](https://github.com/shulda/
 
 The [publishing workflow](https://github.com/shulda/lean_eppa_semigeneric/blob/main/.github/workflows/publish-wiki.yml) is **separate from the Lean proof CI**. It runs after changes to `docs/wiki/**` or to its own workflow, on GitHub Wiki `gollum` events, or by manual dispatch.
 
+## Observed first publishing attempt (26 October 2026)
+
+The source-controlled Wiki was merged by [PR #602](https://github.com/shulda/lean_eppa_semigeneric/pull/602) into the public `main`. The initial [Publish Semigeneric Wiki workflow](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40350625975) reported **`Wiki not initialized`** and therefore skipped the synchronization step (as designed). The Wiki's separate Git remote does **not** yet exist; this is not a Lean or Markdown failure.
+
+**One user action is required:** while signed in, create and save an initial page named **Home** in the [GitHub Wiki tab](https://github.com/shulda/lean_eppa_semigeneric/wiki). The next `gollum`/manual publishing workflow can then synchronize the already prepared source pages.
+
 ## Initial Wiki setup (only if required)
 
 GitHub's **Wiki feature may be enabled without the separate `.wiki.git` repository having been initialized**. The publishing job checks this before attempting synchronization.

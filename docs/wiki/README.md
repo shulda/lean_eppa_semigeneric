@@ -39,6 +39,8 @@ See [Main theorems](Main-theorems.md) for complete mathematical statements, name
 | [Verification](Verification.md) | Source hashes, Actions logs, allowed axioms and reproducible builds |
 | [Publishing](Publishing.md) | Publishing the version-controlled `docs/wiki` pages to the GitHub Wiki tab |
 
+**Supplementary native APIs (independently green after the baseline):** [typed EPPA for the literal original structure](https://github.com/shulda/lean_eppa_semigeneric/blob/e094e5c094de1909df70ef8267258e2d92c3f49b/SemigenericEPPA/Bridge/RelationalTypedEPPA.lean) and [native-relational C4 separation](https://github.com/shulda/lean_eppa_semigeneric/blob/e094e5c094de1909df70ef8267258e2d92c3f49b/SemigenericEPPA/Examples/FourColourNativeSemiCoherentSeparation.lean), [CI #40349653163](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40349653163).
+
 ## Provenance
 
 This audit compares the public Lean source to the **private `v0.8` formalization-preparation manuscript** (blob `3124ec728658652c0c9ac288d4640d195d97037c`), without publishing that manuscript or copying its proof text. The public repository is [`shulda/lean_eppa_semigeneric`](https://github.com/shulda/lean_eppa_semigeneric); [`FORMALIZATION.md`](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/FORMALIZATION.md) is a historical research ledger, and [`FINAL_STATEMENT_AUDIT_2026-10-26.md`](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/FINAL_STATEMENT_AUDIT_2026-10-26.md) contains the earlier completion checkpoint.
