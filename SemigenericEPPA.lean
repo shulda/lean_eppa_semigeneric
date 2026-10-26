@@ -1,4 +1,4 @@
-import SemigenericEPPA.Classification.RectangleDisplacements
+import SemigenericEPPA.Classification.GroupRepresentation
 import SemigenericEPPA.Bridge.RelationalTypedEPPA
 import SemigenericEPPA.Examples.FourColourNativeSemiCoherentSeparation
 import SemigenericEPPA.Structure.FiniteRelationalStrongSAPComplete
