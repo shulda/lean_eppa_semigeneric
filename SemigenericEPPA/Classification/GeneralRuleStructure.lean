@@ -130,6 +130,8 @@ def HasFiniteRuleStrongSAP : Prop :=
 /-- If the row/corner consequences of SAP hold, the original
 unrestricted P-class has *literal* strong amalgamation. Reuses the
 certified full original-language SAP of the reconstructed group class. -/
+include hrow hcorner
+
 theorem finiteRuleStrongSAP_of_reconstructedGroup
     [Nonempty C] : R.HasFiniteRuleStrongSAP := by
   classical
