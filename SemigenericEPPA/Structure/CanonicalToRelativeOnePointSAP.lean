@@ -100,24 +100,22 @@ theorem onePointAgainstFiniteStrongSAP_of_canonical
       partRel Bnorm (some x) (some y) ↔
         partRel Dnorm (Sum.inl x) (Sum.inl y) := by
     intro x y
-    change partRel B (eB (some x)) (eB (some y)) ↔
-      partRel D (eD (Sum.inl x)) (eD (Sum.inl y))
-    rw [heB x, heB y, heD x, heD y]
-    exact (embedding_part_iff (rectangleTrivialAction C)
-      A B f hLangF x y).trans
-      (embedding_part_iff (rectangleTrivialAction C)
-        A D g hLangG x y).symm
+    simpa only [Bnorm, Dnorm, pullback_partRel,
+      heB, heD] using
+      ((embedding_part_iff (rectangleTrivialAction C)
+        A B f hLangF x y).trans
+        (embedding_part_iff (rectangleTrivialAction C)
+          A D g hLangG x y).symm)
   have hRaw : ∀ (c : C) (x y : X),
       rawRel Bnorm c (some x) (some y) ↔
         rawRel Dnorm c (Sum.inl x) (Sum.inl y) := by
     intro c x y
-    change rawRel B c (eB (some x)) (eB (some y)) ↔
-      rawRel D c (eD (Sum.inl x)) (eD (Sum.inl y))
-    rw [heB x, heB y, heD x, heD y]
-    exact (embedding_raw_iff (rectangleTrivialAction C)
-      A B f hLangF c x y).trans
-      (embedding_raw_iff (rectangleTrivialAction C)
-        A D g hLangG c x y).symm
+    simpa only [Bnorm, Dnorm, pullback_rawRel,
+      heB, heD] using
+      ((embedding_raw_iff (rectangleTrivialAction C)
+        A B f hLangF c x y).trans
+        (embedding_raw_iff (rectangleTrivialAction C)
+          A D g hLangG c x y).symm)
   obtain ⟨W, hW, S, hS, iNorm, jNorm, hSquare⟩ :=
     hCanon Dnorm hDn Bnorm hBn hPart hRaw
   let i : Structure.Embedding (rectangleTrivialAction C) B S :=
