@@ -30,17 +30,6 @@ jobs:
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
 
-      # Download compiled Mathlib artifacts needed by our foundational
-      # imports and the lightweight AllThoseEPPA.EPPA definitions.
-      # Expand this selective list as the Lean dependency graph grows.
-      - name: Download Mathlib cache
-        run: |
-          lake exe cache get \
-            Mathlib.Algebra.Group.Defs \
-            Mathlib.Logic.Equiv.PartialEquiv \
-            Mathlib.GroupTheory.Perm.Basic \
-            Mathlib.Tactic.Group
-
       - name: Reject unfinished proof placeholders
         shell: bash
         run: |
@@ -49,13 +38,19 @@ jobs:
             exit 1
           fi
 
+      # Request the official complete precompiled Mathlib snapshot through
+      # lean-action. The previous selective 4-target download unpacked only
+      # ~730 .olean files and left 600--2300 Mathlib files for local rebuild.
+      # Keep GitHub .lake caching disabled: full workspace archives are too
+      # large to restore/save economically in the adjacent EPPA project.
+
       - name: Build and audit Lean project
         uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1.6.1
         with:
           auto-config: false
           build: true
           use-github-cache: false
-          use-mathlib-cache: false
+          use-mathlib-cache: true
           axiom-audit: true
           axiom-audit-root: SemigenericEPPA
           axiom-audit-allow: propext,Classical.choice,Quot.sound
