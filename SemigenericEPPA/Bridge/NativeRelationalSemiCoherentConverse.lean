@@ -32,9 +32,8 @@ raw and relational predicates of one finite rectangle. -/
 
 private def transportedSubgroup
     {V : Type*} {S S' : Subgroup (Equiv.Perm V)}
-    (hS : S = S') (H : Subgroup S) : Subgroup S' := by
-  cases hS
-  exact H
+    (hS : S = S') (H : Subgroup S) : Subgroup S' :=
+  Eq.mp (congrArg Subgroup hS) H
 
 private def transportSubgroupHom
     {V W : Type*}
