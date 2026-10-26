@@ -25,6 +25,65 @@ universe u v
 variable {G : Type u} [Group G] [Finite G]
 variable {C : Type v} [Finite C]
 
+/-! Transport finite subgroup actions along equality of full automorphism
+subgroups. Equality is handled in a GENERIC setting, with independent
+subgroup variables, rather than dependent elimination on the specific
+raw and relational predicates of one finite rectangle. -/
+
+private def transportSubgroupHom
+    {V W : Type*}
+    {S S' : Subgroup (Equiv.Perm V)}
+    {T T' : Subgroup (Equiv.Perm W)}
+    (hS : S = S') (hT : T = T')
+    {H : Subgroup S} {K : Subgroup T}
+    (f : H →* K) :
+    (hS ▸ H) →* (hT ▸ K) := by
+  cases hS
+  cases hT
+  exact f
+
+private theorem transportSubgroupHom_injective
+    {V W : Type*}
+    {S S' : Subgroup (Equiv.Perm V)}
+    {T T' : Subgroup (Equiv.Perm W)}
+    (hS : S = S') (hT : T = T')
+    {H : Subgroup S} {K : Subgroup T}
+    (f : H →* K) (hf : Function.Injective f) :
+    Function.Injective (transportSubgroupHom hS hT f) := by
+  cases hS
+  cases hT
+  exact hf
+
+private theorem transportSubgroupHom_action
+    {V W : Type*}
+    {S S' : Subgroup (Equiv.Perm V)}
+    {T T' : Subgroup (Equiv.Perm W)}
+    (hS : S = S') (hT : T = T')
+    {H : Subgroup S} {K : Subgroup T}
+    (f : H →* K) (e : V → W)
+    (he : ∀ (h : H) (x : V),
+      (f h).val.val (e x) = e (h.val.val x)) :
+    ∀ (h : hS ▸ H) (x : V),
+      ((transportSubgroupHom hS hT f) h).val.val (e x) =
+        e (h.val.val x) := by
+  cases hS
+  cases hT
+  exact he
+
+private def transportSubgroupElem
+    {V : Type*} {S S' : Subgroup (Equiv.Perm V)}
+    (hS : S = S') {H : Subgroup S} (h : H) :
+    hS ▸ H := by
+  cases hS
+  exact h
+
+private theorem transportSubgroupElem_perm
+    {V : Type*} {S S' : Subgroup (Equiv.Perm V)}
+    (hS : S = S') {H : Subgroup S} (h : H) :
+    (transportSubgroupElem hS h).val.val = h.val.val := by
+  cases hS
+  rfl
+
 namespace RawDatum
 
 /-- An arbitrary selected native original-relational
@@ -75,33 +134,36 @@ theorem hasFiniteRawSemiCoherentEP_of_relational
         P.toStructure_isRectangleStructure
         e0 he0inj he0partRel he0rawRel
     letI : Finite W := hW
+    let hAutA := Arel.isRectangle.relationalFullAutGroup_eq_raw
+    let hAutB := Brel.isRectangle.relationalFullAutGroup_eq_raw
     let fRaw : FiniteRawActionPairEmbedding
-        Arel.toRawActionPair Brel.toRawActionPair := by
-      have hAutA := Arel.isRectangle.relationalFullAutGroup_eq_raw
-      have hAutB := Brel.isRectangle.relationalFullAutGroup_eq_raw
-      cases hAutA
-      cases hAutB
-      exact {
-        vertex := f.vertex
-        vertex_injective := f.vertex_injective
-        part_iff := by
-          intro x y
-          exact f.part_iff x y
-        colour_eq := by
-          intro x y
-          exact Arel.isRectangle.rawOption_eq_of_induced
-            Brel.isRectangle f.vertex f.part_iff f.raw_iff x y
-        groupMap := f.groupMap
-        group_injective := f.group_injective
-        group_action := f.group_action
-      }
+        Arel.toRawActionPair Brel.toRawActionPair := {
+      vertex := f.vertex
+      vertex_injective := f.vertex_injective
+      part_iff := by
+        intro x y
+        exact f.part_iff x y
+      colour_eq := by
+        intro x y
+        exact Arel.isRectangle.rawOption_eq_of_induced
+          Brel.isRectangle f.vertex f.part_iff f.raw_iff x y
+      groupMap := transportSubgroupHom hAutA hAutB f.groupMap
+      group_injective :=
+        transportSubgroupHom_injective hAutA hAutB f.groupMap
+          f.group_injective
+      group_action :=
+        transportSubgroupHom_action hAutA hAutB f.groupMap
+          f.vertex f.group_action
+    }
     refine ⟨W, hW, Brel.toRawActionPair, fRaw, eP,
-      ⟨Brel, hBselected, rfl⟩, hePInj, hePPart, ?_, hOld, ?_⟩
+      ⟨Brel, hBselected, rfl⟩, hePInj, hePPart, ?_, ?_, ?_⟩
     · intro x y
       have hcolour :=
         P.toStructure_isRectangleStructure.rawOption_eq_of_induced
           Brel.isRectangle eP hePPart hePRaw x y
       exact hcolour.trans (P.toStructure_rawOption_eq x y)
+    · intro x
+      exact hOld x
     · intro T p hp hpPart hpColour
       have hpRaw : ∀ (c : C) (x y : T),
           rawRel P.toStructure c x.val y.val ↔
@@ -110,9 +172,11 @@ theorem hasFiniteRawSemiCoherentEP_of_relational
         change P.colour x.val y.val = some c ↔
           P.colour (p x) (p y) = some c
         rw [hpColour x y]
-      have hAutB := Brel.isRectangle.relationalFullAutGroup_eq_raw
-      cases hAutB
-      exact hPartials T p hp hpPart hpRaw
+      obtain ⟨k, hk⟩ := hPartials T p hp hpPart hpRaw
+      refine ⟨transportSubgroupElem hAutB k, ?_⟩
+      intro x
+      rw [transportSubgroupElem_perm hAutB k]
+      exact hk x
 
 /-- The EXACT native original-relational semi-coherent EP
 property is logically equivalent to the unrestricted raw
