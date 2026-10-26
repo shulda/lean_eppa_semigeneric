@@ -5,8 +5,8 @@ This page compares the mathematical data and structures with the actual Lean pre
 ## 1. Raw data $(G,s,C,*,\phi)$
 
 - $G$ is a group, not assumed abelian.
-- An **affine anti-involution** is a map $s:G\to G$ such that $s^2=\mathrm{id}$ and, writing `t=s(1)`,
-  `s(xy)=s(y)t^{-1}s(x)` for all `x,y`. It is **not** assumed that `t=1`.
+- An **affine anti-involution** is a map $s:G\to G$ such that $s^2=\mathrm{id}$ and, writing $t=s(1)$,
+  $s(xy)=s(y)t^{-1}s(x)$ for all $x,y$. It is **not** assumed that $t=1$.
 - $C$ is an alphabet with involution `*` and an onto map $\phi:C\to G$ with $\phi(c^*)=s(\phi(c))$.
 - The theorem classifications assume $G,C$ finite. $C$ is automatically nonempty because the nonempty group $G$ is a quotient of it.
 
@@ -35,7 +35,7 @@ $S=\{g\in G:\exists c\in C,\ \phi(c)=g\ \wedge\ c^*=c\}.$
 The source is [`RawDatum.selfReverseEffective`](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/SemigenericEPPA/Algebra/RawDatum.lean). This set is contained in $\mathrm{Fix}(s)$, but $S$ need **not** equal the entire fixed-point set: a fibre can contain only reversal-paired colours.
 
 The [congruence action](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/SemigenericEPPA/Algebra/CongruenceAction.lean) on $\mathrm{Fix}(s)$ is
-$a\star g = a\,g\,(s1)^{-1}s(a).$
+$a\star g = a\,g\,s(1)^{-1}s(a).$
 The formalization proves that this preserves the fixed locus and is an actual group action, including for shifted affine anti-involutions.
 
 There are two **different** requirements:

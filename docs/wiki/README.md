@@ -12,7 +12,7 @@ Let $G$ be a finite group; let $s:G\to G$ be an affine anti-involution; and let 
 
 Put
 $S=\{g\in G:\exists c\in C\;(\phi(c)=g\ \wedge\ c=c^*)\}$.
-The affine congruence action is $a\star g=a\,g\,(s1)^{-1}s(a)$.
+The affine congruence action is $a\star g=a\,g\,s(1)^{-1}s(a)$.
 
 **Theorems (in human language).**
 

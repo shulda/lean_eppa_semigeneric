@@ -8,7 +8,10 @@ Throughout, $G$ and $C$ are finite, $s:G\to G$ is an arbitrary affine anti-invol
 
 **Statement.** Let $A,B_1,B_2\in\mathcal K(G,s,\phi)$ be finite, with **given induced embeddings** $f_i:A\hookrightarrow B_i$. Then there are a finite $D\in\mathcal K(G,s,\phi)$ and induced embeddings $g_i:B_i\hookrightarrow D$ such that
 
-$g_1 f_1=g_2 f_2,\qquad g_1(B_1)\cap g_2(B_2)=g_1f_1(A),\qquad D=g_1(B_1)\cup g_2(B_2).$
+$
+g_1 f_1=g_2 f_2,\qquad g_1(B_1)\cap g_2(B_2)=g_1f_1(A),
+\qquad D=g_1(B_1)\cup g_2(B_2).
+$
 
 Moreover, any two finite members have a common finite induced extension (JEP), with no identifications between the two initial vertex sets.
 
