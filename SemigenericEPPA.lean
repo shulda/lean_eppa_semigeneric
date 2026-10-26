@@ -1,4 +1,4 @@
-import SemigenericEPPA.Classification.GroupRepresentation
+import SemigenericEPPA.Classification.AffineClassification
 import SemigenericEPPA.Bridge.RelationalTypedEPPA
 import SemigenericEPPA.Examples.FourColourNativeSemiCoherentSeparation
 import SemigenericEPPA.Structure.FiniteRelationalStrongSAPComplete
