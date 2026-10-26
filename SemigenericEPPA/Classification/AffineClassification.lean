@@ -1,6 +1,7 @@
 import SemigenericEPPA.Classification.GroupRepresentation
 import SemigenericEPPA.Algebra.RawDatum
 import Mathlib.Tactic.Group
+import Mathlib.Data.Finite.Defs
 
 /-!
 # The affine anti-involution reconstructed from starred transpose
@@ -46,7 +47,7 @@ theorem reconstructedReverse_mul
       hrow hcorner origin origin b a d).mp hd
   have hp' : phi b = (phi a)⁻¹ * phi d := by
     simpa only [phi, R.reconstructedPhi_origin_one hrow hcorner origin,
-      one_inv, one_mul] using hp
+      inv_one, one_mul] using hp
   have hprod : phi d = phi a * phi b := by
     calc
       phi d = phi a * ((phi a)⁻¹ * phi d) := by group
@@ -69,10 +70,10 @@ theorem reconstructedReverse_mul
       R.reconstructedPhi_reverse hrow hcorner origin a,
       R.reconstructedPhi_reverse hrow hcorner origin b,
       R.reconstructedPhi_reverse hrow hcorner origin d,
-      R.reconstructedPhi_origin_one hrow hcorner origin,
-      hprod] at hs
+      R.reconstructedPhi_origin_one hrow hcorner origin] at hs
   change (s 1)⁻¹ * s (phi a) =
-    (s (phi b))⁻¹ * s (phi a * phi b) at hs
+    (s (phi b))⁻¹ * s (phi d) at hs
+  rw [hprod] at hs
   change s (phi a * phi b) =
     s (phi b) * (s 1)⁻¹ * s (phi a)
   calc
