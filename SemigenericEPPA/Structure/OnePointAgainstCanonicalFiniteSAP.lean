@@ -1,4 +1,5 @@
 import SemigenericEPPA.Structure.FinitePrefixBoundaryEquiv
+import SemigenericEPPA.Structure.CanonicalOnePointAgainstFiniteSAP
 import SemigenericEPPA.Structure.StrongSquareRenaming
 import SemigenericEPPA.Structure.RelativeOnePointSAP
 import SemigenericEPPA.Structure.PairwiseEmbedding
@@ -70,8 +71,7 @@ theorem onePoint_againstCanonicalFinite_strongSAP
     | inl x =>
         cases b with
         | inl y =>
-            change partRel B (eB (some (Sum.inl x))) (eB (some (Sum.inl y))) ↔
-              partRel P (Sum.inl x) (Sum.inl y)
+            simp only [B0, prefixStructure, pullback_partRel, prefixToFinal]
             have hx : eB (some (Sum.inl x)) = some x := by
               change some (e0 (Sum.inl x)) = some x
               rw [prefixInitialEquiv_inl]
@@ -90,8 +90,7 @@ theorem onePoint_againstCanonicalFinite_strongSAP
     | inl x =>
         cases b with
         | inl y =>
-            change rawRel B c (eB (some (Sum.inl x))) (eB (some (Sum.inl y))) ↔
-              rawRel P c (Sum.inl x) (Sum.inl y)
+            simp only [B0, prefixStructure, pullback_rawRel, prefixToFinal]
             have hx : eB (some (Sum.inl x)) = some x := by
               change some (e0 (Sum.inl x)) = some x
               rw [prefixInitialEquiv_inl]
