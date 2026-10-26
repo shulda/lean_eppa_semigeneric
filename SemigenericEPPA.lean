@@ -378,6 +378,7 @@ import SemigenericEPPA.Structure.OnePointChainSAP
 import SemigenericEPPA.Structure.FinitePrefixOnePointChain
 import SemigenericEPPA.Structure.FiniteChainExactBaseMap
 import SemigenericEPPA.Structure.CanonicalOnePointAgainstFiniteSAP
+import SemigenericEPPA.Structure.PrefixChainExactBaseMap
 import SemigenericEPPA.Structure.PartMatrix
 import SemigenericEPPA.Structure.PartQuotient
 import SemigenericEPPA.Structure.OnePointParts
