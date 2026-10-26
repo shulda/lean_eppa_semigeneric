@@ -378,6 +378,7 @@ import SemigenericEPPA.Structure.OnePointSquarePasting
 import SemigenericEPPA.Structure.FiniteExtensionNormalForm
 import SemigenericEPPA.Structure.OnePointChainSAP
 import SemigenericEPPA.Structure.FiniteSAPFromOnePointFinite
+import SemigenericEPPA.Structure.FiniteSAPExactSecondInduction
 import SemigenericEPPA.Structure.FiniteRelationalStrongSAP
 import SemigenericEPPA.Structure.FiniteChainExactBaseMap
 import SemigenericEPPA.Structure.PartMatrix
