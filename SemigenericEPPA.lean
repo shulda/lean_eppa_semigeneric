@@ -1,3 +1,5 @@
+import SemigenericEPPA.Bridge.RelationalTypedEPPA
+import SemigenericEPPA.Examples.FourColourNativeSemiCoherentSeparation
 import SemigenericEPPA.Structure.FiniteRelationalStrongSAPComplete
 import SemigenericEPPA.Structure.OnePointAgainstCanonicalFiniteSAP
 import SemigenericEPPA.Structure.FiniteRelationalJEP
