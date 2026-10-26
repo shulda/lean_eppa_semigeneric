@@ -24,7 +24,7 @@ The affine congruence action is $a\star g=a\,g\,s(1)^{-1}s(a)$.
 
 See [Main theorems](Main-theorems.md) for complete mathematical statements, names of the corresponding Lean declarations, and precise scope qualifications.
 
-**Fraïssé qualification.** The human paper states DLF for the automorphism group of *the* Fraïssé limit. Lean directly proves the equivalent **existence of a countable homogeneous full-age model with DLF**. Identifying that model with the Fraïssé limit uses the standard uniqueness theorem; this project does **not** additionally formalize that abstract identification. Similarly the SAP proposition's clause asserting infinitely many infinite parts is not itself a separately exported Lean theorem. See [Adversarial audit](Adversarial-audit.md).
+**Fraïssé qualification.** The human paper states DLF for the automorphism group of *the* Fraïssé limit. Lean directly proves the equivalent **existence of a countable homogeneous full-age model with DLF**. Identifying that model with the Fraïssé limit uses the standard uniqueness theorem; this project does **not** additionally formalize that abstract identification. A separate certified conditional lemma, [RawRectanglePresentation.freshPart_and_oldPartExpansion_of_fullAge_homogeneous](https://github.com/shulda/lean_eppa_semigeneric/blob/782778d7c5b0c9090d80f425c446b4d824a7a1a7/SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean), **does** prove that every homogeneous full-age model has infinitely many infinite $E$-parts. What remains omitted is the general Lean Fraïssé existence/uniqueness theorem. See [Adversarial audit](Adversarial-audit.md).
 
 ## Navigation
 

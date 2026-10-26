@@ -117,6 +117,7 @@ pages remain available regardless of Wiki initialization.
   `E/R_c` structures into one finite member by disjoint raw union.
   Green [PR #598](https://github.com/shulda/lean_eppa_semigeneric/pull/598),
   merged as `f6e59b86`.
+- **Part abundance in homogeneous full-age models:** the certified [finite-avoidance lemma](SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean) implies infinitely many infinite $E$-classes, conditional on full age and ultrahomogeneity. This module is imported by the root library.
 - **Fraïssé existence/uniqueness:** the mathematical consequences
   of hereditary closure, JEP, SAP and a finite relational language
   are standard, but an *independent Lean construction/uniqueness proof*

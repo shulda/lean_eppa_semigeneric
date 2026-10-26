@@ -85,6 +85,10 @@ commuting on the specified base, intersection of images exactly equal
 to the base and covering of every output vertex by one of the two images.
 Joint coverage is stronger than the bare usual SAP requirement.
 
+## Verified abundance of equivalence classes
+
+[RawRectanglePresentation.freshPart_and_oldPartExpansion_of_fullAge_homogeneous](https://github.com/shulda/lean_eppa_semigeneric/blob/782778d7c5b0c9090d80f425c446b4d824a7a1a7/SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean) is a compiled theorem imported by the root library. From full finite original raw age and finite-partial ultrahomogeneity it proves that (1) every finite set can be avoided by an entirely fresh $E$-class and (2) every $E$-class containing a selected vertex has further vertices outside any prescribed finite set. Thus infinitely many infinite parts are **formally established conditionally on full age and homogeneity**. This does not itself supply a general Lean Fraïssé-limit existence/uniqueness construction.
+
 ## Deliberate limits of this formalization
 
 - The preceding proofs formalize finite hereditary closure (via

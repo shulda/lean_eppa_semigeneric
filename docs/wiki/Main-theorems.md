@@ -19,7 +19,7 @@ Moreover, any two finite members have a common finite induced extension (JEP), w
 
 **Certificate:** [SAP PR #600, success](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40342181226), [JEP PR #598, success](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40337127618).
 
-**Limit:** The manuscript's further claim that the class is Fraïssé and that its limit has infinitely many infinite $E$-parts is a standard mathematical consequence, but an independent Lean Fraïssé-existence theorem and the infinite-parts corollary are **not** proved here under those names.
+**Fraïssé status:** A separate general Lean Fraïssé existence/uniqueness theorem is not part of this library. **The infinite-parts consequence is formalized conditionally:** [RawRectanglePresentation.freshPart_and_oldPartExpansion_of_fullAge_homogeneous](https://github.com/shulda/lean_eppa_semigeneric/blob/782778d7c5b0c9090d80f425c446b4d824a7a1a7/SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean) shows that any original raw structure with full finite age and finite-partial ultrahomogeneity has (i) arbitrarily new $E$-classes disjoint from any given finite set and (ii) arbitrarily many additional vertices in the $E$-class of any fixed vertex. Thus every such model has infinitely many infinite $E$-classes.
 
 ## Theorem B — ordinary EPPA
 
