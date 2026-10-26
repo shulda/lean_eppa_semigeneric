@@ -35,7 +35,11 @@ theorem IsRectangleStructure.finite_relationalTypedEPPA_witness
   obtain ⟨hFinite, R, ψ, hEPPA⟩ :=
     h.toRawPresentation.finite_typedEPPA_witness
   refine ⟨hFinite, R, ?_⟩
-  rw [← h.toRawPresentation_toStructure_eq]
-  exact ⟨ψ, hEPPA⟩
+  let WitnessFor (X : Structure (rectangleLanguage C) V) : Prop :=
+    ∃ (e : Structure.Embedding (rectangleTrivialAction C) X R.toStructure),
+      Structure.IsEPPAWitness (rectangleTrivialAction C) e
+  have hRaw : WitnessFor h.toRawPresentation.toStructure :=
+    ⟨ψ, hEPPA⟩
+  exact (congrArg WitnessFor h.toRawPresentation_toStructure_eq).mp hRaw
 
 end SemigenericEPPA
