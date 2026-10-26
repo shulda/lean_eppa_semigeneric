@@ -173,7 +173,7 @@ def paletteDisplacement
     (x y : R.Palette hrow hcorner) : R.Displacement hrow hcorner :=
   Quotient.liftOn₂ x y (fun a b => R.displacement hrow hcorner a b)
     (by
-      intro a a' b b' ha hb
+      intro a b a' b' ha hb
       exact (ha b).trans
         (R.displacement_respects_second hrow hcorner a' b b' hb))
 
@@ -252,6 +252,7 @@ theorem palette_pasting (a b c d e f : R.Palette hrow hcorner)
       R.paletteDisplacement hrow hcorner c f) :
     R.paletteDisplacement hrow hcorner b e =
       R.paletteDisplacement hrow hcorner d f := by
+  revert h₁ h₂
   refine Quotient.inductionOn a ?_
   intro a
   refine Quotient.inductionOn b ?_
