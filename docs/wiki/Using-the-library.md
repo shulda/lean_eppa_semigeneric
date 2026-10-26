@@ -52,7 +52,7 @@ For the theorem bodies and definitions, follow [Main theorems](Main-theorems.md)
 
 **Get ordinary EPPA for a finite old structure.** If `h : IsRectangleStructure d A` with the required finite parameter and vertex types, `h.finite_relationalRawEPPA_witness` returns the finite witness, the fixed induced embedding, and the extension property for **all** partial maps. If a typed witness is needed, use the typed `RawRectanglePresentation.finite_typedEPPA_witness` after the exact roundtrip theorem.
 
-**Decide coherent EPPA or DLF.** Use the appropriate classification equivalence and prove the right-hand group condition: global saturation + nonemptiness for coherent EPPA, versus one complete good orbit for DLF. Both accept the trivial `G` branch even if there are no self-reversing raw colours.
+**Decide coherent EPPA or DLF.** Use the appropriate classification equivalence and prove the right-hand group condition: global saturation + nonemptiness for coherent EPPA, versus one complete good orbit for DLF. Both accept the trivial $G$ branch even if there are no self-reversing raw colours.
 
 For the **concrete** separation, inspect [`FourColourDLFNotCoherent.lean`](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/SemigenericEPPA/Examples/FourColourDLFNotCoherent.lean).
 
