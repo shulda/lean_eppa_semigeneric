@@ -134,14 +134,14 @@ in all right coordinates, hence colour equivalence. -/
 theorem colour_rel_of_one (a b c : C)
     (h : R.displacement hrow hcorner a c =
       R.displacement hrow hcorner b c) :
-    (R.colourSetoid hrow hcorner).Rel a b := by
+    (R.colourSetoid hrow hcorner).r a b := by
   intro d
   exact (R.same_second_independent hrow hcorner a b c d).mp h
 
 /-- The displacement map respects colour equivalence in its
 second coordinate, using column interchange. -/
 theorem displacement_respects_second (a b b' : C)
-    (h : (R.colourSetoid hrow hcorner).Rel b b') :
+    (h : (R.colourSetoid hrow hcorner).r b b') :
     R.displacement hrow hcorner a b =
       R.displacement hrow hcorner a b' := by
   have hp : R.allowed b a b' a :=
@@ -151,8 +151,8 @@ theorem displacement_respects_second (a b b' : C)
 
 /-- Reversal descends to the quotient palette. -/
 theorem colour_rel_reverse (a b : C)
-    (h : (R.colourSetoid hrow hcorner).Rel a b) :
-    (R.colourSetoid hrow hcorner).Rel (R.reverse a) (R.reverse b) := by
+    (h : (R.colourSetoid hrow hcorner).r a b) :
+    (R.colourSetoid hrow hcorner).r (R.reverse a) (R.reverse b) := by
   have hp : R.allowed a b b b :=
     (R.displacement_eq_iff hrow hcorner a b b b).mp (h b)
   have hs : R.allowed (R.reverse a) (R.reverse b)
