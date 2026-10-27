@@ -29,13 +29,13 @@ def rowBase (a b : C) : PUnit → Bool → C
 /-- Inclusion of the common top row in a 2x2 rectangle. -/
 private noncomputable def rowTopEmbedding (a b c d : C) :
     Structure.Embedding (rectangleTrivialAction C)
-      (R.matrixStructure a (R.rowBase a b))
+      (R.matrixStructure a (rowBase a b))
       (R.matrixStructure a (squareMatrix a b c d)) :=
   R.matrixEmbedding a
     (fun _ : PUnit => false) (id : Bool → Bool)
     (by intro x y _; exact Subsingleton.elim x y)
     Function.injective_id
-    (R.rowBase a b) (squareMatrix a b c d)
+    (rowBase a b) (squareMatrix a b c d)
     (by intro x y; cases x; cases y <;> rfl)
 
 private theorem rowEmbedding_inl (a b c d : C) (x : PUnit) :
@@ -78,9 +78,9 @@ theorem rowAmalgamation_of_finiteRuleStrongSAP
     (hSAP : R.HasFiniteRuleStrongSAP) :
     R.HasRowAmalgamation := by
   intro a b c d e f hfirst hsecond
-  have hBase : IsRuleStructure R (R.matrixStructure a (R.rowBase a b)) :=
-    R.matrixStructure_isRule a (R.rowBase a b)
-      (R.matrixAdmissible_subsingleton_rows (R.rowBase a b))
+  have hBase : IsRuleStructure R (R.matrixStructure a (rowBase a b)) :=
+    R.matrixStructure_isRule a (rowBase a b)
+      (R.matrixAdmissible_subsingleton_rows (rowBase a b))
   have hLeft : IsRuleStructure R (R.matrixStructure a (squareMatrix a b c d)) :=
     R.matrixStructure_isRule a (squareMatrix a b c d)
       (R.squareMatrix_admissible a b c d hfirst)
