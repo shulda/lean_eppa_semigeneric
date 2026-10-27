@@ -120,13 +120,13 @@ pages remain available regardless of Wiki initialization.
   merged as `f6e59b86`.
 - **Part abundance in homogeneous full-age models:** the certified [finite-avoidance lemma](SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean) implies infinitely many infinite $E$-classes, conditional on full age and ultrahomogeneity. This module is imported by the root library.
 - **Converse classification of SAP rectangle constraints (Appendix A): complete.**
-  [\`RectangleRule.finiteStrongSAP_iff_groupRectangle\`](SemigenericEPPA/Classification/MainClassification.lean)
+  [`RectangleRule.finiteStrongSAP_iff_groupRectangle`](SemigenericEPPA/Classification/MainClassification.lean)
   proves that a finite nonempty raw palette, equipped with a reversal and
   an arbitrary isomorphism-invariant rectangle predicate over the **unrestricted
   triangle base**, has full finite original-language strong amalgamation iff
   its rectangle law is a noncommutative finite-group difference law with
   surjective reversal-equivariant raw map and an affine anti-involution.
-  Crucially, the reconstructed \`RawDatum.reverse\` equals the original
+  Crucially, the reconstructed `RawDatum.reverse` equals the original
   predicate's reversal. The SAP necessity direction is proved using literal
   induced relational embeddings and exact strong-overlap squares. See
   [the theorem statement and audit](docs/wiki/Converse-rectangle-classification.md)
