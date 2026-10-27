@@ -1,6 +1,7 @@
 name: Lean CI
 
 on:
+  push:
   pull_request:
   workflow_dispatch:
 
@@ -48,12 +49,8 @@ jobs:
         with:
           auto-config: false
           build: true
-          # BRANCH-LOCAL SMOKE MODE: restore the main full-build/audit workflow
-          # before merging this draft PR. This compiles the entire imported
-          # classification/SAP dependency chain instead of all DLF modules.
-          build-args: SemigenericEPPA.Classification.MainClassification
           use-github-cache: false
           use-mathlib-cache: true
-          axiom-audit: false
+          axiom-audit: true
           axiom-audit-root: SemigenericEPPA
           axiom-audit-allow: propext,Classical.choice,Quot.sound

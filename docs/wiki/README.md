@@ -1,6 +1,6 @@
 # Generalized semigeneric structures — formally verified EPPA
 
-A mathematical guide and proof audit for the Lean 4 development of the generalized semigeneric rectangle classes $\mathcal K(G,s,\phi)$. The public library proves **finite strong amalgamation, joint embedding, EPPA, the coherent-EPPA classification, the semi-coherent/DLF classification**, and an explicit strict separation example.
+A mathematical guide and proof audit for the Lean 4 development of the generalized semigeneric rectangle classes $\mathcal K(G,s,\phi)$. The public library proves **finite strong amalgamation, joint embedding, EPPA, the coherent-EPPA classification, the semi-coherent/DLF classification**, an explicit strict separation example, **and the converse classification of all strong-amalgamation rectangle predicates over the unrestricted triangle base**.
 
 **Certified baseline:** [main commit `df21cfa98a66`](https://github.com/shulda/lean_eppa_semigeneric/commit/df21cfa98a668e1a95dceb73ce83d852336e6842), with [successful full Lean build and allowed-axiom audit](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40344432058). The final SAP proof was additionally verified [independently on PR #600](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40342181226). Links below lead to the **actual Lean theorem declarations**, rather than to informal summaries alone.
 
@@ -21,6 +21,7 @@ The affine congruence action is $a\star g=a\,g\,s(1)^{-1}s(a)$.
 3. **Coherent EPPA.** The class has coherent EPPA **if and only if** $G$ is trivial, or $S$ is nonempty and a union of complete affine-congruence orbits.
 4. **Semi-coherent EP and DLF.** The class has the unrestricted semi-coherent extension property **if and only if** $G$ is trivial, or **at least one** complete congruence orbit is contained in $S$. Exactly under that condition, there exists a countable homogeneous full-age original-relational structure whose full automorphism group contains a dense locally finite subgroup.
 5. **Strict separation.** An explicit $G=C_4$ datum, with five raw colours and $S=\{0,1,2\}$, has ordinary EPPA, semi-coherent EP and DLF, but **not** coherent EPPA.
+6. **Converse classification (Appendix A).** For any finite nonempty raw-colour alphabet with reversal and arbitrary isomorphism-invariant 2+2 rectangle predicate (and no further triangle constraints), finite strong amalgamation holds exactly for the group-difference laws with finite group, affine anti-involution and surjective reversal-equivariant raw palette map. See [Converse rectangle classification](Converse-rectangle-classification.md).
 
 See [Main theorems](Main-theorems.md) for complete mathematical statements, names of the corresponding Lean declarations, and precise scope qualifications.
 
@@ -30,6 +31,7 @@ See [Main theorems](Main-theorems.md) for complete mathematical statements, name
 
 | Page | Content |
 | --- | --- |
+| [Converse rectangle classification](Converse-rectangle-classification.md) | Appendix A: exact SAP iff group-valued rectangle law, true structural witnesses and semantic scope audit |
 | [Main theorems](Main-theorems.md) | Mathematician-readable results with links to exact proved Lean statements |
 | [Mathematical definitions](Mathematical-definitions.md) | Raw data, affine reversal, rectangle constraints, EPPA, coherence, semi-coherence and DLF |
 | [Proof architecture](Proof-architecture.md) | One-point SAP, finite iteration, valuations/raw covers, coherent lifts and DLF towers |
