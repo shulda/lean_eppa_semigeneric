@@ -57,7 +57,7 @@ private theorem rowPreservePart
     apply Equiv.ext
     intro x
     exact Fin.elim0 x
-  exact (embedding_part_iff (rectangleTrivialAction C) A B f hf v w).mp h
+  exact (embedding_part_iff (rectangleTrivialAction C) A B f hf v w).mpr h
 
 private theorem rowPreserveRaw
     {V W : Type}
@@ -70,7 +70,7 @@ private theorem rowPreserveRaw
     apply Equiv.ext
     intro x
     exact Fin.elim0 x
-  exact (embedding_raw_iff (rectangleTrivialAction C) A B f hf c v w).mp h
+  exact (embedding_raw_iff (rectangleTrivialAction C) A B f hf c v w).mpr h
 
 /-- SAP forces the law that two allowed rows with the same
 top profile must also form an allowed rectangle together. -/
@@ -93,12 +93,14 @@ theorem rowAmalgamation_of_finiteRuleStrongSAP
     hSAP hBase hLeft hRight embL embR
   letI : Fintype W := hW
   have hcommRow : i (.inl false) = j (.inl false) := by
-    simpa only [embL, embR, rowEmbedding_inl] using
-      (sq.commute (.inl PUnit.unit))
+    have h := sq.commute (.inl PUnit.unit)
+    change i (.inl false) = j (.inl false) at h
+    exact h
   have hcommCol (y : Bool) :
       i (.inr y) = j (.inr y) := by
-    simpa only [embL, embR, rowEmbedding_inr] using
-      (sq.commute (.inr y))
+    have h := sq.commute (.inr y)
+    change i (.inr y) = j (.inr y) at h
+    exact h
   have hnewDistinct : i (.inl true) ≠ j (.inl true) := by
     intro he
     obtain ⟨v, hv, _⟩ := (sq.exact_overlap (.inl true) (.inl true)).mp he
@@ -106,17 +108,19 @@ theorem rowAmalgamation_of_finiteRuleStrongSAP
     | inl x =>
         have impossible :
             (Sum.inl (true : Bool) : Bool ⊕ Bool) = .inl false := by
-          simpa only [embL, rowEmbedding_inl] using hv
+          change (Sum.inl (true : Bool) : Bool ⊕ Bool) = .inl false at hv
+          exact hv
         cases impossible
     | inr y =>
         have impossible :
             (Sum.inl (true : Bool) : Bool ⊕ Bool) = .inr y := by
-          simpa only [embL, rowEmbedding_inr] using hv
+          change (Sum.inl (true : Bool) : Bool ⊕ Bool) = .inr y at hv
+          exact hv
         cases impossible
   have hpartL : partRel T (i (.inl true)) (i (.inl false)) :=
-    rowPreservePart i _ _ (by rfl)
+    rowPreservePart i _ _ (by simp [matrixStructure_part, matrixPart])
   have hpartR : partRel T (j (.inl false)) (j (.inl true)) :=
-    rowPreservePart j _ _ (by rfl)
+    rowPreservePart j _ _ (by simp [matrixStructure_part, matrixPart])
   have hpartRows : partRel T (i (.inl true)) (j (.inl true)) := by
     apply hT.parts_equiv.trans hpartL
     rw [hcommRow]
