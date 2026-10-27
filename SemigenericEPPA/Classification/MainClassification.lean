@@ -26,6 +26,8 @@ namespace RectangleRule
 
 variable {C : Type} (R : RectangleRule C)
 
+#check @finiteRuleStrongSAP_of_reconstructedGroup
+
 /-- The exact group-based description of P. The group is allowed to
 be noncommutative and its reversal need not fix the identity.
 The alphabet C is kept unchanged, with a surjective equivariant raw
