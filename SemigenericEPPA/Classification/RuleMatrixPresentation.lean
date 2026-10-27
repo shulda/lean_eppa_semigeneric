@@ -27,7 +27,7 @@ variable {C X Y : Type u} (R : RectangleRule C)
 
 /-- The trivial effective datum is used ONLY to encode raw matrices
 in the existing original-relational binary language. -/
-noncomputable def syntaxDatum (c₀ : C) : RawDatum PUnit.{u} C where
+noncomputable def syntaxDatum (c₀ : C) : RawDatum PUnit.{u+1} C where
   s := {
     toFun := id
     involutive := by intro x; rfl
@@ -115,9 +115,11 @@ theorem matrixStructure_isRule (c₀ : C) (M : X → Y → C)
   cases x₀ <;> cases x₁ <;> cases y₀ <;> cases y₁ <;>
     simp_all [matrixStructure_part, matrixStructure_colour,
       matrixPart, matrixColour]
-  · simpa_all using hM _ _ _ _ (by simpa using hxx) (by simpa using hyy)
-  · simpa_all using R.matrixAdmissible_starredTranspose M hM _ _ _ _
+  · have hh := hM _ _ _ _ (by simpa using hxx) (by simpa using hyy)
+    simp_all [matrixColour]
+  · have hh := R.matrixAdmissible_starredTranspose M hM _ _ _ _
       (by simpa using hyy) (by simpa using hxx)
+    simp_all [matrixColour]
 
 end RectangleRule
 
