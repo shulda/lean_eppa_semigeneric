@@ -26,8 +26,6 @@ namespace RectangleRule
 
 variable {C : Type} (R : RectangleRule C)
 
-#check @finiteRuleStrongSAP_of_reconstructedGroup
-
 /-- The exact group-based description of P. The group is allowed to
 be noncommutative and its reversal need not fix the identity.
 The alphabet C is kept unchanged, with a surjective equivariant raw
@@ -73,7 +71,7 @@ theorem finiteStrongSAP_iff_groupRectangle
       refine ⟨d₀, (hAllowed a b c d₀).mpr ?_⟩
       rw [hd₀]
       group
-    exact R.finiteRuleStrongSAP_of_reconstructedGroup hrow hcorner
+    exact @finiteRuleStrongSAP_of_reconstructedGroup C R hrow hcorner inferInstance
 
 end RectangleRule
 end SemigenericEPPA.Classification
