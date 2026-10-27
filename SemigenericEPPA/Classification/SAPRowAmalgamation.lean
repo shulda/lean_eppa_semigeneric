@@ -126,7 +126,7 @@ theorem rowAmalgamation_of_finiteRuleStrongSAP
     rw [hcommRow]
     exact hpartR
   have hpartCols : partRel T (i (.inr false)) (i (.inr true)) :=
-    rowPreservePart i _ _ (by rfl)
+    rowPreservePart i _ _ (by simp [matrixStructure_part, matrixPart])
   have hcolsDistinct : i (.inr false) ≠ i (.inr true) := by
     intro he
     exact (by decide :
