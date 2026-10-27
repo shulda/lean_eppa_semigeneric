@@ -32,6 +32,8 @@ theorem matrixMap_injective
   intro v w hvw
   cases v <;> cases w <;>
     simp_all [matrixMap]
+  · exact hfx hvw
+  · exact hfy hvw
 
 theorem matrixMap_part_iff
     (fx : X → X') (fy : Y → Y')
@@ -66,9 +68,9 @@ noncomputable def matrixEmbedding
     (matrixMap_injective fx fy hfx hfy)
     (by
       intro v w
-      exact (R.matrixStructure_part c₀ M v w).trans
+      exact ((R.matrixStructure_part c₀ M v w).trans
         ((matrixMap_part_iff fx fy v w).trans
-          (R.matrixStructure_part c₀ M' _ _).symm))
+          (R.matrixStructure_part c₀ M' _ _).symm)).symm)
     (by
       intro c v w
       rw [R.matrixStructure_colour c₀ c M v w,
