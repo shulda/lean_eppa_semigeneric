@@ -1,6 +1,6 @@
 # Generalized semigeneric structures — Lean formalization
 
-Formalization of the group-valued rectangle construction, finite SAP and JEP, EPPA, coherent EPPA, semi-coherent EPPA, and the dense-locally-finite (DLF) criterion.
+Formalization of the group-valued rectangle construction, finite SAP and JEP, EPPA, coherent EPPA, semi-coherent EPPA, the dense-locally-finite (DLF) criterion, and the converse classification of finite unrestricted SAP rectangle laws.
 
 **Mathematical source:** private `shulda/generalized_semigeneric`, in
 `paper_formalization_prep/` (initial Lean target:
@@ -14,6 +14,7 @@ coherence vocabulary.
 ## Research Wiki
 
 [Human-readable main theorems](docs/wiki/Main-theorems.md),
+[Appendix A converse classification](docs/wiki/Converse-rectangle-classification.md),
 [mathematical definitions](docs/wiki/Mathematical-definitions.md), and
 [independent manuscript-to-Lean audit](docs/wiki/Adversarial-audit.md)
 are maintained in the [source-controlled research Wiki](docs/wiki/README.md).
@@ -21,7 +22,7 @@ The pages are synchronized to the [GitHub Wiki tab](https://github.com/shulda/le
 once that separate Wiki repository is initialized; the public source
 pages remain available regardless of Wiki initialization.
 
-## Verified results (26 October 2026)
+## Verified results (through 27 October 2026)
 
 - **Ordinary finite EPPA: complete.** Actual witnesses for *all* finite
   original relational R1–R3 members and equivalent raw presentations,
@@ -118,6 +119,19 @@ pages remain available regardless of Wiki initialization.
   Green [PR #598](https://github.com/shulda/lean_eppa_semigeneric/pull/598),
   merged as `f6e59b86`.
 - **Part abundance in homogeneous full-age models:** the certified [finite-avoidance lemma](SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean) implies infinitely many infinite $E$-classes, conditional on full age and ultrahomogeneity. This module is imported by the root library.
+- **Converse classification of SAP rectangle constraints (Appendix A): complete.**
+  [`RectangleRule.finiteStrongSAP_iff_groupRectangle`](SemigenericEPPA/Classification/MainClassification.lean)
+  proves that a finite nonempty raw palette, equipped with a reversal and
+  an arbitrary isomorphism-invariant rectangle predicate over the **unrestricted
+  triangle base**, has full finite original-language strong amalgamation iff
+  its rectangle law is a noncommutative finite-group difference law with
+  surjective reversal-equivariant raw map and an affine anti-involution.
+  Crucially, the reconstructed `RawDatum.reverse` equals the original
+  predicate's reversal. The SAP necessity direction is proved using literal
+  induced relational embeddings and exact strong-overlap squares. See
+  [the theorem statement and audit](docs/wiki/Converse-rectangle-classification.md)
+  and [independent source-facing audit](CLASSIFICATION_STATEMENT_AUDIT_2026-10-27.md).
+  Full integrated certification: [CI #40465889222](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40465889222), with 1,861 successful build jobs and an allowed-axiom audit of 4,050 declarations.
 - **Fraïssé existence/uniqueness:** the mathematical consequences
   of hereditary closure, JEP, SAP and a finite relational language
   are standard, but an *independent Lean construction/uniqueness proof*

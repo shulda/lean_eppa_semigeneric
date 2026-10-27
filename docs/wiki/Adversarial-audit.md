@@ -58,10 +58,22 @@ The main theorem crosswalk above is pinned to `df21cfa9`. A separate [successful
 
 **Yes.** [`FourColourDLFNotCoherent.lean`](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/SemigenericEPPA/Examples/FourColourDLFNotCoherent.lean) explicitly defines five raw symbols with reversal swapping two over effective colour $3$, checks $\phi$ is surjective and equivariant, proves one whole good orbit and failure of global saturation, and proves $G$ is nontrivial. The same datum supplies both DLF and coherent failure.
 
+## Added Appendix A audit — converse rectangle classification
+
+The original v0.8 Appendix A is logically independent of the EPPA/DDL arguments. Its converse is now given by [`RectangleRule.finiteStrongSAP_iff_groupRectangle`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/MainClassification.lean), with the **original** $E,R_c$ relational predicate [`IsRuleStructure`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/GeneralRuleStructure.lean).
+
+**Full-kernel certificate:** [CI run #40465889222](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40465889222) (1,861 build jobs, 4,050 declarations audited, only allowed axioms).
+
+**Independent semantic checks.** (1) $C$ is finite and nonempty. (2) $P$ is assumed only to respect the three isomorphisms of $2+2$ rectangles, and there are no further triangle restrictions. (3) The general $P$ is checked only on *distinct* rows and columns; the reconstructed group equation also automatically handles coinciding corners. (4) SAP is checked on all prescribed finite original-relational induced embeddings; its `StrongSquare` demands exact overlap and joint coverage. (5) The classification explicitly asserts the **same** reversal $c\mapsto c^*$ in the returned `RawDatum`. (6) $G$ is finite and need not be abelian, and $s(1)$ is not constrained to be $1$. (7) The two SAP-to-algebra lemmas are proved from literal spans, not given as independent hypotheses in the final iff. Crucially, row amalgamation uses `StrongSquare.exact_overlap` to prevent identification of two fresh row vertices.
+
+**Joint-coverage nuance.** The Lean SAP predicate requests the amalgam carrier to be exactly the union of the two images, an apparently stronger formulation than the usual SAP. For any hereditary class of finite relational structures, restriction to the induced union turns an arbitrary strong amalgam into one with joint coverage, so these are mathematically equivalent. No independent general Fraïssé existence/uniqueness statement is asserted by this theorem.
+
+**Boundaries.** This is **not** a classification for additional forbidden triangles, finitely bounded imprimitive classes with extra constraints, arbitrary higher-arity ages, or ordinary AP without SAP. The [dedicated Appendix A page](Converse-rectangle-classification.md) cross-references every Lean proof component.
+
 ## Open *semantic* scope, not unproved main statements
 
 - **Not formalized here:** unconditional standalone Fraïssé limit existence/uniqueness for every datum. **Already formalized:** [RawRectanglePresentation.freshPart_and_oldPartExpansion_of_fullAge_homogeneous](https://github.com/shulda/lean_eppa_semigeneric/blob/782778d7c5b0c9090d80f425c446b4d824a7a1a7/SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean) directly proves finite-avoidance consequences implying infinitely many infinite $E$-classes for any model having full finite age and ultrahomogeneity. This does not construct such a model for every datum.
-- **Not a Lean theorem here:** general Sági equivalence for arbitrary classes, or converse classification of arbitrary abstract rectangle laws; both were intentionally excluded.
+- **Not a Lean theorem here:** general Sági equivalence for arbitrary classes. The converse classification of finite unrestricted SAP rectangle laws was **subsequently formalized** in Appendix A modules; it does not cover extra triangle constraints or AP-only classes.
 - **Not an extra hypothesis:** global saturation in coherent EPPA is part of its iff, but must **not** be imposed on DLF/semi-coherence. For $G=1$, neither statement requires $S\ne\emptyset$.
 - **Not claimed:** structure-faithful EPPA or coherent EPPA for nonsaturated datums, a general Ramsey theorem, ample generics, or typed EPPA for an unrelated class.
 

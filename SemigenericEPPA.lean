@@ -1,3 +1,4 @@
+import SemigenericEPPA.Classification.MainClassification
 import SemigenericEPPA.Bridge.RelationalTypedEPPA
 import SemigenericEPPA.Examples.FourColourNativeSemiCoherentSeparation
 import SemigenericEPPA.Structure.FiniteRelationalStrongSAPComplete
