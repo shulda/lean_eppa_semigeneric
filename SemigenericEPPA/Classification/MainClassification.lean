@@ -34,6 +34,7 @@ def HasGroupRectangleDescription : Prop :=
   ∃ (G : Type) (instG : Group G) (finG : Finite G),
     letI : Group G := instG
     ∃ (d : RawDatum G C),
+      d.reverse = R.reverse ∧
       ∀ a b c e,
         R.allowed a b c e ↔
           (d.phi a)⁻¹ * d.phi b =
@@ -53,11 +54,11 @@ theorem finiteStrongSAP_iff_groupRectangle
     let origin : C := Classical.choice ‹Nonempty C›
     refine ⟨R.ReconstructedGroup hrow hcorner, inferInstance,
       R.reconstructedGroup_finite hrow hcorner origin, ?_⟩
-    refine ⟨R.reconstructedRawDatum hrow hcorner origin, ?_⟩
+    refine ⟨R.reconstructedRawDatum hrow hcorner origin, rfl, ?_⟩
     intro a b c e
     exact R.allowed_iff_reconstructedRawDatum
       hrow hcorner origin a b c e
-  · rintro ⟨G, instG, finG, d, hAllowed⟩
+  · rintro ⟨G, instG, finG, d, hReverse, hAllowed⟩
     letI : Group G := instG
     have hrow : R.HasRowAmalgamation := by
       intro a b c e f g h₁ h₂
