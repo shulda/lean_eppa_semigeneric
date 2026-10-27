@@ -22,7 +22,7 @@ The pages are synchronized to the [GitHub Wiki tab](https://github.com/shulda/le
 once that separate Wiki repository is initialized; the public source
 pages remain available regardless of Wiki initialization.
 
-## Verified results (26 October 2026)
+## Verified results (through 27 October 2026)
 
 - **Ordinary finite EPPA: complete.** Actual witnesses for *all* finite
   original relational R1–R3 members and equivalent raw presentations,
@@ -131,6 +131,7 @@ pages remain available regardless of Wiki initialization.
   induced relational embeddings and exact strong-overlap squares. See
   [the theorem statement and audit](docs/wiki/Converse-rectangle-classification.md)
   and [independent source-facing audit](CLASSIFICATION_STATEMENT_AUDIT_2026-10-27.md).
+  Full integrated certification: [CI #40465889222](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40465889222), with 1,861 successful build jobs and an allowed-axiom audit of 4,050 declarations.
 - **Fraïssé existence/uniqueness:** the mathematical consequences
   of hereditary closure, JEP, SAP and a finite relational language
   are standard, but an *independent Lean construction/uniqueness proof*

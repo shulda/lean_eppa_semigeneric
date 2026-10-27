@@ -6,17 +6,21 @@ Throughout, $G$ and $C$ are finite, $s:G\to G$ is an arbitrary affine anti-invol
 
 ## Theorem 0 — the converse classification of strong-amalgamation rectangle laws
 
-**Statement (Appendix A).** Fix a finite, **nonempty** set of directed raw colours \(C\), equipped with an involution \(c\mapsto c^*\). Let \(P:C^4\to\mathrm{Prop}\) be an arbitrary \(2+2\) rectangle predicate invariant under row interchange, column interchange and starred transpose. The finite original-language class \(\mathcal K_P\) has an equivalence relation \(E\), exactly one directed \(R_c\) on every cross-\(E\)-class ordered pair (with reversal \(c^*\)), **no additional triangle restrictions**, and the constraint \(P\) precisely on genuine rectangles with two distinct vertices in each of two different \(E\)-classes.
+**Statement (Appendix A).** Fix a finite, **nonempty** set of directed raw colours $C$, equipped with an involution $c\mapsto c^*$. Let $P:C^4\to\mathrm{Prop}$ be an arbitrary $2+2$ rectangle predicate invariant under row interchange, column interchange and starred transpose. The finite original-language class $\mathcal K_P$ has an equivalence relation $E$, exactly one directed $R_c$ on every cross-$E$-class ordered pair (with reversal $c^*$), **no additional triangle restrictions**, and the constraint $P$ precisely on genuine rectangles with two distinct vertices in each of two different $E$-classes.
 
-Then \(\mathcal K_P\) has the **strong amalgamation property** if and only if there exist a finite (possibly noncommutative) group \(G\), an affine anti-involution \(s:G\to G\), and a surjection \(\phi:C\twoheadrightarrow G\) such that
-\[
+Then $\mathcal K_P$ has the **strong amalgamation property** if and only if there exist a finite (possibly noncommutative) group $G$, an affine anti-involution $s:G\to G$, and a surjection $\phi:C\twoheadrightarrow G$ such that
+$
+
 \phi(c^*)=s(\phi(c))
 \quad\text{and}\quad
 P(a,b,c,d)\ \Longleftrightarrow\
 \phi(a)^{-1}\phi(b)=\phi(c)^{-1}\phi(d).
-\]
 
-**Exact Lean theorem:** [`RectangleRule.finiteStrongSAP_iff_groupRectangle`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/MainClassification.lean). The classifier explicitly requires **the reconstructed raw reversal to equal the given reversal of \(P\)** (not merely some alternative involution). [`RectangleRule.HasFiniteRuleStrongSAP`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/GeneralRuleStructure.lean) quantifies over every prescribed finite induced \(E,R_c\) embedding span and returns an exact strong amalgamation square. The witness covers the union of the two embedded structures; for this hereditary relational class that is equivalent to usual SAP by restricting any strong amalgam to that union.
+$
+
+**Certificate:** [full root build and allowed-axiom audit #40465889222](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40465889222), commit [`70ae457a`](https://github.com/shulda/lean_eppa_semigeneric/commit/70ae457aa0264af70b01d07844dcfac2109b6c5b).
+
+**Exact Lean theorem:** [`RectangleRule.finiteStrongSAP_iff_groupRectangle`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/MainClassification.lean). The classifier explicitly requires **the reconstructed raw reversal to equal the given reversal of $P$** (not merely some alternative involution). [`RectangleRule.HasFiniteRuleStrongSAP`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/GeneralRuleStructure.lean) quantifies over every prescribed finite induced $E,R_c$ embedding span and returns an exact strong amalgamation square. The witness covers the union of the two embedded structures; for this hereditary relational class that is equivalent to usual SAP by restricting any strong amalgam to that union.
 
 **Proof:** [SAP implies corner completion](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/SAPCornerCompletion.lean), [SAP implies row amalgamation](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/SAPRowAmalgamation.lean) using exact overlap, [quotient of displacement profiles](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/RectangleDisplacements.lean), [regular permutation group](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/DisplacementTranslations.lean), [affine anti-involution and raw datum](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/AffineClassification.lean), and [SAP of the reconstructed group class](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Classification/GeneralRuleStructure.lean), using the already certified original-language SAP theorem.
 

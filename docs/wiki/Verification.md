@@ -6,6 +6,8 @@
 
 **Additional source-facing corollaries:** [PR #601 run #40349653163 — success](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40349653163) certifies literal-source typed EPPA and a native-relational C4 separation wrapper; merged in [`e094e5c0`](https://github.com/shulda/lean_eppa_semigeneric/commit/e094e5c094de1909df70ef8267258e2d92c3f49b). These do not modify the main criteria audited at the earlier pinned baseline.
 
+**Appendix A converse classification (later verified module):** integrated at [`70ae457a`](https://github.com/shulda/lean_eppa_semigeneric/commit/70ae457aa0264af70b01d07844dcfac2109b6c5b), with [successful complete CI #40465889222](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40465889222). That run built **1,861 jobs** and audited **4,050 declarations** under `SemigenericEPPA`, admitting exactly `propext`, `Classical.choice`, `Quot.sound`. It checks the two genuine original-relational SAP-necessity lemmas and the final [finite SAP iff group-valued rule theorem](Converse-rectangle-classification.md).
+
 ## What CI checks
 
 The public [Lean workflow](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/.github/workflows/lean.yml) performs:

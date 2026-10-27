@@ -4,6 +4,8 @@ A mathematical guide and proof audit for the Lean 4 development of the generaliz
 
 **Certified baseline:** [main commit `df21cfa98a66`](https://github.com/shulda/lean_eppa_semigeneric/commit/df21cfa98a668e1a95dceb73ce83d852336e6842), with [successful full Lean build and allowed-axiom audit](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40344432058). The final SAP proof was additionally verified [independently on PR #600](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40342181226). Links below lead to the **actual Lean theorem declarations**, rather than to informal summaries alone.
 
+**Appendix A certification:** [integrated commit `70ae457a`](https://github.com/shulda/lean_eppa_semigeneric/commit/70ae457aa0264af70b01d07844dcfac2109b6c5b), with [successful full build and allowed-axiom audit #40465889222](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40465889222). This is a later certificate than the EPPA/DLF baseline above.
+
 > A green Lean build certifies a proof of the *formal statement*. This Wiki also audits whether that statement means what the mathematical article says. The audit is an independent source/definition review, not a second proof checker.
 
 ## The mathematical results
