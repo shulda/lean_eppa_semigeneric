@@ -52,7 +52,7 @@ jobs:
           # BRANCH-LOCAL SMOKE MODE: restore the main full-build/audit workflow
           # before merging this draft PR. This compiles the entire imported
           # classification/SAP dependency chain instead of all DLF modules.
-          build-args: SemigenericEPPA.Classification.GeneralRuleStructure
+          build-args: SemigenericEPPA.Classification.RuleMatrixPresentation
           use-github-cache: false
           use-mathlib-cache: true
           axiom-audit: false
