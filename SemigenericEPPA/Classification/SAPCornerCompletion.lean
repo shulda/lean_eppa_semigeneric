@@ -30,7 +30,7 @@ private theorem preservePart
     apply Equiv.ext
     intro x
     exact Fin.elim0 x
-  exact (embedding_part_iff (rectangleTrivialAction C) A B f hf v w).mp hv
+  exact (embedding_part_iff (rectangleTrivialAction C) A B f hf v w).mpr hv
 
 private theorem preserveRaw
     {V W : Type}
@@ -43,7 +43,7 @@ private theorem preserveRaw
     apply Equiv.ext
     intro x
     exact Fin.elim0 x
-  exact (embedding_raw_iff (rectangleTrivialAction C) A B f hf c v w).mp hv
+  exact (embedding_raw_iff (rectangleTrivialAction C) A B f hf c v w).mpr hv
 
 /-- The base one-edge matrix. -/
 def cornerBase (a : C) : PUnit → PUnit → C :=
@@ -104,13 +104,13 @@ theorem cornerCompletion_of_finiteRuleStrongSAP
     hSAP hBase hRow hCol f g
   letI : Fintype W := hW
   have hleft : i (.inl false) = j (.inl PUnit.unit) := by
-    simpa only [f, g, cornerRowEmbedding, cornerColEmbedding,
-      matrixEmbedding_inl] using
-      (hsquare.commute (.inl PUnit.unit))
+    have h := hsquare.commute (.inl PUnit.unit)
+    change i (.inl false) = j (.inl PUnit.unit) at h
+    exact h
   have hright : i (.inr PUnit.unit) = j (.inr false) := by
-    simpa only [f, g, cornerRowEmbedding, cornerColEmbedding,
-      matrixEmbedding_inr] using
-      (hsquare.commute (.inr PUnit.unit))
+    have h := hsquare.commute (.inr PUnit.unit)
+    change i (.inr PUnit.unit) = j (.inr false) at h
+    exact h
   have hneRow : i (.inl false) ≠ i (.inl true) := by
     intro he
     exact (by decide :
@@ -123,9 +123,9 @@ theorem cornerCompletion_of_finiteRuleStrongSAP
       (Sum.inr (false : Bool) : PUnit ⊕ Bool) ≠ .inr true)
         (j.injective he)
   have hpartRow : partRel T (i (.inl false)) (i (.inl true)) :=
-    preservePart i _ _ (by rfl)
+    preservePart i _ _ (by simp [matrixStructure_part, matrixPart])
   have hpartCol' : partRel T (j (.inr false)) (j (.inr true)) :=
-    preservePart j _ _ (by rfl)
+    preservePart j _ _ (by simp [matrixStructure_part, matrixPart])
   have hpartCol : partRel T (i (.inr PUnit.unit)) (j (.inr true)) := by
     rw [hright]
     exact hpartCol'
