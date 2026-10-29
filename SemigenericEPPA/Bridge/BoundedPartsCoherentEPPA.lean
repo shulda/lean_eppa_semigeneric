@@ -19,7 +19,7 @@ namespace SemigenericEPPA
 
 open AllThoseEPPA
 
-universe u v w
+universe u v w z
 variable {G : Type u} [Group G] [Subsingleton G] [Finite G]
 variable {C : Type v} [Finite C]
 variable {V : Type w}
@@ -38,7 +38,7 @@ def HasAtMostNonemptyParts
 /-- An actual equivalence of E-part quotients transports an n-part
 bound; no cardinality or choice assumptions are needed. -/
 theorem hasAtMostNonemptyParts_of_partEquiv
-    {W : Type w}
+    {W : Type z}
     {B : Structure (rectangleLanguage C) W}
     (hA : IsRectangleStructure d A)
     (hB : IsRectangleStructure d B)
@@ -108,7 +108,7 @@ theorem IsRectangleStructure.finite_boundedPartsRelationalCoherentEPPA_witness
     simpa only [h.toRawPresentation_toStructure_eq] using hN
   have hRaw :=
     h.toRawPresentation.finite_boundedPartsTypedCoherentEPPA_witness n hN'
-  rw [h.toRawPresentation_toStructure_eq] at hRaw
-  simpa only [IsRectangleStructure.finiteRelationalCoherentCarrier] using hRaw
+  simpa only [h.toRawPresentation_toStructure_eq,
+    IsRectangleStructure.finiteRelationalCoherentCarrier] using hRaw
 
 end SemigenericEPPA
