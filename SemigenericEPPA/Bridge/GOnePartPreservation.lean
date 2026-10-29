@@ -1,5 +1,5 @@
 import SemigenericEPPA.Valuations.GOneActualRawAutSubgroupLifts
-import SemigenericEPPA.Structure.PartQuotient
+import SemigenericEPPA.Structure.PartQuotientCover
 
 /-!
 # The G=1 coherent witness has no new E-parts
