@@ -21,7 +21,7 @@ open AllThoseEPPA
 
 /-- The canonical two raw orientations, reversed by Boolean negation,
 with the unique effective group colour. Every rectangle is admitted. -/
-noncomputable def twoOrientationGOneDatum : RawDatum PUnit Bool where
+noncomputable def twoOrientationGOneDatum : RawDatum PUnit.{1} Bool where
   s := {
     toFun := id
     involutive := by intro x; rfl
