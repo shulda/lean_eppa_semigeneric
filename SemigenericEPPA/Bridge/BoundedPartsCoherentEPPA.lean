@@ -106,9 +106,54 @@ theorem IsRectangleStructure.finite_boundedPartsRelationalCoherentEPPA_witness
   have hN' :
       h.toRawPresentation.toStructure_isRectangleStructure.HasAtMostNonemptyParts n := by
     simpa only [h.toRawPresentation_toStructure_eq] using hN
-  have hRaw :=
-    h.toRawPresentation.finite_boundedPartsTypedCoherentEPPA_witness n hN'
-  simpa only [h.toRawPresentation_toStructure_eq,
-    IsRectangleStructure.finiteRelationalCoherentCarrier] using hRaw
+  let P := h.toRawPresentation
+  obtain ⟨hFin, Q, psiRaw, hCoherentRaw, hQBound, eRaw, hMapRaw⟩ :=
+    P.finite_boundedPartsTypedCoherentEPPA_witness n hN'
+  have hCoverRaw (z : GOneJointRawCarrier P) :
+      ∃ x : V, partRel Q.toStructure (psiRaw x) z := by
+    obtain ⟨q, hq⟩ :=
+      eRaw.surjective (partClass Q.toStructure_isRectangleStructure z)
+    obtain ⟨x, hx⟩ := Quotient.exists_rep q
+    refine ⟨x, ?_⟩
+    have hq' :
+        eRaw (partClass P.toStructure_isRectangleStructure x) =
+          partClass Q.toStructure_isRectangleStructure z := by
+      change partClass P.toStructure_isRectangleStructure x = q at hx
+      rw [hx]
+      exact hq
+    rw [hMapRaw x] at hq'
+    exact (partClass_eq_iff Q.toStructure_isRectangleStructure
+      (psiRaw x) z).mp hq'
+  have hExistRaw :
+      ∃ (psi : Structure.Embedding
+          (rectangleTrivialAction C) P.toStructure Q.toStructure),
+        Structure.IsCoherentEPPAWitness
+          (rectangleTrivialAction C) psi ∧
+        (∀ z : GOneJointRawCarrier P,
+          ∃ x : V, partRel Q.toStructure (psi x) z) :=
+    ⟨psiRaw, hCoherentRaw, hCoverRaw⟩
+  have hExist :
+      ∃ (psi : Structure.Embedding
+          (rectangleTrivialAction C) A Q.toStructure),
+        Structure.IsCoherentEPPAWitness
+          (rectangleTrivialAction C) psi ∧
+        (∀ z : GOneJointRawCarrier P,
+          ∃ x : V, partRel Q.toStructure (psi x) z) := by
+    simpa only [P, h.toRawPresentation_toStructure_eq] using hExistRaw
+  obtain ⟨psi, hCoherent, hCover⟩ := hExist
+  have hPart (x y : V) :
+      partRel Q.toStructure (psi x) (psi y) ↔ partRel A x y := by
+    have hLang : psi.lang = (1 : Equiv.Perm (Fin 0)) := by
+      apply Equiv.ext
+      intro i
+      exact Fin.elim0 i
+    exact embedding_part_iff (rectangleTrivialAction C)
+      A Q.toStructure psi hLang x y
+  let e := partQuotientEquivOfCover
+    h Q.toStructure_isRectangleStructure (fun x => psi x)
+    hPart hCover
+  refine ⟨hFin, Q, psi, hCoherent, hQBound, e, ?_⟩
+  intro x
+  rfl
 
 end SemigenericEPPA
