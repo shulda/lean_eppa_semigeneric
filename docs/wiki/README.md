@@ -16,6 +16,8 @@ Put
 $S=\{g\in G:\exists c\in C\;(\phi(c)=g\ \wedge\ c=c^*)\}$.
 The affine congruence action is $a\star g=a\,g\,s(1)^{-1}s(a)$.
 
+**v0.11 certification:** part-preserving coherent EPPA and fixed-n expanded-language results passed [full root Lean CI #40873674942](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40873674942) (1,865 built jobs, 4,072 declarations under the allowed-axiom audit). The [part-preserving theorem page](Part-preserving-GOne-fixed-n.md) distinguishes the mathematical pure-arrow corollary from the expanded-language Lean statement.
+
 **Theorems (in human language).**
 
 1. **SAP and JEP.** Every finite amalgamation diagram in $\mathcal K(G,s,\phi)$ has a *strong* finite amalgam with the specified induced embeddings, in fact with no vertices outside the union of their images. Any two finite members jointly embed.
@@ -24,6 +26,7 @@ The affine congruence action is $a\star g=a\,g\,s(1)^{-1}s(a)$.
 4. **Semi-coherent EP and DLF.** The class has the unrestricted semi-coherent extension property **if and only if** $G$ is trivial, or **at least one** complete congruence orbit is contained in $S$. Exactly under that condition, there exists a countable homogeneous full-age original-relational structure whose full automorphism group contains a dense locally finite subgroup.
 5. **Strict separation.** An explicit $G=C_4$ datum, with five raw colours and $S=\{0,1,2\}$, has ordinary EPPA, semi-coherent EP and DLF, but **not** coherent EPPA.
 6. **Converse classification (Appendix A).** For any finite nonempty raw-colour alphabet with reversal and arbitrary isomorphism-invariant 2+2 rectangle predicate (and no further triangle constraints), finite strong amalgamation holds exactly for the group-difference laws with finite group, affine anti-involution and surjective reversal-equivariant raw palette map. See [Converse rectangle classification](Converse-rectangle-classification.md).
+7. **Part-preserving coherent EPPA (v0.11).** When G=1, every finite A has a coherent witness B with the induced quotient map A/E_A → B/E_B bijective. Consequently every fixed bound n on the number of nonempty E-classes is preserved by the witness. For two opposite orientation colours this gives the fixed-n result in the expanded E/R_c language; the separate pure-arrow typed translation is not yet a Lean theorem. See [the v0.11 formalization page](Part-preserving-GOne-fixed-n.md).
 
 See [Main theorems](Main-theorems.md) for complete mathematical statements, names of the corresponding Lean declarations, and precise scope qualifications.
 
@@ -33,6 +36,7 @@ See [Main theorems](Main-theorems.md) for complete mathematical statements, name
 
 | Page | Content |
 | --- | --- |
+| [Part-preserving G=1 and fixed-n coherent EPPA](Part-preserving-GOne-fixed-n.md) | v0.11 strengthened witness, n-bounded classes, two orientations, and exact pure-arrow language boundary |
 | [Converse rectangle classification](Converse-rectangle-classification.md) | Appendix A: exact SAP iff group-valued rectangle law, true structural witnesses and semantic scope audit |
 | [Main theorems](Main-theorems.md) | Mathematician-readable results with links to exact proved Lean statements |
 | [Mathematical definitions](Mathematical-definitions.md) | Raw data, affine reversal, rectangle constraints, EPPA, coherence, semi-coherence and DLF |

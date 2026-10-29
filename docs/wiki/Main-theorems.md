@@ -65,6 +65,29 @@ A coherent witness simultaneously chooses extensions of *all* partial automorphi
 
 **Universe packaging:** The class predicate quantifies finite input types at `Type` (universe zero) and allows different natural witness universes in the $G=1$ and $G\ne1$ branches. This is a formal representation choice, not an additional algebraic condition; mathematically any finite set can be represented in a small finite universe.
 
+## Theorem C1 — part-preserving coherent EPPA and fixed-n subclasses (v0.11)
+
+**Stronger G=1 assertion.** For every finite member $A$ of the original rectangle class $\mathcal K(1,\mathrm{id},\phi)$, with its finite raw involutive alphabet, there is **one finite coherent EPPA witness** $B$ and induced embedding $\psi:A\hookrightarrow B$ such that
+$
+
+A/E_A\ \simeq\ B/E_B,\qquad
+[x]\ \longmapsto\ [\psi(x)] .
+
+$
+This is a bijection of the actual nonempty equivalence classes, not a numerical equality asserted without a map. The statement includes the empty-carrier case.
+
+**Exact Lean endpoint:** [`RawRectanglePresentation.finite_partPreservingTypedCoherentEPPA_witness`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Bridge/GOneTypedCoherentEPPA.lean). It uses the original **single** coherent witness and full coherent-extension functor. The generic quotient lemma is [`partQuotientEquivOfCover`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Structure/PartQuotientCover.lean); every witness class meets the old copy by [`gOneJointRawPart_coveredByOld`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Bridge/GOnePartPreservation.lean).
+
+**Fixed-n subclass.** For any natural number $n$, an n-bounded member means there exists an injection of its actual nonempty E-class quotient into $\mathrm{Fin}(n)$, hence **at most** n nonempty parts (unused labels permitted). The same coherent witness remains n-bounded. This is proved for **arbitrary original relational E/R_c structures**, not just raw presentations, by [`IsRectangleStructure.finite_boundedPartsRelationalCoherentEPPA_witness`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Bridge/BoundedPartsCoherentEPPA.lean). No assumption $n\geq2$ is needed to prove this more general bounded-class statement.
+
+**Two opposite orientations.** The concrete $G=1$, $C=\mathrm{Bool}$ data, with reversal swapping the two orientations, are given by [`twoOrientationGOneDatum`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Bridge/TwoColourPartiteCorollary.lean). The same file certifies $E(x,y)\leftrightarrow\neg (x\to y)\wedge\neg(y\to x)$ and provides [`finite_twoOrientationExpandedNPartiteCoherentEPPA`](https://github.com/shulda/lean_eppa_semigeneric/blob/main/SemigenericEPPA/Bridge/TwoColourPartiteCorollary.lean) for the **expanded** original E/R_false/R_true language.
+
+**Precise limitation:** the last file does **not** assert the same fully typed `IsCoherentEPPAWitness` proposition in a *different* one-symbol directed-edge language. Transport of partial automorphisms, `Equivalent`, `CoherentTriple` and the extension functor across the definitional expansion remains an explicit independent API obligation. The usual mathematical fixed-n tournament corollary follows from the definable expansion, but that pure-arrow-language formal statement has not been directly certified. Likewise, DLF of the fixed-n Fraïssé limit follows from the mathematical coherent-EPPA/Sági correspondence; no new fixed-n DLF theorem is claimed in Lean.
+
+**Exact full-library certificate:** [full root Lean CI #40873674942](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40873674942), integrated code SHA `9ee7642d098a416ad0e65e5cd9e104b71b6c70ef` (1,865 successful build jobs, 4,072 declarations audited, only `propext`, `Classical.choice`, `Quot.sound`).
+
+See [the detailed v0.11 note](Part-preserving-GOne-fixed-n.md) and [independent audit](Adversarial-audit.md) for scope and dependencies.
+
 ## Theorem D — semi-coherent EP, DLF and their classification
 
 **Statement.** The following are equivalent for the given finite datum:

@@ -1,3 +1,4 @@
+import SemigenericEPPA.Bridge.TwoColourPartiteCorollary
 import SemigenericEPPA.Classification.MainClassification
 import SemigenericEPPA.Bridge.RelationalTypedEPPA
 import SemigenericEPPA.Examples.FourColourNativeSemiCoherentSeparation
