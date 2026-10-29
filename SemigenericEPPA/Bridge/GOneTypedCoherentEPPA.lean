@@ -1,5 +1,6 @@
 import SemigenericEPPA.Valuations.GOneGlobalCoherentRawFunctor
 import SemigenericEPPA.Bridge.RawExactFunctorToTypedCoherent
+import SemigenericEPPA.Bridge.GOnePartPreservation
 
 /-!
 # Coherent EPPA in the original typed rectangle language when G=1
@@ -49,14 +50,21 @@ namespace RawRectanglePresentation
 /-- A finite original G=1 raw rectangle presentation has one
 finite witness with a bona fide typed coherent EPPA extension
 in the original R1--R3 binary language. -/
-theorem finite_typedCoherentEPPA_witness
+theorem finite_partPreservingTypedCoherentEPPA_witness
     (P : RawRectanglePresentation d A) :
     Finite (GOneJointRawCarrier P) ∧
     ∃ (Q : RawRectanglePresentation d (GOneJointRawCarrier P))
       (psiTyped : Structure.Embedding
         (rectangleTrivialAction C) P.toStructure Q.toStructure),
       Structure.IsCoherentEPPAWitness
-        (rectangleTrivialAction C) psiTyped := by
+        (rectangleTrivialAction C) psiTyped ∧
+      ∃ partEquiv :
+          PartQuotient P.toStructure_isRectangleStructure ≃
+            PartQuotient Q.toStructure_isRectangleStructure,
+        ∀ x : A,
+          partEquiv
+            (partClass P.toStructure_isRectangleStructure x) =
+          partClass Q.toStructure_isRectangleStructure (psiTyped x) := by
   classical
   have hFinite : Finite (GOneJointRawCarrier P) := by
     letI : Finite (GOneFactorialCarrier P) := inferInstance
@@ -133,9 +141,44 @@ theorem finite_typedCoherentEPPA_witness
     intro S T f x
     exact P.flattenCoherentRawComponents_old
       Aut psi Phi hold S T f x
-  obtain ⟨psiTyped, hCoherent⟩ :=
-    P.coherentTypedEPPA_of_exactRawFunctor
+  obtain ⟨psiTyped, hCoherent, hTypedMap⟩ :=
+    P.coherentTypedEPPA_of_exactRawFunctor_with_map
       Q psi hPsiInj hPsiPart hPsiColour F hFcomp hFext
+  have hTypedPart (x y : A) :
+      partRel Q.toStructure (psiTyped x) (psiTyped y) ↔
+        partRel P.toStructure x y := by
+    change Q.part (psiTyped x) (psiTyped y) ↔ P.part x y
+    rw [hTypedMap x, hTypedMap y]
+    exact hPsiPart x y
+  have hTypedCover (z : GOneJointRawCarrier P) :
+      ∃ x : A, partRel Q.toStructure (psiTyped x) z := by
+    obtain ⟨x, hx⟩ := P.gOneJointRawPart_coveredByOld j K z
+    refine ⟨x, ?_⟩
+    change Q.part (psiTyped x) z
+    rw [hTypedMap x]
+    exact hx
+  let partEquiv :=
+    partQuotientEquivOfCover
+      P.toStructure_isRectangleStructure
+      Q.toStructure_isRectangleStructure
+      (fun x => psiTyped x)
+      hTypedPart hTypedCover
+  refine ⟨hFinite, Q, psiTyped, hCoherent, partEquiv, ?_⟩
+  intro x
+  rfl
+
+/-- Existing coherent EPPA API, derived from the stronger
+part-preserving construction without changing its old statement. -/
+theorem finite_typedCoherentEPPA_witness
+    (P : RawRectanglePresentation d A) :
+    Finite (GOneJointRawCarrier P) ∧
+    ∃ (Q : RawRectanglePresentation d (GOneJointRawCarrier P))
+      (psiTyped : Structure.Embedding
+        (rectangleTrivialAction C) P.toStructure Q.toStructure),
+      Structure.IsCoherentEPPAWitness
+        (rectangleTrivialAction C) psiTyped := by
+  obtain ⟨hFinite, Q, psiTyped, hCoherent, _partEquiv, _hPartMap⟩ :=
+    P.finite_partPreservingTypedCoherentEPPA_witness
   exact ⟨hFinite, Q, psiTyped, hCoherent⟩
 
 end RawRectanglePresentation
