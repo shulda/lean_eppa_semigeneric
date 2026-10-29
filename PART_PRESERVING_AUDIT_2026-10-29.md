@@ -31,12 +31,16 @@ Date: 29 October 2026. **Private source (read-only):** `shulda/generalized_semig
 
 Build a faithful pair of functors between $L_\to$ n-partite tournaments and the definitional expanded $E,R_\mathrm{false},R_\mathrm{true}$ age. In particular, prove extension/restriction of the **entire typed** `PartialIsomorphism` data, preserve sources, targets, `EqOnSource` and `CoherentTriple`, and push the `CoherentExtension` assignment to the single-arrow language, including automorphism multiplication. Only then call the result `IsCoherentEPPAWitness` for the pure tournament language. These are new library interfaces, not missing steps in the certified G=1 part-preserving witness proof.
 
+## Exact complete CI certificate
+
+At the integrated mathematical head `9ee7642d098a416ad0e65e5cd9e104b71b6c70ef`, [full root Lean CI #40873674942](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40873674942) built the complete `SemigenericEPPA` root library (1,865 jobs) and audited 4,072 declarations. The accepted axioms were exactly `propext`, `Classical.choice`, `Quot.sound`. The branch workflow had been restored byte-for-byte to the original `main` configuration before this certification, and this run checks the strengthened G=1 coherent theorem, the original-relational bounded-n theorem and the two-orientation expanded specialization. Subsequent documentation-only edits do not change these Lean sources.
+
 ## Certification checklist
 
 - [x] Fixed original G=1 coherent witness meets every old E-part (focused CI #40864154240).
 - [x] Actual quotient equivalence and strengthened coherent witness (focused CI #40864938999).
 - [x] n-bounded original E/R_c class and two-opposite-orientations specialization (focused CI #40868624158).
-- [ ] Final root-library full Lean build on integrated PR head.
-- [ ] Final allowed-axiom audit (only `propext`, `Classical.choice`, `Quot.sound`).
+- [x] Full root-library Lean build passed on `9ee7642d098a416ad0e65e5cd9e104b71b6c70ef`, [full root Lean CI #40873674942](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40873674942): 1,865 jobs.
+- [x] Full allowed-axiom audit passed on the same SHA: 4,072 declarations, only `propext`, `Classical.choice`, `Quot.sound`.
 - [ ] Re-verify merged source and Wiki against the certified commit.
 - [ ] Literal one-arrow `IsCoherentEPPAWitness` (documented follow-up; not a blocker for the expanded-language result).

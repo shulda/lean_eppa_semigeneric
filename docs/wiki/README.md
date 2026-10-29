@@ -16,6 +16,8 @@ Put
 $S=\{g\in G:\exists c\in C\;(\phi(c)=g\ \wedge\ c=c^*)\}$.
 The affine congruence action is $a\star g=a\,g\,s(1)^{-1}s(a)$.
 
+**v0.11 certification:** part-preserving coherent EPPA and fixed-n expanded-language results passed [full root Lean CI #40873674942](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40873674942) (1,865 built jobs, 4,072 declarations under the allowed-axiom audit). The [part-preserving theorem page](Part-preserving-GOne-fixed-n.md) distinguishes the mathematical pure-arrow corollary from the expanded-language Lean statement.
+
 **Theorems (in human language).**
 
 1. **SAP and JEP.** Every finite amalgamation diagram in $\mathcal K(G,s,\phi)$ has a *strong* finite amalgam with the specified induced embeddings, in fact with no vertices outside the union of their images. Any two finite members jointly embed.

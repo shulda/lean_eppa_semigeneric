@@ -84,6 +84,8 @@ This is a bijection of the actual nonempty equivalence classes, not a numerical 
 
 **Precise limitation:** the last file does **not** assert the same fully typed `IsCoherentEPPAWitness` proposition in a *different* one-symbol directed-edge language. Transport of partial automorphisms, `Equivalent`, `CoherentTriple` and the extension functor across the definitional expansion remains an explicit independent API obligation. The usual mathematical fixed-n tournament corollary follows from the definable expansion, but that pure-arrow-language formal statement has not been directly certified. Likewise, DLF of the fixed-n Fraïssé limit follows from the mathematical coherent-EPPA/Sági correspondence; no new fixed-n DLF theorem is claimed in Lean.
 
+**Exact full-library certificate:** [full root Lean CI #40873674942](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40873674942), integrated code SHA `9ee7642d098a416ad0e65e5cd9e104b71b6c70ef` (1,865 successful build jobs, 4,072 declarations audited, only `propext`, `Classical.choice`, `Quot.sound`).
+
 See [the detailed v0.11 note](Part-preserving-GOne-fixed-n.md) and [independent audit](Adversarial-audit.md) for scope and dependencies.
 
 ## Theorem D — semi-coherent EP, DLF and their classification

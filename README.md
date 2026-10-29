@@ -59,6 +59,7 @@ pages remain available regardless of Wiki initialization.
   **not** claimed by these Lean declarations. See the
   [v0.11 source-to-Lean audit](PART_PRESERVING_AUDIT_2026-10-29.md)
   and [research Wiki](docs/wiki/Part-preserving-GOne-fixed-n.md).
+  Full Lean certificate: [full root Lean CI #40873674942](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40873674942) (1,865 build jobs, 4,072 declarations audited).
 - **DLF classification: complete for existence of a countable homogeneous
   original E/R_c raw presentation with the full finite age.**
   [`RawDatum.countableHomogeneousDLF_iff`](SemigenericEPPA/Structure/DLFCompleteClassification.lean)
