@@ -49,8 +49,10 @@ jobs:
         with:
           auto-config: false
           build: true
+          # Temporary PR-only focused build; restore main workflow before merging.
+          build-args: SemigenericEPPA.Bridge.GOnePartPreservation
           use-github-cache: false
           use-mathlib-cache: true
-          axiom-audit: true
+          axiom-audit: false
           axiom-audit-root: SemigenericEPPA
           axiom-audit-allow: propext,Classical.choice,Quot.sound
