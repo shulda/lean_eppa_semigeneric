@@ -15,6 +15,7 @@ coherence vocabulary.
 
 [Human-readable main theorems](docs/wiki/Main-theorems.md),
 [Appendix A converse classification](docs/wiki/Converse-rectangle-classification.md),
+[part-preserving G=1 and fixed-n coherent EPPA](docs/wiki/Part-preserving-GOne-fixed-n.md),
 [mathematical definitions](docs/wiki/Mathematical-definitions.md), and
 [independent manuscript-to-Lean audit](docs/wiki/Adversarial-audit.md)
 are maintained in the [source-controlled research Wiki](docs/wiki/README.md).
@@ -22,7 +23,7 @@ The pages are synchronized to the [GitHub Wiki tab](https://github.com/shulda/le
 once that separate Wiki repository is initialized; the public source
 pages remain available regardless of Wiki initialization.
 
-## Verified results (through 27 October 2026)
+## Verified results (through 29 October 2026)
 
 - **Ordinary finite EPPA: complete.** Actual witnesses for *all* finite
   original relational R1–R3 members and equivalent raw presentations,
@@ -40,6 +41,24 @@ pages remain available regardless of Wiki initialization.
   The theorem explicitly handles the different canonical witness
   universes in the two cases. See also the
   [nontrivial original relational iff](SemigenericEPPA/Bridge/FiniteRelationalCoherentClassification.lean).
+- **Part-preserving coherent EPPA for G=1 (v0.11):** the **same** certified
+  finite coherent witness induces a genuine bijection on nonempty E-classes
+  `A/E_A ≃ B/E_B`, taking `[x]` to `[ψ(x)]`.
+  [`finite_partPreservingTypedCoherentEPPA_witness`](SemigenericEPPA/Bridge/GOneTypedCoherentEPPA.lean).
+  No extra restriction on the raw alphabet besides the existing finite
+  `RawDatum` hypotheses; no new EPPA construction.
+- **Every fixed part bound n (including n≥2):** if a finite G=1 original
+  E/R_c structure has at most n nonempty E-parts, the witness is
+  coherently extending and also has at most n nonempty parts.
+  [`finite_boundedPartsRelationalCoherentEPPA_witness`](SemigenericEPPA/Bridge/BoundedPartsCoherentEPPA.lean).
+  Two opposite orientation colours give
+  [`finite_twoOrientationExpandedNPartiteCoherentEPPA`](SemigenericEPPA/Bridge/TwoColourPartiteCorollary.lean)
+  **in the expanded E/R_0/R_1 language**. The definability equation
+  E(x,y) iff neither x→y nor y→x is also Lean-proved.
+  A separate *pure single-arrow typed coherent-EPPA transfer* is
+  **not** claimed by these Lean declarations. See the
+  [v0.11 source-to-Lean audit](PART_PRESERVING_AUDIT_2026-10-29.md)
+  and [research Wiki](docs/wiki/Part-preserving-GOne-fixed-n.md).
 - **DLF classification: complete for existence of a countable homogeneous
   original E/R_c raw presentation with the full finite age.**
   [`RawDatum.countableHomogeneousDLF_iff`](SemigenericEPPA/Structure/DLFCompleteClassification.lean)

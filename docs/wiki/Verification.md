@@ -8,6 +8,8 @@
 
 **Appendix A converse classification (later verified module):** integrated at [`70ae457a`](https://github.com/shulda/lean_eppa_semigeneric/commit/70ae457aa0264af70b01d07844dcfac2109b6c5b), with [successful complete CI #40465889222](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40465889222). That run built **1,861 jobs** and audited **4,050 declarations** under `SemigenericEPPA`, admitting exactly `propext`, `Classical.choice`, `Quot.sound`. It checks the two genuine original-relational SAP-necessity lemmas and the final [finite SAP iff group-valued rule theorem](Converse-rectangle-classification.md).
 
+**v0.11 part-preservation update:** The new fixed-n expanded-language theorem uses the original coherent functor and part-quotient bijection. [Targeted CI #40868624158](https://github.com/shulda/lean_eppa_semigeneric/actions/runs/40868624158) successfully built the new theorem chain (1,343 jobs). The full library build and allowed-axiom audit must be checked on the **integrated PR head**; the targeted run alone is not a complete certificate. This is deliberately distinguished from the earlier October 27 baseline.
+
 ## What CI checks
 
 The public [Lean workflow](https://github.com/shulda/lean_eppa_semigeneric/blob/df21cfa98a668e1a95dceb73ce83d852336e6842/.github/workflows/lean.yml) performs:

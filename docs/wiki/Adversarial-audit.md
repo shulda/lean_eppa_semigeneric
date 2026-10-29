@@ -70,6 +70,23 @@ The original v0.8 Appendix A is logically independent of the EPPA/DDL arguments.
 
 **Boundaries.** This is **not** a classification for additional forbidden triangles, finitely bounded imprimitive classes with extra constraints, arbitrary higher-arity ages, or ordinary AP without SAP. The [dedicated Appendix A page](Converse-rectangle-classification.md) cross-references every Lean proof component.
 
+## v0.11 — part-preserving G=1 coherence: source-to-Lean audit
+
+The unpublished manuscript `group_valued_rectangles_human_v0_11.tex` strengthened `thm:coherent-g1` from ordinary coherent EPPA existence to a **part-preserving witness**, and derived coherent EPPA for fixed finite n-partite tournaments (n counts *possibly empty* part labels). The Lean strengthening is sourced only from its existing factorial-padded, fixed raw residual-cover construction; no new EPPA witness is posited.
+
+**Statement fidelity checks:**
+
+1. `RawDatum G C`, `Subsingleton G`, `Finite G`, `Finite C` match the $G=1$ finite raw datum. No fixed-point assumption on the raw reversal is added.
+2. The old map lands in $\bigl((A/E_A)\times\mathrm{Fin}(M)\bigr)\times(\text{residual coordinates})$. The complete E-relation on the raw cover pulls back from **equality of the first $A/E_A$ coordinate**. Thus every new E-class contains an old image; the empty $A$ case is included.
+3. The actual typed coherent extension is reused, including `respects_equivalent`, `coherent` and extension on the same fixed embedding. The strengthened theorem supplies an **actual equivalence of quotients** with $[x]\mapsto[\psi x]$.
+4. The paper pads to the lcm of occupied part sizes, while the Lean construction uses the larger but valid $M=|A|!$. This changes witness size, not the number of E-classes or the proof of coherence.
+5. `HasAtMostNonemptyParts n` means an injection from the canonical E-quotient into `Fin n`. It allows unused labels and is hereditary; there is no incorrect exactly-n assumption and no extra n≥2 hypothesis.
+6. `finite_boundedPartsRelationalCoherentEPPA_witness` handles an arbitrary finite **original E/R_c relational** member via the certified relational roundtrip. The `twoOrientationGOneDatum` Bool specialization yields the expanded-language fixed-n statement and proves definability of E by mutual nonadjacency.
+7. **Remaining gap:** the HJKS tournament language has a single directed relation and no distinguished E or reverse-colour predicates. Although these are definable, a separate Lean transport of `PartialIsomorphism`, `Equivalent`, `CoherentTriple` and `CoherentExtension` would be needed to obtain a *literal typed coherent-EPPA theorem in that reduct language*. This is **not** implied by the name of the expanded-language Lean corollary alone.
+8. The manuscript also derives dense local finiteness for the fixed-n Fraïssé limit using the general Sági correspondence; that is a valid external mathematical consequence, but a separate fixed-n Lean DLF theorem is **not** part of this update.
+
+See [Part-preserving G=1 and fixed-n coherent EPPA](Part-preserving-GOne-fixed-n.md) for the theorem map, exact code links and acceptance status.
+
 ## Open *semantic* scope, not unproved main statements
 
 - **Not formalized here:** unconditional standalone Fraïssé limit existence/uniqueness for every datum. **Already formalized:** [RawRectanglePresentation.freshPart_and_oldPartExpansion_of_fullAge_homogeneous](https://github.com/shulda/lean_eppa_semigeneric/blob/782778d7c5b0c9090d80f425c446b4d824a7a1a7/SemigenericEPPA/Structure/DLFFullAgePartAbundance.lean) directly proves finite-avoidance consequences implying infinitely many infinite $E$-classes for any model having full finite age and ultrahomogeneity. This does not construct such a model for every datum.
