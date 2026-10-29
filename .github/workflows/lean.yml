@@ -50,7 +50,7 @@ jobs:
           auto-config: false
           build: true
           # Temporary PR-only focused build; restore main workflow before merging.
-          build-args: SemigenericEPPA.Bridge.GOneTypedCoherentEPPA
+          build-args: SemigenericEPPA.Bridge.BoundedPartsCoherentEPPA
           use-github-cache: false
           use-mathlib-cache: true
           axiom-audit: false
