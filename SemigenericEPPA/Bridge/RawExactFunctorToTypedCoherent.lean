@@ -135,7 +135,7 @@ theorem rawFunctor_respectsUpstreamCoherentTriple
 of exact induced raw arrows into the true automorphism subgroup
 of one finite raw witness Q, that SAME witness is an upstream
 typed CoherentEPPAWitness in the original R1--R3 language. -/
-theorem coherentTypedEPPA_of_exactRawFunctor
+theorem coherentTypedEPPA_of_exactRawFunctor_with_map
     (P : RawRectanglePresentation d A)
     (Q : RawRectanglePresentation d W)
     (psi : A → W)
@@ -153,7 +153,8 @@ theorem coherentTypedEPPA_of_exactRawFunctor
     ∃ psityped : Structure.Embedding
         (rectangleTrivialAction C) P.toStructure Q.toStructure,
       Structure.IsCoherentEPPAWitness
-        (rectangleTrivialAction C) psityped := by
+        (rectangleTrivialAction C) psityped ∧
+      ∀ x : A, psityped x = psi x := by
   let psityped : Structure.Embedding
       (rectangleTrivialAction C) P.toStructure Q.toStructure :=
     P.toTypedEmbedding Q psi hInj hPart hColour
@@ -167,7 +168,7 @@ theorem coherentTypedEPPA_of_exactRawFunctor
     extension_spec := ?_
     respects_equivalent := ?_
     coherent := ?_
-  }⟩⟩
+  }⟩, ?_⟩
   · intro p
     constructor
     · have hlang : p.lang = (1 : Equiv.Perm (Fin 0)) := by
@@ -208,6 +209,34 @@ theorem coherentTypedEPPA_of_exactRawFunctor
     exact Q.actualRawAutomorphism_toTyped_mul
       (F g.source g.target (P.upstreamToExactRawArrow g))
       (F f.source f.target (P.upstreamToExactRawArrow f))
+  · intro x
+    rfl
+
+/-- Backwards-compatible original existential API: it follows from the
+stronger construction which fixes the embedding's actual vertex map. -/
+theorem coherentTypedEPPA_of_exactRawFunctor
+    (P : RawRectanglePresentation d A)
+    (Q : RawRectanglePresentation d W)
+    (psi : A → W)
+    (hInj : Function.Injective psi)
+    (hPart : ∀ x y, Q.part (psi x) (psi y) ↔ P.part x y)
+    (hColour : ∀ x y, Q.colour (psi x) (psi y) = P.colour x y)
+    (F : (S T : Set A) → ExactPartialIso P S T →
+      Q.actualRawAutomorphismGroup)
+    (hFcomp : ∀ (S T U : Set A)
+      (f : ExactPartialIso P S T) (g : ExactPartialIso P T U),
+      F S U (g.comp f) = F T U g * F S T f)
+    (hFext : ∀ (S T : Set A)
+      (f : ExactPartialIso P S T) (x : S),
+      (F S T f).val (psi x.val) = psi (f.toEquiv x).val) :
+    ∃ psityped : Structure.Embedding
+        (rectangleTrivialAction C) P.toStructure Q.toStructure,
+      Structure.IsCoherentEPPAWitness
+        (rectangleTrivialAction C) psityped := by
+  obtain ⟨psityped, hCoherent, _hMap⟩ :=
+    P.coherentTypedEPPA_of_exactRawFunctor_with_map
+      Q psi hInj hPart hColour F hFcomp hFext
+  exact ⟨psityped, hCoherent⟩
 
 end RawRectanglePresentation
 
