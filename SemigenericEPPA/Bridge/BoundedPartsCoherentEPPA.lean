@@ -1,5 +1,6 @@
 import SemigenericEPPA.Bridge.RelationalTypedCoherentEPPA
 import SemigenericEPPA.Structure.PartQuotientCover
+import SemigenericEPPA.Structure.PairwiseEmbedding
 
 /-!
 # Coherent EPPA for a fixed bound on the number of nonempty E-parts
@@ -139,7 +140,16 @@ theorem IsRectangleStructure.finite_boundedPartsRelationalCoherentEPPA_witness
           (rectangleTrivialAction C) psi ∧
         (∀ z : GOneJointRawCarrier P,
           ∃ x : V, partRel Q.toStructure (psi x) z) := by
-    simpa only [P, h.toRawPresentation_toStructure_eq] using hExistRaw
+    have hEq : P.toStructure = A := h.toRawPresentation_toStructure_eq
+    exact Eq.mp (congrArg
+      (fun (S : Structure (rectangleLanguage C) V) =>
+        ∃ (psi : Structure.Embedding
+            (rectangleTrivialAction C) S Q.toStructure),
+          Structure.IsCoherentEPPAWitness
+            (rectangleTrivialAction C) psi ∧
+          ∀ z : GOneJointRawCarrier P,
+            ∃ x : V, partRel Q.toStructure (psi x) z)
+      hEq) hExistRaw
   obtain ⟨psi, hCoherent, hCover⟩ := hExist
   have hPart (x y : V) :
       partRel Q.toStructure (psi x) (psi y) ↔ partRel A x y := by
